@@ -36,7 +36,7 @@ pipeline {
                     deleteDir()
                 }
                 sh "ng build"
-                sh "echo -n ${GIT_COMMIT} > dist/build.hash"
+                sh "echo -n ${GIT_COMMIT} > dist/webui.hash"
             }
         }
         stage('maven artifact') {
