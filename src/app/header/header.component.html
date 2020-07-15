@@ -1,0 +1,19 @@
+<ibm-header name="" brand="Galasa">
+	<ibm-hamburger *ngIf="hasHamburger" [active]="active" (selected)="active = !active"></ibm-hamburger>
+</ibm-header>
+<ibm-sidenav [expanded]="false" [hidden]="!active">
+    <ibm-sidenav-item>
+        <svg icon ibmIconFade size="16"></svg>
+        Link
+    </ibm-sidenav-item>
+    <ibm-sidenav-item>
+        <svg icon ibmIconFade size="16"></svg>
+        Link
+    </ibm-sidenav-item>
+    <ibm-sidenav-menu title="Category title">
+        <svg icon ibmIconFade size="16"></svg>
+        <ibm-sidenav-item>Link</ibm-sidenav-item>
+        <ibm-sidenav-item>Link</ibm-sidenav-item>
+        <ibm-sidenav-item>Link</ibm-sidenav-item>
+    </ibm-sidenav-menu>
+</ibm-sidenav>
