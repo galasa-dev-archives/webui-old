@@ -18,12 +18,16 @@ pipeline {
         }
         stage('docker build') {
             steps {
-                sh "docker build -t ${env.DOCKER_REPO}/galasa-webui-generic:${env.DOCKER_VERSION} ." 
+                withFolderProperties { 
+                    sh "docker build -t ${env.DOCKER_REPO}/galasa-webui-generic:${env.DOCKER_VERSION} ." 
+                }
             }
         }
         stage('docker push') {
             steps {
-                sh "docker push ${env.DOCKER_REPO}/galasa-webui-generic:${env.DOCKER_VERSION}" 
+                withFolderProperties { 
+                    sh "docker push ${env.DOCKER_REPO}/galasa-webui-generic:${env.DOCKER_VERSION}" 
+                }
             }
         }
     }
