@@ -13,6 +13,9 @@ pipeline {
         }
         stage('bg build') {
             steps {
+                dir('dist') {
+                    deleteDir()
+                }
                 sh "ng build"
                 sh "echo -n ${GIT_COMMIT} > dist/build.hash"
             }
