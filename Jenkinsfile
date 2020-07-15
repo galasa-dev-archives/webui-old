@@ -14,6 +14,7 @@ pipeline {
         stage('bg build') {
             steps {
                 sh "ng build"
+                sh "echo -n ${GIT_COMMIT} > dist/build.hash"
             }
         }
         stage('docker build') {
