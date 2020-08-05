@@ -7,3 +7,24 @@
 .bx--header {
 	background-color: #03429D;
 }
+
+.bx--tile {
+	height:200px;
+	width:500px;
+}
+
+// makes the grid fit the entire width of the page
+.bx--grid--full-width {
+	padding-left: 1rem;
+	padding-right: 1rem;
+  }
+  // removes excess padding for nested full width grids
+  .bx--grid--full-width .bx--grid--full-width {
+	padding-left: 0;
+	padding-right: 0;
+  }
+  // removes extraneous row margins in the full width grid
+  .bx--grid--full-width .bx--row {
+	margin-left: 0;
+	margin-right: 0;
+  }

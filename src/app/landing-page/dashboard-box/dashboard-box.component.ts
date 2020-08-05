@@ -15,22 +15,22 @@ export class DashboardBoxComponent implements OnInit {
       {
         title: "View past results",
         description: "Lorem ipsum",
-        imagesrc: "#"
+        imagesrc: "src/assets/icons/icon-144x144.png"
       },
       {
         title: "View systems data",
         description: "Lorem ipsum",
-        imagesrc: "#"
+        imagesrc: "src/assets/icons/icon-144x144.png"
       },
       {
         title: "Configure system",
         description: "Lorem ipsum",
-        imagesrc: "#"
+        imagesrc: "src/assets/icons/icon-144x144.png"
       },
       {
         title: "Submit tests",
         description: "Lorem ipsum",
-        imagesrc: "#"
+        imagesrc: "src/assets/icons/icon-144x144.png"
       }
     ]
   }
