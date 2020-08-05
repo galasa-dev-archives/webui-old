@@ -1,5 +1,4 @@
-<ibm-clickable-tile>
-    <h4>View Past Results</h4>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-    
+<ibm-clickable-tile *ngFor = "let box of boxes">
+    <h4>{{ box.title }}</h4>
+    <p>{{ box.description }}</p>
 </ibm-clickable-tile>
