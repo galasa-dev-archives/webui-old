@@ -1,3 +1,58 @@
-<div class="landing-page" ibmGrid>
-	<h1 class="title">Hello, this is Galasa</h1>
+<div class="landing-page" ibmGrid >
+	<div ibmRow class="landing-page__banner">
+		<div ibmCol [columnNumbers]="{'lg': 16}">
+			<h2 class= "landing-page__heading">Dashboard</h2>
+		</div>
+	  </div>
+
+<div ibmRow class="landing-page__r2">
+    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+		<h4>Getting Started</h4>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+			Aenean commodo ligula eget dolor. Aenean massa. 
+			Cum sociis natoque penatibus et magnis dis parturient montes, 
+			nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
+			pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, 
+			fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
+			imperdiet a, venenatis vitae, justo.</p>
+	</div>
+    <div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 6, 'lg': 6}">
+		<div ibmRow >
+		<ibm-clickable-tile>
+			<h4>Title</h4>
+		</ibm-clickable-tile>
+	</div>
+		<div ibmRow>
+		<ibm-clickable-tile >
+			<h4>Title</h4>
+		</ibm-clickable-tile>
+	</div>
+
+	</div>
+	<div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 6, 'lg': 6}">
+		<div ibmRow>
+			<ibm-clickable-tile>
+				<h4>Title</h4>
+			</ibm-clickable-tile>
+		</div>
+			<div ibmRow>
+			<ibm-clickable-tile >
+				<h4>Title</h4>
+			</ibm-clickable-tile>
+		</div>
+	</div>
+  </div>
+  <div ibmRow class="landing-page__r3">
+    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 3}">
+		<h5>Useful links</h5>
+
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+	</div>
+    <div ibmCol class="bx--offset-lg-1" [columnNumbers]="{'md': 4, 'lg': 10}">
+      <h6>boxes</h6>
+    </div>
+  </div>
+
 </div>
+
