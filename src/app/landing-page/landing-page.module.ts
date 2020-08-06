@@ -9,7 +9,6 @@ import {
 	TilesModule
 } from 'carbon-components-angular';
 import { LandingPageRoutingModule } from './landing-page-routing.module';
-import { DashboardBoxesComponent } from './dashboard-boxes/dashboard-boxes.component';
 import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
 
 @NgModule({
@@ -21,6 +20,6 @@ import { DashboardBoxComponent } from './dashboard-box/dashboard-box.component';
 		TabsModule,
 		TilesModule
 	],
-	declarations: [LandingPageComponent, DashboardBoxesComponent, DashboardBoxComponent]
+	declarations: [LandingPageComponent, DashboardBoxComponent]
 })
 export class LandingPageModule { }

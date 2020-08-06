@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Box } from '../../models/Box';
 
 @Component({
-  selector: 'app-dashboard-box',
+  selector: 'galasa-dashboard-box',
   templateUrl: './dashboard-box.component.html',
   styleUrls: ['./dashboard-box.component.scss']
 })
