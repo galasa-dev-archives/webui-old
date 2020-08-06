@@ -6,7 +6,7 @@
 	  </div>
 
 <div ibmRow class="landing-page__r2">
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 3}">
+    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
 		<h4>Getting Started</h4>
 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
 			Aenean commodo ligula eget dolor. Aenean massa. 
@@ -16,22 +16,31 @@
 			fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
 			imperdiet a, venenatis vitae, justo.</p>
 	</div>
-    <div ibmCol class="bx--offset-lg-1" [columnNumbers]="{'md': 6, 'lg': 10}">
-		<div class = "container">
+    <div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 6, 'lg': 6}">
+		<div ibmRow >
 		<ibm-clickable-tile>
 			<h4>Title</h4>
 		</ibm-clickable-tile>
-		<ibm-clickable-tile class = "item-b">
-			<h4>Title</h4>
-		</ibm-clickable-tile>
-		<ibm-clickable-tile class = "item-c">
-			<h4>Title</h4>
-		</ibm-clickable-tile>
-		<ibm-clickable-tile class = "item-d">
+	</div>
+		<div ibmRow>
+		<ibm-clickable-tile >
 			<h4>Title</h4>
 		</ibm-clickable-tile>
 	</div>
-    </div>
+
+	</div>
+	<div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 6, 'lg': 6}">
+		<div ibmRow>
+			<ibm-clickable-tile>
+				<h4>Title</h4>
+			</ibm-clickable-tile>
+		</div>
+			<div ibmRow>
+			<ibm-clickable-tile >
+				<h4>Title</h4>
+			</ibm-clickable-tile>
+		</div>
+	</div>
   </div>
   <div ibmRow class="landing-page__r3">
     <div ibmCol [columnNumbers]="{'md': 4, 'lg': 3}">
