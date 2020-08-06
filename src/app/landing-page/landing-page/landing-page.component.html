@@ -1,4 +1,4 @@
-<div class="landing-page" ibmGrid >
+<div class="landing-page bx--grid--full-width" ibmGrid >
 	<div ibmRow class="landing-page__banner">
 		<div ibmCol [columnNumbers]="{'lg': 16}">
 			<h2 class= "landing-page__heading">Dashboard</h2>
@@ -7,7 +7,7 @@
 
 <div ibmRow class="landing-page__r2">
     <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
-		<h4>Getting Started</h4>
+		<h4 id = "heading">Getting Started</h4>
 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
 			Aenean commodo ligula eget dolor. Aenean massa. 
 			Cum sociis natoque penatibus et magnis dis parturient montes, 
@@ -16,42 +16,54 @@
 			fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
 			imperdiet a, venenatis vitae, justo.</p>
 	</div>
-    <div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 6, 'lg': 6}">
-		<div ibmRow >
-		<ibm-clickable-tile>
+    <div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 4, 'lg': 6}">
+		<div ibmRow>
+		<ibm-clickable-tile class = "landing-option">
 			<h4>Title</h4>
 		</ibm-clickable-tile>
 	</div>
 		<div ibmRow>
-		<ibm-clickable-tile >
+		<ibm-clickable-tile class = "landing-option">
 			<h4>Title</h4>
 		</ibm-clickable-tile>
 	</div>
 
 	</div>
-	<div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 6, 'lg': 6}">
+	<div ibmCol class="landing-page__r2" [columnNumbers]="{'md': 4, 'lg': 6}">
 		<div ibmRow>
-			<ibm-clickable-tile>
+			<ibm-clickable-tile class = "landing-option">
 				<h4>Title</h4>
 			</ibm-clickable-tile>
 		</div>
 			<div ibmRow>
-			<ibm-clickable-tile >
+			<ibm-clickable-tile class = "landing-option">
 				<h4>Title</h4>
 			</ibm-clickable-tile>
 		</div>
 	</div>
   </div>
-  <div ibmRow class="landing-page__r3">
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 3}">
+  <div ibmRow class="landing-page__r3 footer">
+    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
 		<h5>Useful links</h5>
 
 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
 			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
 	</div>
-    <div ibmCol class="bx--offset-lg-1" [columnNumbers]="{'md': 4, 'lg': 10}">
-      <h6>boxes</h6>
-    </div>
+	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+		<ibm-clickable-tile>
+			<h4>Link</h4>
+		</ibm-clickable-tile>
+	</div>
+	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+		<ibm-clickable-tile>
+			<h4>Link</h4>
+		</ibm-clickable-tile>
+	</div>
+	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+		<ibm-clickable-tile>
+			<h4>Link</h4>
+		</ibm-clickable-tile>
+	</div>
   </div>
 
 </div>
