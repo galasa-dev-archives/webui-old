@@ -1,6 +1,24 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
+
+
+@mixin landing-page-background() {
+	background-color: $ui-01;
+	position: relative;
+	&::before {
+	  content: '';
+	  position: absolute;
+	  left: -$spacing-05;
+	  top: 0;
+	  right: -$spacing-05;
+	  bottom: 0;
+	  background: $ui-01;
+	  z-index: -1;
+	}
+  }
+
+
 .landing-page {
 	.title {
 		@include type-style("productive-heading-05");
@@ -31,14 +49,64 @@
 	}
 
 	.landing-option{
-		width: carbon--mini-units(4);
+		@include carbon--type-style('productive-heading-03');
+		margin-top: $spacing-06*4;
+		margin-bottom: $spacing-03;
+		@include carbon--breakpoint-between((320px + 1), md) {
+	  	max-width: 75%;
 	}
+	}
+	.first-tile-col{
+		margin-left: $spacing-07*4;
+		@include carbon--breakpoint-between((320px + 1), md) {
+			max-width: 75%;
+		}
+	}
+
+
+.landing-page__banner {
+	padding-top: $spacing-05;
+	padding-bottom: $spacing-07 ;
+	@include landing-page-background;
+  }
+
+  .landing-page__heading {
+	@include carbon--type-style('productive-heading-05');
+  }
+
+  .landing-page__r2 {
+	margin-top: rem(-40px);
+	@include landing-page-background;
+  }
+
+  .landing-page__subheading {
+	@include carbon--type-style('productive-heading-03');
+	@include carbon--font-weight('semibold');
+  }
+  .landing-page__p {
+	@include carbon--type-style('productive-heading-03');
+	margin-top: $spacing-06;
+	margin-bottom: $spacing-08;
+	@include carbon--breakpoint-between((320px + 1), md) {
+	  max-width: 75%;
+	}
+  }
+  .landing-page__p2{
+	@include carbon--type-style('body-long-02');
+	
+	margin-top: $spacing-06;
+	margin-bottom: $spacing-08;
+	@include carbon--breakpoint-between((320px + 1), md) {
+	  max-width: 75%;
+	}
+  }
+  .galasa-landing-links{
+	@include carbon--type-style('body-long-02');
+	margin-top: $spacing-08;
+	margin-bottom: $spacing-07;
+	@include carbon--breakpoint-between((320px + 1), md) {
+	  max-width: 75%;
+	}
+  }
+
 }
-
-.footer{
-	margin-top: carbon--mini-units(12);
-	background-color:white;
-}
-
-
-

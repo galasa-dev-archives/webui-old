@@ -1,4 +1,4 @@
-<div class="landing-page bx--grid--full-width" ibmGrid >
+<div class="bx--grid--full-width landing-page" ibmGrid >
 	<div ibmRow class="landing-page__banner">
 		<div ibmCol [columnNumbers]="{'lg': 16}">
 			<h2 class= "landing-page__heading">Dashboard</h2>
@@ -6,9 +6,9 @@
 	  </div>
 
 <div ibmRow class="landing-page__r2">
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
-		<h4 class = "subtitle">Getting Started</h4>
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+    <div ibmCol class="bx--no-gutter" [columnNumbers]="{'md': 4, 'lg': 4}">
+		<h4 class = "subtitle landing-page__label">Getting Started</h4>
+		<p class="landing-page__p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
 			Aenean commodo ligula eget dolor. Aenean massa. 
 			Cum sociis natoque penatibus et magnis dis parturient montes, 
 			nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
@@ -18,12 +18,12 @@
 	</div>
     <div ibmCol  [columnNumbers]="{'md': 4, 'lg': 6}">
 		<div ibmRow>
-		<ibm-clickable-tile class = "landing-option">
+		<ibm-clickable-tile class = "landing-option first-tile-col">
 			<h4>Title</h4>
 		</ibm-clickable-tile>
 	</div>
 		<div ibmRow>
-		<ibm-clickable-tile class = "landing-option">
+		<ibm-clickable-tile class = "landing-option-row2 first-tile-col">
 			<h4>Title</h4>
 		</ibm-clickable-tile>
 	</div>
@@ -31,12 +31,12 @@
 	</div>
 	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 6}">
 		<div ibmRow>
-			<ibm-clickable-tile class = "landing-option">
+			<ibm-clickable-tile class = "landing-option sec-tile-col">
 				<h4>Title</h4>
 			</ibm-clickable-tile>
 		</div>
 			<div ibmRow>
-			<ibm-clickable-tile class = "landing-option">
+			<ibm-clickable-tile class = "landing-option-row2 sec-tile-col">
 				<h4>Title</h4>
 			</ibm-clickable-tile>
 		</div>
@@ -44,22 +44,22 @@
   </div>
   <div ibmRow class="landing-page__r3 footer bx--no-gutter">
     <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
-		<h5>Useful links</h5>
+		<h5 class="landing-page__label">Useful links</h5>
 
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+		<p class="landing-page__p2"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
 			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
 	</div>
-	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+	<div ibmCol class= "galasa-landing-links"[columnNumbers]="{'md': 4, 'lg': 4}">
 		<ibm-clickable-tile>
 			<h4>Link</h4>
 		</ibm-clickable-tile>
 	</div>
-	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+	<div ibmCol class= "galasa-landing-links"[columnNumbers]="{'md': 4, 'lg': 4}">
 		<ibm-clickable-tile>
 			<h4>Link</h4>
 		</ibm-clickable-tile>
 	</div>
-	<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+	<div ibmCol class= "galasa-landing-links" [columnNumbers]="{'md': 4, 'lg': 4}">
 		<ibm-clickable-tile>
 			<h4>Link</h4>
 		</ibm-clickable-tile>
