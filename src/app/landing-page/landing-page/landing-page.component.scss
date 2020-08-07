@@ -50,32 +50,36 @@
 
 	.landing-option{
 		@include carbon--type-style('productive-heading-03');
-		margin-top: $spacing-06*4;
+		margin-top: $spacing-06*2;
 		margin-bottom: $spacing-03;
 		@include carbon--breakpoint-between((320px + 1), md) {
 	  	max-width: 75%;
 	}
+}
+	.tile{
+		
+		width: carbon--mini-units(64) ;
+		height: carbon--mini-units(32) ;
+		background-color: white;
 	}
+	
 	.first-tile-col{
-		margin-left: $spacing-07*4;
+		float:right;
 		@include carbon--breakpoint-between((320px + 1), md) {
 			max-width: 75%;
 		}
 	}
 
 
-.landing-page__banner {
+	.landing-page__banner {
 	padding-top: $spacing-05;
-	padding-bottom: $spacing-07 ;
+	padding-bottom: $spacing-09 ;
 	@include landing-page-background;
-  }
-
-  .landing-page__heading {
-	@include carbon--type-style('productive-heading-05');
   }
 
   .landing-page__r2 {
 	margin-top: rem(-40px);
+	padding-bottom: $spacing-09;
 	@include landing-page-background;
   }
 
@@ -84,26 +88,21 @@
 	@include carbon--font-weight('semibold');
   }
   .landing-page__p {
-	@include carbon--type-style('productive-heading-03');
-	margin-top: $spacing-06;
+	@include carbon--type-style('body-long-02');
+	margin-top: $spacing-05;
 	margin-bottom: $spacing-08;
 	@include carbon--breakpoint-between((320px + 1), md) {
 	  max-width: 75%;
 	}
   }
-  .landing-page__p2{
-	@include carbon--type-style('body-long-02');
-	
+  .landing-page__r3{
 	margin-top: $spacing-06;
-	margin-bottom: $spacing-08;
-	@include carbon--breakpoint-between((320px + 1), md) {
-	  max-width: 75%;
-	}
   }
   .galasa-landing-links{
 	@include carbon--type-style('body-long-02');
 	margin-top: $spacing-08;
 	margin-bottom: $spacing-07;
+	color:initial;
 	@include carbon--breakpoint-between((320px + 1), md) {
 	  max-width: 75%;
 	}
