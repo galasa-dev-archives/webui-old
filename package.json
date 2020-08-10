@@ -1,6 +1,6 @@
 {
   "name": "carbon-angular-starter",
-  "version": "0.1.0",
+  "version": "0.10.0",
   "license": "",
   "scripts": {
     "ng": "ng",
