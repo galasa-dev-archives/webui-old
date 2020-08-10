@@ -52,18 +52,11 @@
 		@include carbon--type-style('productive-heading-02');
 	}
 
-	.landing-option{
-		@include carbon--type-style('productive-heading-03');
-		margin-bottom: $spacing-03;
-		@include carbon--breakpoint-between((320px + 1), md) {
-	  	max-width: 75%;
-	}
-}
-	.tile{
-		
-		width: carbon--mini-units(64) ;
-		height: carbon--mini-units(32) ;
-		background-color: white;
+	.landing-option .bx--tile{
+		background-color: $ui-02;
+		height: 90%;
+		width: 100%;
+		display: block;
 	}
 	.bx--resource-card__icon--img {
 		position: absolute;
@@ -100,6 +93,10 @@
 	@include carbon--type-style('productive-heading-03');
 	@include carbon--font-weight('semibold');
   }
+  .landing-option .landing-page__p{
+	  width: 100%;
+	  height: 75%;
+  }
   .landing-page__p {
 	@include carbon--type-style('body-long-02');
 	margin-top: $spacing-05;
@@ -119,6 +116,13 @@
 	@include carbon--breakpoint-between((320px + 1), md) {
 	  max-width: 75%;
 	}
+  }
+  .landing-links .bx--tile{
+	  width: 95%;
+	  height: 90%;
+	  display: block;
+	  min-width: 3rem;
+	  min-height:8rem;
   }
 
 }
