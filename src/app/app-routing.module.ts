@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ResultsPageComponent } from './results-page/results-page.component';
 
 
 const routes: Routes = [
@@ -9,7 +10,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'results',
-		loadChildren: () => import('./results-page/results-page.component').then(m => m.ResultsPageComponent)
+		component: ResultsPageComponent
 	}
 ];
 
