@@ -11,12 +11,14 @@ import { UIShellModule, TilesModule } from 'carbon-components-angular';
 // import { UserAvatar20Module } from '@carbon/icons-angular/lib/user--avatar/20';
 // import { AppSwitcher20Module } from '@carbon/icons-angular/lib/app-switcher/20';
 import { HeaderComponent } from './header/header.component';
+import { ResultsPageComponent } from './results-page/results-page.component';
 
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		HeaderComponent,
+		ResultsPageComponent,
 	],
 	imports: [
 		BrowserModule,

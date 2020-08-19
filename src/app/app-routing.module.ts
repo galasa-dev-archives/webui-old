@@ -6,6 +6,10 @@ const routes: Routes = [
 	{
 		path: '',
 		loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule)
+	},
+	{
+		path: 'results',
+		loadChildren: () => import('./results-page/results-page.component').then(m => m.ResultsPageComponent)
 	}
 ];
 
