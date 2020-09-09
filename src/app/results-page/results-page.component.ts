@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiHandler } from '../../classes/ApiHandler';
 
 @Component({
   selector: 'app-results-page',
@@ -10,6 +11,7 @@ export class ResultsPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
