@@ -27,6 +27,7 @@ pipeline {
 
         stage('npm install') {
             steps {
+                sh "npm install --registry https://nexus.galasa.dev/repository/npm-virtual-development galasa-ras-api-ts-rxjs --save"
                 sh "npm install"
             }
         }
