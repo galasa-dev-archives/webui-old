@@ -12,6 +12,8 @@ import { UIShellModule, TilesModule, ComboBoxModule } from 'carbon-components-an
 // import { Notification20Module } from '@carbon/icons-angular/lib/notification/20';
 // import { UserAvatar20Module } from '@carbon/icons-angular/lib/user--avatar/20';
 // import { AppSwitcher20Module } from '@carbon/icons-angular/lib/app-switcher/20';
+
+import { SecurityService, httpInterceptorProviders } from './core/security.service';
 import { HeaderComponent } from './header/header.component';
 import { ResultsPageComponent } from './results-page/results-page.component';
 import { RequestorsFilterComponent } from './results-page/rasfilters/requestors-filter/requestors-filter.component';
@@ -36,6 +38,7 @@ import { RequestorsFilterComponent } from './results-page/rasfilters/requestors-
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
+	providers: [SecurityService, httpInterceptorProviders ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

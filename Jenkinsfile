@@ -28,6 +28,7 @@ pipeline {
         stage('npm install') {
             steps {
                 sh "npm install --registry https://nexus.galasa.dev/repository/npm-virtual-development"
+                sh "npm update --registry https://nexus.galasa.dev/repository/npm-virtual-development"
             }
         }
         stage('bg build') {
@@ -35,7 +36,7 @@ pipeline {
                 dir('dist') {
                     deleteDir()
                 }
-                sh "ng build"
+                sh "ng build --prod"
                 sh "echo -n ${GIT_COMMIT} > dist/webui.hash"
             }
         }

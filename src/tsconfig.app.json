@@ -21,11 +21,5 @@
 	"exclude": [
 		"test.ts",
 		"**/*.spec.ts"
-	],
-	"files":[
-		"../node_modules/galasa-ras-api-ts-rxjs/apis/index.ts",
-		"../node_modules/galasa-ras-api-ts-rxjs/apis/DefaultApi.ts",
-		"../node_modules/galasa-ras-api-ts-rxjs/runtime.ts",
-		"../node_modules/galasa-ras-api-ts-rxjs/index.ts"
 	]
 }
