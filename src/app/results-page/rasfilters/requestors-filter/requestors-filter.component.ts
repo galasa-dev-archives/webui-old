@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiHandler } from '../../../../../src/classes/ApiHandler';
+
+import { RasApisService } from '../../../core/rasapis.service'
 
 @Component({
   selector: 'app-requestors-filter',
@@ -8,37 +9,17 @@ import { ApiHandler } from '../../../../../src/classes/ApiHandler';
 })
 export class RequestorsFilterComponent implements OnInit {
 
-  
-  items = [
-          //  {
-          //       content: "Abacus",
-          //      selected: false
-          //   },
-          //  {
-          //       content: "Byte",
-          //      selected: false,
-          //   },
-          //  {
-          //      content: "Computer",
-          //       selected: false
-          //   },
-          //   {
-          //       content: "Digital",
-          //       selected: false
-          //   }
-     ];
-     private rasApi = new ApiHandler();
-    
+  requestors:Object[] = [
+    { content: "one", id: 0 },
+    { content: "two", id: 1 },
+    { content: "three", id: 2 },
+    { content: "four", id: 3 }];
 
-
-  constructor() { 
-
+  constructor(private rasApis: RasApisService) { 
   }
 
   ngOnInit() {
-
-   
-    
+    console.log("x", this.requestors);
   }
 
   
