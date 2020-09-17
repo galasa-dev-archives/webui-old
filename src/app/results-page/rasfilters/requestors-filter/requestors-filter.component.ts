@@ -37,36 +37,38 @@ export class RequestorsFilterComponent implements OnInit {
 
   ngOnInit() {
     // Get the get Requestors api call
-    var requestorsApi = this.rasApis.getRasRequestors();  // TODO, WARNING,  this must change to an observable
-    // Set the default sort, we could let it default, but the default might change
-    var parameters:RasRequestorsGetRequest = {"sort":"requestor:asc"};
+    this.rasApis.getRasRequestors().then(
+        requestorsApi => {
+    
+          // Set the default sort, we could let it default, but the default might change
+          var parameters:RasRequestorsGetRequest = {"sort":"requestor:asc"};
 
-    // Issue the call, this will return async
-    requestorsApi.rasRequestorsGet(parameters).toPromise().then(
-      result => {
-        //  Build the new array before setting the field, so the dropdown gets it in one go
-        var newRequestors :Object[] = [];
+              // Issue the call, this will return async
+          requestorsApi.rasRequestorsGet(parameters).toPromise().then(
+            result => {
+               //  Build the new array before setting the field, so the dropdown gets it in one go
+              var newRequestors :Object[] = [];
 
-        var nextId = 0;
-        // Go through the response,  NEED TO CHECK if it handles nulls etc
-        for(let requestor of result.requestors) {
-          newRequestors.push({content: requestor, id: nextId});
-          nextId++;
+              var nextId = 0;
+               // Go through the response,  NEED TO CHECK if it handles nulls etc
+              for(let requestor of result.requestors) {
+                newRequestors.push({content: requestor, id: nextId});
+                nextId++;
+              }
+
+              // Set the field so the dropdown automatically updates and set loading to false so 
+              // any progress bar switches off and the dropdown enables 
+              this.requestors = newRequestors;
+
+              this.loading = false;
+            }
+          ).catch(reason => {
+            console.log("Error loading ", reason);
+            // TODO Need to issue a Toast to indicate a failure, but not found one in Carbon
+          })
         }
+    )
 
-        // Set the field so the dropdown automatically updates and set loading to false so 
-        // any progress bar switches off and the dropdown enables 
-        this.requestors = newRequestors;
-
-        // TODO Pre select --any--, need to select the one in the URL once that is in place
-
-
-        this.loading = false;
-      }
-    ).catch(reason => {
-      console.log("Error loading ", reason);
-      //  Need to issue a Toast to indicate a failure, but not found one in Carbon
-    })
 
   }
 
