@@ -7,6 +7,15 @@ import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
+
+//
+// 
+// The Security service will handle the authentication to the APIs
+// It is used to populate the the APIs services with the tokens/cookies
+// etc so that they will work and not have to worry about it.
+// 
+// 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,13 +24,7 @@ export class SecurityService {
   constructor() { }
 }
 
-
-
-
-
-
-
-
+// Dummied out at the moment until we enable authentication in Galasa
 @Injectable()
 export class GalasaInterceptor implements HttpInterceptor {
 
