@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2020.
+ */
 import { TestBed } from '@angular/core/testing';
 
 import { SecurityService } from './security.service';

@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2020.
+ */
 import { Component, HostBinding, Input} from '@angular/core';
 
 @Component({

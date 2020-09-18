@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2020.
+ */
 import { Injectable } from '@angular/core';
 
 import { Configuration, ConfigurationParameters, RasRequestorsApi, RasTestclassesApi } from 'galasa-ras-api-ts-rxjs';
