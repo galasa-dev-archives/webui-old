@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2020.
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
