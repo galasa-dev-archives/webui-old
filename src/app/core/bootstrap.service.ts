@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+import { environment } from '../../environments/environment';
 
 //
 // 
@@ -33,18 +34,19 @@ export class BootstrapService {
       }
 
       // TODO, the RAS can't be separated from the API server at the moment,  so going to assume it is relative to the boostrap
-      // this.rasBaseUri = baseUrl + "/ras";
+      // this.rasBaseUri = baseUrl + "/ras";  In the future, there may be a property on the bootstrap pointing to a different base
       this.rasBaseUri = baseUrl ;
 
-      console.log("Galasa Bootstrap URL=" + galasaBootstrap);
-      console.log("Galasa Base URL=" + baseUrl);
-      console.log("Galasa RAS URL=" + this.rasBaseUri);
+      if (environment.production == false) {
+        console.log("Galasa Bootstrap URL=" + galasaBootstrap);
+        console.log("Galasa Base URL=" + baseUrl);
+        console.log("Galasa RAS Base URL=" + this.rasBaseUri);
+      }
   }
 
 
-  // TODO, needs to be an observable so we can async request the actual bootstrap
+  // Return the base URL of the RAS API Server
   public getRasBase() :Promise<String> { 
-    console.log("here", galasaBootstrap);
     return new Promise((resolve, reject) => {
       //TODO will need async code if the bootstrap has not been resolved yet
 
