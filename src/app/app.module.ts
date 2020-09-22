@@ -30,6 +30,7 @@ import { ResultsPageComponent } from './results-page/results-page.component';
 import { RequestorsFilterComponent } from './results-page/rasfilters/requestors-filter/requestors-filter.component';
 import { TestclassesFilterComponent } from './results-page/rasfilters/testclasses-filter/testclasses-filter.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BundleFilterComponent } from './results-page/rasfilters/bundle-filter/bundle-filter.component';
 
 @NgModule({
 	declarations: [
@@ -38,7 +39,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 		ResultsPageComponent,
 		RequestorsFilterComponent,
 		TestclassesFilterComponent,
-		LandingPageComponent
+		LandingPageComponent,
+		BundleFilterComponent
 	],
 	imports: [
 		BrowserModule,
