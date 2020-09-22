@@ -6,7 +6,7 @@
 import { Component, OnInit }        from '@angular/core';
 import { Router, ActivatedRoute, Params}    from '@angular/router';
 
-import { RasRequestorsGetRequest, Requestors } from 'galasa-ras-api-ts-rxjs';
+import { RasRequestorsGetRequest, Requestors} from 'galasa-ras-api-ts-rxjs';
 
 import { RasApisService } from '../../../core/rasapis.service'
 
@@ -36,7 +36,7 @@ export class RequestorsFilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Get the get Requestors api call
+   // Get the get Requestors api call
     this.rasApis.getRasRequestors().then(
         requestorsApi => {
     
