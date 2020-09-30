@@ -29,9 +29,9 @@
     "carbon-components": "^10.20.0",
     "carbon-components-angular": "^4.17.0",
     "core-js": "^3.6.5",
-    "galasa-cps-api-ts-rxjs": "^0.11.0-SNAPSHOT",
-    "galasa-ras-api-ts-rxjs": "^0.11.0-SNAPSHOT",
-    "galasa-runs-api-ts-rxjs": "^0.11.0-SNAPSHOT",
+    "galasa-cps-api-ts-rxjs": "^0.11.0",
+    "galasa-ras-api-ts-rxjs": "^0.11.0",
+    "galasa-runs-api-ts-rxjs": "^0.11.0",
     "rxjs": "^6.6.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.10.3"
