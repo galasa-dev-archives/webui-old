@@ -1,0 +1,22 @@
+<ibm-table-container>
+    <ibm-table
+        [model]="model"
+        [stickyHeader]="false"
+        [size]="size"
+        [skeleton]="skeleton"
+        [showSelectionColumn]="false"
+        [striped]="true"
+        [sortable]="true"
+        [isDataGrid]="isDataGrid"
+        >
+    </ibm-table>
+    <ibm-pagination
+            [itemsPerPageOptions] = "itemsPerPageOptions"
+			[model]="paginationModel"
+			[disabled]="disabled"
+			[pageInputDisabled]="pageInputDisabled"
+			[pagesUnknown]="pagesUnknown"
+			[skeleton]="skeleton"
+			(selectPage)="selectPage($event)">
+		</ibm-pagination>
+</ibm-table-container>

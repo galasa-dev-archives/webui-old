@@ -5,7 +5,7 @@
  */
 import { Injectable } from '@angular/core';
 
-import { Configuration, ConfigurationParameters, RasRequestorsApi, RasResultNamesApi, RasTestclassesApi } from 'galasa-ras-api-ts-rxjs';
+import { Configuration, ConfigurationParameters, RasRequestorsApi, RasResultNamesApi, RasTestclassesApi, RasRunApi } from 'galasa-ras-api-ts-rxjs';
 import { BootstrapService } from './bootstrap.service';
 
 import { SecurityService } from './security.service';
@@ -26,6 +26,7 @@ export class RasApisService {
   rasRequestorsApi: RasRequestorsApi;
   rasTestclassesApi: RasTestclassesApi;
   rasResultnamesApi: RasResultNamesApi;
+  rasRunApi : RasRunApi;
 
   constructor(private securityService :SecurityService, // So we can get the necessary security information
               private bootstrapService :BootstrapService ) {  // So we can get the BASE URL
@@ -102,6 +103,28 @@ export class RasApisService {
           this.rasTestclassesApi = new RasTestclassesApi(configuration);
       
           resolve(this.rasTestclassesApi);
+        }
+      )
+    });
+  }
+
+  public getRasRuns() : Promise<RasRunApi>{
+    if (this.rasRunApi != null) {
+      return new Promise((resolve, reject) => {
+        resolve(this.rasRunApi);
+      });
+    }
+
+    // Need to resolve the ras uri and return the api
+    return new Promise((resolve, reject) => {
+      this.bootstrapService.getRasBase().then(
+        rasBase => {
+          var configParams :ConfigurationParameters = {'basePath' : rasBase.toString()}
+          var configuration :Configuration = new Configuration(configParams);
+      
+          this.rasRunApi = new RasRunApi(configuration);
+      
+          resolve(this.rasRunApi);
         }
       )
     });

@@ -19,7 +19,11 @@ import { UIShellModule,
 		 ComboBoxModule,
 		 GridModule,
 		 ListModule,
-		 TabsModule } from 'carbon-components-angular';
+		 TabsModule, 
+		 TableModule, 
+		 PaginationModule} from 'carbon-components-angular';
+		 
+
 // import { Notification20Module } from '@carbon/icons-angular/lib/notification/20';
 // import { UserAvatar20Module } from '@carbon/icons-angular/lib/user--avatar/20';
 // import { AppSwitcher20Module } from '@carbon/icons-angular/lib/app-switcher/20';
@@ -32,6 +36,7 @@ import { TestclassesFilterComponent } from './results-page/rasfilters/testclasse
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BundleFilterComponent } from './results-page/rasfilters/bundle-filter/bundle-filter.component';
 import { ResultnamesFilterComponent } from './results-page/rasfilters/resultnames-filter/resultnames-filter.component';
+import { ResultsTableComponent } from './results-page/rasfilters/results-table/results-table.component';
 
 @NgModule({
 	declarations: [
@@ -42,7 +47,8 @@ import { ResultnamesFilterComponent } from './results-page/rasfilters/resultname
 		TestclassesFilterComponent,
 		LandingPageComponent,
 		BundleFilterComponent,
-		ResultnamesFilterComponent
+		ResultnamesFilterComponent,
+		ResultsTableComponent
 	],
 	imports: [
 		BrowserModule,
@@ -57,6 +63,8 @@ import { ResultnamesFilterComponent } from './results-page/rasfilters/resultname
 		ComboBoxModule,
 		HttpClientModule,
 		CommonModule,
+		TableModule,
+		PaginationModule
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module

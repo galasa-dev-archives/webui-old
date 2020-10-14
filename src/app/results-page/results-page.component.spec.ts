@@ -8,6 +8,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ResultsPageComponent } from './results-page.component';
 
 import { ComboBoxModule } from 'carbon-components-angular';
+import { TableModule } from 'carbon-components-angular';
 
 describe('ResultsPageComponent', () => {
   let component: ResultsPageComponent;
@@ -16,7 +17,7 @@ describe('ResultsPageComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ResultsPageComponent ],
-      imports: [ComboBoxModule]
+      imports: [ComboBoxModule, TableModule]
     })
     .compileComponents();
   }));
