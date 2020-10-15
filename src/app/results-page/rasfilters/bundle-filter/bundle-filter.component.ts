@@ -57,10 +57,12 @@ export class BundleFilterComponent implements OnInit {
 
   onSelected(event: any){
     var selectedBundles = "";
+    
     if(event.item){
       selectedBundles = event.item.content;
     }
-    let newparams = Object.assign(Object.assign({},this.route.queryParams),{bundle:selectedBundles});
+
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{bundle:selectedBundles});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
   }
 

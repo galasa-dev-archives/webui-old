@@ -1,0 +1,17 @@
+<ibm-table-container>
+    <ibm-table
+        [model]="model"
+        [stickyHeader]="false"
+        [showSelectionColumn]="false"
+        [striped]="true"
+        [sortable]="true"
+        >
+    </ibm-table>
+    <ibm-pagination
+            [itemsPerPageOptions] = "itemsPerPageOptions"
+			[model]="paginationModel"
+			[disabled]="loading"
+			[pageInputDisabled]="loading"
+			(selectPage)="selectPage($event)">
+		</ibm-pagination>
+</ibm-table-container>

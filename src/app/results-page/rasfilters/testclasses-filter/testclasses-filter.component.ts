@@ -40,18 +40,18 @@ export class TestclassesFilterComponent implements OnInit {
         })
       }
     )
-
   }
 
-  
 
   onSelected(event: any){
     var selectedTestclass = "";
     if(event.item){
       selectedTestclass = event.item.content;
     }
-    let newparams = Object.assign(Object.assign({},this.route.queryParams),{testclass:selectedTestclass});
-    this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
+
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{testclass:selectedTestclass});
+    this.router.navigate(['.'],{relativeTo: this.route, queryParams: newparams});
+    
   }
 
 }

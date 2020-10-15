@@ -18,6 +18,7 @@ export class ResultnamesFilterComponent implements OnInit {
     ) { }
 
   ngOnInit(){
+    
     this.rasApis.getRasResultnames().then(
       resultApi =>{
         var parameters: RasResultnamesGetRequest = {"sort":"resultname:asc"};
@@ -31,8 +32,8 @@ export class ResultnamesFilterComponent implements OnInit {
               nextId++;
             }
             this.results = newResults;
-            console.log(this.results);
             this.loading = false;
+            
           }
         ).catch(reason=> {
           console.log("Error loading",reason)
@@ -49,7 +50,7 @@ export class ResultnamesFilterComponent implements OnInit {
     if(event.item){
       selectedResultNames = event.item.content;
     }
-    let newparams = Object.assign(Object.assign({},this.route.queryParams),{resultNames:selectedResultNames});
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{resultNames:selectedResultNames});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
   }
 
