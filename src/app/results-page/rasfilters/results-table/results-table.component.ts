@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel, PaginationModule} from 'carbon-components-angular';
 
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
@@ -24,10 +24,14 @@ export class ResultsTableComponent implements OnInit {
   requestor: string;
   testName : string;
   loading: Boolean = true;
-  constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router) { }
+  constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router) { 
+    this.router.events.subscribe((ev) => {
+      if (ev instanceof NavigationEnd) {  this.selectPage(1) }
+    });
+  }
 
   ngOnInit(): void {
-
+    
     this.paginationModel.currentPage = 1;
 
     this.model.data = [];
@@ -36,6 +40,7 @@ export class ResultsTableComponent implements OnInit {
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started"}), 
       new TableHeaderItem({data: "Finished"})
+
     ];
 
 
@@ -45,26 +50,25 @@ export class ResultsTableComponent implements OnInit {
       this.requestor = params['requestor'];
       this.testName = params['testclass'];
       this.bundle = params['bundle'];
-      this.result = params['result'];
+      this.result = params['resultNames'];
       
     });
 
     this.selectPage(1);
-  
-    this.OnChange();
 
   }
 
   selectPage(page){
       this.paginationModel.currentPage = page;
-      this.getPage(page)
+      this.getPage(page);
   }
+
 
   getPage(page){
     this.rasApis.getRasRuns().then(
       runsApi =>{
         var parameters: RasRunGetRequest = {
-                                            "sort": "to:asc",
+                                            "sort": "to:desc",
                                             "page": page, 
                                             "size" : this.paginationModel.pageLength,
                                             "testname": this.testName,
@@ -99,12 +103,6 @@ export class ResultsTableComponent implements OnInit {
       }
       
     )
-  }
-
-  OnChange(){
-    this.router.events.subscribe(val => {
-      this.selectPage(1);
-    });
   }
 
 }
