@@ -36,6 +36,7 @@ pipeline {
                 dir('dist') {
                     deleteDir()
                 }
+                sh "sed -i 's/gitcommithash/${GIT_COMMIT}/g' src/index.html"
                 sh "ng build --prod"
                 sh "echo -n ${GIT_COMMIT} > dist/webui.hash"
             }
