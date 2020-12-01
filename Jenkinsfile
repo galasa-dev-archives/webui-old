@@ -27,8 +27,8 @@ pipeline {
 
         stage('npm install') {
             steps {
-                sh "npm install --registry https://nexus.galasa.dev/repository/npm-virtual-development"
-                sh "npm update --registry https://nexus.galasa.dev/repository/npm-virtual-development --no-save"
+                sh "npm install --registry ${NPM_VIRTUAL_REPO}"
+                sh "npm update --registry ${NPM_VIRTUAL_REPO} --no-save"
             }
         }
         stage('bg build') {
