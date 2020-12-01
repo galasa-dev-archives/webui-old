@@ -8,6 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ResultsPageComponent } from './results-page/results-page.component';
+import { RunPageComponent } from './run-page/run-page.component';
+
 
 
 const routes: Routes = [
@@ -20,9 +22,14 @@ const routes: Routes = [
 		component: ResultsPageComponent
 	},
 	{
+		path: 'run/:id',
+		component: RunPageComponent
+	},
+	{
 		path: '**',
 		component: LandingPageComponent
 	},
+	
 ];
 
 @NgModule({

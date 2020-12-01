@@ -42,8 +42,7 @@ export class ResultsTableComponent implements OnInit {
       new TableHeaderItem({data: "Finished"})
 
     ];
-
-
+    
     this.route.queryParams.subscribe(params =>{
       this.pageSize = params['pageSize'];
       this.page = params['pageNum'];
@@ -62,7 +61,6 @@ export class ResultsTableComponent implements OnInit {
       this.paginationModel.currentPage = page;
       this.getPage(page);
   }
-
 
   getPage(page){
     this.rasApis.getRasRuns().then(
@@ -84,10 +82,10 @@ export class ResultsTableComponent implements OnInit {
               this.paginationModel.totalDataLength = result.amountOfRuns;
               for(let run of result.runs){
                 newData.push([
-                  new TableItem({data: run.runName}), 
-                  new TableItem({data: run.testName}), 
-                  new TableItem({data: run.start}),
-                  new TableItem({data: run.end})]);
+                  new TableItem({data: run.testStructure.runName}), 
+                  new TableItem({data: run.testStructure.testName}), 
+                  new TableItem({data: run.testStructure.startTime}),
+                  new TableItem({data: run.testStructure.endTime})]);
                 newRuns.push(run)
               }
           }else{
