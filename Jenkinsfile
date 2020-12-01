@@ -27,8 +27,10 @@ pipeline {
 
         stage('npm install') {
             steps {
-                sh "npm install --registry ${NPM_VIRTUAL_REPO}"
-                sh "npm update --registry ${NPM_VIRTUAL_REPO} --no-save"
+                withFolderProperties {
+                    sh "npm install --registry ${NPM_VIRTUAL_REPO}"
+                    sh "npm update --registry ${NPM_VIRTUAL_REPO} --no-save"
+                }
             }
         }
         stage('bg build') {
