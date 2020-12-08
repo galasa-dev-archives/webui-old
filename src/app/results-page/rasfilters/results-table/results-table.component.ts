@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel, PaginationModule} from 'carbon-components-angular';
 
@@ -11,6 +11,7 @@ import { RasApisService } from '../../../core/rasapis.service'
   templateUrl: './results-table.component.html',
   styleUrls: ['./results-table.component.css']
 })
+
 export class ResultsTableComponent implements OnInit {
   
   paginationModel = new PaginationModel();
@@ -24,6 +25,10 @@ export class ResultsTableComponent implements OnInit {
   requestor: string;
   testName : string;
   loading: Boolean = true;
+  
+  @ViewChild("customItemTemplate", { static : false })
+  protected customItemTemplate: TemplateRef<any>;
+
   constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router) { 
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {  this.selectPage(1) }
@@ -40,7 +45,6 @@ export class ResultsTableComponent implements OnInit {
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started"}), 
       new TableHeaderItem({data: "Finished"})
-
     ];
     
     this.route.queryParams.subscribe(params =>{
@@ -55,6 +59,11 @@ export class ResultsTableComponent implements OnInit {
 
     this.selectPage(1);
 
+  }
+
+  onClick(index: number){
+    console.log(this.model.data[index][0].data.id)
+    this.router.navigate(['/run/' + this.model.data[index][0].data.id]);
   }
 
   selectPage(page){
@@ -82,11 +91,11 @@ export class ResultsTableComponent implements OnInit {
               this.paginationModel.totalDataLength = result.amountOfRuns;
               for(let run of result.runs){
                 newData.push([
-                  new TableItem({data: run.testStructure.runName}), 
+                  new TableItem({data: {name: run.testStructure.runName, id: run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: run.testStructure.testName}), 
                   new TableItem({data: run.testStructure.startTime}),
                   new TableItem({data: run.testStructure.endTime})]);
-                newRuns.push(run)
+                newRuns.push(run);
               }
           }else{
             this.paginationModel.totalDataLength = 0;
