@@ -63,8 +63,7 @@ export class ResultsTableComponent implements OnInit {
   }
 
   onClick(index: number){
-    console.log(this.model.data[index][0].data.id)
-    this.router.navigate(['/run/' + this.model.data[index][0].data.id]);
+    this.router.navigate(['/run/' + this.model.data[index][1].data.id]);
   }
 
   selectPage(page){
