@@ -41,6 +41,7 @@ export class ResultsTableComponent implements OnInit {
 
     this.model.data = [];
     this.model.header = [
+      new TableHeaderItem({data: "Status"}),
       new TableHeaderItem({data: "Test Run UUID"}), 
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started"}), 
@@ -91,6 +92,7 @@ export class ResultsTableComponent implements OnInit {
               this.paginationModel.totalDataLength = result.amountOfRuns;
               for(let run of result.runs){
                 newData.push([
+                  new TableItem({data: run.testStructure.result}),
                   new TableItem({data: {name: run.testStructure.runName, id: run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: run.testStructure.testName}), 
                   new TableItem({data: run.testStructure.startTime}),
