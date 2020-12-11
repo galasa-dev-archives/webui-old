@@ -1,10 +1,14 @@
 <ibm-table-container>
+    <ng-template #customItemTemplate let-data="data">{{data.name}}
+    </ng-template> 
     <ibm-table
         [model]="model"
         [stickyHeader]="false"
         [showSelectionColumn]="false"
         [striped]="true"
         [sortable]="true"
+        [enableSingleSelect] = "true"
+        (rowClick)="onClick($event)"
         >
     </ibm-table>
     <ibm-pagination
@@ -13,6 +17,6 @@
 			[disabled]="loading"
 			[pageInputDisabled]="loading"
             (selectPage)="selectPage($event)"
-                                            >
+             >
 		</ibm-pagination>
 </ibm-table-container>
