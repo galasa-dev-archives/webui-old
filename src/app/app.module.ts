@@ -20,7 +20,8 @@ import { UIShellModule,
 		 GridModule,
 		 ListModule,
 		 TabsModule, 
-		 TableModule, 
+		 TableModule,
+		 LoadingModule, 
 		 PaginationModule} from 'carbon-components-angular';
 		 
 
@@ -38,6 +39,11 @@ import { BundleFilterComponent } from './results-page/rasfilters/bundle-filter/b
 import { ResultnamesFilterComponent } from './results-page/rasfilters/resultnames-filter/resultnames-filter.component';
 import { ResultsTableComponent } from './results-page/rasfilters/results-table/results-table.component';
 import { RunPageComponent } from './run-page/run-page.component';
+import { RunOverviewComponent } from './run-page/components/run-overview/run-overview.component';
+import { MethodsComponent } from './run-page/components/methods/methods.component';
+import { RunLogComponent } from './run-page/components/run-log/run-log.component';
+import { ArtifactComponent } from './run-page/components/artifact/artifact.component';
+import { HistoryComponent } from './run-page/components/history/history.component';
 
 @NgModule({
 	declarations: [
@@ -50,7 +56,12 @@ import { RunPageComponent } from './run-page/run-page.component';
 		BundleFilterComponent,
 		ResultnamesFilterComponent,
 		ResultsTableComponent,
-		RunPageComponent
+		RunPageComponent,
+		RunOverviewComponent,
+		MethodsComponent,
+		RunLogComponent,
+		ArtifactComponent,
+		HistoryComponent
 	],
 	imports: [
 		BrowserModule,
@@ -66,6 +77,7 @@ import { RunPageComponent } from './run-page/run-page.component';
 		HttpClientModule,
 		CommonModule,
 		TableModule,
+		LoadingModule,
 		PaginationModule
 		// Notification20Module,
 		// UserAvatar20Module,
