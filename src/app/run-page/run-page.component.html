@@ -1,1 +1,17 @@
-<p>run-page works!</p>
+<ibm-loading [isActive]="loading" [size]="sm"></ibm-loading>
+<ibm-tabs type="container" [followFocus]=true [cacheActive]=true>
+    <ibm-tab heading="Overview">
+        <app-run-overview [testStructure]="testStructure"></app-run-overview>
+    </ibm-tab>
+    <ibm-tab heading="Run Log">
+        <app-run-log [testStructure]="testStructure"></app-run-log>
+    </ibm-tab>
+    <ibm-tab heading="Artifacts">
+        <app-artifact [testStructure]="testStructure"></app-artifact>
+    </ibm-tab>
+    <ibm-tab heading="History">
+        <app-history [testStructure]="testStructure"></app-history>
+    </ibm-tab>
+</ibm-tabs>
+
+
