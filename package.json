@@ -26,7 +26,7 @@
     "@angular/router": "^9.1.12",
     "@carbon/icons-angular": "^11.0.1",
     "@carbon/icons-react": "^10.18.0",
-    "carbon-components": "^10.20.0",
+    "carbon-components": "^10.25.0",
     "carbon-components-angular": "^4.17.0",
     "core-js": "^3.6.5",
     "galasa-cps-api-ts-rxjs": "^0.14.0-SNAPSHOT",
