@@ -45,6 +45,8 @@ import { RunLogComponent } from './run-page/components/run-log/run-log.component
 import { ArtifactComponent } from './run-page/components/artifact/artifact.component';
 import { HistoryComponent } from './run-page/components/history/history.component';
 import { RunDetailComponent } from './run-page/components/run-detail/run-detail.component';
+import { ResultComponent } from './run-page/components/run-overview/result/result.component';
+import { DateTimeComponent } from './date-time/date-time.component';
 
 @NgModule({
 	declarations: [
@@ -63,7 +65,9 @@ import { RunDetailComponent } from './run-page/components/run-detail/run-detail.
 		RunLogComponent,
 		ArtifactComponent,
 		HistoryComponent,
-		RunDetailComponent
+		RunDetailComponent,
+		ResultComponent,
+		DateTimeComponent
 	],
 	imports: [
 		BrowserModule,

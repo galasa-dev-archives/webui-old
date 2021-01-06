@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-run-detail',
-  templateUrl: './run-detail.component.html',
-  styleUrls: ['./run-detail.component.css']
+  selector: 'app-date-time',
+  templateUrl: './date-time.component.html',
+  styleUrls: ['./date-time.component.css']
 })
-export class RunDetailComponent implements OnInit {
+export class DateTimeComponent implements OnInit {
 
   @Input() title: Object;
 

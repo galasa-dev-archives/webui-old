@@ -1,5 +1,9 @@
-<p>overview page works!</p>
-<app-run-detail *ngFor="let pair of attributes"
-    [pair]="pair"
->
-</app-run-detail>
+<app-run-detail [title] = "'Result:'" [value] = "result"></app-run-detail>
+<app-run-detail [title] = "'Run Name:'" [value] = "runName"></app-run-detail>
+<app-run-detail [title] = "'Short Name:'" [value] = "testShortName"></app-run-detail>
+<app-run-detail [title] = "'Bundle:'" [value] = "bundle"></app-run-detail>
+<app-run-detail [title] = "'Test Name:'" [value] = "testName"></app-run-detail>
+<app-run-detail [title] = "'Requestor:'" [value] = "requestor"></app-run-detail>
+<app-date-time [title] = "'Run Requested'" [value] = "queued"></app-date-time>
+<app-date-time [title] = "'Run Started'" [value] = "startTime"></app-date-time>
+<app-date-time [title] = "'Run Finished'" [value] = "endTime"></app-date-time>
