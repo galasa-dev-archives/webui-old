@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { TableModel,TableItem, TableHeaderItem } from 'carbon-components-angular';
+import { TestMethod } from 'galasa-ras-api-ts-rxjs';
 
 @Component({
   selector: 'app-methods',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MethodsComponent implements OnInit {
 
+  @Input() testMethods : TestMethod[];
+
+  model: TableModel = new TableModel();
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    if(this.testMethods != null){
+      var newData : TableItem[][] = [];
+      for(let method of this.testMethods){
+        newData.push([
+          new TableItem({data: method.result}),
+          new TableItem({data: method.methodName})
+        ]);
+      }
+      this.model.data = newData;
+    }
   }
 
 }

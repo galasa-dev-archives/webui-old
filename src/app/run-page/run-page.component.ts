@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RasRunIdGetRequest, Run, RunResults, TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../core/rasapis.service';
 
 @Component({
