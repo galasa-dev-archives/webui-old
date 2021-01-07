@@ -61,7 +61,7 @@ import { HistoryComponent } from './run-page/components/history/history.componen
 		MethodsComponent,
 		RunLogComponent,
 		ArtifactComponent,
-		HistoryComponent
+		HistoryComponent,
 	],
 	imports: [
 		BrowserModule,

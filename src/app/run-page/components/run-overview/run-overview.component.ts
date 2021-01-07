@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IdeaComponent } from '@carbon/icons-angular';
-import { RasRunIdGetRequest, Run, RunResults, TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../../../core/rasapis.service';
 
 @Component({
@@ -11,17 +11,17 @@ import { RasApisService } from '../../../core/rasapis.service';
 })
 export class RunOverviewComponent implements OnInit {
 
-  @Input() testStructure: TestStructure;
-  changeLog: string[] = [];
+  @Input() testStructure: TestStructure = {};
+  testMethods : TestMethod[] = [];
 
   constructor(private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.testStructure.runName);
+    this.testMethods = this.testStructure.methods;
   }
 
 }
