@@ -2,6 +2,8 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IdeaComponent, MovementModule } from '@carbon/icons-angular';
 import { RasRunIdGetRequest, Run, RunResults, TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { IdeaComponent } from '@carbon/icons-angular';
+import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../../../core/rasapis.service';
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
 
@@ -12,8 +14,8 @@ import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
 })
 export class RunOverviewComponent implements OnInit {
 
-  @Input() testStructure: TestStructure;
-
+   @Input() testStructure: TestStructure = {};
+  
   result: string = "";
   runName: string = "";
   testShortName: string = "";
@@ -25,6 +27,8 @@ export class RunOverviewComponent implements OnInit {
   startTime : string = "";
   endTime : string = "";
   startToEndTime : string = "";
+
+  testMethods : TestMethod[] = [];
 
   constructor(private route : ActivatedRoute) { }
 
@@ -42,7 +46,7 @@ export class RunOverviewComponent implements OnInit {
     this.queued = this.formatDate(this.testStructure.queued);
     this.startTime = this.formatDate(this.testStructure.startTime);
     this.endTime = this.formatDate(this.testStructure.endTime);
-    
+    this.testMethods = this.testStructure.methods;
   }
 
   formatDate(attribute : string){
@@ -51,6 +55,7 @@ export class RunOverviewComponent implements OnInit {
     time = time.slice(0, time.indexOf('Z'));
     var dateTime = date + " " + time;
     return dateTime;
+
   }
 
 }

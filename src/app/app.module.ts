@@ -45,7 +45,6 @@ import { RunLogComponent } from './run-page/components/run-log/run-log.component
 import { ArtifactComponent } from './run-page/components/artifact/artifact.component';
 import { HistoryComponent } from './run-page/components/history/history.component';
 import { RunDetailComponent } from './run-page/components/run-detail/run-detail.component';
-import { ResultComponent } from './run-page/components/run-overview/result/result.component';
 import { DateTimeComponent } from './date-time/date-time.component';
 import { TestResultComponent } from './run-page/components/run-detail/test-result/test-result.component';
 
@@ -67,7 +66,6 @@ import { TestResultComponent } from './run-page/components/run-detail/test-resul
 		ArtifactComponent,
 		HistoryComponent,
 		RunDetailComponent,
-		ResultComponent,
 		DateTimeComponent,
 		TestResultComponent
 	],

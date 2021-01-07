@@ -7,8 +7,7 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-  @Input() testStructure: TestStructure;
-  changeLog : string[] = []
+  @Input() testStructure: TestStructure = {};
 
   constructor() { }
 

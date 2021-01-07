@@ -7,8 +7,7 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
   styleUrls: ['./artifact.component.css']
 })
 export class ArtifactComponent implements OnInit {
-  @Input() testStructure: TestStructure;
-  changeLog : string[] = [];
+  @Input() testStructure: TestStructure = {};
 
   constructor() { }
 

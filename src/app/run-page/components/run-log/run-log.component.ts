@@ -7,7 +7,7 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
   styleUrls: ['./run-log.component.css']
 })
 export class RunLogComponent implements OnInit {
-  @Input() testStructure: TestStructure;
+  @Input() testStructure: TestStructure = {};
 
   constructor() { }
 
