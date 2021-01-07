@@ -1,8 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IdeaComponent, MovementModule } from '@carbon/icons-angular';
-import { RasRunIdGetRequest, Run, RunResults, TestStructure } from 'galasa-ras-api-ts-rxjs';
-import { IdeaComponent } from '@carbon/icons-angular';
 import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../../../core/rasapis.service';
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
