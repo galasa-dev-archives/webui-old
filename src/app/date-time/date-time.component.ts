@@ -7,9 +7,9 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 })
 export class DateTimeComponent implements OnInit {
 
-  @Input() title: Object;
+  @Input() title: string;
 
-  @Input() value: Object;
+  @Input() value: string;
 
   constructor() { }
 
