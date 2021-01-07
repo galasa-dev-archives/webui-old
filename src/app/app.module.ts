@@ -47,6 +47,7 @@ import { HistoryComponent } from './run-page/components/history/history.componen
 import { RunDetailComponent } from './run-page/components/run-detail/run-detail.component';
 import { ResultComponent } from './run-page/components/run-overview/result/result.component';
 import { DateTimeComponent } from './date-time/date-time.component';
+import { TestResultComponent } from './run-page/components/run-detail/test-result/test-result.component';
 
 @NgModule({
 	declarations: [
@@ -67,7 +68,8 @@ import { DateTimeComponent } from './date-time/date-time.component';
 		HistoryComponent,
 		RunDetailComponent,
 		ResultComponent,
-		DateTimeComponent
+		DateTimeComponent,
+		TestResultComponent
 	],
 	imports: [
 		BrowserModule,

@@ -46,6 +46,7 @@ export class RunOverviewComponent implements OnInit {
   }
 
   formatDate(attribute : string){
+    // Translate into local browser time
     var [date, time] = attribute.split('T');
     time = time.slice(0, time.indexOf('Z'));
     var dateTime = date + " " + time;

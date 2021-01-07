@@ -1,0 +1,6 @@
+run-overview {
+    border: 1px solid black;
+  outline-style: solid;
+  outline-color: invert;
+  outline-width: thin;
+}
