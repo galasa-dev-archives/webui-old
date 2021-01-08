@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { TableModel, TableItem, TableHeaderItem, PaginationModel, PaginationModule} from 'carbon-components-angular';
-import { RunResults } from 'galasa-ras-api-ts-rxjs';
+import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
 
