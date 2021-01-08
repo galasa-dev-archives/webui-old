@@ -1,6 +1,7 @@
-import { Component, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel, PaginationModule} from 'carbon-components-angular';
+import { RunResults } from 'galasa-ras-api-ts-rxjs';
 
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
 
@@ -13,7 +14,7 @@ import { RasApisService } from '../../../core/rasapis.service'
 })
 
 export class ResultsTableComponent implements OnInit {
-  
+
   paginationModel = new PaginationModel();
   model: TableModel = new TableModel();
   itemsPerPageOptions :number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
