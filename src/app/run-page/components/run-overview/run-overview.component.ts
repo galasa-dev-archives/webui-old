@@ -44,16 +44,48 @@ export class RunOverviewComponent implements OnInit {
     this.queued = this.formatDate(this.testStructure.queued);
     this.startTime = this.formatDate(this.testStructure.startTime);
     this.endTime = this.formatDate(this.testStructure.endTime);
+    this.endTime = this.endTime + " (Duration: " + this.getRunDuration().trim() + ")";
     this.testMethods = this.testStructure.methods;
   }
 
   formatDate(attribute : string){
-    // Translate into local browser time
-    var [date, time] = attribute.split('T');
-    time = time.slice(0, time.indexOf('Z'));
-    var dateTime = date + " " + time;
-    return dateTime;
+    var localDateTime = new Date(attribute);
+    var local = localDateTime.toString();
 
+    var year = localDateTime.getFullYear();
+    var month = localDateTime.getMonth() + 1; // January is 0
+    var date = localDateTime.getDate();
+    var time = local.slice(local.lastIndexOf(year.toString()), local.indexOf(" GMT"));
+
+    var timeMillis = attribute.slice(attribute.indexOf('.'), attribute.indexOf('Z'));
+    
+    return (year + "-" + month + "-" + date + " " + time + timeMillis);
+  }
+
+  getRunDuration(){
+    var start = new Date(this.testStructure.startTime);
+    var end = new Date(this.testStructure.endTime);
+  
+    var durationInMilliseconds = end.valueOf() - start.valueOf();
+    console.log("Duration in millis: " + durationInMilliseconds);
+
+    var hours = durationInMilliseconds / (1000 * 60 * 60);
+    var absoluteHours = Math.floor(hours);
+    var minutes = (hours - absoluteHours) * 60;
+    var absoluteMinutes = Math.floor(minutes);
+    var seconds = (minutes - absoluteMinutes) * 60;
+    console.log("seconds: " + seconds);
+    var absoluteSeconds = Math.floor(seconds);
+    console.log("abs seconds: " + absoluteSeconds);
+    var milliseconds = Math.floor((seconds - absoluteSeconds) * 1000);
+    console.log("Millis: " + milliseconds);
+
+    var hourString = absoluteHours > 0 ? absoluteHours == 1 ? "1 hour" : absoluteHours + " hours" : "";
+    var minuteString = absoluteMinutes > 0 ? absoluteMinutes == 1 ? "1 minute" : absoluteMinutes + " minutes" : absoluteHours > 0 && (absoluteSeconds > 0 || milliseconds > 0) ? "0 minutes" : "";
+    var secondString = absoluteSeconds > 0 ? absoluteSeconds == 1 ? "1 second" : absoluteSeconds + " seconds" : (absoluteHours > 0 || absoluteMinutes > 0) && milliseconds > 0 ? "0 seconds" : "";
+    var millisecondString = durationInMilliseconds < 1000 ? durationInMilliseconds == 1 ? "1 millisecond" : durationInMilliseconds == 0 ? "" : durationInMilliseconds + " milliseconds" : milliseconds == 1 ? "1 millisecond" : milliseconds == 0 ? "" : milliseconds + " milliseconds";
+
+    return (hourString + " " + minuteString + " " + secondString + " " + millisecondString);
   }
 
 }
