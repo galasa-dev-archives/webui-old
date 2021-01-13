@@ -38,5 +38,5 @@ export class TestResultComponent implements OnInit {
     }
     
   }
-
+  
 }

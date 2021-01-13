@@ -67,7 +67,7 @@ import { TestResultComponent } from './run-page/components/run-detail/test-resul
 		HistoryComponent,
 		RunDetailComponent,
 		DateTimeComponent,
-		TestResultComponent,
+		TestResultComponent
 	],
 	imports: [
 		BrowserModule,
