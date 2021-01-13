@@ -15,7 +15,7 @@ export class ResultsPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    
   }
 
 }
