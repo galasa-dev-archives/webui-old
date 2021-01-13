@@ -1,1 +1,14 @@
-<p>test-result works!</p>
+<div class='inline-block-element' *ngIf="iconIsPass">
+    <img src="../../../../../assets/icons/pass.svg" id="pass">
+</div>
+<div class='inline-block-element' *ngIf="iconIsFail">
+    <img src="../../../../../assets/icons/fail.svg" id="fail">
+</div>
+<div class='inline-block-element' *ngIf="iconIsNA">
+    <img src="../../../../../assets/icons/na.svg" id="na">
+</div>
+<div class='inline-block-element' *ngIf="iconUnknown">
+    <p>?</p>
+</div>
+
+<div class='inline-block-element'>{{value}}</div>
