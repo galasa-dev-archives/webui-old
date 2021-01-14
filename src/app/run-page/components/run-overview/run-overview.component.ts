@@ -58,17 +58,11 @@ export class RunOverviewComponent implements OnInit {
     var absoluteHours = Math.floor(hours);
     var minutes = (hours - absoluteHours) * 60;
     var absoluteMinutes = Math.floor(minutes);
-    var seconds = (minutes - absoluteMinutes) * 60;
-    var absoluteSeconds = Math.floor(seconds);
-    var milliseconds = Math.floor((seconds - absoluteSeconds) * 1000);
 
-    var hourString = absoluteHours > 0 ? absoluteHours == 1 ? "1 hour" : absoluteHours + " hours" : "";
-    var minuteString = absoluteMinutes > 0 ? absoluteMinutes == 1 ? "1 minute" : absoluteMinutes + " minutes" : absoluteHours > 0 && (absoluteSeconds > 0 || milliseconds > 0) ? "0 minutes" : "";
-    var secondString = absoluteSeconds > 0 ? absoluteSeconds == 1 ? "1 second" : absoluteSeconds + " seconds" : (absoluteHours > 0 || absoluteMinutes > 0) && milliseconds > 0 ? "0 seconds" : "";
-    var millisecondString = durationInMilliseconds < 1000 ? durationInMilliseconds == 1 ? "1 millisecond" : durationInMilliseconds == 0 ? "" : durationInMilliseconds + " milliseconds" :
-      milliseconds == 1 ? "1 millisecond" : milliseconds == 0 ? "" : milliseconds + " milliseconds";
+    var hourString = absoluteHours > 0 ? absoluteHours == 1 ? "1 hour" : absoluteHours + " hours" : "0 hours";
+    var minuteString = absoluteMinutes > 0 ? absoluteMinutes == 1 ? "1 minute" : absoluteMinutes + " minutes" : "0 minutes";
 
-    return (" (Duration: " + hourString + " " + minuteString + " " + secondString + " " + millisecondString + ")");
+    return (" (Duration: " + hourString + " " + minuteString + ")");
   }
 
 }

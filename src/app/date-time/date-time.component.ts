@@ -18,21 +18,39 @@ export class DateTimeComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    this.dateTime = this.formatDate(this.value);
+    var localDateTime = this.getLocalDateTime(this.value);
+    this.dateTime = this.formatDate(localDateTime);
   }
 
-  formatDate(value : string){
-    var localDateTime = new Date(value);
-    var local = localDateTime.toString();
+  getLocalDateTime(value : string){
+    var dateTime = new Date(value);
+    var dt = dateTime.toString();
+
+    var differenceFromUTC = dt.slice(dt.indexOf("GMT") + 3, dt.indexOf("GMT") + 8);
+    var differenceInHours = parseInt(differenceFromUTC.slice(1,3));
+    var differenceInMinutes = parseInt(differenceFromUTC.slice(3,5));
+
+    if (differenceFromUTC.charAt(0) == '+'){
+      dateTime.setHours(dateTime.getHours() + differenceInHours);
+      dateTime.setMinutes(dateTime.getMinutes() + differenceInMinutes);
+    }
+    else{
+      dateTime.setHours(dateTime.getHours() - differenceInHours);
+      dateTime.setMinutes(dateTime.getMinutes() - differenceInMinutes);
+    }
+
+    return dateTime;
+  }
+
+  formatDate(localDateTime : Date){
+    var dateTime = localDateTime.toString();
 
     var year = localDateTime.getFullYear();
     var month = localDateTime.getMonth() + 1; // January is 0
     var date = localDateTime.getDate();
-    var time = local.slice(local.indexOf(year.toString()) + 5, local.indexOf(" GMT"));
-
-    var timeMillis = value.slice(value.indexOf('.'), value.indexOf('Z'));
+    var time = dateTime.slice(dateTime.indexOf(year.toString()) + 5, dateTime.indexOf(" GMT"));
     
-    return (year + "-" + month + "-" + date + " " + time + timeMillis);
+    return (year + "-" + month + "-" + date + " " + time);
   }
 
 }
