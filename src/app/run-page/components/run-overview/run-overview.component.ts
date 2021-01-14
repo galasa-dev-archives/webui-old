@@ -25,7 +25,7 @@ export class RunOverviewComponent implements OnInit {
   startTime : string = "";
   endTime : string = "";
   duration : string = "";
-  
+
   testMethods : TestMethod[] = [];
 
   constructor(private route : ActivatedRoute) { }
