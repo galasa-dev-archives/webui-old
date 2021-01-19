@@ -22,9 +22,7 @@ export class TestResultComponent implements OnInit {
       this.state = this.value.toLowerCase();
     }
     else {
-      console.log("Result unknown");
+      this.state = "unknown";
     }
-    
   }
-  
 }

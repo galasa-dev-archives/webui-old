@@ -23,23 +23,8 @@ export class DateTimeComponent implements OnInit {
   }
 
   getLocalDateTime(value : string){
-    var dateTime = new Date(value);
-    var dt = dateTime.toString();
-
-    var differenceFromUTC = dt.slice(dt.indexOf("GMT") + 3, dt.indexOf("GMT") + 8);
-    var differenceInHours = parseInt(differenceFromUTC.slice(1,3));
-    var differenceInMinutes = parseInt(differenceFromUTC.slice(3,5));
-
-    if (differenceFromUTC.charAt(0) == '+'){
-      dateTime.setHours(dateTime.getHours() + differenceInHours);
-      dateTime.setMinutes(dateTime.getMinutes() + differenceInMinutes);
-    }
-    else{
-      dateTime.setHours(dateTime.getHours() - differenceInHours);
-      dateTime.setMinutes(dateTime.getMinutes() - differenceInMinutes);
-    }
-
-    return dateTime;
+    var localDateTime = new Date(value);
+    return localDateTime;
   }
 
   formatDate(localDateTime : Date){
