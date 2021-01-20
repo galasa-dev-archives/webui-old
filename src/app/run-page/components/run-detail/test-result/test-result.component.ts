@@ -20,8 +20,7 @@ export class TestResultComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges){
     if (this.value != null){
       this.state = this.value.toLowerCase();
-    }
-    else {
+    } else {
       this.state = "unknown";
     }
   }

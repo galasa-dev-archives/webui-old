@@ -18,24 +18,16 @@ export class DateTimeComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    var localDateTime = this.getLocalDateTime(this.value);
-    this.dateTime = this.formatDate(localDateTime);
+    this.dateTime = this.getLocalDateTime(this.value);
   }
 
   getLocalDateTime(value : string){
     var localDateTime = new Date(value);
-    return localDateTime;
-  }
-
-  formatDate(localDateTime : Date){
-    var dateTime = localDateTime.toString();
-
-    var year = localDateTime.getFullYear();
-    var month = localDateTime.getMonth() + 1; // January is 0
-    var date = localDateTime.getDate();
-    var time = dateTime.slice(dateTime.indexOf(year.toString()) + 5, dateTime.indexOf(" GMT"));
+  
+    let options = { year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    var formattedDateTime = localDateTime.toLocaleString(undefined, options);
     
-    return (year + "-" + month + "-" + date + " " + time);
+    return formattedDateTime;
   }
 
 }
