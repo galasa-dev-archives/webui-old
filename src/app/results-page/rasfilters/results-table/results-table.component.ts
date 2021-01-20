@@ -24,7 +24,7 @@ export class ResultsTableComponent implements OnInit {
   bundle: string;
   requestor: string;
   testName : string;
-  loading: Boolean = true;
+  loading: boolean = true;
   
   @ViewChild("customItemTemplate", { static : false })
   protected customItemTemplate: TemplateRef<any>;
@@ -63,7 +63,9 @@ export class ResultsTableComponent implements OnInit {
   }
 
   onClick(index: number){
-    this.router.navigate(['/run/' + this.model.data[index][1].data.id]);
+    if(!this.loading){
+      this.router.navigate(['/run/' + this.model.data[index][1].data.id]);
+    }
   }
 
   selectPage(page){
@@ -72,6 +74,7 @@ export class ResultsTableComponent implements OnInit {
   }
 
   getPage(page){
+    this.loading = true;
     this.rasApis.getRasRuns().then(
       runsApi =>{
         var parameters: RasRunGetRequest = {
