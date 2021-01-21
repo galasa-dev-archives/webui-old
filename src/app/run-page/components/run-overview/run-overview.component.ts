@@ -24,7 +24,7 @@ export class RunOverviewComponent implements OnInit {
   queued : string = "";
   startTime : string = "";
   endTime : string = "";
-  startToEndTime : string = "";
+  duration : string = "";
 
   testMethods : TestMethod[] = [];
 
@@ -34,26 +34,35 @@ export class RunOverviewComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-
     this.result = this.testStructure.result;
     this.runName = this.testStructure.runName;
     this.testShortName = this.testStructure.testShortName;
     this.bundle = this.testStructure.bundle;
     this.testName = this.testStructure.testName;
     this.requestor = this.testStructure.requestor;
-    this.queued = this.formatDate(this.testStructure.queued);
-    this.startTime = this.formatDate(this.testStructure.startTime);
-    this.endTime = this.formatDate(this.testStructure.endTime);
+    this.queued = this.testStructure.queued;
+    this.startTime = this.testStructure.startTime;
+    this.endTime = this.testStructure.endTime;
+    this.duration = this.getRunDuration();
+
     this.testMethods = this.testStructure.methods;
   }
 
-  formatDate(attribute : string){
-    // Translate into local browser time
-    var [date, time] = attribute.split('T');
-    time = time.slice(0, time.indexOf('Z'));
-    var dateTime = date + " " + time;
-    return dateTime;
+  getRunDuration(){
+    var start = new Date(this.testStructure.startTime);
+    var end = new Date(this.testStructure.endTime);
+  
+    var durationInMilliseconds = end.valueOf() - start.valueOf();
 
+    var hours = durationInMilliseconds / (1000 * 60 * 60);
+    var absoluteHours = Math.floor(hours);
+    var minutes = (hours - absoluteHours) * 60;
+    var absoluteMinutes = Math.floor(minutes);
+
+    var hourString = absoluteHours > 0 ? absoluteHours == 1 ? "1 hour" : absoluteHours + " hours" : "0 hours";
+    var minuteString = absoluteMinutes > 0 ? absoluteMinutes == 1 ? "1 minute" : absoluteMinutes + " minutes" : "0 minutes";
+
+    return (" (Duration: " + hourString + " " + minuteString + ")");
   }
 
 }
