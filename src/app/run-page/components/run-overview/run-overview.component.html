@@ -1,12 +1,92 @@
 <div id="container">
-    <app-run-detail [title] = "'Result:'" [value] = "result"></app-run-detail>
-    <app-run-detail [title] = "'Run Name:'" [value] = "runName"></app-run-detail>
-    <app-run-detail [title] = "'Short Name:'" [value] = "testShortName"></app-run-detail>
-    <app-run-detail [title] = "'Bundle:'" [value] = "bundle"></app-run-detail>
-    <app-run-detail [title] = "'Test Name:'" [value] = "testName"></app-run-detail>
-    <app-run-detail [title] = "'Requestor:'" [value] = "requestor"></app-run-detail>
-    <app-date-time [title] = "'Run Requested:'" [value] = "queued"></app-date-time>
-    <app-date-time [title] = "'Run Started:'" [value] = "startTime"></app-date-time>
-    <app-date-time [title] = "'Run Finished:'" [value] = "endTime"></app-date-time>
+
+    <div ibmGrid class="grid">
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Result:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-test-result [value]="result"></app-test-result>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Run Name:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-run-detail [value]="runName"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Short Name:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-run-detail [value]="testShortName"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Bundle:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-run-detail [value]="bundle"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Test Name:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-run-detail [value]="testName"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Requestor:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-run-detail [value]="requestor"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Run Requested:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-date-time [value]="queued"></app-date-time>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Run Started:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <app-date-time [value]="startTime"></app-date-time>
+                </div>
+            </div>
+
+            <div ibmRow class="row">
+                <div ibmCol [columnNumbers]="{'lg': 2}">
+                    <h5>Run Finished:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 8}">
+                    <div class='inline-block-element'><app-date-time [value]="endTime"></app-date-time></div>
+                    <div class='inline-block-element'><app-run-detail [value]="duration"></app-run-detail></div> 
+                 
+                </div>
+            </div>
+
+    </div>
+
     <app-methods [testMethods] = "testMethods"></app-methods>
+
 </div>

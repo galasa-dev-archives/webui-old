@@ -7,8 +7,6 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 })
 export class RunDetailComponent implements OnInit {
 
-  @Input() title: string;
-
   @Input() value: string;
 
   constructor() { }
