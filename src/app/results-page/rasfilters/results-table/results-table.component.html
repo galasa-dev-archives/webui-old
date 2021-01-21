@@ -1,23 +1,28 @@
-<ibm-loading [isActive]="loading" [size]="'sm'"></ibm-loading>
-<ibm-table-container>
-    <ng-template #customItemTemplate let-data="data">{{data.name}}
-    </ng-template> 
-    <ibm-table
-        [model]="model"
-        [stickyHeader]="false"
-        [showSelectionColumn]="false"
-        [striped]="true"
-        [sortable]="true"
-        [enableSingleSelect] = "true"
-        (rowClick)="onClick($event)"
-        >
-    </ibm-table>
-    <ibm-pagination
-            [itemsPerPageOptions] = "itemsPerPageOptions"
-			[model]="paginationModel"
-			[disabled]="loading"
-			[pageInputDisabled]="loading"
-            (selectPage)="selectPage($event)"
-             >
-		</ibm-pagination>
-</ibm-table-container>
+<div id = "loading">
+    <ibm-loading [isActive]="loading" [size]="'md'"></ibm-loading>
+</div>
+<div id="container">
+    <ibm-table-container>
+        <ng-template #customItemTemplate let-data="data">{{data.name}}
+        </ng-template> 
+        <ibm-table
+            [model]="model"
+            [stickyHeader]="false"
+            [showSelectionColumn]="false"
+            [striped]="true"
+            [sortable]="true"
+            [enableSingleSelect] = "true"
+            (rowClick)="onClick($event)"
+            [isDataGrid] = "false"
+            >
+        </ibm-table>
+        <ibm-pagination
+                [itemsPerPageOptions] = "itemsPerPageOptions"
+                [model]="paginationModel"
+                [disabled]="loading"
+                [pageInputDisabled]="loading"
+                (selectPage)="selectPage($event)"
+                >
+            </ibm-pagination>
+    </ibm-table-container>
+</div>
