@@ -1,17 +1,18 @@
-<ibm-loading [isActive]="loading" [size]="'md'"></ibm-loading>
-<ibm-tabs type="container" [followFocus]=true [cacheActive]=true>
-    <ibm-tab heading="Overview">
+<div class="run-page">
+<ibm-loading class="loading-icon" [isActive]="loading" [size]="'md'"></ibm-loading>
+
+<ibm-tabs class="run-page__tabs" [followFocus]=true [cacheActive]=true>
+    <ibm-tab class=".bx--tabs__nav-item overview" heading="Overview">
         <app-run-overview [testStructure]="testStructure"></app-run-overview>
     </ibm-tab>
-    <ibm-tab heading="Run Log">
+    <ibm-tab class=".bx--tabs__nav-item run-log" heading="Run Log">
         <app-run-log [testStructure]="testStructure"></app-run-log>
     </ibm-tab>
-    <ibm-tab heading="Artifacts">
+    <ibm-tab class=".bx--tabs__nav-item artifacts" heading="Artifacts">
         <app-artifact [testStructure]="testStructure"></app-artifact>
     </ibm-tab>
-    <ibm-tab heading="History">
+    <ibm-tab class=".bx--tabs__nav-item history" heading="History">
         <app-history [testStructure]="testStructure"></app-history>
     </ibm-tab>
 </ibm-tabs>
-
-
+</div>

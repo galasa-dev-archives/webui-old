@@ -4,7 +4,7 @@
 
 
 @mixin landing-page-background() {
-	background-color: $ui-01;
+	background-color: $ui-03;
 	position: relative;
 	&::before {
 	  content: '';
@@ -13,7 +13,7 @@
 	  top: 0;
 	  right: -$spacing-05;
 	  bottom: 0;
-	  background: $ui-01;
+	  background: $ui-03;
 	  z-index: -1;
 	}
   }
@@ -29,6 +29,7 @@
 	}
 
 	.body-text {
+		@include type-style("body-long-02");
 		margin-top: carbon--mini-units(2);
 		margin-bottom: carbon--mini-units(4);
 	}
@@ -49,10 +50,11 @@
 
 	h4{
 		color:$text-01;
-		@include carbon--type-style('productive-heading-02');
+		@include carbon--type-style("productive-heading-02");
 	}
 
 	.landing-option .bx--tile{
+		border-radius: 4px;
 		background-color: $ui-02;
 		height: 90%;
 		width: 100%;
@@ -74,7 +76,6 @@
 		width: 20px;
 		height: 20px;
 		}
-
 
 	.landing-page__banner {
 	padding-top: $spacing-07;
@@ -108,6 +109,7 @@
 	}
   }
   .landing-page__r3{
+	background-color: $ui-02;
 	padding-top: $spacing-06;
   }
   .galasa-landing-links{
@@ -118,6 +120,9 @@
 	}
   }
   .landing-links .bx--tile{
+	  background-color: $ui-02;
+	  border: $field-01;
+	  border-radius: 4px;
 	  width: 95%;
 	  height: 90%;
 	  display: block;

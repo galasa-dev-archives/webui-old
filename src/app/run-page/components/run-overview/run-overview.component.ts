@@ -8,7 +8,7 @@ import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
 @Component({
   selector: 'app-run-overview',
   templateUrl: './run-overview.component.html',
-  styleUrls: ['./run-overview.component.css']
+  styleUrls: ['./run-overview.component.scss']
 })
 export class RunOverviewComponent implements OnInit {
 

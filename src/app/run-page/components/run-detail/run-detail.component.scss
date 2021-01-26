@@ -1,0 +1,7 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+
+.run-detail-text {
+     @include carbon--type-style("body-short-02");
+}

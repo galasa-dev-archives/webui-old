@@ -1,3 +1,6 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
 // forces the navigation items to be displayed at all viewport sizes
 .bx--header__nav {
 	display: block;
@@ -30,3 +33,39 @@
 	margin-left: 0;
 	margin-right: 0;
   }
+
+
+  // tabs
+  .bx--tabs__nav-item {
+    background-color: $ui-02;
+    margin-bottom: 48px;
+  }
+  .bx--tabs__nav-item--selected {
+    background-color: #03429D;
+    margin-bottom: 48px;
+  }
+
+  .bx--tabs__nav-link {
+    @include type-style("body-short-01");
+  }
+  .bx--tabs__nav-link:selected {
+    @include type-style("body-short-01");
+    
+  }
+
+  // method table
+  .bx--data-table thead {
+    background-color: #03429D;
+  }
+  .bx--table-header-label {
+    @include type-style("productive-heading-01");
+  }
+  .bx--data-table tbody {
+    background-color: #e0e0e0;
+  }
+  .bx--data-table td {
+    @include type-style("body-short-01");
+  }
+
+
+  

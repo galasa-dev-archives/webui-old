@@ -6,7 +6,7 @@ import { RasApisService } from '../core/rasapis.service';
 @Component({
   selector: 'app-run-page',
   templateUrl: './run-page.component.html',
-  styleUrls: ['./run-page.component.css']
+  styleUrls: ['./run-page.component.scss']
 })
 export class RunPageComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import { TestMethod } from 'galasa-ras-api-ts-rxjs';
 @Component({
   selector: 'app-methods',
   templateUrl: './methods.component.html',
-  styleUrls: ['./methods.component.css']
+  styleUrls: ['./methods.component.scss']
 })
 export class MethodsComponent implements OnInit {
 
