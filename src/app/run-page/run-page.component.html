@@ -1,17 +1,31 @@
-<div class="run-page">
-<ibm-loading class="loading-icon" [isActive]="loading" [size]="'md'"></ibm-loading>
+<div class="breadcrumb-header">
+    <ibm-breadcrumb [noTrailingSlash]="true">
+        <ibm-breadcrumb-item href="/">
+            Dashboard
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item href="/results">
+            Previously run tests
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item current="true">
+            Run detail
+        </ibm-breadcrumb-item>
+    </ibm-breadcrumb>
+</div>
 
-<ibm-tabs class="run-page__tabs" [followFocus]=true [cacheActive]=true>
-    <ibm-tab class=".bx--tabs__nav-item overview" heading="Overview">
-        <app-run-overview [testStructure]="testStructure"></app-run-overview>
+<div class="run-page">
+<ibm-loading class="bx--loading" [isActive]="loading" [size]="'md'" withOverlay={true}></ibm-loading>
+
+<ibm-tabs [followFocus]=true [cacheActive]=true>
+    <ibm-tab class="bx--tabs__nav-link" id="overview" heading="Overview">
+        <app-run-overview class="run-overview" [testStructure]="testStructure"></app-run-overview>
     </ibm-tab>
-    <ibm-tab class=".bx--tabs__nav-item run-log" heading="Run Log">
+    <ibm-tab class="bx--tabs__nav-link" id="run-log" heading="Run Log">
         <app-run-log [testStructure]="testStructure"></app-run-log>
     </ibm-tab>
-    <ibm-tab class=".bx--tabs__nav-item artifacts" heading="Artifacts">
+    <ibm-tab class="bx--tabs__nav-link" id= "artifacts" heading="Artifacts">
         <app-artifact [testStructure]="testStructure"></app-artifact>
     </ibm-tab>
-    <ibm-tab class=".bx--tabs__nav-item history" heading="History">
+    <ibm-tab class="bx--tabs__nav-link" id="history" heading="History">
         <app-history [testStructure]="testStructure"></app-history>
     </ibm-tab>
 </ibm-tabs>
