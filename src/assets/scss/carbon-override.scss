@@ -36,18 +36,30 @@
   }
 
   // Results Table in Results Page
+  .bx--data-table--sort {
+    border-radius: 4px;
+  }
   .bx--table-sort {
     background-color: $active-secondary;
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
     height: 48px;
   }
-  .bx--table-sort th:first-of-type {
+  .bx--table th:first-of-type {
     border-radius: 4px;
   }
-  .bx--table-sort th:last-of-type {
+  .bx--table th:last-of-type {
     border-radius: 4px;
   }
+
+  // Pagination in Results Page
+  .bx--pagination {
+    background-color: $ui-background;
+    @include type-style("body-short-01");
+    height: 48px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
 
 
   // Method Table in Run Page
@@ -59,7 +71,6 @@
   }
   .bx--data-table th:first-of-type {
     border-top-left-radius: 4px;
-    max-width: 80px;
   }  
   .bx--data-table th:last-of-type {
     border-top-right-radius: 4px;
@@ -69,6 +80,9 @@
     @include type-style("body-short-01");
     height: 48px;
   }
+  .bx--data-table tr:hover td {
+    background-color: #e5f0ff;
+  }
 
 
   // Tabs in Run Page 
@@ -76,20 +90,24 @@
     background-color: $ui-02;
   }
   .bx--tabs__nav-item:hover {
-    border-bottom: none;
     background-color: $active-ui;
   }
   .bx--tabs__nav-item--selected {
     background-color: #03429D;
   }
+
   .bx--tabs__nav-link {
+    @include carbon--type-style("body-short-01");
+  }
+  .bx--tabs__nav-link:hover {
     @include carbon--type-style("body-short-01");
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
     color: $inverse-01;
   }
-  #overview-header.bx--tabs__nav-link{
+
+  #overview-header.bx--tabs__nav-link {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }

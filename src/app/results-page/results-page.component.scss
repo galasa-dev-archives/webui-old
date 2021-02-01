@@ -1,21 +1,12 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
-.breadcrumb-header {
-    max-width: 100vw;
-    height: 48px;
-    padding-left: 40px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    @include type-style("body-short-01");
-}
-
 .results-page {
     background-color: $ui-03;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding-top: 48px;
+    padding-bottom: 48px;
 }
 
 .filter{

@@ -1,16 +1,4 @@
-<div class="breadcrumb-header">
-    <ibm-breadcrumb [noTrailingSlash]="true">
-        <ibm-breadcrumb-item href="/">
-            Dashboard
-        </ibm-breadcrumb-item>
-        <ibm-breadcrumb-item href="/results">
-            Previously run tests
-        </ibm-breadcrumb-item>
-        <ibm-breadcrumb-item current="true">
-            Run detail
-        </ibm-breadcrumb-item>
-    </ibm-breadcrumb>
-</div>
+<app-breadcrumb></app-breadcrumb>
 
 <div class="run-page">
 <ibm-loading class="bx--loading" [isActive]="loading" [size]="'md'" withOverlay={true}></ibm-loading>

@@ -1,4 +1,4 @@
-<div id="container" class="run-overview">
+<div class="run-overview">
 
     <div ibmGrid class="grid">
 
@@ -7,7 +7,7 @@
                     <h5>Result:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-test-result [value]="result"></app-test-result>
+                    <app-test-result [value]="result" class="run-overview__value"></app-test-result>
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
                     <h5>Run Name:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-run-detail [value]="runName"></app-run-detail>
+                    <app-run-detail [value]="runName" class="run-overview__value"></app-run-detail>
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                     <h5>Short Name:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-run-detail [value]="testShortName"></app-run-detail>
+                    <app-run-detail [value]="testShortName" class="run-overview__value"></app-run-detail>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                     <h5>Bundle:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-run-detail [value]="bundle"></app-run-detail>
+                    <app-run-detail [value]="bundle" class="run-overview__value"></app-run-detail>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                     <h5>Test Name:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-run-detail [value]="testName"></app-run-detail>
+                    <app-run-detail [value]="testName" class="run-overview__value"></app-run-detail>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                     <h5>Requestor:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-run-detail [value]="requestor"></app-run-detail>
+                    <app-run-detail [value]="requestor" class="run-overview__value"></app-run-detail>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
                     <h5>Run Requested:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-date-time [value]="queued"></app-date-time>
+                    <app-date-time [value]="queued" class="run-overview__value"></app-date-time>
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                     <h5>Run Started:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <app-date-time [value]="startTime"></app-date-time>
+                    <app-date-time [value]="startTime" class="run-overview__value"></app-date-time>
                 </div>
             </div>
 
@@ -79,8 +79,8 @@
                     <h5>Run Finished:</h5>
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 8}">
-                    <div class='inline-block-element'><app-date-time [value]="endTime"></app-date-time></div>
-                    <div class='inline-block-element'><app-run-detail [value]="duration"></app-run-detail></div> 
+                    <div class='inline-block-element'><app-date-time [value]="endTime" class="run-overview__value"></app-date-time></div>
+                    <div class='inline-block-element'><app-run-detail [value]="duration" class="run-overview__value"></app-run-detail></div> 
                  
                 </div>
             </div>

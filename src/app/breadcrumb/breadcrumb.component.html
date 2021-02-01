@@ -1,0 +1,15 @@
+<div class="breadcrumb-header">
+
+    <ibm-breadcrumb [noTrailingSlash]="true">
+
+        <ibm-breadcrumb-item
+            *ngFor="let breadcrumb of breadcrumbItems"
+            [breadcrumb]="breadcrumb"
+            href="{{breadcrumb.url}}"
+            >
+            {{breadcrumb.breadcrumbName}}
+        </ibm-breadcrumb-item>
+
+    </ibm-breadcrumb>
+
+</div>

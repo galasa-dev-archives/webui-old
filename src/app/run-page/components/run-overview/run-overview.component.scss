@@ -7,24 +7,25 @@
   // max-width: 1456px;
   max-width: 100vw;
   border-radius: 4px;
-  // background-color: $ui-background; 
   background-color: $ui-background;
   position: relative;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 16px;
-  padding-bottom: 48px;
+  padding-bottom: 40px;
 }
 
 .run-overview__row {
-  margin-bottom: $spacing-03;
-  margin-top: $spacing-03;
+  margin-bottom: $spacing-05;
 }
 
 .run-overview__attribute {
-  max-width: 12.5vw;
-  margin-right: $spacing-03;
   @include type-style("productive-heading-02");
+  @include carbon--font-weight("semibold");
+}
+
+.run-overview__value {
+  @include carbon--type-style("body-short-02");
 }
 
 .inline-block-element {

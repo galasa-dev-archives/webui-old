@@ -1,0 +1,12 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.date-time {
+    @include carbon--type-style("body-short-01");
+}
+
+#loading{
+    z-index: 999;
+    margin: 0 auto;
+    position: absolute;
+}
