@@ -9,3 +9,9 @@
     padding-bottom: 15px;
     @include type-style("body-short-01");
 }
+
+.bx--breadcrumb-item {
+    position: static;
+    overflow: hidden;
+    display: inline-flex;
+}

@@ -2,16 +2,17 @@
 @import "~carbon-components/scss/globals/scss/spacing";
 
 .icon {
-    margin: 2px;
+    margin-right: 8px;
     width: 16px;
     height: 16px;
   }
 
 
 .inline-block-element {
+    align-items: center;
     display: inline-block;
   }
 
 .test-result {
-  @include carbon--type-style("body-short-01");
+  @include carbon--type-style("body-short-02");
 }

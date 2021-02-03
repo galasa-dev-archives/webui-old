@@ -45,10 +45,10 @@
     @include carbon--type-style("productive-heading-01");
     height: 48px;
   }
-  .bx--table th:first-of-type {
+  .bx--table-sort:first-of-type {
     border-radius: 4px;
   }
-  .bx--table th:last-of-type {
+  .bx--table-sort:last-of-type {
     border-radius: 4px;
   }
 
@@ -86,6 +86,10 @@
 
 
   // Tabs in Run Page 
+  .bx--tabs:first-of-type {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
   .bx--tabs__nav-item {
     background-color: $ui-02;
   }
