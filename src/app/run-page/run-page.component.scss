@@ -1,14 +1,18 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
-.results-page {
+  .run-page {
     background-color: $ui-03;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 48px;
+    // padding-top: ;
     padding-bottom: 48px;
-}
+  }
 
-.filter{
-    width: 30vw;
-}
+  .run-overview {
+    border-radius: 4px;
+  }
+
+  
+
+    

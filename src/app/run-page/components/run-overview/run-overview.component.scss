@@ -1,0 +1,57 @@
+$feature-flags: (
+  grid-columns-16: true,
+);
+
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+@import "~carbon-components/scss/globals/grid/grid";
+
+.run-overview.bx--grid{
+  min-height: 764px;
+  min-width: 994px;
+  max-height: 772px;
+  max-width: 1456px;
+  // max-height: 100vh;
+  // max-width: 100vw;
+  border-radius: 4px;
+  background-color: $ui-background;
+  position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 40px;
+}
+
+.run-overview__bx--row {
+  margin-bottom: $spacing-05;
+}
+
+.run-overview__attribute.bx--col {
+  @include type-style("productive-heading-02");
+  @include carbon--font-weight("semibold");
+  position: static;
+}
+
+.run-overview__value.bx--col {
+  padding-left: 32px;
+  @include carbon--type-style("body-short-02");
+  position: static;
+  overflow: hidden;
+}
+
+.inline-block-element {
+  display: inline-block;
+}
+
+.inline-block-element:first-child {
+  margin-right: 10px;
+}
+
+.method-table {
+  min-width: 912px;
+  max-width: 1424px;
+  position: absolute;
+  bottom: 48px;
+  left: 16px;
+  right: 16px;
+}

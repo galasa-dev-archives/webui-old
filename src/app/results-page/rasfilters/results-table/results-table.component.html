@@ -4,7 +4,13 @@
 <div id="container">
     <ibm-table-container>
         <ng-template #customItemTemplate let-data="data">{{data.name}}
-        </ng-template> 
+        </ng-template>
+        <ng-template #customResultTemplate let-data="data">
+            <app-test-result [value]="data"></app-test-result>
+        </ng-template>
+        <ng-template #customDateTemplate let-data="data">
+            <app-date-time [value]="data" class="date-time"></app-date-time>
+        </ng-template>
         <ibm-table
             [model]="model"
             [stickyHeader]="false"

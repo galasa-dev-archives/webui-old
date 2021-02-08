@@ -1,0 +1,6 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.date-time-value {
+    @include type-style("body-short-02");
+}

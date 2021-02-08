@@ -1,3 +1,6 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
 // forces the navigation items to be displayed at all viewport sizes
 .bx--header__nav {
 	display: block;
@@ -5,11 +8,12 @@
 
 
 .bx--header {
-	background-color: #03429D;
+  background-color: #03429D;
+  height: 48px;
+  text-align: center;
 }
 
 .bx--content{
-
 	background-color: $ui-background;
 	padding:0;
 }
@@ -30,3 +34,116 @@
 	margin-left: 0;
 	margin-right: 0;
   }
+
+  // Results Table in Results Page
+  .bx--table-sort {
+    background-color: $active-secondary;
+    color: $inverse-01;
+    @include carbon--type-style("productive-heading-01");
+    height: 48px;
+  }
+  .bx--table-sort:first-of-type {
+    border-radius: 4px;
+  }
+  .bx--table-sort:last-of-type {
+    border-radius: 4px;
+  }
+
+  // Pagination underneath Results Page
+  .bx--pagination {
+    background-color: $ui-background;
+    @include type-style("body-short-01");
+    height: 48px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+
+  // Method Table in Run Page
+  .bx--data-table th {
+    background-color: $active-secondary;
+    color: $inverse-01;
+    @include carbon--type-style("productive-heading-01");
+    height: 48px;
+  }
+  .bx--data-table th:first-of-type {
+    border-top-left-radius: 4px;
+  }  
+  .bx--data-table th:last-of-type {
+    border-top-right-radius: 4px;
+  }  
+  .bx--data-table td {
+    background-color: $ui-background;
+    @include type-style("body-short-01");
+    height: 48px;
+  }
+  .bx--data-table tr:hover td {
+    background-color: #e5f0ff;
+  }
+
+
+  // Tabs in Run Page 
+  .bx--tabs__nav-item {
+    background-color: $ui-02;
+  }
+  .bx--tabs__nav-item:hover {
+    background-color: $active-ui;
+  }
+  .bx--tabs__nav-item--selected {
+    background-color: #03429D;
+    color: $inverse-01; // not working
+  }
+
+  .bx--tabs__nav-link {
+    @include carbon--type-style("body-short-01");
+  }
+  .bx--tabs__nav-link:hover {
+    @include carbon--type-style("body-short-01");
+  }
+  .bx--tabs__nav-link:selected {
+    @include carbon--type-style("body-short-01");
+    color: $inverse-01; // not working
+  }
+
+  .bx--tabs:first-of-type { // not working
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .bx--tabs:last-of-type { // not working
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  #overview-header.bx--tabs__nav-link { // not working
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  #history-header.bx--tabs__nav-link { // not working
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+
+  // Loading icon
+  .bx--loading {
+    height: 48px;
+    width: 48px;
+  }
+
+
+  // Toggle in Footer
+  .bx--toggle {
+    width: 106px;
+    height: 18px;
+  }
+  .bx--toggle__switch::before {
+    background-color: $interactive-02;
+  }
+  .bx--toggle:checked {
+    background-color: #03429D;
+  }
+  
+
+
+
+  

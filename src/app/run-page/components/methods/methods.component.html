@@ -1,4 +1,7 @@
 <ibm-table-container>
+    <ng-template #customItemTemplate let-data="data">
+        <app-test-result [value]="data"></app-test-result>
+    </ng-template> 
     <ibm-table
         [model]="model"
         [stickyHeader]="false"
@@ -6,6 +9,7 @@
         [sortable]="false"
         [striped]="false"
         [size]="'md'"
-    >
+        >
+        
     </ibm-table>
 </ibm-table-container>

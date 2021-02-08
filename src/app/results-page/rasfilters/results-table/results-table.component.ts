@@ -9,7 +9,7 @@ import { RasApisService } from '../../../core/rasapis.service'
 @Component({
   selector: 'app-results-table',
   templateUrl: './results-table.component.html',
-  styleUrls: ['./results-table.component.css']
+  styleUrls: ['./results-table.component.scss']
 })
 
 export class ResultsTableComponent implements OnInit {
@@ -28,6 +28,12 @@ export class ResultsTableComponent implements OnInit {
   
   @ViewChild("customItemTemplate", { static : false })
   protected customItemTemplate: TemplateRef<any>;
+
+  @ViewChild("customResultTemplate", { static : false })
+  protected customResultTemplate: TemplateRef<any>;
+
+  @ViewChild("customDateTemplate", { static : false })
+  protected customDateTemplate: TemplateRef<any>;
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router) { 
     this.router.events.subscribe((ev) => {
@@ -94,11 +100,11 @@ export class ResultsTableComponent implements OnInit {
               this.paginationModel.totalDataLength = result.amountOfRuns;
               for(let run of result.runs){
                 newData.push([
-                  new TableItem({data: run.testStructure.result}),
+                  new TableItem({data: run.testStructure.result, template: this.customResultTemplate}),
                   new TableItem({data: {name: run.testStructure.runName, id: run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: run.testStructure.testName}), 
-                  new TableItem({data: run.testStructure.startTime}),
-                  new TableItem({data: run.testStructure.endTime})]);
+                  new TableItem({data: run.testStructure.startTime, template: this.customDateTemplate}),
+                  new TableItem({data: run.testStructure.endTime, template: this.customDateTemplate})]);
                 newRuns.push(run);
               }
           }else{
