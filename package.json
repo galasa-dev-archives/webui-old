@@ -1,6 +1,6 @@
 {
   "name": "carbon-angular-starter",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "license": "",
   "scripts": {
     "ng": "ng",
@@ -29,9 +29,9 @@
     "carbon-components": "^10.26.0",
     "carbon-components-angular": "^4.38.0",
     "core-js": "^3.6.5",
-    "galasa-cps-api-ts-rxjs": "^0.14.0-SNAPSHOT",
-    "galasa-ras-api-ts-rxjs": "^0.14.0-SNAPSHOT",
-    "galasa-runs-api-ts-rxjs": "^0.14.0-SNAPSHOT",
+    "galasa-cps-api-ts-rxjs": "^0.15.0-SNAPSHOT",
+    "galasa-ras-api-ts-rxjs": "^0.15.0-SNAPSHOT",
+    "galasa-runs-api-ts-rxjs": "^0.15.0-SNAPSHOT",
     "rxjs": "^6.6.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.10.3"
