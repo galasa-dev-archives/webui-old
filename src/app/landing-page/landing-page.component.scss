@@ -93,6 +93,27 @@
 		height: 20px;
 		}
 
+	.bx--btn {
+		bottom: 16px;
+		right: 16px;
+		width: 98px;
+		height: 32px;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		
+		border: none;
+		border-radius: 4px;
+		background-color: #03429d;
+		color: $inverse-01;
+		@include carbon--type-style("body-short-01");
+	}
+	.bx--btn:hover {
+		background-color: #033a8a;
+		color: $inverse-01;
+	}
+
 // 	.landing-page__banner {
 // 	padding-top: $spacing-07;
 // 	padding-bottom: $spacing-09 ;
@@ -162,16 +183,5 @@
 	  margin-left: 8px;
 	  margin-right: 8px;
   }
-
-//  .landing-links.bx--tile#1 {
-// 	margin-right: 8px;
-//   }
-//  .landing-links.bx--tile#2 {
-// 	margin-left: 8px;
-// 	margin-right: 8px;
-//   }
-//   .landing-links.bx--tile#3 {
-// 	margin-left: 8px;
-//   }
 
 }

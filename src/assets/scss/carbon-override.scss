@@ -36,9 +36,6 @@
   }
 
   // Results Table in Results Page
-  .bx--data-table--sort {
-    border-radius: 4px;
-  }
   .bx--table-sort {
     background-color: $active-secondary;
     color: $inverse-01;
@@ -52,7 +49,7 @@
     border-radius: 4px;
   }
 
-  // Pagination in Results Page
+  // Pagination underneath Results Page
   .bx--pagination {
     background-color: $ui-background;
     @include type-style("body-short-01");
@@ -86,10 +83,6 @@
 
 
   // Tabs in Run Page 
-  .bx--tabs:first-of-type {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
   .bx--tabs__nav-item {
     background-color: $ui-02;
   }
@@ -98,6 +91,7 @@
   }
   .bx--tabs__nav-item--selected {
     background-color: #03429D;
+    color: $inverse-01; // not working
   }
 
   .bx--tabs__nav-link {
@@ -108,14 +102,23 @@
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
-    color: $inverse-01;
+    color: $inverse-01; // not working
   }
 
-  #overview-header.bx--tabs__nav-link {
+  .bx--tabs:first-of-type { // not working
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }
-  #history-header.bx--tabs__nav-link {
+  .bx--tabs:last-of-type { // not working
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  #overview-header.bx--tabs__nav-link { // not working
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  #history-header.bx--tabs__nav-link { // not working
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
   }
