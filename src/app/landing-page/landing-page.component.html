@@ -6,117 +6,84 @@
 	</div> -->
 	<!--  2nd row starts here-->
 	<div ibmRow class="landing-page__r2">
-		<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+		<div ibmCol class = "get-started-col" [columnNumbers]="{'md': 4, 'lg': 4}">
 			<h5 class="subtitle landing-page__label">Getting Started</h5>
 			<p class="landing-page__p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 				Aenean commodo ligula eget dolor. Aenean massa.</p>
 		</div>
-		<div ibmCol class="first-tile-col" [columnNumbers]="{'md': 12, 'lg': 12}">
+		<div ibmCol class="first-tile-col " [columnNumbers]="{'md': 12, 'lg': 12}">
 			<div ibmRow>
 				<!-- bx--col-lg-8 adjust the width of the tile-->
-				<div class=" bx--col-md-4 bx--col-lg-8">
+				<div class=" bx--col-md-4 bx--col-lg-8 tile-bx">
 
 					<div class="bx--aspect-ratio bx--aspect-ratio--2x1">
-						<div class="bx--aspect-ratio--object">
+						
 
 							<ibm-clickable-tile class="landing-option" [route]="['results']" id="past-results">
-								<h4 class="bx--resource-card__subtitle">View past results</h4>
+								<h4 class="bx--resource-card__subtitle">Previously run tests</h4>
 								<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
 									elit. Aenean commodo ligula eget dolor. </p>
-								<div>
+									<img src = "/assets/icons/galasa-previouly-run-tests.svg" alt = "previously run tests" class = "bx--image">
+								
 									<button class="bx--btn">
 										View tests
 									</button>
 
-								</div>
+								
 							</ibm-clickable-tile>
-						</div>
+						
 					</div>
 
 
 				</div>
 				<!-- bx--col-lg-7 adjust the width of the tile-->
-				<div class="  bx--col-md-4 bx--col-lg-8">
+				<div class="  bx--col-md-4 bx--col-lg-8 tile-bx">
 					<div class="bx--aspect-ratio bx--aspect-ratio--2x1">
-						<div class="bx--aspect-ratio--object">
 							<ibm-clickable-tile class="landing-option" id="system-results">
-								<h4 class="bx--resource-card__subtitle">View system results</h4>
+								<h4 class="bx--resource-card__subtitle">System status</h4>
 								<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
 									elit. Aenean commodo ligula eget dolor. </p>
-								<div class="bx--resource-card__icon--action">
-									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										version="1.1" id="icon" x="0px" y="0px" width="20px" height="20px"
-										viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;"
-										xml:space="preserve">
-										<style type="text/css">
-											.st0 {
-												fill: none;
-											}
-										</style>
-										<rect id="_Transparent_Rectangle_" class="st0" width="20" height="20" />
-										<polygon
-											points="18,6 16.6,7.4 24.1,15 3,15 3,17 24.1,17 16.6,24.6 18,26 28,16 " />
-									</svg>
-								</div>
+									<img src = "/assets/icons/galasa-system-status.svg" alt = "System status" class = "bx--image">
+										<button class="bx--btn">
+											Check status
+										</button>
+	
+									
 							</ibm-clickable-tile>
-						</div>
 					</div>
 
 				</div>
 
 				<!-- bx--col-lg-7 adjust the width of the tile-->
-				<div class="  bx--col-md-4 bx--col-lg-8">
+				<div class="  bx--col-md-4 bx--col-lg-8 tile-bx">
 					<div class="bx--aspect-ratio bx--aspect-ratio--2x1">
-						<div class="bx--aspect-ratio--object">
 							<ibm-clickable-tile class="landing-option" id="configure-system">
-								<h4 class="bx--resource-card__subtitle">Configure system</h4>
+								<h4 class="bx--resource-card__subtitle">System Configuration</h4>
 								<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
 									elit. Aenean commodo ligula eget dolor. </p>
-								<div class="bx--resource-card__icon--action">
-									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										version="1.1" id="icon" x="0px" y="0px" width="20px" height="20px"
-										viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;"
-										xml:space="preserve">
-										<style type="text/css">
-											.st0 {
-												fill: none;
-											}
-										</style>
-										<rect id="_Transparent_Rectangle_" class="st0" width="20" height="20" />
-										<polygon
-											points="18,6 16.6,7.4 24.1,15 3,15 3,17 24.1,17 16.6,24.6 18,26 28,16 " />
-									</svg>
-								</div>
+									<img src = "/assets/icons/galasa-system-configuration.svg" alt = "System configurstion" class = "bx--image">
+									<button class="bx--btn">
+										Configure system
+									</button>
+	
+									
 							</ibm-clickable-tile>
-						</div>
 					</div>
 
 				</div>
 				<!-- bx--col-lg-7 adjust the width of the tile-->
-				<div class="  bx--col-md-4 bx--col-lg-8">
+				<div class="  bx--col-md-4 bx--col-lg-8 tile-bx">
 					<div class="bx--aspect-ratio bx--aspect-ratio--2x1">
-						<div class="bx--aspect-ratio--object">
 							<ibm-clickable-tile class="landing-option" id="submit-tests">
 								<h4 class="bx--resource-card__subtitle">Submit tests</h4>
 								<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
 									elit. Aenean commodo ligula eget dolor. </p>
-								<div class="bx--resource-card__icon--action">
-									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										version="1.1" id="icon" x="0px" y="0px" width="20px" height="20px"
-										viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;"
-										xml:space="preserve">
-										<style type="text/css">
-											.st0 {
-												fill: none;
-											}
-										</style>
-										<rect id="_Transparent_Rectangle_" class="st0" width="20" height="20" />
-										<polygon
-											points="18,6 16.6,7.4 24.1,15 3,15 3,17 24.1,17 16.6,24.6 18,26 28,16 " />
-									</svg>
-								</div>
+									<img src = "/assets/icons/galasa-submit-test.svg" alt = "Submit tests" class = "bx--image">
+									<button class="bx--btn">
+										Submit
+									</button>
+	
 							</ibm-clickable-tile>
-						</div>
 					</div>
 
 				</div>
@@ -134,102 +101,34 @@
 		<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 4}">
 			
 			<ibm-clickable-tile class="landing-links" id="1">
-				<h4>Edit Profile</h4>
+				<h4>Profile</h4>
 				<div class="bx--resource-card__icon--img">
-					<svg xmlns="http://www.w3.org/2000/svg" id="icon" width="32" height="32" viewBox="0 0 32 32">
-						<defs>
-							<style>
-								.cls-1 {
-									fill: none;
-								}
-							</style>
-						</defs>
-						<title>user--avatar--filled--alt</title>
-						<path
-							d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm8,22.9188v-.576l0-.0323A5.2086,5.2086,0,0,0,19,19H13a5.2,5.2,0,0,0-4.9893,5.3105c0,.0108-.0107.0215-.0107.0323v.5854a12.0053,12.0053,0,1,1,16-.0094Z"
-							transform="translate(0 0)" />
-						<path d="M16,7a5,5,0,1,0,5,5A5,5,0,0,0,16,7Z" transform="translate(0 0)" />
-						<rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1"
-							width="32" height="32" />
-					</svg>
+					<img src="/assets/icons/user--avatar.svg" alt="User avatar">
 				</div>
-				<div class="bx--resource-card__icon--action">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-						id="icon" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 32 32"
-						style="enable-background:new 0 0 32 32;" xml:space="preserve">
-						<style type="text/css">
-							.st0 {
-								fill: none;
-							}
-						</style>
-						<rect id="_Transparent_Rectangle_" class="st0" width="20" height="20" />
-						<polygon points="18,6 16.6,7.4 24.1,15 3,15 3,17 24.1,17 16.6,24.6 18,26 28,16 " />
-					</svg>
+				<div class="bx--resource-card__icon--action link-action">
+					<p>Edit profile</p>
 				</div>
 			</ibm-clickable-tile>
 		</div>
 		<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 4}">
 			<ibm-clickable-tile class="landing-links" id="2">
-				<h4>Read Docs</h4>
+				<h4>Galasa documents</h4>
 				<div class="bx--resource-card__icon--img">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-						id="icon" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32"
-						style="enable-background:new 0 0 32 32;" xml:space="preserve">
-						<style type="text/css">
-							.st0 {
-								fill: none;
-							}
-						</style>
-						<title>document</title>
-						<path
-							d="M25.7,9.3l-7-7C18.5,2.1,18.3,2,18,2H8C6.9,2,6,2.9,6,4v24c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V10C26,9.7,25.9,9.5,25.7,9.3  z M18,4.4l5.6,5.6H18V4.4z M24,28H8V4h8v6c0,1.1,0.9,2,2,2h6V28z" />
-						<rect x="10" y="22" width="12" height="2" />
-						<rect x="10" y="16" width="12" height="2" />
-						<rect class="st0" width="32" height="32" />
-					</svg>
+					<img src="/assets/icons/document(1).svg" alt = "document">
 				</div>
-				<div class="bx--resource-card__icon--action">
-					<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
-						fill="currentColor" aria-label="Open resource" width="20" height="20" viewBox="0 0 32 32"
-						role="img">
-						<path d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"></path>
-						<path d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"></path>
-					</svg>
+				<div class="bx--resource-card__icon--action link-action">
+					<p>Read docs</p>
 				</div>
 			</ibm-clickable-tile>
 		</div>
 		<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 4}">
 			<ibm-clickable-tile class="landing-links" id="3">
-				<h4>Get Support</h4>
+				<h4>Support</h4>
 				<div class="bx--resource-card__icon--img">
-					<svg xmlns="http://www.w3.org/2000/svg" id="icon" width="32" height="32" viewBox="0 0 32 32">
-						<defs>
-							<style>
-								.cls-1 {
-									fill: none;
-								}
-							</style>
-						</defs>
-						<title>closed-caption--alt</title>
-						<rect x="19" y="17" width="6" height="2" />
-						<rect x="11" y="17" width="6" height="2" />
-						<rect x="6" y="17" width="3" height="2" />
-						<rect x="22" y="13" width="4" height="2" />
-						<rect x="13" y="13" width="7" height="2" />
-						<rect x="6" y="13" width="5" height="2" />
-						<path
-							d="M17.7358,30,16,29l4-7h6a1.9966,1.9966,0,0,0,2-2V8a1.9966,1.9966,0,0,0-2-2H6A1.9966,1.9966,0,0,0,4,8V20a1.9966,1.9966,0,0,0,2,2h9v2H6a3.9993,3.9993,0,0,1-4-4V8A3.9988,3.9988,0,0,1,6,4H26a3.9988,3.9988,0,0,1,4,4V20a3.9993,3.9993,0,0,1-4,4H21.1646Z" />
-						<rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1"
-							width="32" height="32" />
-					</svg>
+					<img src ="/assets/icons/forum.svg" alt = "forum">
 				</div>
-				<div class="bx--resource-card__icon--action">
-					<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
-						fill="currentColor" aria-label="Open resource" width="20" height="20" viewBox="0 0 32 32"
-						role="img">
-						<path d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"></path>
-						<path d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"></path>
-					</svg>
+				<div class="bx--resource-card__icon--action link-action">
+					<p>Get Support</p>
 				</div>
 			</ibm-clickable-tile>
 		</div>
