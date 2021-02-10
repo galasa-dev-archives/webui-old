@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="128px"
+	 height="128px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:#03429D;}
+	.st2{fill:none;}
+	.st3{fill:#F8F788;}
+	.st4{fill:#03429D;}
+	.st5{fill:#FFFFFF;}
+	.st6{fill:#FFAD90;}
+	.st7{fill:none;stroke:#03429D;stroke-miterlimit:10;}
+	.st8{fill:#9EBAE3;}
+</style>
+<g id="background" class="st0">
+</g>
+<g id="Layer_1">
+	<circle class="st4" cx="37" cy="15" r="4"/>
+	<circle class="st6" cx="37" cy="15" r="3"/>
+	<path class="st4" d="M37,23c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4s4-1.8,4-4C41,24.8,39.2,23,37,23z M37,30c-1.7,0-3-1.3-3-3s1.3-3,3-3
+		s3,1.3,3,3S38.7,30,37,30z"/>
+	<path class="st4" d="M37,27c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4s4-1.8,4-4C41,28.8,39.2,27,37,27z M37,34c-1.7,0-3-1.3-3-3s1.3-3,3-3
+		s3,1.3,3,3S38.7,34,37,34z"/>
+	<rect x="63.5" y="63.5" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 191.5 -63.5)" class="st4" width="128" height="1"/>
+	<rect x="0" transform="matrix(-1 -1.224647e-16 1.224647e-16 -1 128 1)" class="st4" width="128" height="1"/>
+	<rect y="127" transform="matrix(-1 -1.224647e-16 1.224647e-16 -1 32 255)" class="st4" width="32" height="1"/>
+	<rect x="-63.5" y="63.5" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 64.5 63.5)" class="st4" width="128" height="1"/>
+	<g>
+		<polygon class="st3" points="27.8,127.5 63,65 98.1,127.5 		"/>
+		<path class="st4" d="M63,66l34.3,61H28.7L63,66 M63,64l-36,64h72L63,64L63,64z"/>
+	</g>
+	<g>
+		<polygon class="st5" points="62.9,127.5 80.5,96.1 98.1,127.5 		"/>
+		<path class="st4" d="M80.5,97.2L97.3,127H63.7L80.5,97.2 M80.5,95.1L62,128h37L80.5,95.1L80.5,95.1z"/>
+	</g>
+	<g>
+		<polygon class="st6" points="69.9,127.5 84,102.4 98.1,127.5 		"/>
+		<path class="st4" d="M84,103.4L97.3,127H70.7L84,103.4 M84,101.3L69,128h30L84,101.3L84,101.3z"/>
+	</g>
+	<rect x="51" y="57" class="st4" width="24" height="1"/>
+	<rect x="39" y="50" class="st4" width="48" height="1"/>
+	<rect x="15.1" y="43" class="st4" width="96" height="1"/>
+	<g>
+		<rect x="72.5" y="11.5" class="st5" width="23" height="23"/>
+		<path class="st4" d="M95,12v22H73V12H95 M96,11H72v24h24V11L96,11z"/>
+	</g>
+</g>
+</svg>
