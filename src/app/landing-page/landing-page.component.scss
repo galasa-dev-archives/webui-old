@@ -20,7 +20,7 @@
 
 
 .landing-page {
-
+	min-width: 750px;
 
 	.title {
 		@include type-style("productive-heading-04");
@@ -31,10 +31,6 @@
 		margin-bottom: 16px;
 	}
 
-	// .landing-option .subtitle {
-	// 	color: $text-01;
-	// 	@include carbon--type-style("productive-heading-03");
-	// }
 
 	h4 {
 		color: $text-01;
@@ -45,27 +41,9 @@
 
 	.body-text {
 		@include carbon--type-style("body-long-02");
-		// margin-top: carbon--mini-units(2);
-		// margin-bottom: carbon--mini-units(4);
 	}
 	.get-started-col{
 		padding-bottom: 1rem;
-	}
-
-	// Class not in HTML
-	.list {
-		max-width: carbon--mini-units(63);
-		padding-left: carbon--mini-units(6);
-		column-count: 2;
-
-		@media only screen and (max-width: 1055px) {
-			margin-top: carbon--mini-units(2);
-		}
-	}
-
-	// Class not in HTML
-	.starter-tab-description {
-		margin-bottom: carbon--mini-units(2);
 	}
 
 	.first-tile-col{
@@ -87,10 +65,10 @@
 		background-color: $ui-02;
 		height: 90%;
 		width: 100%;
-		//max-height: 298px;
-		//max-width: 552px;
+		max-width: 700px; //use media rule for smaller screens
 		margin-bottom: 1rem;
 		padding: 11px 15px 11px 15px;
+		
 
 	}
 	.landing-option  > * {
@@ -121,11 +99,12 @@
 		}
 
 	.bx--btn {
+		font-size: 1.5 rem im !important; 
+		color: $text-04;
 		position: absolute;
 		bottom: 1rem;
 		right: 1rem;
 		max-height: 32px;
-		width: fit-content;
 		padding-right: 15px;
 		padding-top: 8px;
 		padding-bottom: 8px;
@@ -133,22 +112,15 @@
 		border: none;
 		border-radius: 4px;
 		background-color: #03429d;
-		color: $inverse-01;
 		@include carbon--type-style("body-short-01");
 	}
 	.bx--btn:hover {
 		background-color: #033a8a;
-		color: $inverse-01;
+		font-size: 1 rem;
+		color: $text-04;
 	}
 
-// 	.landing-page__banner {
-// 	padding-top: $spacing-07;
-// 	padding-bottom: $spacing-09 ;
-// 	@include landing-page-background;
-//   }
-
   .landing-page__r2 {
-	// margin-top: rem(-40px);
 	padding-top: $spacing-09;
 	padding-bottom: $spacing-07;
 	padding-left: $spacing-05;
@@ -156,11 +128,6 @@
 	@include landing-page-background;
   }
 
-  // Class not in HTML
-  .landing-page__subheading {
-	@include carbon--type-style("productive-heading-03");
-	@include carbon--font-weight("semibold");
-  }
   .landing-option .landing-page__p {
 	  max-width: 400px;
 	  width: 100%;
@@ -171,9 +138,6 @@
 	@include carbon--type-style("body-long-02");
 	max-width: 352px;
 	margin-right: 32px;
-	// margin-top: $spacing-05;
-	// margin-bottom: $spacing-08;
-	// margin-right: $spacing-06*3;
 	color: $text-02;
 	@include carbon--breakpoint-between((320px + 1), md) {
 	  max-width: 75%;
@@ -189,9 +153,10 @@
 	border-bottom-color: $ui-01;
 	border-style: solid;
   }
+  .landing-page__r3 .landing-page__p {
+	  padding-bottom: 1rem;
+  }
   .galasa-landing-links{
-	// @include carbon--type-style("heading-02");
-	// margin-bottom: $spacing-07;
 	@include carbon--breakpoint-between((320px + 1), md) {
 	  max-width: 75%;
 	}
