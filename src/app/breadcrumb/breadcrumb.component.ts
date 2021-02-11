@@ -9,8 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BreadcrumbComponent implements OnInit {
   
   breadcrumbItems : Map<string,string>[] = [];
-
-  isCurrent : boolean = false;
+  currentBreadcrumbItem : Map<string,string> ;
 
   constructor() { }
 
@@ -18,31 +17,27 @@ export class BreadcrumbComponent implements OnInit {
 
     var breadcrumbs = new Map();
     
-    breadcrumbs.set('landing-page', {breadcrumbName : "Dashboard", url : "/", id: "1"});
-    breadcrumbs.set('results-page', {breadcrumbName: "Previously run tests", url : "/results", id : "2"});
-    breadcrumbs.set('run-page', {breadcrumbName : "Run detail", url : "/run", id : "3"});
+    breadcrumbs.set('landing-page', {breadcrumbName : "Dashboard", url : "/"});
+    breadcrumbs.set('results-page', {breadcrumbName: "Previously run tests", url : "/results"});
+    breadcrumbs.set('run-page', {breadcrumbName : "Run detail", url : "/"});
+    // No path set for Run Page currently as there is no further page you would navigate backwards from
 
     var currentPage = window.location.href;
-    console.log("URL: " + currentPage);
+    console.log("Current page URL: " + currentPage);
 
-    // All paths will have Dashboard as the first breadcrumb item
+    // All path through the UI will have Dashboard as the first breadcrumb item
     this.breadcrumbItems.push(breadcrumbs.get('landing-page'));
 
     // Previously run tests pathway ...
     if (currentPage.includes("results")){
-      this.breadcrumbItems.push(breadcrumbs.get('results-page'));
+      // Set Results Page to current page so it doesn't hyperlink
+      this.currentBreadcrumbItem = breadcrumbs.get('results-page');
     }
     else if (currentPage.includes("run")){
       this.breadcrumbItems.push(breadcrumbs.get('results-page'));
-      this.breadcrumbItems.push(breadcrumbs.get('run-page'));
+      // Set Run Page to current page so it doesn't hyperlink
+      this.currentBreadcrumbItem = breadcrumbs.get('run-page');
     }
-
-    // Debug message
-    console.log(this.breadcrumbItems);
-
-    // CPS properties pathway ...
-  
-  
 
   }
 

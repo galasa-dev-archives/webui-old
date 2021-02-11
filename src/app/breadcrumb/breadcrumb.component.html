@@ -3,12 +3,19 @@
     <ibm-breadcrumb [noTrailingSlash]="true" class="bx--breadcrumb">
 
         <ibm-breadcrumb-item
-            class="bx--breadcrumb-item"
             *ngFor="let breadcrumb of breadcrumbItems"
             [breadcrumb]="breadcrumb"
             href="{{breadcrumb.url}}"
+            class="bx--breadcrumb-item"
             >
             {{breadcrumb.breadcrumbName}}
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item
+            current="true"
+            [breadcrumb]="currentBreadcrumbItem"
+            class="bx--breadcrumb-item"
+            >
+            {{currentBreadcrumbItem.breadcrumbName}}
         </ibm-breadcrumb-item>
 
     </ibm-breadcrumb>

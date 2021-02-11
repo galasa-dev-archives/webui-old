@@ -35,10 +35,29 @@
 	margin-right: 0;
   }
 
-  // Results Table in Results Page
-  .bx--data-table--sort {
+  // Dropdown boxes
+  .bx--list-box.bx--combo-box {
+    background-color: $ui-background;
     border-radius: 4px;
+    border: #6f6f6f;
+    border-width: 1px;
+    border-style: solid;
   }
+  .bx--list-box__menu-item {
+    background-color: $ui-background;
+  }
+  .bx--list-box__menu-item:last-of-type {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  .bx--list-box__menu-item:hover {
+    background-color: #dfecff;
+    border-left:#03429D;
+    border-left-width: 1px;
+    border-left-style: solid;
+  }
+
+  // Results Table in Results Page
   .bx--table-sort {
     background-color: $active-secondary;
     color: $inverse-01;
@@ -51,8 +70,14 @@
   .bx--table-sort:last-of-type {
     border-radius: 4px;
   }
+  .bx--table-sort:hover {
+    background-color: #525252;
+  }
+  .bx--data-table tr:hover { // not working
+    background-color: #dfecff;
+  }
 
-  // Pagination in Results Page
+  // Pagination underneath Results Page
   .bx--pagination {
     background-color: $ui-background;
     @include type-style("body-short-01");
@@ -86,10 +111,6 @@
 
 
   // Tabs in Run Page 
-  .bx--tabs:first-of-type {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
   .bx--tabs__nav-item {
     background-color: $ui-02;
   }
@@ -108,16 +129,51 @@
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
-    color: $inverse-01;
   }
 
-  #overview-header.bx--tabs__nav-link {
+  .bx--tabs:first-of-type { // not working
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }
-  #history-header.bx--tabs__nav-link {
+  .bx--tabs:last-of-type { // not working
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+  }
+
+  #overview-header.bx--tabs__nav-link { // not working
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  #history-header.bx--tabs__nav-link { // not working
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .bx--tabs__nav-item--selected .bx--tabs__nav-link  {
+    border-bottom: 0px, none;
+    color: $inverse-01;
+  }
+  .bx--tabs__nav-item--selected .bx--tabs__nav-link:focus {
+    border-bottom: 0px, none;
+    color: $inverse-01;
+  }
+  .bx--tabs__nav-item--selected .bx--tabs__nav-link:active {
+    border-bottom: 0px, none;
+    color: $inverse-01;
+  }
+
+  .bx--tabs__nav-item .bx--tabs__nav-link :first-of-type { 
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  
+  .bx--tabs__nav-item .bx--tabs__nav-link:focus {
+    border-bottom: 0px, none;
+  }
+
+  .bx--tabs__nav-item .bx--tabs__nav-link:active {
+    border-bottom: 0px, none;
+    color: $inverse-01;
   }
 
 
@@ -139,8 +195,3 @@
   .bx--toggle:checked {
     background-color: #03429D;
   }
-  
-
-
-
-  
