@@ -39,6 +39,8 @@ export class BreadcrumbComponent implements OnInit {
       this.currentBreadcrumbItem = breadcrumbs.get('run-page');
     }
 
+    console.log(this.currentBreadcrumbItem)
+
   }
 
 }
