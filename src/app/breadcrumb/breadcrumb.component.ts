@@ -7,39 +7,38 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
-  
-  breadcrumbItems : Map<string,string>[] = [];
-  currentBreadcrumbItem : Map<string,string> ;
+
+  breadcrumbItems = [];
+  currentBreadcrumbItem : string = "" ;
 
   constructor() { }
 
   ngOnInit(): void {
 
-    var breadcrumbs = new Map();
-    
-    breadcrumbs.set('landing-page', {breadcrumbName : "Dashboard", url : "/"});
-    breadcrumbs.set('results-page', {breadcrumbName: "Previously run tests", url : "/results"});
-    breadcrumbs.set('run-page', {breadcrumbName : "Run detail", url : "/"});
+    var landingPageBreadcrumb = { 'name' : 'Dashboard', 'url' : '/' };
+    var resultsPageBreadcrumb = { 'name' : 'Previously run tests', 'url' : '/results'};
+    var runPageBreadcrumb = { 'name' : 'Run detail', 'url' : '/'}; 
     // No path set for Run Page currently as there is no further page you would navigate backwards from
 
     var currentPage = window.location.href;
     console.log("Current page URL: " + currentPage);
 
-    // All path through the UI will have Dashboard as the first breadcrumb item
-    this.breadcrumbItems.push(breadcrumbs.get('landing-page'));
+    // All paths through the UI will have Dashboard as the first breadcrumb item
+    this.breadcrumbItems.push(landingPageBreadcrumb);
 
-    // Previously run tests pathway ...
-    if (currentPage.includes("results")){
+     // Previously run tests pathway ...
+     if (currentPage.includes("results")){
       // Set Results Page to current page so it doesn't hyperlink
-      this.currentBreadcrumbItem = breadcrumbs.get('results-page');
+      this.currentBreadcrumbItem = resultsPageBreadcrumb.name;
     }
     else if (currentPage.includes("run")){
-      this.breadcrumbItems.push(breadcrumbs.get('results-page'));
+      this.breadcrumbItems.push(resultsPageBreadcrumb);
       // Set Run Page to current page so it doesn't hyperlink
-      this.currentBreadcrumbItem = breadcrumbs.get('run-page');
+      this.currentBreadcrumbItem = runPageBreadcrumb.name;
     }
 
-    console.log(this.currentBreadcrumbItem)
+    console.log("Previous breadcrumb items: " + this.breadcrumbItems);
+    console.log("Current breadcrumb item: " + this.currentBreadcrumbItem)
 
   }
 
