@@ -6,6 +6,7 @@
 @mixin landing-page-background() {
 	background-color: $ui-03;
 	position: relative;
+	
 	&::before {
 	  content: '';
 	  position: absolute;
@@ -18,6 +19,9 @@
 	}
   }
 
+  body{
+	-moz-osx-font-smoothing: unset;
+  }
 
 .landing-page {
 	min-width: 750px;
@@ -65,7 +69,7 @@
 		background-color: $ui-02;
 		height: 90%;
 		width: 100%;
-		max-width: 700px; //use media rule for smaller screens
+		//max-width: 700px; //use media rule for smaller screens
 		margin-bottom: 1rem;
 		padding: 11px 15px 11px 15px;
 		
@@ -99,7 +103,6 @@
 		}
 
 	.bx--btn {
-		font-size: 1.5 rem im !important; 
 		color: $text-04;
 		position: absolute;
 		bottom: 1rem;
@@ -116,7 +119,6 @@
 	}
 	.bx--btn:hover {
 		background-color: #033a8a;
-		font-size: 1 rem;
 		color: $text-04;
 	}
 
@@ -133,11 +135,11 @@
 	  width: 100%;
 	  height: 75%;
 	  padding-bottom: 48px;
+	  padding-right: 16px;
   }
   .landing-page__p {
 	@include carbon--type-style("body-long-02");
 	max-width: 352px;
-	margin-right: 32px;
 	color: $text-02;
 	@include carbon--breakpoint-between((320px + 1), md) {
 	  max-width: 75%;
@@ -149,9 +151,6 @@
 	padding-bottom: $spacing-09;
 	padding-left: $spacing-05;
 	padding-right: $spacing-05;
-	border-bottom-width: 1px;
-	border-bottom-color: $ui-01;
-	border-style: solid;
   }
   .landing-page__r3 .landing-page__p {
 	  padding-bottom: 1rem;
@@ -164,10 +163,9 @@
   .landing-links .bx--tile {
 	  background-color: $ui-02;
 	  border-width: 1px;
-	  border-color: $ui-01;
+	  border-color: $ui-03;
 	  border-style: solid;
 	  border-radius: 4px;
-	  max-width: 364px;
 	  max-height: 150px;
 	  min-width: 3rem;
 	  min-height: 8rem;
@@ -179,6 +177,9 @@
   .link-action{
 	  width: auto;
 	  height: auto;
+  }
+  .link-action p{
+	  color: #03429d;
   }
 
 }
