@@ -1,0 +1,17 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.sidebar-label {
+    height: 48px;
+    padding: $spacing-05;
+    padding-bottom: $spacing-04;
+}
+
+h4 {
+    @include type-style("body-short-01");
+    @include carbon--font-weight("semibold");
+}
+p {
+    @include type-style("body-short-01"); 
+    margin-bottom: $spacing-03;
+}
