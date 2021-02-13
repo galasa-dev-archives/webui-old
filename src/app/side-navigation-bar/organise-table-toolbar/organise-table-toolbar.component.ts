@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Host, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-organise-table-toolbar',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrganiseTableToolbarComponent implements OnInit {
 
+  @Output() activeToolbar = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  collapseToolbar(){
+    this.activeToolbar.emit("");
   }
 
 }

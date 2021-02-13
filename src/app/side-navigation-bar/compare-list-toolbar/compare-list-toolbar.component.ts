@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-test-filters-toolbar',
-  templateUrl: './test-filters-toolbar.component.html',
-  styleUrls: ['./test-filters-toolbar.component.scss']
+  selector: 'app-compare-list-toolbar',
+  templateUrl: './compare-list-toolbar.component.html',
+  styleUrls: ['./compare-list-toolbar.component.scss']
 })
-export class TestFiltersToolbarComponent implements OnInit {
+export class CompareListToolbarComponent implements OnInit {
 
   @Output() activeToolbar = new EventEmitter<string>();
 

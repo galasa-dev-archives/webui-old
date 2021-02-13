@@ -1,4 +1,4 @@
-<div class="main show-sidebar">
+<div class="main show-sidebar" id="">
 
     <div class="persistent-sidebar">
         <div id="organise-table" class="persistent-sidebar-option" (click)="expandOrganiseTable()">
@@ -7,23 +7,35 @@
         <div id="test-filters" class="persistent-sidebar-option" (click)="expandTestFilters()">
             <img src="../../../../../assets/icons/filter.svg" class="icon">
         </div>
-        <div id="compare-list" class="persistent-sidebar-option">
+        <div id="compare-list" class="persistent-sidebar-option" (click)="expandCompareList()">
             <img src="../../../../../assets/icons/compare-list.svg" class="icon">
         </div>
-        <div id="worklist" class="persistent-sidebar-option">
+        <div id="worklist" class="persistent-sidebar-option" (click)="expandWorklist()">
             <img src="../../../../../assets/icons/worklist.svg" class="icon">
         </div>
-        <div id="help" class="persistent-sidebar-option">
+        <div id="help" class="persistent-sidebar-option" (click)="expandHelp()">
             <img src="../../../../../assets/icons/help.svg" class="icon">
         </div>        
     </div>
 
     <div *ngIf="activeToolbar=='organise-table'" class="organise-table-sidebar" id="extendable-toolbar">
-        <app-organise-table-toolbar></app-organise-table-toolbar>
+        <app-organise-table-toolbar (activeToolbar)="collapseToolbar($event)"></app-organise-table-toolbar>
     </div>
 
     <div *ngIf="activeToolbar=='test-filters'" class="test-filter-sidebar" id="extendable-toolbar">
-        <app-test-filters-toolbar></app-test-filters-toolbar>
+        <app-test-filters-toolbar (activeToolbar)="collapseToolbar($event)"></app-test-filters-toolbar>
+    </div>
+
+    <div *ngIf="activeToolbar=='compare-list'" class="compare-list-sidebar" id="extendable-toolbar">
+        <app-compare-list-toolbar (activeToolbar)="collapseToolbar($event)"></app-compare-list-toolbar>
+    </div>
+
+    <div *ngIf="activeToolbar=='worklist'" class="worklist-sidebar" id="extendable-toolbar">
+       <app-worklist-toolbar (activeToolbar)="collapseToolbar($event)"></app-worklist-toolbar>
+    </div>
+
+    <div *ngIf="activeToolbar=='help'" class="help-sidebar" id="extendable-toolbar">
+        <app-help-toolbar (activeToolbar)="collapseToolbar($event)"></app-help-toolbar>
     </div>
 
     <div class="results-page">
