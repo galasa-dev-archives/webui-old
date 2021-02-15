@@ -23,6 +23,7 @@ import { UIShellModule,
 		 TableModule,
 		 LoadingModule, 
 		 PaginationModule,
+		 BreadcrumbModule,
 		 ToggleModule} from 'carbon-components-angular';
 		 
 
@@ -49,6 +50,9 @@ import { RunDetailComponent } from './run-page/components/run-detail/run-detail.
 import { DateTimeComponent } from './date-time/date-time.component';
 import { TestResultComponent } from './run-page/components/run-detail/test-result/test-result.component';
 import { FooterComponent } from './footer/footer.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { TestFiltersToolbarComponent } from './side-navigation-bar/test-filters-toolbar/test-filters-toolbar.component';
+import { OrganiseTableToolbarComponent } from './side-navigation-bar/organise-table-toolbar/organise-table-toolbar.component';
 
 @NgModule({
 	declarations: [
@@ -71,6 +75,9 @@ import { FooterComponent } from './footer/footer.component';
 		DateTimeComponent,
 		TestResultComponent,
 		FooterComponent,
+		BreadcrumbComponent,
+		TestFiltersToolbarComponent,
+		OrganiseTableToolbarComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -88,6 +95,7 @@ import { FooterComponent } from './footer/footer.component';
 		TableModule,
 		LoadingModule,
 		PaginationModule,
+		BreadcrumbModule,
 		ToggleModule
 		// Notification20Module,
 		// UserAvatar20Module,

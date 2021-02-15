@@ -1,14 +1,57 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
-.results-page {
-    background-color: $ui-03;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 48px;
-    padding-bottom: 48px;
+.main {
+    display: flex;
 }
 
-.filter{
-    width: 30vw;
+    .main.show-sidebar #extendable-toolbar {
+        margin-left: 0;
+    }
+
+.persistent-sidebar {
+    height: 100vh;
+    background-color: #ffffff;
+    width: 48px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-right: #e0e0e0;
+    border-right-width: 1px;
+    border-right-style: solid;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#extendable-toolbar {
+    height: 100vh;
+    background-color: #ffffff;
+    width: 272px;
+    transition: margin-left 0.4s ease-in-out;
+    margin-left: -272px;
+    border-right: #e0e0e0;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+.persistent-sidebar-option {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.icon {
+    fill: #03429d; // not working
+    height: 24px;
+    width: 24px;  
+}
+
+.results-page {
+    flex-grow: 1;
+    background-color: $ui-03;
+    height: 984px;
+}
+
+.results-table-container {
+    padding-left: $spacing-08;
+    padding-right: $spacing-08;
+    padding-bottom: $spacing-09;
 }

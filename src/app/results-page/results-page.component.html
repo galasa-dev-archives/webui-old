@@ -1,17 +1,35 @@
-<div class="results-page">
-    <div class = "filter">
-        <app-requestors-filter></app-requestors-filter>
+<div class="main show-sidebar">
+
+    <div class="persistent-sidebar">
+        <div id="organise-table" class="persistent-sidebar-option" (click)="expandOrganiseTable()">
+            <img src="../../../../../assets/icons/table.svg" class="icon">
+        </div>
+        <div id="test-filters" class="persistent-sidebar-option" (click)="expandTestFilters()">
+            <img src="../../../../../assets/icons/filter.svg" class="icon">
+        </div>
+        <div id="compare-list" class="persistent-sidebar-option">
+            <img src="../../../../../assets/icons/compare-list.svg" class="icon">
+        </div>
+        <div id="worklist" class="persistent-sidebar-option">
+            <img src="../../../../../assets/icons/worklist.svg" class="icon">
+        </div>
+        <div id="help" class="persistent-sidebar-option">
+            <img src="../../../../../assets/icons/help.svg" class="icon">
+        </div>        
     </div>
-    <div class = "filter">
-        <app-testclasses-filter></app-testclasses-filter>
+
+    <div *ngIf="activeToolbar=='organise-table'" class="organise-table-sidebar" id="extendable-toolbar">
+        <app-organise-table-toolbar></app-organise-table-toolbar>
     </div>
-    <div class = "filter">
-        <app-bundle-filter></app-bundle-filter>
+
+    <div *ngIf="activeToolbar=='test-filters'" class="test-filter-sidebar" id="extendable-toolbar">
+        <app-test-filters-toolbar></app-test-filters-toolbar>
     </div>
-    <div class = "filter">
-        <app-resultnames-filter></app-resultnames-filter>
-    </div>
-    <div>
-        <app-results-table></app-results-table>
+
+    <div class="results-page">
+        <app-breadcrumb></app-breadcrumb>
+        <div class="results-table-container">
+            <app-results-table class="results-table"></app-results-table>
+        </div>
     </div>
 </div>

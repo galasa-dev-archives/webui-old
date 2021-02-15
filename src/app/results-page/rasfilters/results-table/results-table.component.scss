@@ -1,6 +1,10 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
+#results-table-container {
+    margin-top: 48px;
+}
+
 .date-time {
     @include carbon--type-style("body-short-01");
 }

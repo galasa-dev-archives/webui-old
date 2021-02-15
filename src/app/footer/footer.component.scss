@@ -3,7 +3,13 @@
 
 .footer {
     background: $ui-background;
-    border-top: #6F6F6F;
+    border-top: #e0e0e0;
+    border-top-width: 1px;
+    border-top-style: solid;
     max-width: 100vw;
     max-height: 48px;
+    bottom: 0;
+    position: sticky;
 }
+
+
