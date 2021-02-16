@@ -1,0 +1,28 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.Header-module--headerName{
+max-width: 384px;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.375;
+letter-spacing: 0;
+transition: opacity .11s cubic-bezier(.2,0,.38,.9);
+color: #fff;
+text-decoration: none;
+left: 3rem;
+white-space: nowrap;
+padding: 0 1rem;
+height: 3rem;
+border-top: 1px solid transparent;
+display: flex;
+align-items: center;
+z-index: 3;
+}
+.bx--header__action:hover{
+    background-color: #032a68;
+}
+
+.hamburger:hover{
+    background-color: #032a68;
+}

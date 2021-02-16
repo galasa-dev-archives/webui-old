@@ -1,6 +1,21 @@
-<ibm-header name="" brand="Galasa">
-	<ibm-hamburger *ngIf="hasHamburger" [active]="active" (selected)="active = !active"></ibm-hamburger>
-</ibm-header>
+<header class="bx--header" name="Dashboard" brand="Galasa">
+	<ibm-hamburger class="hamburger" *ngIf="hasHamburger" [active]="active" (selected)="active = !active"></ibm-hamburger>
+    <div class = "galasa-icon">
+        <button aria-label="Switch" class="bx--header__action" type="button">
+        <img src= "../../assets/icons/galasa-icon-white.svg" >
+    </button>
+    </div>
+    <div class = "bx--header__global">
+        <h6 class="Header-module--headerName">Dashboard</h6>
+    </div>
+     <div class = "bx--header__global">
+    <button aria-label="Switch" class="bx--header__action" type="button">
+    
+        <img  src= "../../assets/icons/user--avatar-white.svg" >
+    
+</button>
+</div>
+</header>
 <ibm-sidenav [expanded]="false" [hidden]="!active">
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
