@@ -7,17 +7,6 @@
     padding-bottom: $spacing-04;
 }
 
-.filter {
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
-    padding-top: $spacing-05;
-}
-
-#filter { // not working
-    margin-top: $spacing-03;
-    width: 240px;
-}
-
 h4 {
     @include type-style("body-short-01");
     @include carbon--font-weight("semibold");
@@ -32,7 +21,7 @@ p {
 }
 
 .icon {
-    vertical-align: middle;
     height: 24px;
     width: 24px;
+    vertical-align: middle;
 }
