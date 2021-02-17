@@ -53,6 +53,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TestFiltersToolbarComponent } from './side-navigation-bar/test-filters-toolbar/test-filters-toolbar.component';
 import { OrganiseTableToolbarComponent } from './side-navigation-bar/organise-table-toolbar/organise-table-toolbar.component';
+import { BehaviorSubject } from 'rxjs';
+import { HeaderService } from './header/header.service';
 
 @NgModule({
 	declarations: [
@@ -101,7 +103,7 @@ import { OrganiseTableToolbarComponent } from './side-navigation-bar/organise-ta
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders ],
+	providers: [SecurityService, httpInterceptorProviders, HeaderService ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

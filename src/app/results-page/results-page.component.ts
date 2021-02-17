@@ -4,6 +4,7 @@
  * (c) Copyright IBM Corp. 2020.
  */
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from '../header/header.service';
 
 @Component({
   selector: 'app-results-page',
@@ -15,18 +16,18 @@ export class ResultsPageComponent implements OnInit {
 
   activeToolbar: string = "";
 
-  organiseExpanded : boolean = false;
-  filtersExpanded : boolean = false;
+  organiseExpanded: boolean = false;
+  filtersExpanded: boolean = false;
 
 
-  constructor() { }
+  constructor(private headerTitleService: HeaderService) { }
 
   ngOnInit() {
-
+    this.headerTitleService.setTitle('Previously run tests');
   }
 
-  expandOrganiseTable(){
-    if (this.organiseExpanded == true){
+  expandOrganiseTable() {
+    if (this.organiseExpanded == true) {
       this.organiseExpanded = false;
       this.activeToolbar = "";
     } else {
@@ -35,8 +36,8 @@ export class ResultsPageComponent implements OnInit {
     }
   }
 
-  expandTestFilters(){
-    if (this.filtersExpanded == true){
+  expandTestFilters() {
+    if (this.filtersExpanded == true) {
       this.filtersExpanded = false;
       this.activeToolbar = "";
     } else {

@@ -4,6 +4,7 @@
  * (c) Copyright IBM Corp. 2020.
  */
 import { Component, HostBinding, Input} from '@angular/core';
+import { HeaderService } from './header.service';
 
 @Component({
 	selector: 'app-header',
@@ -18,5 +19,15 @@ export class HeaderComponent {
 
 	@Input()
 	active: boolean = false;
+
+	title = '';
+
+	constructor(private headerTitleService: HeaderService) {}
+
+ngOnInit() {
+  this.headerTitleService.title.subscribe(updatedTitle => {
+    this.title = updatedTitle;
+  });
+}
 
 }
