@@ -26,3 +26,15 @@ z-index: 3;
 .hamburger:hover{
     background-color: #032a68;
 }
+
+.hamburger-menu {
+    box-shadow: 2px 0px 2px $ui-03;
+}
+
+.hamburger-menu-item:hover {
+    background-color: #dfecff;
+}
+
+.hamburger-menu-item--selected {
+    background-color: #c0d5f5;
+}
