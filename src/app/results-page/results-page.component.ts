@@ -3,7 +3,12 @@
  * 
  * (c) Copyright IBM Corp. 2020.
  */
+
+
+import { HeaderService } from '../header/header.service';
+
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-results-page',

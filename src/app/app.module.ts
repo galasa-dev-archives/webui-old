@@ -58,6 +58,7 @@ import { WorklistToolbarComponent } from './side-navigation-bar/worklist-toolbar
 import { HelpToolbarComponent } from './side-navigation-bar/help-toolbar/help-toolbar.component';
 import { PrevRunTestsSidebarComponent } from './side-navigation-bar/prev-run-tests-sidebar/prev-run-tests-sidebar.component';
 import { DataServiceComponent } from './side-navigation-bar/data-service/data-service.component';
+import { HeaderService } from './header/header.service';
 
 @NgModule({
 	declarations: [
@@ -111,7 +112,7 @@ import { DataServiceComponent } from './side-navigation-bar/data-service/data-se
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent],
+	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
