@@ -4,7 +4,7 @@
  * (c) Copyright IBM Corp. 2020.
  */
 
-import { Component, OnInit } from '@angular/core';
+
 import { HeaderService } from '../header/header.service';
 
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
