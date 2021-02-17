@@ -3,9 +3,14 @@
  * 
  * (c) Copyright IBM Corp. 2020.
  */
+
+
+import { HeaderService } from '../header/header.service';
+
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { OrganiseTableToolbarComponent } from '../side-navigation-bar/organise-table-toolbar/organise-table-toolbar.component';
 import { TestFiltersToolbarComponent } from '../side-navigation-bar/test-filters-toolbar/test-filters-toolbar.component';
+
 
 @Component({
   selector: 'app-results-page',
@@ -23,12 +28,16 @@ export class ResultsPageComponent implements OnInit {
   worklistExpanded : boolean = false;
   helpExpanded : boolean = false;
 
+
   increaseContrastChecked : boolean = false;
   colours : string = "";
 
-  constructor() { }
+  constructor(private headerTitleService: HeaderService) { }
 
   ngOnInit() {
+
+    this.headerTitleService.setTitle('Previously run tests');
+
   }
 
   collapseToolbar($event){
@@ -45,10 +54,11 @@ export class ResultsPageComponent implements OnInit {
     } else if (this.helpExpanded){
       this.helpExpanded = false;
     }
+
   }
 
-  expandOrganiseTable(){
-    if (this.organiseExpanded == true){
+  expandOrganiseTable() {
+    if (this.organiseExpanded == true) {
       this.organiseExpanded = false;
       this.activeToolbar = "";
     } else {
@@ -57,8 +67,8 @@ export class ResultsPageComponent implements OnInit {
     }
   }
 
-  expandTestFilters(){
-    if (this.filtersExpanded == true){
+  expandTestFilters() {
+    if (this.filtersExpanded == true) {
       this.filtersExpanded = false;
       this.activeToolbar = "";
     } else {

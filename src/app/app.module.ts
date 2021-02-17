@@ -53,9 +53,14 @@ import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TestFiltersToolbarComponent } from './side-navigation-bar/test-filters-toolbar/test-filters-toolbar.component';
 import { OrganiseTableToolbarComponent } from './side-navigation-bar/organise-table-toolbar/organise-table-toolbar.component';
+
+import { BehaviorSubject } from 'rxjs';
+import { HeaderService } from './header/header.service';
+
 import { CompareListToolbarComponent } from './side-navigation-bar/compare-list-toolbar/compare-list-toolbar.component';
 import { WorklistToolbarComponent } from './side-navigation-bar/worklist-toolbar/worklist-toolbar.component';
 import { HelpToolbarComponent } from './side-navigation-bar/help-toolbar/help-toolbar.component';
+
 
 @NgModule({
 	declarations: [
@@ -107,7 +112,7 @@ import { HelpToolbarComponent } from './side-navigation-bar/help-toolbar/help-to
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders ],
+	providers: [SecurityService, httpInterceptorProviders, HeaderService ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

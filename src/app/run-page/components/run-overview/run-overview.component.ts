@@ -4,6 +4,7 @@ import { IdeaComponent, MovementModule } from '@carbon/icons-angular';
 import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../../../core/rasapis.service';
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
+import { HeaderService } from '../../../header/header.service';
 
 @Component({
   selector: 'app-run-overview',
@@ -28,10 +29,12 @@ export class RunOverviewComponent implements OnInit {
 
   testMethods : TestMethod[] = [];
 
-  constructor(private route : ActivatedRoute) { }
+  constructor(private route : ActivatedRoute,private headerTitleService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerTitleService.setTitle('Run test detail / Overview');
   }
+ 
 
   ngOnChanges(changes: SimpleChanges) {
     this.result = this.testStructure.result;
