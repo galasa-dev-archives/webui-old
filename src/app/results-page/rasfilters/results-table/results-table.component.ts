@@ -48,7 +48,7 @@ export class ResultsTableComponent implements OnInit {
     this.model.data = [];
     this.model.header = [
       new TableHeaderItem({data: "Status"}),
-      new TableHeaderItem({data: "Test Run UUID"}), 
+      new TableHeaderItem({data: "Test Run UID"}), 
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started"}), 
       new TableHeaderItem({data: "Finished"})
@@ -99,8 +99,16 @@ export class ResultsTableComponent implements OnInit {
               var newRuns: Object[] = [];
               this.paginationModel.totalDataLength = result.amountOfRuns;
               for(let run of result.runs){
+                var testResult = "";
+                if (run.testStructure.result == "EnvFail"){
+                  testResult = "Environmental failure";
+                } else if (run.testStructure.result == "UNKNOWN") {
+                  testResult = "Unknown";
+                } else {
+                  testResult = run.testStructure.result;
+                }
                 newData.push([
-                  new TableItem({data: run.testStructure.result, template: this.customResultTemplate}),
+                  new TableItem({data: testResult, template: this.customResultTemplate}),
                   new TableItem({data: {name: run.testStructure.runName, id: run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: run.testStructure.testName}), 
                   new TableItem({data: run.testStructure.startTime, template: this.customDateTemplate}),

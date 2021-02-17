@@ -16,19 +16,25 @@
 </button>
 </div>
 </header>
-<ibm-sidenav [expanded]="false" [hidden]="!active">
-    <ibm-sidenav-item>
+<ibm-sidenav [expanded]="false" [hidden]="!active" class="hamburger-menu">
+    <ibm-sidenav-item class="hamburger-menu-item" [route]="['/']">
         <svg icon ibmIconFade size="16"></svg>
-        Link
+        Dashboard
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        Link
+        CPS properties
     </ibm-sidenav-item>
-    <ibm-sidenav-menu title="Category title">
+    <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        <ibm-sidenav-item>Link</ibm-sidenav-item>
-        <ibm-sidenav-item>Link</ibm-sidenav-item>
-        <ibm-sidenav-item>Link</ibm-sidenav-item>
-    </ibm-sidenav-menu>
+        Schedule tests
+    </ibm-sidenav-item>
+    <ibm-sidenav-item>
+        <svg icon ibmIconFade size="16"></svg>
+        Running tests
+    </ibm-sidenav-item>
+    <ibm-sidenav-item [route]="['/results']">
+        <svg icon ibmIconFade size="16"></svg>
+        Previously run tests
+    </ibm-sidenav-item>
 </ibm-sidenav>

@@ -2,6 +2,7 @@
 @import "~carbon-components/scss/globals/scss/spacing";
 
 .sidebar-label {
+    position: relative;
     height: 48px;
     padding: $spacing-05;
     padding-bottom: $spacing-04;
@@ -24,4 +25,6 @@ p {
     height: 24px;
     width: 24px;
     vertical-align: middle;
+    position: absolute;
+    right: $spacing-05;
 }
