@@ -50,6 +50,23 @@
     color: #03429d;
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  // Header 
+  .bx--header__menu-trigger {
+    border: 0px none transparent;
+  }
+  .bx--header__menu-trigger:hover {
+    background-color: #032a68; 
+    border: 0px none transparent;
+  }
+  .bx--header__menu-trigger:focus {
+    border-right: 1px solid white;  
+    // Border will not disappear when the Hamburger has been collapsed unless you click somewhere else on the page
+  }
+  .bx--header__menu-trigger:active {
+    border: 0px none transparent;
   }
 
 
@@ -80,6 +97,7 @@
     background-color: $active-secondary;
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
+    font-family: 'Work Sans Semi Bold', sans-serif;
     height: 48px;
   }
   .bx--table-sort:first-of-type {
@@ -100,7 +118,8 @@
   // Pagination underneath Results Page
   .bx--pagination {
     background-color: $ui-background;
-    @include type-style("body-short-01");
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
     height: 48px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -112,6 +131,7 @@
     background-color: $active-secondary;
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
+    font-family: 'Work Sans Semi Bold', sans-serif;
     height: 48px;
   }
   .bx--data-table th:first-of-type {
@@ -122,12 +142,17 @@
   }  
   .bx--data-table td {
     background-color: $ui-background;
-    @include type-style("body-short-01");
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
     height: 48px;
+
   }
-  .bx--data-table tr:hover td {
-    background-color: #e5f0ff;
-  }
+  // .bx--data-table td:hover {
+  //   background-color: #e5f0ff;
+  // }
+  // .bx--data-table tr:hover td {
+  //   background-color: #e5f0ff;
+  // }
 
 
   // Tabs in Run Page 
@@ -143,12 +168,15 @@
 
   .bx--tabs__nav-link {
     @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
   }
   .bx--tabs__nav-link:hover {
     @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
   }
 
   .bx--tabs:first-of-type { // not working
@@ -205,13 +233,36 @@
 
 
   // Toggle in Footer
-  .bx--toggle {
-    width: 106px;
-    height: 18px;
+  .bx--toggle--small {
+    justify-content: flex-end;
+    margin-top: $spacing-05;
+    margin-bottom: $spacing-05;
   }
-  .bx--toggle__switch::before {
+  .bx--toggle--small__switch::before {
     background-color: $interactive-02;
   }
-  .bx--toggle:checked {
+  .bx--toggle--small__appearance::before {
+    background-color: $interactive-02;
+  }
+  .bx--toggle--small:checked {
     background-color: #03429D;
   }
+  .bx--toggle--small__check {
+    fill: #03429D;
+  }
+  .bx--toggle-input:checked + .bx--toggle-input__label > .bx--toggle__switch::before {
+    background-color: #03429D;
+    fill: #03429D;
+  }
+
+  .bx--form-item {
+    vertical-align: middle;
+  }
+
+  .bx--form-item.bx--checkbox-wrapper {
+    margin-top: $spacing-05;
+    margin-bottom: $spacing-05;
+  }
+
+  // .bx--toggle__text--off, .bx--toggle__text--on {
+  // }

@@ -19,11 +19,15 @@
 <ibm-sidenav [expanded]="false" [hidden]="!active" class="hamburger-menu">
     <ibm-sidenav-item class="hamburger-menu-item" [route]="['/']">
         <svg icon ibmIconFade size="16"></svg>
-        Dashboard
+        Getting started
+    </ibm-sidenav-item>
+    <ibm-sidenav-item [route]="['/results']">
+        <svg icon ibmIconFade size="16"></svg>
+        Previously run tests
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        CPS properties
+        Running tests
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
@@ -31,10 +35,18 @@
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        Running tests
+        Configure system
     </ibm-sidenav-item>
-    <ibm-sidenav-item [route]="['/results']">
+    <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        Previously run tests
+        Edit profile
+    </ibm-sidenav-item>
+    <ibm-sidenav-item>
+        <svg icon ibmIconFade size="16"></svg>
+        Read docs
+    </ibm-sidenav-item>
+    <ibm-sidenav-item>
+        <svg icon ibmIconFade size="16"></svg>
+        Get support
     </ibm-sidenav-item>
 </ibm-sidenav>
