@@ -1,12 +1,13 @@
 <div class="footer">
-		<div ibmCol [columnNumbers]="{'lg': 2}">
-			<ibm-toggle
-				[onText]="onText"
-				[offText]="offText"
-				[disabled]="disabled"
-				[checked]="checked"
-				(click)="increaseContrast()"
-				>
-			</ibm-toggle>
-		</div>
+
+		<ibm-toggle
+			[onText]="onText"
+			[offText]="offText"
+			[disabled]="disabled"
+			[checked]="checked"
+    		[size]="size"
+    		class="toggle"
+			>
+    	</ibm-toggle>
+
 </div>

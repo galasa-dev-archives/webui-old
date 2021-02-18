@@ -11,13 +11,11 @@ export class FooterComponent implements OnInit {
   offText : string = "Increase contrast";
   checked : Boolean = false;
   disabled : Boolean = false;
+  size : string = "sm";
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  increaseContrast(){
   }
 
 }

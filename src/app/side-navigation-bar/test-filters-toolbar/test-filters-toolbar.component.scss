@@ -20,11 +20,13 @@
 }
 
 h4 {
-    @include type-style("body-short-01");
+    @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");
+    font-family: 'Work Sans Semi Bold', sans-serif;
 }
 p {
-    @include type-style("body-short-01"); 
+    @include type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: $spacing-03;
 }
 

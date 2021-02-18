@@ -10,7 +10,13 @@
     max-height: 48px;
     bottom: 0;
     position: sticky;
-    // padding: 16px;
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    justify-content: flex-end;
 }
 
-
+.toggle {
+    // position: relative;
+    // float: right;
+    // left: -155px;
+}
