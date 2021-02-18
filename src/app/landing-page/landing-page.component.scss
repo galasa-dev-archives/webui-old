@@ -181,8 +181,11 @@
 	  width: auto;
 	  height: auto;
   }
-  .link-action p{
+  .link-action span{
 	  color: #03429d;
+  }
+  .link-action:hover{
+	  text-decoration: underline;
   }
 
 }
