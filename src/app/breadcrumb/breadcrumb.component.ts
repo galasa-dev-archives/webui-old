@@ -37,9 +37,6 @@ export class BreadcrumbComponent implements OnInit {
       this.currentBreadcrumbItem = runPageBreadcrumb.name;
     }
 
-    console.log("Previous breadcrumb items: " + this.breadcrumbItems);
-    console.log("Current breadcrumb item: " + this.currentBreadcrumbItem)
-
   }
 
 }

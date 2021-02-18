@@ -36,7 +36,13 @@ export class RunOverviewComponent implements OnInit {
  
 
   ngOnChanges(changes: SimpleChanges) {
-    this.result = this.testStructure.result;
+    if (this.testStructure.result == "EnvFail"){
+      this.result = "Environmental failure";
+    } else if (this.testStructure.result == "UNKNOWN") {
+      this.result = "Unknown";
+    } else {
+      this.result = this.testStructure.result;
+    }
     this.runName = this.testStructure.runName;
     this.testShortName = this.testStructure.testShortName;
     this.bundle = this.testStructure.bundle;

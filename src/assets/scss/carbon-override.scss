@@ -35,7 +35,25 @@
 	margin-right: 0;
   }
 
-  // Dropdown boxes
+  // Hamburger side menu
+  .bx--side-nav__navigation {
+    padding: 0;
+    max-width: 272px;
+  }
+  a.bx--side-nav__link {
+    align-items: left !important;
+    vertical-align: middle;
+    height: 32px;
+    padding-left: $spacing-05;
+  }
+  a.bx--side-nav__link > .bx--side-nav__link-text {
+    color: #03429d;
+    @include carbon--type-style("body-short-01");
+    @include carbon--font-weight("semibold");
+  }
+
+
+  // Dropdown boxes in side toolbar
   .bx--list-box.bx--combo-box {
     background-color: $ui-background;
     border-radius: 4px;
@@ -73,9 +91,11 @@
   .bx--table-sort:hover {
     background-color: #525252;
   }
-  .bx--data-table tr:hover { // not working
-    background-color: #dfecff;
+  .bx--data-table--zebra tbody tr:not(.bx--parent-row):nth-child(n) td {
+    border-top: 0.5px $ui-03 solid;
+    border-bottom: 0.5px $ui-03 solid;
   }
+
 
   // Pagination underneath Results Page
   .bx--pagination {

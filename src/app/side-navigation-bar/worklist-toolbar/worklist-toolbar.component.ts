@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataServiceComponent } from '../data-service/data-service.component';
 
 @Component({
   selector: 'app-worklist-toolbar',
@@ -7,15 +9,23 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class WorklistToolbarComponent implements OnInit {
 
-  @Output() activeToolbar = new EventEmitter<string>();
+  @Output() event = new EventEmitter<string>();
 
-  constructor() { }
+  state : boolean;
+  subscription : Subscription;
+
+  constructor(private data: DataServiceComponent) { }
 
   ngOnInit(): void {
+    this.subscription = this.data.current.subscribe(state => this.state = state)
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   collapseToolbar(){
-    this.activeToolbar.emit("");
+    this.event.emit("");
+    this.data.changeMessage(false);
   }
 
 }
