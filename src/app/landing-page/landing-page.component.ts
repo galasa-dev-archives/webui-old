@@ -16,6 +16,6 @@ export class LandingPageComponent {
 	constructor(private headerTitleService: HeaderService) {}
 
 ngOnInit() {
-  this.headerTitleService.setTitle('Dashboard');
+  this.headerTitleService.setTitle('');
 }
 }
