@@ -33,6 +33,7 @@
 	.subtitle.landing-page__label {
 		@include carbon--type-style("productive-heading-02");
 		margin-bottom: 16px;
+		font-size: 1.75rem;
 	}
 
 
@@ -181,8 +182,11 @@
 	  width: auto;
 	  height: auto;
   }
-  .link-action p{
+  .link-action span{
 	  color: #03429d;
+  }
+  .link-action:hover{
+	  text-decoration: underline;
   }
 
 }

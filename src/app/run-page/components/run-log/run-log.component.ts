@@ -19,6 +19,7 @@ export class RunLogComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(this.testStructure.runName);
+    
   }
 
 }

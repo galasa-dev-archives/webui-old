@@ -32,7 +32,6 @@ export class RunOverviewComponent implements OnInit {
   constructor(private route : ActivatedRoute,private headerTitleService: HeaderService) { }
 
   ngOnInit(): void {
-    this.headerTitleService.setTitle('Run test detail / Overview');
   }
  
 
@@ -55,6 +54,7 @@ export class RunOverviewComponent implements OnInit {
     this.duration = this.getRunDuration();
 
     this.testMethods = this.testStructure.methods;
+    this.headerTitleService.setTitle('Run test detail / Overview');
   }
 
   getRunDuration(){
