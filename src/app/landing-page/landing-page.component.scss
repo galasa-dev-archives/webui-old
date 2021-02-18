@@ -21,10 +21,15 @@
 
   body{
 	-moz-osx-font-smoothing: unset;
+	
   }
 
 .landing-page {
-	min-width: 750px;
+	min-width: 552px;
+
+	.first-tile-col{
+		max-width:1136px;
+	}
 
 	.title {
 		@include type-style("productive-heading-04");
@@ -163,6 +168,10 @@
 	  max-width: 75%;
 	}
   }
+  .bx--no-gutter {
+	max-width: 380px;
+  }
+  
   .landing-links .bx--tile {
 	  background-color: $ui-02;
 	  border-width: 1px;
@@ -177,6 +186,8 @@
 	  margin-right: 8px;
 	  margin-bottom: 1rem;
 	  text-decoration: none;
+	  max-width: 363px;
+	  
   }
   .link-action{
 	  width: auto;
