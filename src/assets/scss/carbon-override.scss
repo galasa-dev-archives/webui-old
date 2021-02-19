@@ -272,3 +272,22 @@
     margin-top: $spacing-05;
     margin-bottom: $spacing-05;
   }
+  .bx--toggle--small__check {
+    fill: #03429D;
+  }
+  .bx--toggle-input:checked + .bx--toggle-input__label > .bx--toggle__switch::before {
+    background-color: #03429D;
+    fill: #03429D;
+  }
+
+  .bx--form-item {
+    vertical-align: middle;
+  }
+
+  .bx--form-item.bx--checkbox-wrapper {
+    margin-top: $spacing-05;
+    margin-bottom: $spacing-05;
+  }
+
+  // .bx--toggle__text--off, .bx--toggle__text--on {
+  // }
