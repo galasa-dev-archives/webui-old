@@ -27,14 +27,16 @@ $feature-flags: (
 }
 
 .run-overview__attribute.bx--col {
-  @include type-style("productive-heading-02");
+  @include carbon--type-style("productive-heading-02");
   @include carbon--font-weight("semibold");
+  font-family: 'Work Sans Semi Bold', sans-serif;
   position: static;
 }
 
 .run-overview__value.bx--col {
   padding-left: 32px;
   @include carbon--type-style("body-short-02");
+  font-family: 'Open Sans', sans-serif;
   position: static;
   overflow: hidden;
 }
