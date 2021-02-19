@@ -11,25 +11,7 @@ import { Hamburger } from "carbon-components-angular/ui-shell";
   selector: "galasa-hamburger",
   templateUrl:'./galasa-hamburger.component.html'
 })
-export class GalasaHamburgerComponent implements Hamburger {
-  /**
-	 * Controls the active/selected state for the `Hamburger` menu.
-	 */
-	@Input() active = false;
-
-	/**
-	 * `EventEmitter` to notify parent components of menu click events.
-	 */
-	@Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
-
-	constructor(public i18n: I18n) { }
-
-	/**
-	 * Emit the Hamburger click event upwards.
-	 */
-	public doClick() {
-		this.selected.emit(this.active);
-	}
-
+export class GalasaHamburgerComponent extends Hamburger {
+  
 
 }
