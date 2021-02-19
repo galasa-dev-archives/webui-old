@@ -9,23 +9,7 @@ import { Hamburger } from "carbon-components-angular/ui-shell";
 
 @Component({
   selector: "galasa-hamburger",
-	template: `
-		<button
-			type="button"
-			(click)="doClick()"
-			[ngClass]="{'bx--header__action--active': active}"
-			class="bx--header__menu-trigger bx--header__action bx--header__menu-toggle"
-			[attr.aria-label]="active
-				? (i18n.get('UI_SHELL.HEADER.CLOSE_MENU') | async)
-				: (i18n.get('UI_SHELL.HEADER.OPEN_MENU') | async)"
-			[attr.title]="active
-				? (i18n.get('UI_SHELL.HEADER.CLOSE_MENU') | async)
-				: (i18n.get('UI_SHELL.HEADER.OPEN_MENU') | async)">
-			
-      <img *ngIf="!active" src="../../assets/icons/menu-white.svg">
-			<img *ngIf="active" src="../../assets/icons/close-white.svg">
-		</button>
-	`
+  templateUrl:'./galasa-hamburger.component.html'
 })
 export class GalasaHamburgerComponent implements Hamburger {
   /**
