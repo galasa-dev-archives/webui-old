@@ -97,8 +97,11 @@
     background-color: $active-secondary;
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
+    @include carbon--font-weight("semibold");
     font-family: 'Work Sans Semi Bold', sans-serif;
+    font-weight: 500;
     height: 48px;
+    white-space: nowrap;
   }
   .bx--table-sort:first-of-type {
     border-radius: 4px;
@@ -131,8 +134,11 @@
     background-color: $active-secondary;
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
+    @include carbon--font-weight("semibold");
     font-family: 'Work Sans Semi Bold', sans-serif;
+    font-weight: 500;
     height: 48px;
+    white-space: nowrap;
   }
   .bx--data-table th:first-of-type {
     border-top-left-radius: 4px;
@@ -234,9 +240,12 @@
 
   // Toggle in Footer
   .bx--toggle--small {
-    justify-content: flex-end;
     margin-top: $spacing-05;
     margin-bottom: $spacing-05;
+    float: right;
+  }
+  .bx--toggle--small__text--off, .bx--toggle--small__text--on {
+    transform: translateX(-100%);
   }
   .bx--toggle--small__switch::before {
     background-color: $interactive-02;
@@ -263,6 +272,3 @@
     margin-top: $spacing-05;
     margin-bottom: $spacing-05;
   }
-
-  // .bx--toggle__text--off, .bx--toggle__text--on {
-  // }

@@ -12,6 +12,7 @@ h4 {
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");
     font-family: 'Work Sans Semi Bold', sans-serif;
+    font-weight: 500;
 }
 p {
     @include type-style("body-short-01");

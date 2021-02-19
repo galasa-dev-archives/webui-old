@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DataServiceComponent } from '../data-service/data-service.component';
 import { Subscription } from 'rxjs';
 
@@ -23,75 +23,94 @@ export class PrevRunTestsSidebarComponent implements OnInit {
   constructor(private data: DataServiceComponent) { }
 
   ngOnInit(): void {
-    this.subscription = this.data.current.subscribe(state => this.state = state)
-    console.log("Jade " + this.subscription[0])
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   expandOrganiseTable(){
-    this.data.current.subscribe(state => this.organiseExpanded = state);
+    // Get current state from data service, as state may have changed if collapse icon was clicked in a different component
+    this.data.currentOrganiseState.subscribe(state => this.organiseExpanded = state);
+   
     if (this.organiseExpanded == true){
-      this.organiseExpanded = false;
-      this.data.changeMessage(false);
+      this.data.changeOrganiseState(false);
       this.event.emit("");
-    } else {
-      this.organiseExpanded = true;
-      this.data.changeMessage(true);
+    } else if (this.organiseExpanded == false) {
+      this.data.changeOrganiseState(true);
       this.event.emit("organise-table");
+
+      // Reset all other toolbars to closed
+      this.data.changeFiltersState(false)
+      this.data.changeCompareListState(false)
+      this.data.changeWorklistState(false)
+      this.data.changeHelpState(false)
     }
   }
 
   expandTestFilters(){
-    this.data.current.subscribe(state => this.filtersExpanded = state);
+    this.data.currentFiltersState.subscribe(state => this.filtersExpanded = state);
+   
     if (this.filtersExpanded == true){
-      this.filtersExpanded = false;
-      this.data.changeMessage(false);
+      this.data.changeFiltersState(false);
       this.event.emit("");
-    } else {
-      this.filtersExpanded = true;
-      this.data.changeMessage(true);
+    } else if (this.filtersExpanded == false) {
+      this.data.changeFiltersState(true);
       this.event.emit("test-filters");
+
+      this.data.changeOrganiseState(false)
+      this.data.changeCompareListState(false)
+      this.data.changeWorklistState(false)
+      this.data.changeHelpState(false)
     }
   }
 
   expandCompareList(){
-    this.data.current.subscribe(state => this.compareListExpanded = state);
+    this.data.currentCompareListState.subscribe(state => this.compareListExpanded = state);
+    
     if (this.compareListExpanded == true){
-      this.compareListExpanded = false;
-      this.data.changeMessage(false);
+      this.data.changeCompareListState(false);
       this.event.emit("");
     } else {
-      this.compareListExpanded = true;
-      this.data.changeMessage(true);
+      this.data.changeCompareListState(true);
       this.event.emit("compare-list");
+
+      this.data.changeOrganiseState(false)
+      this.data.changeFiltersState(false)
+      this.data.changeWorklistState(false)
+      this.data.changeHelpState(false)
     }
   }
 
   expandWorklist(){
-    this.data.current.subscribe(state => this.worklistExpanded = state);
+    this.data.currentWorklistState.subscribe(state => this.worklistExpanded = state);
+
     if (this.worklistExpanded == true){
-      this.worklistExpanded = false;
-      this.data.changeMessage(false);
+      this.data.changeWorklistState(false);
       this.event.emit("");
-    } else {
-      this.worklistExpanded = true;
-      this.data.changeMessage(true);
+    } else if (this.worklistExpanded == false) {
+      this.data.changeWorklistState(true);
       this.event.emit("worklist");
+
+      this.data.changeOrganiseState(false)
+      this.data.changeFiltersState(false)
+      this.data.changeCompareListState(false)
+      this.data.changeHelpState(false)
     }
   }
 
   expandHelp(){
-    this.data.current.subscribe(state => this.helpExpanded = state);
+    this.data.currentHelpState.subscribe(state => this.helpExpanded = state);
+
     if (this.helpExpanded == true){
-      this.helpExpanded = false;
-      this.data.changeMessage(false);
+      this.data.changeHelpState(false);
       this.event.emit("");
-    } else {
-      this.helpExpanded = true;
-      this.data.changeMessage(true);
+    } else if (this.helpExpanded == false) {
+      this.data.changeHelpState(true);
       this.event.emit("help");
+     
+      this.data.changeOrganiseState(false)
+      this.data.changeFiltersState(false)
+      this.data.changeCompareListState(false)
+      this.data.changeWorklistState(false)
     }
   }
 

@@ -33,12 +33,16 @@
 
 	.title {
 		@include carbon--type-style("productive-heading-04");
+		@include carbon--font-weight("semibold");
 		font-family: 'Work Sans Semi Bold', sans-serif;
+		font-weight: 500;
 	}
 
 	.subtitle.landing-page__label {
 		@include carbon--type-style("productive-heading-02");
-		font-family: 'Work Sans Semi Bold', sans-serif;
+		@include carbon--font-weight("semibold");
+		font-family: 'Work Sans', sans-serif;
+		font-weight: 500 !important;
 		margin-bottom: 16px;
 		font-size: 1.75rem;
 	}
@@ -49,6 +53,7 @@
 		@include carbon--type-style("productive-heading-03");
 		@include carbon--font-weight("semibold");
 		font-family: 'Work Sans Semi Bold', sans-serif;
+		font-weight: 500;
 		margin-bottom: 16px;
 	}
 
