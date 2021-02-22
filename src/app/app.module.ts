@@ -59,6 +59,7 @@ import { HelpToolbarComponent } from './side-navigation-bar/help-toolbar/help-to
 import { PrevRunTestsSidebarComponent } from './side-navigation-bar/prev-run-tests-sidebar/prev-run-tests-sidebar.component';
 import { DataServiceComponent } from './side-navigation-bar/data-service/data-service.component';
 import { HeaderService } from './header/header.service';
+import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
 import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
 
 @NgModule({
@@ -90,6 +91,7 @@ import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hambu
 		HelpToolbarComponent,
 		PrevRunTestsSidebarComponent,
 		DataServiceComponent,
+		IncreaseContrastToggleComponent,
 		GalasaHamburgerComponent,
 	],
 	imports: [

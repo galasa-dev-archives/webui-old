@@ -33,12 +33,18 @@
 
 	.title {
 		@include carbon--type-style("productive-heading-04");
-		font-family: 'Work Sans Semi Bold', sans-serif;
+		@include carbon--font-weight("semibold");
+		font-family: 'Work Sans', sans-serif;
+		font-weight: 500;
+		font-style: normal;
 	}
 
 	.subtitle.landing-page__label {
 		@include carbon--type-style("productive-heading-02");
-		font-family: 'Work Sans Semi Bold', sans-serif;
+		@include carbon--font-weight("semibold");
+		font-family: 'Work Sans', sans-serif;
+		font-weight: 500;
+		font-style: normal;
 		margin-bottom: 16px;
 		font-size: 1.75rem;
 	}
@@ -48,13 +54,17 @@
 		color: $text-01;
 		@include carbon--type-style("productive-heading-03");
 		@include carbon--font-weight("semibold");
-		font-family: 'Work Sans Semi Bold', sans-serif;
+		font-family: 'Work Sans', sans-serif;
+		font-weight: 500;
+		font-style: normal;
 		margin-bottom: 16px;
 	}
 
 	.body-text {
 		@include carbon--type-style("body-long-02");
 		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+    	font-style: normal;
 	}
 	.get-started-col{
 		padding-bottom: 1rem;
@@ -129,6 +139,8 @@
 		background-color: #03429d;
 		@include carbon--type-style("body-short-01");
 		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+    	font-style: normal;
 	}
 	.bx--btn:hover {
 		background-color: #033a8a;
@@ -153,6 +165,8 @@
   .landing-page__p {
 	@include carbon--type-style("body-long-02");
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+    font-style: normal;
 	max-width: 352px;
 	color: $text-02;
 	@include carbon--breakpoint-between((320px + 1), md) {
