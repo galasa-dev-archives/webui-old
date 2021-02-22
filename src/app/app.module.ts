@@ -59,6 +59,7 @@ import { HelpToolbarComponent } from './side-navigation-bar/help-toolbar/help-to
 import { PrevRunTestsSidebarComponent } from './side-navigation-bar/prev-run-tests-sidebar/prev-run-tests-sidebar.component';
 import { DataServiceComponent } from './side-navigation-bar/data-service/data-service.component';
 import { HeaderService } from './header/header.service';
+import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
 
 @NgModule({
 	declarations: [
@@ -89,6 +90,7 @@ import { HeaderService } from './header/header.service';
 		HelpToolbarComponent,
 		PrevRunTestsSidebarComponent,
 		DataServiceComponent,
+		GalasaHamburgerComponent,
 	],
 	imports: [
 		BrowserModule,

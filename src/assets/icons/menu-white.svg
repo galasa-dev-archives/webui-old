@@ -8,6 +8,7 @@
 	.st2{display:inline;}
 	.st3{fill:none;stroke:#60A3FF;stroke-width:2.000000e-02;stroke-miterlimit:10;}
 	.st4{fill:none;}
+	.st5{fill:white;}
 </style>
 <g id="padding" class="st0">
 	<path class="st1" d="M32,32H0V0h32V32z M2,30h28V2H2V30z"/>
@@ -26,7 +27,7 @@
 	<g>
 		<rect id="_Transparent_Rectangle_" class="st4" width="32" height="32"/>
 	</g>
-	<g>
+	<g class="st5">
 		<rect x="4" y="6" width="24" height="2"/>
 		<rect x="4" y="15" width="24" height="2"/>
 		<rect x="4" y="24" width="24" height="2"/>
