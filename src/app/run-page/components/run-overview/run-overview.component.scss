@@ -29,8 +29,9 @@ $feature-flags: (
 .run-overview__attribute.bx--col {
   @include carbon--type-style("productive-heading-02");
   @include carbon--font-weight("semibold");
-  font-family: 'Work Sans Semi Bold', sans-serif;
-  font-weight: 500;
+  font-family: 'Work Sans', sans-serif;
+	font-weight: 600;
+	font-style: normal;
   position: static;
 }
 
@@ -38,6 +39,8 @@ $feature-flags: (
   padding-left: 32px;
   @include carbon--type-style("body-short-02");
   font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   position: static;
   overflow: hidden;
 }

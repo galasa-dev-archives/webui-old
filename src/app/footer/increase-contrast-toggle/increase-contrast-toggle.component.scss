@@ -1,0 +1,24 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.increase-contrast-toggle {
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
+}
+
+.toggle-element {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+p {
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: $interactive-02;
+    margin-top: 14px;
+    margin-right: 8px;
+}

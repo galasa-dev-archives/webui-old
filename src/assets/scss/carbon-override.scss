@@ -51,6 +51,8 @@
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
 
   // Header 
@@ -98,8 +100,9 @@
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
     @include carbon--font-weight("semibold");
-    font-family: 'Work Sans Semi Bold', sans-serif;
-    font-weight: 500;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-style: normal; 
     height: 48px;
     white-space: nowrap;
   }
@@ -123,6 +126,8 @@
     background-color: $ui-background;
     @include carbon--type-style("body-short-01");
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
     height: 48px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -135,8 +140,9 @@
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
     @include carbon--font-weight("semibold");
-    font-family: 'Work Sans Semi Bold', sans-serif;
-    font-weight: 500;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-style: normal;
     height: 48px;
     white-space: nowrap;
   }
@@ -150,6 +156,8 @@
     background-color: $ui-background;
     @include carbon--type-style("body-short-01");
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
     height: 48px;
 
   }
@@ -175,14 +183,20 @@
   .bx--tabs__nav-link {
     @include carbon--type-style("body-short-01");
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
   .bx--tabs__nav-link:hover {
     @include carbon--type-style("body-short-01");
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
     font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
 
   .bx--tabs:first-of-type { // not working
@@ -242,10 +256,6 @@
   .bx--toggle--small {
     margin-top: $spacing-05;
     margin-bottom: $spacing-05;
-    float: right;
-  }
-  .bx--toggle--small__text--off, .bx--toggle--small__text--on {
-    transform: translateX(-100%);
   }
   .bx--toggle--small__switch::before {
     background-color: $interactive-02;
@@ -261,33 +271,4 @@
   }
   .bx--toggle-input:checked + .bx--toggle-input__label > .bx--toggle__switch::before {
     background-color: #03429D;
-    fill: #03429D;
   }
-
-  .bx--form-item {
-    vertical-align: middle;
-  }
-
-  .bx--form-item.bx--checkbox-wrapper {
-    margin-top: $spacing-05;
-    margin-bottom: $spacing-05;
-  }
-  .bx--toggle--small__check {
-    fill: #03429D;
-  }
-  .bx--toggle-input:checked + .bx--toggle-input__label > .bx--toggle__switch::before {
-    background-color: #03429D;
-    fill: #03429D;
-  }
-
-  .bx--form-item {
-    vertical-align: middle;
-  }
-
-  .bx--form-item.bx--checkbox-wrapper {
-    margin-top: $spacing-05;
-    margin-bottom: $spacing-05;
-  }
-
-  // .bx--toggle__text--off, .bx--toggle__text--on {
-  // }

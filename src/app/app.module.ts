@@ -59,6 +59,7 @@ import { HelpToolbarComponent } from './side-navigation-bar/help-toolbar/help-to
 import { PrevRunTestsSidebarComponent } from './side-navigation-bar/prev-run-tests-sidebar/prev-run-tests-sidebar.component';
 import { DataServiceComponent } from './side-navigation-bar/data-service/data-service.component';
 import { HeaderService } from './header/header.service';
+import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
 
 @NgModule({
 	declarations: [
@@ -89,6 +90,7 @@ import { HeaderService } from './header/header.service';
 		HelpToolbarComponent,
 		PrevRunTestsSidebarComponent,
 		DataServiceComponent,
+		IncreaseContrastToggleComponent,
 	],
 	imports: [
 		BrowserModule,
