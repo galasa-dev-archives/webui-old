@@ -60,6 +60,7 @@ import { PrevRunTestsSidebarComponent } from './side-navigation-bar/prev-run-tes
 import { DataServiceComponent } from './side-navigation-bar/data-service/data-service.component';
 import { HeaderService } from './header/header.service';
 import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
+import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
 
 @NgModule({
 	declarations: [
@@ -91,6 +92,7 @@ import { IncreaseContrastToggleComponent } from './footer/increase-contrast-togg
 		PrevRunTestsSidebarComponent,
 		DataServiceComponent,
 		IncreaseContrastToggleComponent,
+		GalasaHamburgerComponent,
 	],
 	imports: [
 		BrowserModule,
