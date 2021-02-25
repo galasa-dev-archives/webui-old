@@ -1,11 +1,10 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
-.sidebar-label {
-    position: relative;
-    height: 48px;
-    padding: $spacing-05;
-    padding-bottom: $spacing-04;
+.filter {
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    padding-top: $spacing-05;
 }
 
 h4 {
@@ -27,10 +26,9 @@ p {
     display: inline-block;
 }
 
-.icon {
-    vertical-align: middle;
-    height: 24px;
-    width: 24px;
-    position: absolute;
-    right: $spacing-05;
+.start-date-time {
+    display: inline-block;
+}
+.end-date-time {
+    display: inline-block;
 }

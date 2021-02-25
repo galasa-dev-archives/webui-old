@@ -7,12 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  onText : string = "Increase contrast";
-  offText : string = "Increase contrast";
-  checked : Boolean = false;
-  disabled : Boolean = false;
-  size : string = "sm";
-
   constructor() { }
 
   ngOnInit(): void {

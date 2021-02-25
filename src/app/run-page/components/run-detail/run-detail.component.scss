@@ -5,4 +5,6 @@
 .run-detail-text {
      @include carbon--type-style("body-short-02");
      font-family: 'Open Sans', sans-serif;
+     font-weight: 400;
+     font-style: normal;
 }

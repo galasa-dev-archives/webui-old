@@ -1,24 +1,34 @@
 <div class="persistent-sidebar">
 
     <div id="organise-table" class="persistent-sidebar-option" (click)="expandOrganiseTable()">
-        <img src="../../../../../assets/icons/table-blue.svg" class="icon">
-        <!-- <img *ngIf="organiseExpanded===true" src="../../../../../assets/icons/table.svg" class="icon"> -->
+        <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="organiseTableLabel">
+            <img *ngIf="organiseExpanded===false" src="../../../../../assets/icons/table-blue.svg" class="icon">
+            <img *ngIf="organiseExpanded===true" src="../../../../../assets/icons/table.svg" class="icon">
+        </ibm-tooltip-icon>
     </div>
     <div id="test-filters" class="persistent-sidebar-option" (click)="expandTestFilters()">
-        <img src="../../../../../assets/icons/filter-blue.svg" class="icon">
-        <!-- <img *ngIf="filtersExpanded===true" src="../../../../../assets/icons/filter.svg" class="icon"> -->
+        <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="filterTestsLabel">
+            <img *ngIf="filtersExpanded===false" src="../../../../../assets/icons/filter-blue.svg" class="icon">
+            <img *ngIf="filtersExpanded===true" src="../../../../../assets/icons/filter.svg" class="icon">
+        </ibm-tooltip-icon>
     </div>
     <div id="compare-list" class="persistent-sidebar-option" (click)="expandCompareList()">
-        <img src="../../../../../assets/icons/compare-list-blue.svg" class="icon">
-        <!-- <img *ngIf="compareListExpanded===true" src="../../../../../assets/icons/compare-list.svg" class="icon"> -->
+        <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="compareListLabel">
+            <img *ngIf="compareListExpanded===false" src="../../../../../assets/icons/compare-list-blue.svg" class="icon">
+            <img *ngIf="compareListExpanded===true" src="../../../../../assets/icons/compare-list.svg" class="icon">
+        </ibm-tooltip-icon>
     </div>
     <div id="worklist" class="persistent-sidebar-option" (click)="expandWorklist()">
-        <img src="../../../../../assets/icons/worklist-blue.svg" class="icon">
-        <!-- <img *ngIf="worklistExpanded===true" src="../../../../../assets/icons/worklist.svg" class="icon"> -->
+        <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="worklistLabel">
+            <img *ngIf="worklistExpanded===false" src="../../../../../assets/icons/worklist-blue.svg" class="icon">
+            <img *ngIf="worklistExpanded===true" src="../../../../../assets/icons/worklist.svg" class="icon">
+        </ibm-tooltip-icon>
     </div>
     <div id="help" class="persistent-sidebar-option" (click)="expandHelp()">
-        <img src="../../../../../assets/icons/help-blue.svg" class="icon">
-        <!-- <img *ngIf="helpExpanded===true" src="../../../../../assets/icons/help.svg" class="icon"> -->
+        <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="helpLabel">
+            <img *ngIf="helpExpanded===false" src="../../../../../assets/icons/help-blue.svg" class="icon">
+            <img *ngIf="helpExpanded===true" src="../../../../../assets/icons/help.svg" class="icon">
+        </ibm-tooltip-icon>
     </div>
     
 </div>

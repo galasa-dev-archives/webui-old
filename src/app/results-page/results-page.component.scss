@@ -10,6 +10,12 @@
     }
 
 
+.persistent-sidebar {
+    border-right: #e0e0e0;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
 #extendable-toolbar {
     height: 100vh;
     background-color: #ffffff;
@@ -19,6 +25,8 @@
     border-right: #e0e0e0;
     border-right-width: 1px;
     border-right-style: solid;
+    display: block;
+    flex-shrink: 0;
 }
 
 .results-page {

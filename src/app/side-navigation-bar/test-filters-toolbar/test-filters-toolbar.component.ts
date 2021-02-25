@@ -17,7 +17,7 @@ export class TestFiltersToolbarComponent implements OnInit {
   constructor(private data: DataServiceComponent) { }
 
   ngOnInit(): void {
-    this.subscription = this.data.current.subscribe(state => this.state = state)
+    this.subscription = this.data.currentFiltersState.subscribe(state => this.state = state)
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -25,7 +25,7 @@ export class TestFiltersToolbarComponent implements OnInit {
 
   collapseToolbar(){
     this.event.emit("");
-    this.data.changeMessage(false);
+    this.data.changeFiltersState(false);
   }
 
 }
