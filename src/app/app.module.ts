@@ -24,7 +24,14 @@ import { UIShellModule,
 		 LoadingModule, 
 		 PaginationModule,
 		 BreadcrumbModule,
-		 ToggleModule} from 'carbon-components-angular';
+		 ToggleModule,
+		 DialogModule,
+		 NFormsModule,
+		 ButtonModule,
+		 SearchModule,
+		 DatePickerModule,
+		 TimePickerModule
+		} from 'carbon-components-angular';
 		 
 
 // import { Notification20Module } from '@carbon/icons-angular/lib/notification/20';
@@ -61,6 +68,8 @@ import { DataServiceComponent } from './side-navigation-bar/data-service/data-se
 import { HeaderService } from './header/header.service';
 import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
 import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
+import { DateTimeFilterComponent } from './results-page/rasfilters/date-time-filter/date-time-filter.component';
+import { LoadingBarComponent } from './loading-bar/loading-bar.component';
 
 @NgModule({
 	declarations: [
@@ -93,6 +102,9 @@ import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hambu
 		DataServiceComponent,
 		IncreaseContrastToggleComponent,
 		GalasaHamburgerComponent,
+		DateTimeFilterComponent,
+		LoadingBarComponent,
+		
 	],
 	imports: [
 		BrowserModule,
@@ -111,7 +123,13 @@ import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hambu
 		LoadingModule,
 		PaginationModule,
 		BreadcrumbModule,
-		ToggleModule
+		ToggleModule,
+		DialogModule,
+		NFormsModule,
+		ButtonModule,
+		SearchModule,
+		DatePickerModule,
+		TimePickerModule
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module

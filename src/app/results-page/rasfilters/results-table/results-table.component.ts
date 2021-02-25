@@ -25,6 +25,12 @@ export class ResultsTableComponent implements OnInit {
   requestor: string;
   testName : string;
   loading: boolean = true;
+
+  // skeletonStateTable = true;
+  skeletonStateTable = false;
+
+  @ViewChild("customLoadingTemplate", { static : true })
+  protected customLoadingTemplate: TemplateRef<any>;
   
   @ViewChild("customItemTemplate", { static : false })
   protected customItemTemplate: TemplateRef<any>;
@@ -48,7 +54,7 @@ export class ResultsTableComponent implements OnInit {
     this.model.data = [];
     this.model.header = [
       new TableHeaderItem({data: "Status"}),
-      new TableHeaderItem({data: "Test Run UID"}), 
+      new TableHeaderItem({data: "Test Run"}), 
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started"}), 
       new TableHeaderItem({data: "Finished"})
@@ -81,6 +87,21 @@ export class ResultsTableComponent implements OnInit {
 
   getPage(page){
     this.loading = true;
+    // var loadingData: TableItem[][] = []
+    // var row: Object[] = [];
+    // for (let i = 0; i < 5; i++) {
+    //   loadingData.push([
+    //     new TableItem({template: this.customLoadingTemplate}),
+    //     new TableItem({template: this.customLoadingTemplate}),
+    //     new TableItem({template: this.customLoadingTemplate}),
+    //     new TableItem({template: this.customLoadingTemplate}),
+    //     new TableItem({template: this.customLoadingTemplate}),
+    //   ]);
+    //   row.push(i);
+    //   this.model.data = loadingData;
+    //   this.runs = row;
+    // }
+
     this.rasApis.getRasRuns().then(
       runsApi =>{
         var parameters: RasRunGetRequest = {
@@ -118,7 +139,8 @@ export class ResultsTableComponent implements OnInit {
           }else{
             this.paginationModel.totalDataLength = 0;
             }
-            this.model.data = newData; 
+            // setTimeout(() => {this.model.data = newData;}, 1500);
+            this.model.data = newData;
             this.runs = newRuns;
             this.loading = false;
           }

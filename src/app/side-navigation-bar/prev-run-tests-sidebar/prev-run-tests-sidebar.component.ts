@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DataServiceComponent } from '../data-service/data-service.component';
 import { Subscription } from 'rxjs';
-
 @Component({
   selector: 'app-prev-run-tests-sidebar',
   templateUrl: './prev-run-tests-sidebar.component.html',
@@ -19,6 +18,14 @@ export class PrevRunTestsSidebarComponent implements OnInit {
 
   state : boolean;
   subscription : Subscription;
+
+  placement : string = "right";
+  alignment : string = "start";
+  organiseTableLabel : string = "Organise table";
+  filterTestsLabel : string = "Filter tests";
+  compareListLabel : string = "Compare list";
+  worklistLabel : string = "Worklist";
+  helpLabel : string = "Help";
 
   constructor(private data: DataServiceComponent) { }
 
