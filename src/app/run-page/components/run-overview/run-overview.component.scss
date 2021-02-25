@@ -6,6 +6,10 @@ $feature-flags: (
 @import "~carbon-components/scss/globals/scss/spacing";
 @import "~carbon-components/scss/globals/grid/grid";
 
+h5{
+  font-size: 16px;
+}
+
 .run-overview.bx--grid{
   min-height: 764px;
   min-width: 994px;

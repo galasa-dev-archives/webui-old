@@ -156,14 +156,28 @@
 
 
   // Tabs in Run Page 
+  .bx--tabs{
+    margin-bottom: 48px;
+    max-width: 1456px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bx--tabs__nav{
+    border-radius: 4px;
+  }
   .bx--tabs__nav-item {
     background-color: $ui-02;
+    width: 110px;
   }
   .bx--tabs__nav-item:hover {
     background-color: $active-ui;
   }
   .bx--tabs__nav-item--selected {
     background-color: #03429D;
+  }
+  .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link, .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link:focus, .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link:active{
+    color: white;
+    border: none;
   }
 
   .bx--tabs__nav-link {
@@ -173,6 +187,15 @@
   .bx--tabs__nav-link:hover {
     @include carbon--type-style("body-short-01");
     font-family: 'Open Sans', sans-serif;
+    background-color: #03429D;
+  }
+  a.bx--tabs__nav-link{
+    
+    border: none;
+  }
+  .bx--tabs__nav-item:hover:not(.bx--tabs__nav-item--selected):not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link{
+    border: none;
+    color: white;
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
