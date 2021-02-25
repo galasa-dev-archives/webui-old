@@ -16,7 +16,6 @@
 .Header-module--headerName{
 max-width: 384px;
 font-size: 1rem;
-font-weight: 400;
 line-height: 1.375;
 letter-spacing: 0;
 transition: opacity .11s cubic-bezier(.2,0,.38,.9);
@@ -31,7 +30,9 @@ display: flex;
 align-items: center;
 z-index: 3;
 @include carbon--type-style("heading-02");
-font-family: 'Work Sans Semi Bold', sans-serif;
+font-family: 'Work Sans', sans-serif;
+font-weight: 500;
+font-style: normal;
 }
 .bx--header__action:hover{
     background-color: #032a68;

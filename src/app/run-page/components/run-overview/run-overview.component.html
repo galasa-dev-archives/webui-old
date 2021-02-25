@@ -2,7 +2,7 @@
 
     <div ibmRow class="run-overview__bx--row">
         <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-            <h5>Test status:</h5>
+            <h5>Result:</h5>
         </div>
         <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
             <app-test-result [value]="result"></app-test-result>
@@ -11,7 +11,7 @@
 
     <div ibmRow class="run-overview__bx--row">
         <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-            <h5>Test run UID:</h5>
+            <h5>Run name:</h5>
         </div>
         <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
             <app-run-detail [value]="runName"></app-run-detail>
@@ -20,7 +20,7 @@
 
     <div ibmRow class="run-overview__bx--row">
         <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-            <h5>Test class:</h5>
+            <h5>Short name:</h5>
         </div>
         <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
             <app-run-detail [value]="testShortName"></app-run-detail>
@@ -56,7 +56,7 @@
 
     <div ibmRow class="run-overview__bx--row">
         <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-            <h5>Run queued:</h5>
+            <h5>Run requested:</h5>
         </div>
         <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
             <app-date-time [value]="queued"></app-date-time>
