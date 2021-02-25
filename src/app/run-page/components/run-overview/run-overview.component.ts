@@ -4,7 +4,6 @@ import { IdeaComponent, MovementModule } from '@carbon/icons-angular';
 import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../../../core/rasapis.service';
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
-import { HeaderService } from '../../../header/header.service';
 
 @Component({
   selector: 'app-run-overview',
@@ -13,30 +12,32 @@ import { HeaderService } from '../../../header/header.service';
 })
 export class RunOverviewComponent implements OnInit {
 
-   @Input() testStructure: TestStructure = {};
-  
+
+
+  @Input() testStructure: TestStructure = {};
+
   result: string = "";
   runName: string = "";
   testShortName: string = "";
   bundle: string = "";
-  testName : string = "";
+  testName: string = "";
   requestor: string = "";
 
-  queued : string = "";
-  startTime : string = "";
-  endTime : string = "";
-  duration : string = "";
+  queued: string = "";
+  startTime: string = "";
+  endTime: string = "";
+  duration: string = "";
 
-  testMethods : TestMethod[] = [];
+  testMethods: TestMethod[] = [];
 
-  constructor(private route : ActivatedRoute,private headerTitleService: HeaderService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
- 
+
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.testStructure.result == "EnvFail"){
+    if (this.testStructure.result == "EnvFail") {
       this.result = "Environmental failure";
     } else if (this.testStructure.result == "UNKNOWN") {
       this.result = "Unknown";
@@ -54,13 +55,12 @@ export class RunOverviewComponent implements OnInit {
     this.duration = this.getRunDuration();
 
     this.testMethods = this.testStructure.methods;
-    this.headerTitleService.setTitle('Run test detail / Overview');
   }
 
-  getRunDuration(){
+  getRunDuration() {
     var start = new Date(this.testStructure.startTime);
     var end = new Date(this.testStructure.endTime);
-  
+
     var durationInMilliseconds = end.valueOf() - start.valueOf();
 
     var hours = durationInMilliseconds / (1000 * 60 * 60);
