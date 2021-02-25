@@ -73,15 +73,29 @@
 
 
   // Dropdown boxes in side toolbar
+  .bx--text-input {
+    border-bottom: none;
+  }
   .bx--list-box.bx--combo-box {
     background-color: $ui-background;
     border-radius: 4px;
-    border: #6f6f6f;
-    border-width: 1px;
-    border-style: solid;
+    border: #6f6f6f 1px solid;
   }
+
   .bx--list-box__menu-item {
     background-color: $ui-background;
+    min-width: fit-content;
+    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: scroll;
+    z-index: 0;
+  }
+  .bx--list-box__menu-item__option {
+    min-width: fit-content;
+    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: scroll;
+    z-index: 0;
   }
   .bx--list-box__menu-item:last-of-type {
     border-bottom-left-radius: 4px;
@@ -89,10 +103,19 @@
   }
   .bx--list-box__menu-item:hover {
     background-color: #dfecff;
-    border-left:#03429D;
-    border-left-width: 1px;
-    border-left-style: solid;
+    border-left:#03429D 1px solid;
   }
+  .bx--list-box__menu.bx--multi-select {
+    max-height: 200px;
+    min-width: 235px;
+    width: fit-content;
+    z-index: 1;
+    background-color: $ui-background;
+    border-radius: 4px;
+    border: $ui-03 1px solid;
+  }
+
+  
 
   // Results Table in Results Page
   .bx--table-sort {
@@ -271,4 +294,40 @@
   }
   .bx--toggle-input:checked + .bx--toggle-input__label > .bx--toggle__switch::before {
     background-color: #03429D;
+  }
+
+
+  // Date and Time pickers
+  .bx--date-picker.bx--date-picker--single .bx--date-picker__input {
+    width: 159px;
+    margin-right: 4px;
+  }
+  .bx--date-picker__input {
+    background-color: $ui-background;
+    border-radius: 4px;
+    border: #6f6f6f 1px solid;
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  // .flatpickr-calendar.open {
+  //   background-color: $ui-background;
+  //   border-radius: 4px;
+  //   border: #6f6f6f 1px solid;
+  //   @include carbon--type-style("body-short-01");
+  //   font-family: 'Open Sans', sans-serif;
+  //   font-weight: 400;
+  //   font-style: normal;
+  // }
+
+  .bx--time-picker__input-field {
+    background-color: $ui-background;
+    border-radius: 4px;
+    border: #6f6f6f 1px solid;
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 76px;
   }

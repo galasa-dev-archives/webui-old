@@ -1,9 +1,12 @@
 <div id="results-table-container">
-    <div id = "loading">
-        <ibm-loading [isActive]="loading" [size]="'md'"></ibm-loading>
+    <div id="loading">
+        <ibm-loading [isActive]="loading" [size]="'sm'"></ibm-loading>
     </div>
 
     <ibm-table-container>
+        <ng-template #customLoadingTemplate>
+            <app-loading-bar></app-loading-bar>
+        </ng-template>
         <ng-template #customItemTemplate let-data="data">{{data.name}}
         </ng-template>
         <ng-template #customResultTemplate let-data="data">
@@ -14,13 +17,13 @@
         </ng-template>
         <ibm-table
             [model]="model"
+            [skeleton]="skeletonStateTable"
             [stickyHeader]="false"
             [showSelectionColumn]="false"
             [striped]="true"
             [sortable]="true"
-            [enableSingleSelect] = "true"
-            (rowClick)="onClick($event)"
             [isDataGrid] = "false"
+            (rowClick)="onClick($event)"
             >
         </ibm-table>
         <ibm-pagination
