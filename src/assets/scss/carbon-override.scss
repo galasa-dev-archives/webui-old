@@ -237,8 +237,6 @@
   .bx--tabs__nav-item:hover:not(.bx--tabs__nav-item--selected):not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link{
     border: none;
     color: white;
-
-    
   }
   .bx--tabs__nav-link:selected {
     @include carbon--type-style("body-short-01");
