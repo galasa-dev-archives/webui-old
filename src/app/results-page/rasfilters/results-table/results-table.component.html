@@ -1,7 +1,7 @@
 <div id="results-table-container">
-    <div id="loading">
+    <!-- <div id="loading">
         <ibm-loading [isActive]="loading" [size]="'sm'"></ibm-loading>
-    </div>
+    </div> -->
 
     <ibm-table-container>
         <ng-template #customLoadingTemplate>
@@ -17,7 +17,6 @@
         </ng-template>
         <ibm-table
             [model]="model"
-            [skeleton]="skeletonStateTable"
             [stickyHeader]="false"
             [showSelectionColumn]="false"
             [striped]="true"

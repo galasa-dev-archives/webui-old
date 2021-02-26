@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { LoadingBarServiceComponent } from './loading-bar-service/loading-bar-service.component';
 
 @Component({
   selector: 'app-loading-bar',
@@ -7,26 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadingBarComponent implements OnInit {
 
+  loading : boolean = true;
+
   width : number;
   myVar;
 
-  constructor() { }
+  state : boolean;
+  subscription : Subscription;
+
+  constructor(private data: LoadingBarServiceComponent) { }
 
   ngOnInit(): void {
+    this.subscription = this.data.current.subscribe(state => this.state = state);
     this.width = 0;
-    this.myVar = setInterval(() => {this.loadBar()}, 3);
+    this.myVar = setInterval(() => {this.loadBar()}, 1);
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   loadBar(){
-    console.log("Width: " + this.width);
+  this.data.current.subscribe(state => this.loading = state);
+
+    if (this.loading == false){
+      // const elements = Array.from(document.getElementsByClassName("myBar") as HTMLCollectionOf<HTMLElement>);
+      // elements.forEach((element) => {
+      // element.style.display = "none";
+    // });
+    clearInterval(this.myVar);
+    }
     if (this.width >= 100){
       this.width = 0;
-      document.getElementById("myProgress").style.display = "none";
-      clearInterval(this.myVar);
     }
-    this.width++;
-    document.getElementById("myBar").style.width = this.width + "px";
-
+    this.width += 3;
+    const elements = Array.from(document.getElementsByClassName("myBar") as HTMLCollectionOf<HTMLElement>);
+    elements.forEach((element) => {
+      element.style.width = this.width + "px";
+    });
   }
-
 }

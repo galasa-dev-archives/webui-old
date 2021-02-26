@@ -3,6 +3,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
 import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
+import { Subscription } from 'rxjs';
+import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
 
 import { RasApisService } from '../../../core/rasapis.service'
 
@@ -26,12 +28,12 @@ export class ResultsTableComponent implements OnInit {
   testName : string;
   loading: boolean = true;
 
-  // skeletonStateTable = true;
-  skeletonStateTable = false;
+  state : boolean;
+  subscription : Subscription;
 
   @ViewChild("customLoadingTemplate", { static : true })
-  protected customLoadingTemplate: TemplateRef<any>;
-  
+  private customLoadingTemplate: TemplateRef<any>;
+
   @ViewChild("customItemTemplate", { static : false })
   protected customItemTemplate: TemplateRef<any>;
 
@@ -41,13 +43,15 @@ export class ResultsTableComponent implements OnInit {
   @ViewChild("customDateTemplate", { static : false })
   protected customDateTemplate: TemplateRef<any>;
 
-  constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router) { 
+  constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private data : LoadingBarServiceComponent) { 
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {  this.selectPage(1) }
     });
   }
 
   ngOnInit(): void {
+
+    this.subscription = this.data.current.subscribe(state => this.state = state);
     
     this.paginationModel.currentPage = 1;
 
@@ -74,6 +78,10 @@ export class ResultsTableComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   onClick(index: number){
     if(!this.loading){
       this.router.navigate(['/run/' + this.model.data[index][1].data.id]);
@@ -87,20 +95,20 @@ export class ResultsTableComponent implements OnInit {
 
   getPage(page){
     this.loading = true;
-    // var loadingData: TableItem[][] = []
-    // var row: Object[] = [];
-    // for (let i = 0; i < 5; i++) {
-    //   loadingData.push([
-    //     new TableItem({template: this.customLoadingTemplate}),
-    //     new TableItem({template: this.customLoadingTemplate}),
-    //     new TableItem({template: this.customLoadingTemplate}),
-    //     new TableItem({template: this.customLoadingTemplate}),
-    //     new TableItem({template: this.customLoadingTemplate}),
-    //   ]);
-    //   row.push(i);
-    //   this.model.data = loadingData;
-    //   this.runs = row;
-    // }
+    var loadingData: TableItem[][] = []
+    var row: Object[] = [];
+    for (let i = 0; i < 5; i++) {
+      loadingData.push([
+        new TableItem({template: this.customLoadingTemplate}),
+        new TableItem({template: this.customLoadingTemplate}),
+        new TableItem({template: this.customLoadingTemplate}),
+        new TableItem({template: this.customLoadingTemplate}),
+        new TableItem({template: this.customLoadingTemplate}),
+      ]);
+      row.push(i);
+      this.model.data = loadingData;
+      this.runs = row;
+    }
 
     this.rasApis.getRasRuns().then(
       runsApi =>{
@@ -139,10 +147,9 @@ export class ResultsTableComponent implements OnInit {
           }else{
             this.paginationModel.totalDataLength = 0;
             }
-            // setTimeout(() => {this.model.data = newData;}, 1500);
-            this.model.data = newData;
-            this.runs = newRuns;
+            setTimeout(() => {this.model.data = newData; this.data.changeState(false);}, 1500);
             this.loading = false;
+            this.runs = newRuns;
           }
         ).catch(reason =>{
           console.log("Error loading", reason);
