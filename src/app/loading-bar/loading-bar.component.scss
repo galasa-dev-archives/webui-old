@@ -2,12 +2,12 @@
 @import "~carbon-components/scss/globals/scss/spacing";
 
 #myProgress {
-    width: 100px;
+    width: 150px;
     background-color: $skeleton-01;
   }
   
   #myBar {
     width: 0px;
-    height: 20px;
+    height: 16px;
     background-color: $skeleton-02;
   }

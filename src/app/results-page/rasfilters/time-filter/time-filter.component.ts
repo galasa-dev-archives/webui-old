@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-time-filter',
@@ -7,14 +8,18 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class TimeFilterComponent implements OnInit {
 
-  disabled = false;
-  invalid = false;
-  invalidText : string = "Invalid time format";
-  value : Object[] = [];
-
   @Output() valueChange = new EventEmitter();
 
-  constructor() { }
+  disabled = false;
+  invalid = false;
+  invalidText : string = "";
+  value : Object[] = [];
+
+  formGroup: FormGroup;
+
+  constructor(protected formBuilder: FormBuilder) {
+    this.formGroup = this.formBuilder.group({ single: [[new Date()], Validators.required]});
+  }
 
   ngOnInit(): void {
   }
@@ -22,5 +27,9 @@ export class TimeFilterComponent implements OnInit {
   changeTime($event){
     this.valueChange.emit($event);
   }
+
+  get invalidSingle() {
+		return this.formGroup.controls["single"].invalid && this.formGroup.controls["single"].touched;
+	}
 
 }

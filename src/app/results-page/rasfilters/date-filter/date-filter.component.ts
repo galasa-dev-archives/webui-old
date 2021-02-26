@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-date-filter',
@@ -10,15 +11,17 @@ export class DateFilterComponent implements OnInit {
   @Output() valueChange = new EventEmitter();
 
   size : string = "md";
-  label : string = "";
-  placeholder : string = "MM/DD/YYYY";
-  disabled = false;
-  invalid = false;
+  label : string =  "";
+  placeholder : string = "DD/MM/YYYY";
   invalidText : string = "Invalid date format";
-  dateFormat : string =  "m/d/Y";
+  dateFormat : string =  "d/m/Y";
   value : Object[] = [];
 
-  constructor() { }
+  formGroup : FormGroup;
+
+  constructor(protected formBuilder: FormBuilder) {
+    this.formGroup = this.formBuilder.group({ single: [[new Date()], Validators.required]});
+  }
 
   ngOnInit(): void {
   }
@@ -26,5 +29,9 @@ export class DateFilterComponent implements OnInit {
   changeDate($event){
     this.valueChange.emit($event);
   }
+
+  get invalidSingle() {
+		return this.formGroup.controls["single"].invalid && this.formGroup.controls["single"].touched;
+	}
 
 }
