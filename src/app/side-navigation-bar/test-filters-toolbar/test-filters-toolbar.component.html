@@ -23,4 +23,25 @@
     <app-resultnames-filter id="filter"></app-resultnames-filter>            
 </div>
 
-<app-date-time-filter></app-date-time-filter>
+<div class="filter">
+    <p>Start date</p>
+    <app-date-filter
+        (valueChange)="startDateChange($event)"
+        class="start-date-time">
+    </app-date-filter>
+    <app-time-filter
+        (valueChange)="startTimeChange($event)"
+        class="start-date-time">
+    </app-time-filter>
+</div>
+<div class="filter">
+    <p>End date</p>
+    <app-date-filter
+        (valueChange)="endDateChange($event)"
+        class="end-date-time">
+    </app-date-filter>
+    <app-time-filter
+        (valueChange)="endTimeChange($event)"
+        class="end-date-time">
+    </app-time-filter>
+</div>

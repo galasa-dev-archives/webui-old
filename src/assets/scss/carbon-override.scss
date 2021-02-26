@@ -88,14 +88,12 @@
     white-space: nowrap;
     overflow-x: visible;
     overflow-y: scroll;
-    z-index: 0;
   }
   .bx--list-box__menu-item__option {
     min-width: fit-content;
     white-space: nowrap;
     overflow-x: visible;
     overflow-y: scroll;
-    z-index: 0;
   }
   .bx--list-box__menu-item:last-of-type {
     border-bottom-left-radius: 4px;
@@ -310,6 +308,10 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
+  }
+  .bx--date-picker__icon {
+    z-index: 0;
+    display: none;
   }
   // .flatpickr-calendar.open {
   //   background-color: $ui-background;

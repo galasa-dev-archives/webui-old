@@ -68,8 +68,10 @@ import { DataServiceComponent } from './side-navigation-bar/data-service/data-se
 import { HeaderService } from './header/header.service';
 import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
 import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
-import { DateTimeFilterComponent } from './results-page/rasfilters/date-time-filter/date-time-filter.component';
 import { LoadingBarComponent } from './loading-bar/loading-bar.component';
+import { DateFilterComponent } from './results-page/rasfilters/date-filter/date-filter.component';
+import { TimeFilterComponent } from './results-page/rasfilters/time-filter/time-filter.component';
+import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/loading-bar-service.component';
 
 @NgModule({
 	declarations: [
@@ -102,8 +104,10 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
 		DataServiceComponent,
 		IncreaseContrastToggleComponent,
 		GalasaHamburgerComponent,
-		DateTimeFilterComponent,
 		LoadingBarComponent,
+		DateFilterComponent,
+		TimeFilterComponent,
+		LoadingBarServiceComponent,
 		
 	],
 	imports: [
@@ -134,7 +138,7 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService],
+	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
