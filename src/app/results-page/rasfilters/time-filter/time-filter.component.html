@@ -1,4 +1,5 @@
-<ibm-timepicker
+<form [formGroup]="formGroup">
+        <ibm-timepicker
         (valueChange)="changeTime($event)"
         [invalid]="invalid"
         [invalidText]="invalidText"		
@@ -6,4 +7,5 @@
         [disabled]="false"
         class="start-date-time"
         >
-</ibm-timepicker>
+        </ibm-timepicker>
+</form>

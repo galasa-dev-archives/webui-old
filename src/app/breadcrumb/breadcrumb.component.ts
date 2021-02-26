@@ -16,7 +16,7 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit(): void {
 
     var landingPageBreadcrumb = { 'name' : 'Home', 'url' : '/' };
-    var resultsPageBreadcrumb = { 'name' : 'Previously run tests', 'url' : '/results'};
+    var resultsPageBreadcrumb = { 'name' : 'Test history', 'url' : '/results'};
     var runPageBreadcrumb = { 'name' : 'Run detail', 'url' : '/'}; 
     // No path set for Run Page currently as there is no further page you would navigate backwards from
 
@@ -26,7 +26,7 @@ export class BreadcrumbComponent implements OnInit {
     // All paths through the UI will have Dashboard as the first breadcrumb item
     this.breadcrumbItems.push(landingPageBreadcrumb);
 
-     // Previously run tests pathway ...
+     // Test history pathway ...
      if (currentPage.includes("results")){
       // Set Results Page to current page so it doesn't hyperlink
       this.currentBreadcrumbItem = resultsPageBreadcrumb.name;

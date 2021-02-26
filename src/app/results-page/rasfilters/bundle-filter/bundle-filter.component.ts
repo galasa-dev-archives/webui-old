@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute}    from '@angular/router';
 
 import { RasTestclassesGetRequest, TestClasses, TestClass } from 'galasa-ras-api-ts-rxjs';
+import { Subscription } from 'rxjs';
+import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
 
 import { RasApisService } from '../../../core/rasapis.service'
 
@@ -12,14 +14,20 @@ import { RasApisService } from '../../../core/rasapis.service'
 })
 export class BundleFilterComponent implements OnInit {
 
+  state : boolean;
+  subscription : Subscription;
+
   bundles: Object[]=[];
   loading: Boolean = true;
   constructor(private rasApis: RasApisService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private data : LoadingBarServiceComponent
     ) { }
 
   ngOnInit(): void {
+    this.subscription = this.data.current.subscribe(state => this.state = state);
+
     this.rasApis.getRasTestclasses().then(
       bundleApi =>{
         var parameters: RasTestclassesGetRequest = {"sort":"testclasses:asc"};
@@ -53,9 +61,12 @@ export class BundleFilterComponent implements OnInit {
 
   }
 
-  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }  
 
   onSelected(event: any){
+    this.data.changeState(true);
     var selectedBundles = "";
     
     if(event.item){

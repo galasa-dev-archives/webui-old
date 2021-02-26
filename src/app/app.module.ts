@@ -5,7 +5,7 @@
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import { UIShellModule,
 		 ButtonModule,
 		 SearchModule,
 		 DatePickerModule,
-		 TimePickerModule
+		 TimePickerModule,
 		} from 'carbon-components-angular';
 		 
 
@@ -133,12 +133,13 @@ import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/lo
 		ButtonModule,
 		SearchModule,
 		DatePickerModule,
-		TimePickerModule
+		TimePickerModule,
+		ReactiveFormsModule
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent],
+	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent, FormBuilder],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

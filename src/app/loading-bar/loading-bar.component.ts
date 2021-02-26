@@ -32,10 +32,6 @@ export class LoadingBarComponent implements OnInit {
   this.data.current.subscribe(state => this.loading = state);
 
     if (this.loading == false){
-      // const elements = Array.from(document.getElementsByClassName("myBar") as HTMLCollectionOf<HTMLElement>);
-      // elements.forEach((element) => {
-      // element.style.display = "none";
-    // });
     clearInterval(this.myVar);
     }
     if (this.width >= 100){
