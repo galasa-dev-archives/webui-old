@@ -1,88 +1,92 @@
 <div ibmGrid class="run-overview bx--grid">
 
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Result:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-test-result [value]="result"></app-test-result>
-                </div>
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Result:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-test-result [value]="result"></app-test-result>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Run name:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-run-detail [value]="runName"></app-run-detail>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Short name:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-run-detail [value]="testShortName"></app-run-detail>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Bundle:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-run-detail [value]="bundle"></app-run-detail>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Test name:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-run-detail [value]="testName"></app-run-detail>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Requestor:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-run-detail [value]="requestor"></app-run-detail>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Run requested:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-date-time [value]="queued"></app-date-time>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Run started:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <app-date-time [value]="startTime"></app-date-time>
+        </div>
+    </div>
+
+    <div ibmRow class="run-overview__bx--row">
+        <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+            <h5>Run finished:</h5>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
+            <div class='inline-block-element'>
+                <app-date-time [value]="endTime"></app-date-time>
+            </div>
+            <div class='inline-block-element'>
+                <app-run-detail [value]="duration"></app-run-detail>
             </div>
 
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Run Name:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-run-detail [value]="runName"></app-run-detail>
-                </div>
-            </div>
+        </div>
+    </div>
 
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Short Name:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-run-detail [value]="testShortName"></app-run-detail>
-                </div>
-            </div>
-
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Bundle:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-run-detail [value]="bundle"></app-run-detail>
-                </div>
-            </div>
-
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Test Name:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-run-detail [value]="testName"></app-run-detail>
-                </div>
-            </div>
-
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Requestor:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-run-detail [value]="requestor"></app-run-detail>
-                </div>
-            </div>
-
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Run Requested:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-date-time [value]="queued"></app-date-time>
-                </div>
-            </div>
-
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Run Started:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <app-date-time [value]="startTime"></app-date-time>
-                </div>
-            </div>
-
-            <div ibmRow class="run-overview__bx--row">
-                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                    <h5>Run Finished:</h5>
-                </div>
-                <div ibmCol [columnNumbers]="{'lg': 14, 'xlg': 14, 'max': 14}" class="run-overview__value bx--col">
-                    <div class='inline-block-element'><app-date-time [value]="endTime"></app-date-time></div>
-                    <div class='inline-block-element'><app-run-detail [value]="duration"></app-run-detail></div> 
-                 
-                </div>
-            </div>
-
-    <app-methods [testMethods] = "testMethods" valign="bottom" class="method-table"></app-methods>
+    <app-methods [testMethods]="testMethods" valign="bottom" class="method-table"></app-methods>
 
 </div>

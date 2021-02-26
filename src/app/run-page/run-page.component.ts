@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 import { RasApisService } from '../core/rasapis.service';
+import { HeaderService } from '../header/header.service';
 
 @Component({
   selector: 'app-run-page',
@@ -9,14 +10,17 @@ import { RasApisService } from '../core/rasapis.service';
   styleUrls: ['./run-page.component.scss']
 })
 export class RunPageComponent implements OnInit {
+  
 
   id : string;
   testStructure : TestStructure = {};
   loading: boolean;
 
-  constructor(private rasApis : RasApisService, private route : ActivatedRoute) { }
+  constructor(private rasApis : RasApisService, private route : ActivatedRoute,private headerTitleService: HeaderService) { }
 
   ngOnInit(): void {
+
+    
 
     console.log("this is loading");
 
@@ -49,7 +53,19 @@ export class RunPageComponent implements OnInit {
         });
       }
     );
+    
   }
-   
 
+  overviewSelected(event: any){
+    this.headerTitleService.setTitle('Run test detail / Overview');
+  }
+  runLogSelected(event: any){
+    this.headerTitleService.setTitle('Run test detail / Run Log');
+  }
+  artifactsSelected(event: any){
+    this.headerTitleService.setTitle('Run test detail / Artifacts');
+  }
+  historySelected(event: any){
+    this.headerTitleService.setTitle('Run test detail / History');
+  }
 }

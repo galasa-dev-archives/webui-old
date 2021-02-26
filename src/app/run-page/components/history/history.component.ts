@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { TestStructure } from 'galasa-ras-api-ts-rxjs';
-import { HeaderService } from '../../../header/header.service';
 
 @Component({
   selector: 'app-history',
@@ -10,10 +9,9 @@ import { HeaderService } from '../../../header/header.service';
 export class HistoryComponent implements OnInit {
   @Input() testStructure: TestStructure = {};
 
-  constructor(private headerTitleService: HeaderService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.headerTitleService.setTitle('Run test detail / History');
   }
 
   ngOnChanges(changes: SimpleChanges) {
