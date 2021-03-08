@@ -189,6 +189,10 @@
   //   background-color: #e5f0ff;
   // }
 
+  //buttons on tabs in run page
+  .bx--btn.bx--btn--icon-only.bx--tooltip__trigger{
+    position: absolute;
+  }
 
   // Tabs in Run Page 
   .bx--tabs{

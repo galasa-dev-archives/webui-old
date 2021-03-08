@@ -15,6 +15,8 @@ export class RunPageComponent implements OnInit {
   id : string;
   testStructure : TestStructure = {};
   loading: boolean;
+  ibmButton:boolean;
+
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute,private headerTitleService: HeaderService) { }
 
