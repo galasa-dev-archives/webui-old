@@ -26,6 +26,8 @@ export class ResultsTableComponent implements OnInit {
   bundle: string;
   requestor: string;
   testName : string;
+  from;
+  to;
   loading: boolean = true;
 
   state : boolean;
@@ -71,7 +73,8 @@ export class ResultsTableComponent implements OnInit {
       this.testName = params['testclass'];
       this.bundle = params['bundle'];
       this.result = params['resultNames'];
-      
+      this.from = new Date(params['from']);
+      this.to = new Date(params['to']);    
     });
 
     this.selectPage(1);
@@ -119,7 +122,9 @@ export class ResultsTableComponent implements OnInit {
                                             "testname": this.testName,
                                             "requestor": this.requestor,
                                             "bundle": this.bundle,
-                                            "result": this.result
+                                            "result": this.result,
+                                            "from" : this.from,
+                                            "to" : this.to
                                             };
         runsApi.rasRunGet(parameters).toPromise().then(
           result => {

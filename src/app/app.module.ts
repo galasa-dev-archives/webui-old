@@ -72,6 +72,7 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
 import { DateFilterComponent } from './results-page/rasfilters/date-filter/date-filter.component';
 import { TimeFilterComponent } from './results-page/rasfilters/time-filter/time-filter.component';
 import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/loading-bar-service.component';
+import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
 
 @NgModule({
 	declarations: [
@@ -108,6 +109,7 @@ import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/lo
 		DateFilterComponent,
 		TimeFilterComponent,
 		LoadingBarServiceComponent,
+		DatetimeFilterComponent,
 		
 	],
 	imports: [
