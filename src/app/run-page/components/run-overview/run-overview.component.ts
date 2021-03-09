@@ -16,6 +16,7 @@ export class RunOverviewComponent implements OnInit {
 
   @Input() testStructure: TestStructure = {};
 
+  ibmButton:boolean;
   result: string = "";
   runName: string = "";
   testShortName: string = "";
