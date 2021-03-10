@@ -2,8 +2,22 @@
 
 <div class="run-page">
     <ibm-loading class="bx--loading" [isActive]="loading" [size]="'md'" withOverlay={true}></ibm-loading>
-
+    <div class="buttons">
+        <button class="bt button1" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+            <img src="../../assets/icons/add-galasa04.svg" class="bx--btn__icon">
+            <img src="../../assets/icons/add-white.svg" class="bx--btn__icon h-img">
+        </button>
+        <button class="bt button2" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+            <img src="../../assets/icons/reset-galasa04.svg" class="bx--btn__icon">
+            <img src="../../assets/icons/reset-white.svg" class="bx--btn__icon h-img">
+        </button>
+        <button class="bt button3" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+            <img src="../../assets/icons/event--schedule-galasa04.svg" class="bx--btn__icon">
+            <img src="../../assets/icons/event--schedule-white.svg" class="bx--btn__icon h-img">
+        </button>
+    </div>
     <ibm-tabs [followFocus]=true [cacheActive]=true class="tabs">
+
         <ibm-tab (selected)="overviewSelected($event)" class="bx--tabs__nav-link" id="overview" heading="Overview">
             <app-run-overview class="run-overview" [testStructure]="testStructure"></app-run-overview>
         </ibm-tab>
@@ -17,5 +31,6 @@
         <ibm-tab (selected)="historySelected($event)" class="bx--tabs__nav-link" id="history" heading="History">
             <app-history [testStructure]="testStructure"></app-history>
         </ibm-tab>
+
     </ibm-tabs>
 </div>

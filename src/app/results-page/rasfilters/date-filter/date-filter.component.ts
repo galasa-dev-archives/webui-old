@@ -13,7 +13,7 @@ export class DateFilterComponent implements OnInit {
   size : string = "md";
   label : string =  "";
   placeholder : string = "DD/MM/YYYY";
-  invalidText : string = "Invalid date format";
+  invalidText : string = "Invalid";
   dateFormat : string =  "d/m/Y";
   value : Object[] = [];
 

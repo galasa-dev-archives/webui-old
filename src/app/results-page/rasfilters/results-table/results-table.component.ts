@@ -47,7 +47,9 @@ export class ResultsTableComponent implements OnInit {
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private data : LoadingBarServiceComponent) { 
     this.router.events.subscribe((ev) => {
-      if (ev instanceof NavigationEnd) {  this.selectPage(1) }
+      if (ev instanceof NavigationEnd && ev.url !== "/results") {  
+        this.selectPage(1);
+      }
     });
   }
 
@@ -77,7 +79,7 @@ export class ResultsTableComponent implements OnInit {
       this.to = new Date(params['to']);    
     });
 
-    this.selectPage(1);
+    // this.selectPage(1);
 
   }
 
@@ -98,6 +100,7 @@ export class ResultsTableComponent implements OnInit {
 
   getPage(page){
     this.loading = true;
+    this.data.changeState(true);
     var loadingData: TableItem[][] = []
     var row: Object[] = [];
     for (let i = 0; i < 5; i++) {
@@ -152,7 +155,12 @@ export class ResultsTableComponent implements OnInit {
           }else{
             this.paginationModel.totalDataLength = 0;
             }
-            setTimeout(() => {this.model.data = newData; this.data.changeState(false);}, 1500);
+            if (page === 1) {
+              setTimeout(() => {this.model.data = newData; this.data.changeState(false);}, 1000);
+            } else {
+              this.model.data = newData; this.data.changeState(false);
+            }
+    
             this.loading = false;
             this.runs = newRuns;
           }

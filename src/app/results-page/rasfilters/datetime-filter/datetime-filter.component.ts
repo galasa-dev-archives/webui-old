@@ -22,8 +22,8 @@ export class DatetimeFilterComponent implements OnInit {
   startDateTime;
   endDateTime;
 
-  bundles: Object[]=[];
   loading: Boolean = true;
+
   constructor(private rasApis: RasApisService,
     private route: ActivatedRoute,
     private router: Router,
@@ -32,11 +32,27 @@ export class DatetimeFilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.data.current.subscribe(state => this.state = state);
+    this.setDefault8HourTestHistory();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   } 
+
+  setDefault8HourTestHistory(){
+    var date, hours, eightHoursAgo;
+
+    date = new Date();
+    hours = date.getHours();
+    eightHoursAgo = date.setHours(hours - 8);
+    
+    this.startDateTime = new Date(eightHoursAgo);
+    this.startDate = new Date(eightHoursAgo).setHours(0,0,0);
+    this.startTime = "00:00";
+    this.endDateTime = new Date();
+    this.endDate = new Date().setHours(0,0,0);
+    this.endTime = "00:00";
+  }
 
   startDateChange($event){
     this.startDate = $event;
@@ -56,44 +72,21 @@ export class DatetimeFilterComponent implements OnInit {
   }
 
   getStartDateTime(){
-    var startDateTime : Date;
-    if (this.startDate != null){
-      var date = new Date(this.startDate);
-       // Remove if statements when default values added
-      if (this.startTime != null){
-      var [hours,minutes] = this.startTime.split(':');
-      var time = (hours * 3600000) + (minutes * 60000);
-      startDateTime = new Date(date.getTime() + time);
-      // startDateTime = startDateTime.toISOString();
-    } else {
-      startDateTime = new Date(date.getTime());
-      // startDateTime = startDateTime.toISOString();
-    }
-    } 
-    // else {
-    //   startDateTime = "";
-    // }
-    this.onStartChange(startDateTime);
+    var date = new Date(this.startDate);
+    var [hours,minutes] = this.startTime.split(':');
+    var time = (hours * 3600000) + (minutes * 60000);
+    this.startDateTime = new Date(date.getTime() + time);
+
+    this.onStartChange(this.startDateTime);
   }
 
   getEndDateTime(){
-    var endDateTime : Date;
-    if (this.endDate != null){
-      var date = new Date(this.endDate);  
-      if (this.endTime != null){
-        var [hours,minutes] = this.endTime.split(':');
-        var time = (hours * 3600000) + (minutes * 60000);
-        endDateTime = new Date(date.getTime() + time);
-        // endDateTime = endDateTime.toISOString();
-      } else {
-        endDateTime = new Date(date.getTime());
-        // endDateTime = endDateTime.toISOString();
-      }
-    } 
-    // else {
-    //   endDateTime = "";
-    // }
-    this.onEndChange(endDateTime);
+    var date = new Date(this.endDate);
+    var [hours,minutes] = this.endTime.split(':');
+    var time = (hours * 3600000) + (minutes * 60000);
+    this.endDateTime = new Date(date.getTime() + time);
+
+    this.onEndChange(this.endDateTime);
   }
 
   onStartChange(date : Date){
@@ -111,5 +104,4 @@ export class DatetimeFilterComponent implements OnInit {
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
     this.data.changeState(false);
   }
-
 }
