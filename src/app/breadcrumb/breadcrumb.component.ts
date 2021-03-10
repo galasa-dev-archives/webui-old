@@ -21,7 +21,6 @@ export class BreadcrumbComponent implements OnInit {
     // No path set for Run Page currently as there is no further page you would navigate backwards from
 
     var currentPage = window.location.href;
-    console.log("Current page URL: " + currentPage);
 
     // All paths through the UI will have Dashboard as the first breadcrumb item
     this.breadcrumbItems.push(landingPageBreadcrumb);

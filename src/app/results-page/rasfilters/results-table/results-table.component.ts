@@ -26,6 +26,8 @@ export class ResultsTableComponent implements OnInit {
   bundle: string;
   requestor: string;
   testName : string;
+  from;
+  to;
   loading: boolean = true;
 
   state : boolean;
@@ -45,7 +47,9 @@ export class ResultsTableComponent implements OnInit {
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private data : LoadingBarServiceComponent) { 
     this.router.events.subscribe((ev) => {
-      if (ev instanceof NavigationEnd) {  this.selectPage(1) }
+      if (ev instanceof NavigationEnd && ev.url !== "/results") {  
+        this.selectPage(1);
+      }
     });
   }
 
@@ -71,10 +75,11 @@ export class ResultsTableComponent implements OnInit {
       this.testName = params['testclass'];
       this.bundle = params['bundle'];
       this.result = params['resultNames'];
-      
+      this.from = new Date(params['from']);
+      this.to = new Date(params['to']);    
     });
 
-    this.selectPage(1);
+    // this.selectPage(1);
 
   }
 
@@ -95,6 +100,7 @@ export class ResultsTableComponent implements OnInit {
 
   getPage(page){
     this.loading = true;
+    this.data.changeState(true);
     var loadingData: TableItem[][] = []
     var row: Object[] = [];
     for (let i = 0; i < 5; i++) {
@@ -119,7 +125,9 @@ export class ResultsTableComponent implements OnInit {
                                             "testname": this.testName,
                                             "requestor": this.requestor,
                                             "bundle": this.bundle,
-                                            "result": this.result
+                                            "result": this.result,
+                                            "from" : this.from,
+                                            "to" : this.to
                                             };
         runsApi.rasRunGet(parameters).toPromise().then(
           result => {
@@ -147,7 +155,12 @@ export class ResultsTableComponent implements OnInit {
           }else{
             this.paginationModel.totalDataLength = 0;
             }
-            setTimeout(() => {this.model.data = newData; this.data.changeState(false);}, 1500);
+            if (page === 1) {
+              setTimeout(() => {this.model.data = newData; this.data.changeState(false);}, 1000);
+            } else {
+              this.model.data = newData; this.data.changeState(false);
+            }
+    
             this.loading = false;
             this.runs = newRuns;
           }

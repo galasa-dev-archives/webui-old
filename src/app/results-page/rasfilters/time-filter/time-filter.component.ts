@@ -11,8 +11,8 @@ export class TimeFilterComponent implements OnInit {
   @Output() valueChange = new EventEmitter();
 
   disabled = false;
-  invalid = false;
-  invalidText : string = "";
+  invalid : Boolean;
+  invalidText : string = "Invalid";
   value : Object[] = [];
 
   formGroup: FormGroup;
@@ -25,11 +25,21 @@ export class TimeFilterComponent implements OnInit {
   }
 
   changeTime($event){
+    console.log("Event: " + $event)
+    var value = $event;
+    this.isTimeInvalid(value);
+
     this.valueChange.emit($event);
   }
 
-  get invalidSingle() {
-		return this.formGroup.controls["single"].invalid && this.formGroup.controls["single"].touched;
-	}
+  isTimeInvalid(value : string){
+    var regExp = /[a-zA-Z]/g;
+            
+    if(regExp.test(value)){
+      this.invalid = true;
+    } else {
+    this.invalid = false;
+    }
+  }
 
 }

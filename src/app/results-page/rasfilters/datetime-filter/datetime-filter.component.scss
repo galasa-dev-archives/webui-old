@@ -1,0 +1,23 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.filter {
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    padding-top: $spacing-05;
+}
+
+p {
+    @include type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: $spacing-03;
+}
+
+.start-date-time {
+    display: inline-block;
+}
+.end-date-time {
+    display: inline-block;
+}
