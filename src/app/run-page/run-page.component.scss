@@ -1,14 +1,44 @@
 @import "~carbon-components/scss/globals/scss/typography";
 @import "~carbon-components/scss/globals/scss/spacing";
 
-  .run-page {
+  
+.main {
+  display: flex;
+}
+
+  .main.show-sidebar #extendable-toolbar {
+      margin-left: 0;
+  }
+
+   .persistent-sidebar {
+    border-right: #e0e0e0;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+#extendable-toolbar {
+    height: 100vh;
+    background-color: #ffffff;
+    width: 272px;
+    transition: margin-left 0.4s ease-in-out;
+    margin-left: -272px;
+    border-right: #e0e0e0;
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+    flex-shrink: 0;
+}
+
+.run-page {
     background-color: $ui-03;
-    padding-left: 40px;
-    padding-right: 40px;
+    flex-grow: 1;
     padding-bottom: 48px;
   }
-  
-
+ .tabs-container{
+  padding-left: $spacing-08;
+  padding-right: $spacing-08;
+ }
+ 
   .run-overview {
     border-radius: 4px;
   }
