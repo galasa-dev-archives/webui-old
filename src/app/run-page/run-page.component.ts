@@ -15,14 +15,13 @@ export class RunPageComponent implements OnInit {
   id : string;
   testStructure : TestStructure = {};
   loading: boolean;
+  activeToolbar: string = "";
   
 
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute,private headerTitleService: HeaderService) { }
 
   ngOnInit(): void {
-
-    
 
     console.log("this is loading");
 
@@ -56,6 +55,14 @@ export class RunPageComponent implements OnInit {
       }
     );
     
+  }
+
+  expandToolbar($event){
+    this.activeToolbar = $event;
+  }
+
+  collapseToolbar($event){
+    this.activeToolbar = $event;
   }
 
   overviewSelected(event: any){

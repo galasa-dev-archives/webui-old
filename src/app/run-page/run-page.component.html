@@ -1,22 +1,53 @@
-<app-breadcrumb></app-breadcrumb>
+<div class="main show-sidebar" id="">
 
-<div class="run-page">
-    <ibm-loading class="bx--loading" [isActive]="loading" [size]="'md'" withOverlay={true}></ibm-loading>
-    <ibm-tabs [followFocus]=true [cacheActive]=true class="tabs">
+    <div class="persistent-sidebar">
+        <app-prev-run-tests-sidebar (event)="expandToolbar($event)"></app-prev-run-tests-sidebar>
+    </div>
 
-        <ibm-tab (selected)="overviewSelected($event)" class="bx--tabs__nav-link" id="overview" heading="Overview">
-            <app-run-overview class="run-overview" [testStructure]="testStructure"></app-run-overview>
-        </ibm-tab>
-        <ibm-tab (selected)="runLogSelected($event)" class="bx--tabs__nav-link" id="run-log" heading="Run Log"
-            title="Run test detail / Run Log">
-            <app-run-log [testStructure]="testStructure"></app-run-log>
-        </ibm-tab>
-        <ibm-tab (selected)="artifactsSelected($event)" class="bx--tabs__nav-link" id="artifacts" heading="Artifacts">
-            <app-artifact [testStructure]="testStructure"></app-artifact>
-        </ibm-tab>
-        <ibm-tab (selected)="historySelected($event)" class="bx--tabs__nav-link" id="history" heading="History">
-            <app-history [testStructure]="testStructure"></app-history>
-        </ibm-tab>
+    <div *ngIf="activeToolbar=='organise-table'" class="organise-table-sidebar" id="extendable-toolbar">
+        <app-organise-table-toolbar (event)="collapseToolbar($event)"></app-organise-table-toolbar>
+    </div>
 
-    </ibm-tabs>
+    <div *ngIf="activeToolbar=='test-filters'" class="test-filter-sidebar" id="extendable-toolbar">
+        <app-test-filters-toolbar (event)="collapseToolbar($event)"></app-test-filters-toolbar>
+    </div>
+
+    <div *ngIf="activeToolbar=='compare-list'" class="compare-list-sidebar" id="extendable-toolbar">
+        <app-compare-list-toolbar (event)="collapseToolbar($event)"></app-compare-list-toolbar>
+    </div>
+
+    <div *ngIf="activeToolbar=='worklist'" class="worklist-sidebar" id="extendable-toolbar">
+        <app-worklist-toolbar (event)="collapseToolbar($event)"></app-worklist-toolbar>
+    </div>
+
+    <div *ngIf="activeToolbar=='help'" class="help-sidebar" id="extendable-toolbar">
+        <app-help-toolbar (event)="collapseToolbar($event)"></app-help-toolbar>
+    </div>
+
+    
+
+    <div class="run-page">
+        <app-breadcrumb></app-breadcrumb>
+        <div class="tabs-container">
+        <ibm-loading class="bx--loading" [isActive]="loading" [size]="'md'" withOverlay={true}></ibm-loading>
+        <ibm-tabs [followFocus]=true [cacheActive]=true class="tabs">
+
+            <ibm-tab (selected)="overviewSelected($event)" class="bx--tabs__nav-link" id="overview" heading="Overview">
+                <app-run-overview class="run-overview" [testStructure]="testStructure"></app-run-overview>
+            </ibm-tab>
+            <ibm-tab (selected)="runLogSelected($event)" class="bx--tabs__nav-link" id="run-log" heading="Run Log"
+                title="Run test detail / Run Log">
+                <app-run-log [testStructure]="testStructure"></app-run-log>
+            </ibm-tab>
+            <ibm-tab (selected)="artifactsSelected($event)" class="bx--tabs__nav-link" id="artifacts"
+                heading="Artifacts">
+                <app-artifact [testStructure]="testStructure"></app-artifact>
+            </ibm-tab>
+            <ibm-tab (selected)="historySelected($event)" class="bx--tabs__nav-link" id="history" heading="History">
+                <app-history [testStructure]="testStructure"></app-history>
+            </ibm-tab>
+
+        </ibm-tabs>
+    </div>
+    </div>
 </div>
