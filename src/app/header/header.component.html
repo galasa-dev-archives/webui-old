@@ -18,12 +18,12 @@
 </button>
 </div>
 </header>
-<ibm-sidenav [expanded]="false" [hidden]="!active" class="hamburger-menu">
-    <ibm-sidenav-item class="hamburger-menu-item" [route]="['/']">
+<ibm-sidenav [ngbCollapse]="collapse" [expanded]="false" [hidden]="!active" class="hamburger-menu">
+    <ibm-sidenav-item class="hamburger-menu-item" [route]="['/']" (click)="collapse = true" >
         <svg icon ibmIconFade size="16"></svg>
         Getting started
     </ibm-sidenav-item>
-    <ibm-sidenav-item [route]="['/results']">
+    <ibm-sidenav-item [route]="['/results']" (click)="collapse = true">
         <svg icon ibmIconFade size="16"></svg>
         Test history
     </ibm-sidenav-item>
@@ -41,14 +41,14 @@
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        Edit profile
+        Profile
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        Read docs
+        Help
     </ibm-sidenav-item>
     <ibm-sidenav-item>
         <svg icon ibmIconFade size="16"></svg>
-        Get support
+        Support
     </ibm-sidenav-item>
 </ibm-sidenav>

@@ -21,6 +21,8 @@ export class HeaderComponent {
 	active: boolean = false;
 
 	title = '';
+	
+	public isMenuCollapsed = true;
 
 	constructor(private headerTitleService: HeaderService) {}
 
