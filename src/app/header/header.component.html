@@ -18,12 +18,12 @@
 </button>
 </div>
 </header>
-<ibm-sidenav [ngbCollapse]="collapse" [expanded]="false" [hidden]="!active" class="hamburger-menu">
+<ibm-sidenav  [expanded]="false" [hidden]="!active" class="hamburger-menu">
     <ibm-sidenav-item class="hamburger-menu-item" [route]="['/']" (click)="collapse = true" >
         <svg icon ibmIconFade size="16"></svg>
         Getting started
     </ibm-sidenav-item>
-    <ibm-sidenav-item [route]="['/results']" (click)="collapse = true">
+    <ibm-sidenav-item [route]="['/results']" >
         <svg icon ibmIconFade size="16"></svg>
         Test history
     </ibm-sidenav-item>
