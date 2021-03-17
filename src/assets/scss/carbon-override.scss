@@ -198,85 +198,76 @@
   }
 
   // Tabs in Run Page 
-  .bx--tabs{
+  .bx--tabs--scrollable{
     max-width: 1456px;
     margin-left: auto;
     margin-right: auto;
   }
-  .bx--tabs__nav{
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav{
     border-radius: 4px;
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
-  .bx--tabs__nav-item {
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav-item{
     background-color: $ui-02;
     width: 110px;
   }
-  .bx--tabs__nav-item:hover {
-    background-color: $active-ui;
-  }
-  .bx--tabs__nav-item--selected {
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav-item:hover .bx--tabs--scrollable__nav-link {
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
     background-color: #03429D;
-  }
-  .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link, .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link:focus, .bx--tabs__nav-item--selected:not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link:active{
     color: white;
     border: none;
   }
-
-  .bx--tabs__nav-link {
-    @include carbon--type-style("body-short-01");
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  .bx--tabs__nav-link:hover {
-    @include carbon--type-style("body-short-01");
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav-item--selected .bx--tabs--scrollable__nav-link {
     background-color: #03429D;
+    color: white;
+    border: none;
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
-  a.bx--tabs__nav-link{
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav-link{
     
     border: none;
   }
-  .bx--tabs__nav-item:hover:not(.bx--tabs__nav-item--selected):not(.bx--tabs__nav-item--disabled) .bx--tabs__nav-link{
-    border: none;
-    color: white;
-  }
-  .bx--tabs__nav-link:selected {
-    @include carbon--type-style("body-short-01");
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
+
+  .bx--tab-content{
+    padding:0px;
   }
 
- 
 
-  .bx--tabs__nav-item--selected .bx--tabs__nav-link  {
-    border-bottom: 0px, none;
-    color: $inverse-01;
-  }
-  .bx--tabs__nav-item--selected .bx--tabs__nav-link:focus {
-    border-bottom: 0px, none;
-    color: $inverse-01;
-  }
-  .bx--tabs__nav-item--selected .bx--tabs__nav-link:active {
-    border-bottom: 0px, none;
-    color: $inverse-01;
-  }
+  // .bx--tabs__nav-item--selected .bx--tabs__nav-link  {
+  //   border-bottom: 0px, none;
+  //   color: $inverse-01;
+  // }
+  // .bx--tabs__nav-item--selected .bx--tabs__nav-link:focus {
+  //   border-bottom: 0px, none;
+  //   color: $inverse-01;
+  // }
+  // .bx--tabs__nav-item--selected .bx--tabs__nav-link:active {
+  //   border-bottom: 0px, none;
+  //   color: $inverse-01;
+  // }
 
-  .bx--tabs__nav-item .bx--tabs__nav-link :first-of-type { 
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
+  // .bx--tabs__nav-item .bx--tabs__nav-link :first-of-type { 
+  //   border-top-left-radius: 4px;
+  //   border-bottom-left-radius: 4px;
+  // }
   
-  .bx--tabs__nav-item .bx--tabs__nav-link:focus {
-    border-bottom: 0px, none;
-  }
+  // .bx--tabs__nav-item .bx--tabs__nav-link:focus {
+  //   border-bottom: 0px, none;
+  // }
 
-  .bx--tabs__nav-item .bx--tabs__nav-link:active {
-    border-bottom: 0px, none;
-    color: $inverse-01;
-  }
+  // .bx--tabs__nav-item .bx--tabs__nav-link:active {
+  //   border-bottom: 0px, none;
+  //   color: $inverse-01;
+  // }
 
   .bx--data-table th{
     width:10%;
