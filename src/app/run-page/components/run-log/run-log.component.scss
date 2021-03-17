@@ -1,0 +1,35 @@
+$feature-flags: (
+  grid-columns-16: true,
+);
+
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+@import "~carbon-components/scss/globals/grid/grid";
+
+.run-log.bx--grid{
+    min-height: 764px;
+    min-width: 994px;
+    max-height: 772px;
+    max-width: 1456px;
+    border-radius: 4px 0px 0px 4px;
+    background-color: $ui-background;
+    position: relative;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 40px;
+  }
+
+  .tabs{
+    margin-top: 48px;
+    
+  }
+
+  .tabs ul{
+    border-radius: 4px 0px 0px 4px;
+  }
+
+  .tab .bx--tabs__nav-link li{
+    background-color: grey;
+    color: white;
+  }

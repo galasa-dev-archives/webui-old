@@ -73,6 +73,8 @@ import { DateFilterComponent } from './results-page/rasfilters/date-filter/date-
 import { TimeFilterComponent } from './results-page/rasfilters/time-filter/time-filter.component';
 import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/loading-bar-service.component';
 import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
+import { LogSearchComponent } from './run-page/components/run-log/log-search/log-search.component';
+import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-regex.component';
 
 @NgModule({
 	declarations: [
@@ -110,6 +112,8 @@ import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filt
 		TimeFilterComponent,
 		LoadingBarServiceComponent,
 		DatetimeFilterComponent,
+		LogSearchComponent,
+		LogRegexComponent,
 		
 	],
 	imports: [

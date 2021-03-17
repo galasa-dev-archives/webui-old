@@ -1,1 +1,11 @@
-<p>run-log works!</p>
+<div class="tabs" >
+<ibm-tabs [followFocus]=true [cacheActive]=true >
+
+    <ibm-tab class=" tab bx--tabs__nav-link" id="search" heading="Search">
+        <app-log-search class="run-search" [testStructure]="testStructure"></app-log-search>
+    </ibm-tab>
+    <ibm-tab class="tab bx--tabs__nav-link" id="regex" heading="Regex">     
+        <app-log-regex class="run-regex" ></app-log-regex>
+    </ibm-tab>
+</ibm-tabs>
+</div>
