@@ -183,6 +183,7 @@
     font-weight: 400;
     font-style: normal;
     height: 48px;
+    white-space: nowrap;
 
   }
   // .bx--data-table td:hover {
@@ -341,3 +342,8 @@
     font-style: normal;
     width: 76px;
   }
+
+  // Checkbox
+.bx--checkbox-label {
+  border-radius: 2px;
+}

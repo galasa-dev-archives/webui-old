@@ -32,24 +32,23 @@ export class DatetimeFilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.data.current.subscribe(state => this.state = state);
-    this.setDefault8HourTestHistory();
+    this.setDefault24HourTestHistory();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   } 
 
-  setDefault8HourTestHistory(){
-    var date, hours, eightHoursAgo;
+  setDefault24HourTestHistory(){
+    var date, hours, twentyFourHoursAgo;
 
     date = new Date();
     hours = date.getHours();
-    eightHoursAgo = date.setHours(hours - 8);
-    
-    this.startDateTime = new Date(eightHoursAgo);
-    this.startDate = new Date(eightHoursAgo).setHours(0,0,0);
+    twentyFourHoursAgo = date.setHours(hours - 24);
+  
+    this.startDate = new Date(twentyFourHoursAgo).setHours(0,0,0);
     this.startTime = "00:00";
-    this.endDateTime = new Date();
+
     this.endDate = new Date().setHours(0,0,0);
     this.endTime = "00:00";
   }
