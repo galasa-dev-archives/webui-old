@@ -11,18 +11,13 @@
     <fieldset class="bx--fieldset">
         <legend class="bx--label">Table height</legend>
         <ibm-radio-group
-            aria-label="radiogroup"
-            orientation="vertical"
-            [labelPlacement]="right"
-            [(ngModel)]="radio">
+            orientation="vertical">
             <ibm-radio
-                value="radio"
                 [checked]="true"
                 disabled="true">
                 Regular
             </ibm-radio>
             <ibm-radio
-                value="radio"
                 [checked]="false"
                 disabled="true">
                 Compressed
@@ -32,16 +27,13 @@
     <fieldset class="bx--fieldset">
         <legend class="bx--label">Text format</legend>
         <ibm-radio-group
-            aria-label="radiogroup"
             orientation="vertical">
             <ibm-radio
-                value="radio"
                 [checked]="true"
                 disabled="true">
                 No wrap
             </ibm-radio>
             <ibm-radio
-                value="radio"
                 [checked]="false"
                 disabled="true">
                 Wrap
