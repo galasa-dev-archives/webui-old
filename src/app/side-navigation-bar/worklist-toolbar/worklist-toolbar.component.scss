@@ -8,6 +8,11 @@
     padding-bottom: $spacing-04;
 }
 
+.checkbox {
+    margin-left: $spacing-05;
+    color: $active-secondary;
+}
+
 h4 {
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");

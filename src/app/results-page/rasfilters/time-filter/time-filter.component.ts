@@ -13,7 +13,7 @@ export class TimeFilterComponent implements OnInit {
   disabled = false;
   invalid : Boolean;
   invalidText : string = "Invalid";
-  value : Object[] = [];
+  value : string = "00:00";
 
   formGroup: FormGroup;
 
@@ -25,10 +25,7 @@ export class TimeFilterComponent implements OnInit {
   }
 
   changeTime($event){
-    console.log("Event: " + $event)
-    var value = $event;
-    this.isTimeInvalid(value);
-
+    this.isTimeInvalid($event);
     this.valueChange.emit($event);
   }
 

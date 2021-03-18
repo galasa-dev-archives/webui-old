@@ -8,6 +8,22 @@
     padding-bottom: $spacing-04;
 }
 
+.help-tooltips {
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
+}
+
+.increase-contrast {
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
+    border-bottom: 1px solid $ui-03;
+}
+
+.documents {
+    margin-top: $spacing-06;
+    margin-left: $spacing-05;
+}
+
 h4 {
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");
@@ -20,11 +36,41 @@ p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
-    margin-bottom: $spacing-03;
+    margin-bottom: $spacing-05;
+}
+
+a {
+    @include type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    color: #03429d;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 .inline-block-element {
     display: inline-block;
+}
+.tooltip-element {
+    display: inline-block;
+}
+.contrast-element {
+    display: inline-block;
+}
+
+.toggle-element.tooltip-element{
+    margin-left: 120px;
+    vertical-align: middle;
+    margin-bottom: 22px;
+}
+
+.toggle-element.contrast-element {
+    vertical-align: middle;
+    margin-left: 90px;
+    margin-bottom: 22px;
 }
 
 .icon {
