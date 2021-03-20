@@ -21,10 +21,13 @@ export class ResultsPageComponent implements OnInit {
 
   activeToolbar: string = "";
 
+  amountOfRows : number;
+
   constructor(private route: ActivatedRoute, private router: Router) {
    }
 
   ngOnInit() {
+    this.getRows();
   }
 
   expandToolbar($event){
@@ -35,5 +38,9 @@ export class ResultsPageComponent implements OnInit {
     this.activeToolbar = $event;
   }
 
+  getRows(){
+    var pageHeight = document.getElementById("results-page").offsetHeight;
+    this.amountOfRows = Math.floor((pageHeight - 240) / 48);
+  }
 
 }
