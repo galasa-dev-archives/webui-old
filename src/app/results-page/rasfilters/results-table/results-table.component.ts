@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
@@ -15,6 +15,8 @@ import { RasApisService } from '../../../core/rasapis.service'
 })
 
 export class ResultsTableComponent implements OnInit {
+
+  @Input() amountOfRows : number;
 
   paginationModel = new PaginationModel();
   model: TableModel = new TableModel();
@@ -58,8 +60,11 @@ export class ResultsTableComponent implements OnInit {
     this.subscription = this.data.current.subscribe(state => this.state = state);
     
     this.paginationModel.currentPage = 1;
-
-    this.paginationModel.pageLength = 15;
+    this.paginationModel.pageLength = this.amountOfRows;
+    if (!this.itemsPerPageOptions.includes(this.amountOfRows)){
+      this.itemsPerPageOptions.push(this.amountOfRows);
+    }
+    this.itemsPerPageOptions.sort((a, b) => a - b);
 
     this.model.data = [];
     this.model.header = [
