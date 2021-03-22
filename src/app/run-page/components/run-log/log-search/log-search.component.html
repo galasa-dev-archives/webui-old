@@ -1,6 +1,55 @@
 <div ibmGrid class="search bx--grid">
-    <div class="filter">
-        <p>Search</p>
-        <!-- <app-search-filter id="filter"></app-search-filter> -->
+    <div ibmRow>
+        <div ibmCol class="col1" [columnNumbers]="{'md': 8, 'lg': 8}">
+            <div ibmRow class="rw r1">
+                <div class="filter">
+                    <p>Search</p>
+                </div>
+            </div>
+            <div ibmRow class="rw r2">
+                <div class="search-box">
+                    <ibm-search id="search-1" placeHolderText="Search" light size='md'></ibm-search>
+                </div>
+                <div clas="search-buttons">
+                    <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true">
+                        <img src="../../assets/icons/caret--down-white.svg" class="bx--btn__icon">
+                    </button>
+                    <button class="bt button2" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true">
+                        <img src="../../assets/icons/caret--up-white.svg" class="bx--btn__icon">
+                    </button>
+                </div>
+            </div>
+            <div ibmRow class="rw r3">
+                <div ibmCol [columnNumbers]="{'md': 2, 'lg': 2}">
+                    <ibm-checkbox>Show all</ibm-checkbox>
+                </div>
+                <div ibmCol [columnNumbers]="{'md': 6, 'lg': 6}">
+                    <ibm-checkbox>Ignore white space and capitalization</ibm-checkbox>
+                </div>
+
+            </div>
+            <div ibmRow class="rw r4">
+                <div ibmCol [columnNumbers]="{'md': 6, 'lg': 6}">
+                    <p>Jump</p>
+                </div>
+                <div ibmCol [columnNumbers]="{'md': 2, 'lg': 2}">
+                    <p>10 seconds</p>
+                </div>
+            </div>
+            <div ibmRow class="rw r5">
+                <ibm-dropdown class="dopdown" size="md" type="single" theme="light"></ibm-dropdown>
+                <ibm-slider max={100} min={-100} step={1} stepMultiplier={2}
+                value={0}> <span minLabel>-100</span>
+                    <span maxLabel>100</span>
+                </ibm-slider>
+            </div>
+            <div ibmRow class="rw r6">
+                <p>Search run log results: 2 of 11</p>
+            </div>
+            <div ibmRow class="rw r7"></div>
+        </div>
+        <div ibmCol class="col2" [columnNumbers]="{'md': 4, 'lg': 4}">
+            <p> the full log</p>
+        </div>
     </div>
 </div>
