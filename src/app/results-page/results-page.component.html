@@ -23,10 +23,10 @@
     <div *ngIf="activeToolbar=='help'" class="help-sidebar" id="extendable-toolbar">
         <app-help-toolbar (event)="collapseToolbar($event)"></app-help-toolbar>
     </div>
-    <div class="results-page">
+    <div class="results-page" id="results-page">
         <app-breadcrumb></app-breadcrumb>
-        <div class="results-table-container">
-            <app-results-table class="results-table"></app-results-table>
+        <div class="results-table-container" id="results-table-container">
+            <app-results-table class="results-table" [amountOfRows]="amountOfRows"></app-results-table>
         </div>
     </div>
 </div>

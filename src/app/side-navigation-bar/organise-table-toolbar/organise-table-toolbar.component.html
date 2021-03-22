@@ -6,3 +6,126 @@
         (click)="collapseToolbar()"
         >
 </div>
+
+<div class="table-format-options">
+    <fieldset class="bx--fieldset">
+        <legend class="bx--label">Table height</legend>
+        <ibm-radio-group
+            orientation="vertical">
+            <ibm-radio
+                [checked]="true"
+                disabled="true">
+                Regular
+            </ibm-radio>
+            <ibm-radio
+                [checked]="false"
+                disabled="true">
+                Compressed
+            </ibm-radio>
+        </ibm-radio-group>
+    </fieldset>
+    <fieldset class="bx--fieldset">
+        <legend class="bx--label">Text format</legend>
+        <ibm-radio-group
+            orientation="vertical">
+            <ibm-radio
+                [checked]="true"
+                disabled="true">
+                No wrap
+            </ibm-radio>
+            <ibm-radio
+                [checked]="false"
+                disabled="true">
+                Wrap
+            </ibm-radio>
+        </ibm-radio-group>
+    </fieldset>
+</div>
+
+<div class="show-and-hide-options">
+    <legend class="bx--label">Show / hide</legend>
+    <ibm-checkbox
+        [checked]="true"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Status
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="true"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Test run
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="true"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Test class
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Bundle
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Test name
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        LPAR
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Requestor
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Run queued
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="true"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Started
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="true"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Finished
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Metadata
+    </ibm-checkbox>
+    <ibm-checkbox
+        [checked]="false"
+        disabled="true"
+        [hideLabel]="false"
+        >
+        Pass history
+    </ibm-checkbox>
+</div>

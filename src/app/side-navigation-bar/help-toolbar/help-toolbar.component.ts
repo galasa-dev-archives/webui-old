@@ -14,6 +14,9 @@ export class HelpToolbarComponent implements OnInit {
   state : boolean;
   subscription : Subscription;
 
+  size : string = "sm";
+  text : string = "";
+
   constructor(private data: DataServiceComponent) { }
 
   ngOnInit(): void {
