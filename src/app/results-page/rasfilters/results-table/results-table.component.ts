@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
@@ -16,9 +16,11 @@ import { RasApisService } from '../../../core/rasapis.service'
 
 export class ResultsTableComponent implements OnInit {
 
+  @Input() amountOfRows : number;
+
   paginationModel = new PaginationModel();
   model: TableModel = new TableModel();
-  itemsPerPageOptions :number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  itemsPerPageOptions : number[] = [10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   runs: Object[] = [];
   pageSize: number;
   page: number;
@@ -47,7 +49,7 @@ export class ResultsTableComponent implements OnInit {
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private data : LoadingBarServiceComponent) { 
     this.router.events.subscribe((ev) => {
-      if (ev instanceof NavigationEnd && ev.url !== "/results") {  
+      if (ev instanceof NavigationEnd) {  
         this.selectPage(1);
       }
     });
@@ -58,6 +60,11 @@ export class ResultsTableComponent implements OnInit {
     this.subscription = this.data.current.subscribe(state => this.state = state);
     
     this.paginationModel.currentPage = 1;
+    this.paginationModel.pageLength = this.amountOfRows;
+    if (!this.itemsPerPageOptions.includes(this.amountOfRows)){
+      this.itemsPerPageOptions.push(this.amountOfRows);
+    }
+    this.itemsPerPageOptions.sort((a, b) => a - b);
 
     this.model.data = [];
     this.model.header = [
@@ -75,11 +82,11 @@ export class ResultsTableComponent implements OnInit {
       this.testName = params['testclass'];
       this.bundle = params['bundle'];
       this.result = params['resultNames'];
-      this.from = new Date(params['from']);
-      this.to = new Date(params['to']);    
+      this.from = params['from'];
+      this.to = params['to']; 
     });
 
-    // this.selectPage(1);
+    this.selectPage(1);
 
   }
 
@@ -99,6 +106,13 @@ export class ResultsTableComponent implements OnInit {
   }
 
   getPage(page){
+    if (this.from != null){
+      this.from = new Date(this.from);
+    }
+    if (this.to != null){
+      this.to = new Date(this.to);
+    } 
+
     this.loading = true;
     this.data.changeState(true);
     var loadingData: TableItem[][] = []
@@ -128,7 +142,7 @@ export class ResultsTableComponent implements OnInit {
                                             "result": this.result,
                                             "from" : this.from,
                                             "to" : this.to
-                                            };
+                                            };   
         runsApi.rasRunGet(parameters).toPromise().then(
           result => {
             if(result != null){

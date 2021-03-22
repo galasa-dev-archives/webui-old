@@ -1,8 +1,39 @@
-<div class="sidebar-label">
-    <h4 class="inline-block-element">Help</h4>
-    <img
-        src="../../../../../assets/icons/close.svg"
-        class="icon inline-block-element"
-        (click)="collapseToolbar()"
-        >
+<div class="help-toolbar">
+    <div class="sidebar-label">
+        <h4 class="inline-block-element">Help</h4>
+        <img
+            src="../../../../../assets/icons/close.svg"
+            class="icon inline-block-element"
+            (click)="collapseToolbar()"
+            >
+    </div>
+    
+    <div class="help-tooltips">
+        <p class="tooltip-element">Help tooltips</p>
+        <ibm-toggle
+            [onText]="text"
+            [offText]="text"
+	        [disabled]="false"
+            [size]="size"
+            class="toggle-element tooltip-element"
+			>
+        </ibm-toggle>
+    </div>
+    <div class="increase-contrast">
+        <p class="contrast-element">Increase contrast</p>
+        <ibm-toggle
+            [onText]="text"
+            [offText]="text"
+	        [disabled]="false"
+            [size]="size"
+            class="toggle-element contrast-element"
+			>
+        </ibm-toggle>
+    </div>
+    
+    <div class="documents">
+        <p><a href="#" ibmLink disabled="true">View FAQs</a></p>
+        <p><a href="#" ibmLink disabled="true">Read docs</a></p>
+        <p><a href="#" ibmLink disabled="true">Get support</a></p>
+    </div>
 </div>

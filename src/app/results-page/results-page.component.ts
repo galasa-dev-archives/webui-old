@@ -21,11 +21,13 @@ export class ResultsPageComponent implements OnInit {
 
   activeToolbar: string = "";
 
+  amountOfRows : number;
+
   constructor(private route: ActivatedRoute, private router: Router) {
    }
 
   ngOnInit() {
-    this.getLast8HoursTestHistory();
+    this.getRows();
   }
 
   expandToolbar($event){
@@ -36,26 +38,9 @@ export class ResultsPageComponent implements OnInit {
     this.activeToolbar = $event;
   }
 
-  getLast8HoursTestHistory(){
-    var dateNow, hours, eightHoursAgo, startDate;
-
-    dateNow = new Date();
-    hours = dateNow.getHours();
-    eightHoursAgo = dateNow.setHours(hours - 8);
-    startDate = new Date(eightHoursAgo);
-
-    this.setFromAndTo(startDate);
-  }
-
-  setFromAndTo(startDate : Date){
-    var dateNow, from, to;
-
-    dateNow = new Date();
-    from = startDate.toISOString();
-    to = dateNow.toISOString();
-
-    let params = Object.assign(Object.assign({},this.route.snapshot.queryParams),{from:from},{to:to});
-    this.router.navigate(['.'],{relativeTo: this.route,queryParams: params});
+  getRows(){
+    var pageHeight = document.getElementById("results-page").offsetHeight;
+    this.amountOfRows = Math.floor((pageHeight - 240) / 48);
   }
 
 }
