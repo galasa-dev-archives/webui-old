@@ -8,6 +8,8 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
 })
 export class LogSearchComponent implements OnInit {
   @Input() testStructure: TestStructure = {};
+
+  ibmButton: any;
   
   constructor() { }
 

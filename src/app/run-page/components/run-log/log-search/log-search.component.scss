@@ -17,10 +17,34 @@
     padding-bottom: 40px;
   }
 
+  .col1{
+    border-right: grey;
+    border-style: groove;
+    min-height: 750px;
+  }
+
+  .col1 .rw {
+    padding-left: $spacing-05;
+  }
+
+  .r3,.r5,.r6{
+    border-bottom: grey;
+    border-style: groove;
+    padding-bottom: $spacing-05;
+  }
+
+  .r4,.r6{
+    padding-top: $spacing-05;
+  }
+
+  .col2{
+    min-height: 750px;
+  }
+
+
   .filter {
     padding-left: $spacing-05;
     padding-right: $spacing-05;
-    padding-top: $spacing-05;
 }
 
 p {
@@ -29,4 +53,37 @@ p {
     font-weight: 400;
     font-style: normal;
     margin-bottom: $spacing-03;
+}
+
+.search-box{
+  width:424px;
+}
+
+.bt{
+  background-color: #03429D;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+}
+
+.bt:hover{
+  background-color: #032a68;
+}
+
+.button1{
+  margin-left: 8px;
+}
+.button2{
+  margin-left: 4px;
+}
+
+.bx--btn__icon{
+  width: 2rem;
+  flex-shrink: unset;
+}
+
+.dropdown{
+  width:232px;
 }
