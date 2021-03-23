@@ -10,9 +10,10 @@ export class DateFilterComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter();
 
-  size : string = "md";
   label : string =  "";
   placeholder : string = "DD/MM/YYYY";
+  size : string = "md";
+  invalidSingle : boolean;
   invalidText : string = "Invalid";
   dateFormat : string =  "d/m/Y";
   value : Object[] = [];
@@ -28,10 +29,18 @@ export class DateFilterComponent implements OnInit {
 
   changeDate($event){
     this.valueChange.emit($event);
+    this.isDateInvalid($event);  
   }
 
-  get invalidSingle() {
-		return this.formGroup.controls["single"].invalid && this.formGroup.controls["single"].touched;
-	}
+  isDateInvalid(value : string){
+    if (value.length === 0){
+      this.invalidSingle = false; // The box should not say Invalid if it's empty
+    } else {
+      this.invalidSingle = this.formGroup.controls["single"].invalid && this.formGroup.controls["single"].touched;
+    }
+  }
+
+  getDateFormat(){
+  }
 
 }
