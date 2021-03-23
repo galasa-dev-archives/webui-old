@@ -16,8 +16,10 @@ p {
 }
 
 .start-date-time {
-    display: inline-block;
+    display: inline-flex;
+    vertical-align: top;
 }
 .end-date-time {
-    display: inline-block;
+    display: inline-flex;
+    vertical-align: top;
 }
