@@ -13,7 +13,7 @@ export class TimeFilterComponent implements OnInit {
   disabled = false;
   invalid : Boolean;
   invalidText : string = "Invalid";
-  value : string = "00:00";
+  value : Object[] = [];
 
   formGroup: FormGroup;
 
