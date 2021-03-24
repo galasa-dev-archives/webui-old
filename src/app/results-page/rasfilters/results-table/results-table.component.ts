@@ -31,6 +31,7 @@ export class ResultsTableComponent implements OnInit {
   from;
   to;
   loading: boolean = true;
+  sortParam: string = "to:desc";
 
   state : boolean;
   subscription : Subscription;
@@ -68,10 +69,10 @@ export class ResultsTableComponent implements OnInit {
 
     this.model.data = [];
     this.model.header = [
-      new TableHeaderItem({data: "Status"}),
-      new TableHeaderItem({data: "Test Run"}), 
-      new TableHeaderItem({data: "Test Class"}), 
-      new TableHeaderItem({data: "Started"}), 
+      new TableHeaderItem({data: "Status", sortable: false}),
+      new TableHeaderItem({data: "Test Run" , sortable: false}), 
+      new TableHeaderItem({data: "Test Class" , sortable: false}), 
+      new TableHeaderItem({data: "Started" , sortable: false}), 
       new TableHeaderItem({data: "Finished"})
     ];
     
@@ -93,6 +94,28 @@ export class ResultsTableComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  sort(index: number) {
+
+    if(this.sortParam == "to:asc"){
+      this.model.header[index].ascending = true;
+    }else{
+      this.model.header[index].descending = true;
+    }
+    
+		if (this.model.header[index].descending) {
+      this.sortParam = "to:asc";
+      this.model.header[index].ascending = true;
+		}else{
+      this.sortParam = "to:desc";
+      this.model.header[index].descending = true;
+    }
+
+    var sort = this.sortParam;
+
+    let newParams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {sort});
+		this.router.navigate(['.'],{relativeTo: this.route,queryParams: newParams});
+	}
 
   onClick(index: number){
     if(!this.loading){
@@ -132,8 +155,9 @@ export class ResultsTableComponent implements OnInit {
 
     this.rasApis.getRasRuns().then(
       runsApi =>{
+        console.log(this.sortParam);
         var parameters: RasRunGetRequest = {
-                                            "sort": "to:desc",
+                                            "sort": this.sortParam,
                                             "page": page, 
                                             "size" : this.paginationModel.pageLength,
                                             "testname": this.testName,
