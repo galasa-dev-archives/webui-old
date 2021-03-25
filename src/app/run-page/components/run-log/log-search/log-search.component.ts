@@ -13,6 +13,26 @@ export class LogSearchComponent implements OnInit {
   ibmButton: any;
   page: number =2;
   pages: number =11;
+  invalid: boolean = false;
+  disabled: boolean=false;
+  items = [
+    		{
+    		content: "One",
+    		selected: false
+    		},
+    	{
+  			content: "Two",
+    		selected: false,
+    	},
+    	{
+    		content: "Three",
+    		selected: false
+    		},
+    		{
+    			content: "four",
+    			selected: false
+    		}
+     ];
   constructor() { }
 
   ngOnInit(): void {
@@ -22,5 +42,11 @@ export class LogSearchComponent implements OnInit {
     console.log(this.testStructure.runName);
   }
 
+  onSelected(){
+
+  }
   
+  onSearch(event: any){
+
+  }
 }

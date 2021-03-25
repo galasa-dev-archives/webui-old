@@ -5,9 +5,9 @@
             <div ibmRow class="rw r2">
                 <div class="sb">
                     <div class="search-box">
-                        <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="size"
-                            [invalidText]="invalidText" [label]="'Seach run log'" [helperText]="helperText"
-                            [items]="items" [theme]="theme" (selected)="onSelected()" (search)="onSearch($event)">
+                        <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="md"
+                            [invalidText]="'entered text is invalid'" [label]="'Seach run log'"
+                            [items]="items"  (selected)="onSelected()" (search)="onSearch($event)">
                             <ibm-dropdown-list>
                                 <ul>
                                     <li> Some content</li>
@@ -46,9 +46,9 @@
                         <div class="jump-dropdown">
                             <div ibmRow class="ro2">
                                 <div class="dropdown">
-                                    <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="size"
-                                        [invalidText]="invalidText" [label]="'Jump'" [helperText]="helperText"
-                                        [items]="items" [theme]="theme" (selected)="onSelected()"
+                                    <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="md"
+                                        [invalidText]="'invalid text entered'" [label]="'Jump'"
+                                        [items]="items" (selected)="onSelected()"
                                         (search)="onSearch($event)">
                                         <ibm-dropdown-list></ibm-dropdown-list>
                                     </ibm-combo-box>
