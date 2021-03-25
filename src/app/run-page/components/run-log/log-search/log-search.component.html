@@ -8,11 +8,7 @@
                         <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
                             [invalidText]="'entered text is invalid'" [label]="'Seach run log'"
                             [items]="items"  (selected)="onSelected()" (search)="onSearch($event)">
-                            <ibm-dropdown-list>
-                                <ul>
-                                    <li> Some content</li>
-                                </ul>
-                            </ibm-dropdown-list>
+                            <ibm-dropdown-list> </ibm-dropdown-list>
                         </ibm-combo-box>
                     </div>
                     <div class="search-buttons">
@@ -31,7 +27,7 @@
                 </div>
             </div>
             <div ibmRow class="rw r3  bx--grid--condensed">
-                <div ibmCol [columnNumbers]="{'md': 1, 'lg': 1}">
+                <div ibmCol [columnNumbers]="{'md': 1, 'lg': 2}">
                     <ibm-checkbox>Show all</ibm-checkbox>
                 </div>
                 <div ibmCol [columnNumbers]="{'md': 6, 'lg': 6}">
@@ -70,7 +66,7 @@
 
             <div ibmRow class="rw r5">
                 <div class="result-page">
-                    <p>Search run log results: {{page}} of {{pages}}</p>
+                    <p>Search run log results: <strong>{{page}} of {{pages}}</strong></p>
                 </div>
             </div>
             <div ibmRow class="rw r6"></div>

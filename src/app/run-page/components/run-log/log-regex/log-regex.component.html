@@ -1,3 +1,66 @@
 <div ibmGrid class="regex bx--grid">
+    <div ibmRow>
+        <div ibmCol class="col1" [columnNumbers]="{'md': 9, 'lg': 9}">
 
+            <div ibmRow class="rw r1">
+                <div class="sb">
+                    <div class="search-box">
+                        <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
+                            [invalidText]="'entered text is invalid'" [label]="'CPS filter (regular expression)'"
+                            [items]="items"  (selected)="onSelected()" (search)="onSearch($event)">
+                            <ibm-dropdown-list> </ibm-dropdown-list>
+                        </ibm-combo-box>
+                    </div>
+                    <div class="search-buttons">
+                        <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" >
+                           <p>Apply</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="owerflow-button">
+                    <button [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" class="ow-button">
+                        <img src="../../assets/icons/overflow-menu--vertical-white.svg">
+                    </button>
+                </div>
+            </div>
+
+            <div ibmRow class="rw r2">
+                <div class="time-elem">
+                    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+                        <div class="jump-dropdown">
+                            <div ibmRow class="ro2">
+                                <div class="dropdown">
+                                    <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
+                                        [invalidText]="'invalid text entered'" [label]="'Jump'"
+                                        [items]="items" (selected)="onSelected()"
+                                        (search)="onSearch($event)">
+                                        <ibm-dropdown-list></ibm-dropdown-list>
+                                    </ibm-combo-box>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ibmCol [columnNumbers]="{'md': 6, 'lg': 6}">
+                        <ibm-slider [label]="'10 Seconds'" [min]=-100 [max]=100 [step]=1 [value]=0.0001
+                            [shiftMultiplier]=2>
+                            <span minLabel>-100</span>
+                            <span maxLabel>100</span>
+                        </ibm-slider>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div ibmRow class="rw r3">
+                <div class="result-page">
+                    <p>Found: <strong>{{matches}} matches</strong></p>
+                </div>
+            </div>
+            <div ibmRow class="rw r4"></div>
+        </div>
+        <div ibmCol class="col2" [columnNumbers]="{'md': 3, 'lg': 3}">
+            <p> the full log</p>
+        </div>
+    </div>
 </div>

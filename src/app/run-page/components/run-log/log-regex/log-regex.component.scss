@@ -16,3 +16,116 @@
     padding-top: 16px;
     padding-bottom: 40px;
   }
+  @media only screen and (max-width:1060px){
+    .col2{
+      display: none;
+    }
+    .col1{
+      border-right:none !important;
+      border-style: none !important;
+    }
+  }
+
+  .col1{
+    border-right: rgb(189, 188, 188);
+    border-style: solid;
+    min-height: 750px;
+    border-right-width: thin;
+    border-top: none;
+  }
+
+
+  .filter, .search-box,.search-buttons,.jump-dropdown,.result-page {
+    padding-left: $spacing-05;
+  }
+
+  .r1:after{
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 98%; /* width of border */
+    padding-top: 10px; /* This creates some space between the element and the border. */
+    border-bottom: 1px solid rgb(189, 188, 188);
+  }
+
+  .r2:after{
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 100%; /* width of border */
+    padding-top: 20px; /* This creates some space between the element and the border. */
+    border-bottom: 1px solid rgb(189, 188, 188);
+  }
+
+  .r3:after{
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 100%; /* width of border */
+    padding-top: 5px; /* This creates some space between the element and the border. */
+    border-bottom: 1px solid rgb(189, 188, 188);
+  }
+
+  .r2,.r3{
+    padding-top: $spacing-05;
+  }
+
+  .r1{
+    justify-content: space-between;
+  }
+
+  .col2{
+    min-height: 750px;
+  }
+
+
+p {
+    @include type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: $spacing-03;
+}
+
+.search-box{
+  width:424px;
+}
+.search-buttons{
+  padding-top: 24px;
+}
+.bt{
+  background-color: #03429D;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+}
+
+.bt:hover{
+  background-color: #032a68;
+}
+
+.bt p{
+  color: white;
+  padding-left:5px;
+  padding-top: 5px;
+}
+.sb{
+  display: inline-flex;
+}
+.owerflow-button{
+  float:left;
+}
+.ow-button{
+  background: none;
+  padding-top:24px;
+}
+
+.dropdown{
+  width:300px;
+}
+
+.time-elem{
+  display:inline-flex;
+}
