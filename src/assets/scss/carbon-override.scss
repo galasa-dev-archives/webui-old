@@ -322,15 +322,35 @@
     z-index: 0;
     display: none;
   }
-  // .flatpickr-calendar.open {
-  //   background-color: $ui-background;
-  //   border-radius: 4px;
-  //   border: #6f6f6f 1px solid;
-  //   @include carbon--type-style("body-short-01");
-  //   font-family: 'Open Sans', sans-serif;
-  //   font-weight: 400;
-  //   font-style: normal;
-  // }
+  .flatpickr-calendar.open {
+    background-color: $ui-background;
+    border-radius: 4px;
+    border: #6f6f6f 1px solid;
+    @include carbon--type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    width: 290px;
+  }
+  .flatpickr-day:hover {
+    background-color: #dfecff;
+  }
+  .flatpickr-day.today {
+    position: relative;
+    color: #03429D;
+  }
+  .flatpickr-day.today.selected {
+    background-color: #03429D;
+    outline: 2px solid #03429D;
+    outline-offset: -2px;
+    color: white;
+  }
+  .flatpickr-day.selected {
+    background-color: #03429D;
+    outline: 2px solid #03429D;
+    outline-offset: -2px;
+  }
 
   .bx--time-picker__input-field {
     background-color: $ui-background;
@@ -343,7 +363,7 @@
     width: 76px;
   }
 
-  // Checkbox
+  // Checkboxes in toolbar
 .bx--checkbox-label {
   border-radius: 2px;
 }
