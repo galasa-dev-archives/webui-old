@@ -7,10 +7,12 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
   styleUrls: ['./log-search.component.scss']
 })
 export class LogSearchComponent implements OnInit {
+  
   @Input() testStructure: TestStructure = {};
 
   ibmButton: any;
-  
+  page: number =2;
+  pages: number =11;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,4 +22,5 @@ export class LogSearchComponent implements OnInit {
     console.log(this.testStructure.runName);
   }
 
+  
 }
