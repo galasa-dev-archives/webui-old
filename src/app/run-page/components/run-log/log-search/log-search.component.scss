@@ -36,7 +36,7 @@
   }
 
 
-  .filter, .search-box,.search-buttons,.r3,.jump-dropdown,.result-page {
+  .filter, .search-box,.search-buttons,.r3 ibm-checkbox,.jump-dropdown,.result-page {
     padding-left: $spacing-05;
   }
 
@@ -53,7 +53,7 @@
     content: ""; /* This is necessary for the pseudo element to work. */ 
     display: block; /* This will put the pseudo element on its own line. */
     margin: 0 auto; /* This will center the border. */
-    width: 98%; /* width of border */
+    width: 100%; /* width of border */
     padding-top: 20px; /* This creates some space between the element and the border. */
     border-bottom: 1px solid rgb(189, 188, 188);
   }
@@ -62,7 +62,7 @@
     content: ""; /* This is necessary for the pseudo element to work. */ 
     display: block; /* This will put the pseudo element on its own line. */
     margin: 0 auto; /* This will center the border. */
-    width: 98%; /* width of border */
+    width: 100%; /* width of border */
     padding-top: 5px; /* This creates some space between the element and the border. */
     border-bottom: 1px solid rgb(189, 188, 188);
   }
@@ -112,9 +112,6 @@ p {
   background-color: #032a68;
 }
 
-.button1{
-  margin-left: 8px;
-}
 .button2{
   margin-left: 4px;
 }
