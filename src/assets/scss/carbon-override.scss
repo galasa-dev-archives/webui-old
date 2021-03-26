@@ -374,3 +374,15 @@
   width:100%;
   min-width: 360px;
 }
+
+//slider
+.bx--slider__filled-track{
+  display:none;
+}
+.bx--slider__thumb{
+  background: #03429D;
+}
+.bx--slider__thumb:focus {
+  background-color: #03429D;
+  box-shadow: none;
+}

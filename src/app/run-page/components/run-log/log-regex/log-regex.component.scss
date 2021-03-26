@@ -27,7 +27,7 @@
   }
 
   .col1{
-    border-right: rgb(189, 188, 188);
+    border-right: #e0e0e0;
     border-style: solid;
     min-height: 750px;
     border-right-width: thin;
@@ -45,7 +45,7 @@
     margin: 0 auto; /* This will center the border. */
     width: 98%; /* width of border */
     padding-top: 10px; /* This creates some space between the element and the border. */
-    border-bottom: 1px solid rgb(189, 188, 188);
+    border-bottom: 1px solid #e0e0e0;
   }
 
   .r2:after{
@@ -54,7 +54,7 @@
     margin: 0 auto; /* This will center the border. */
     width: 100%; /* width of border */
     padding-top: 20px; /* This creates some space between the element and the border. */
-    border-bottom: 1px solid rgb(189, 188, 188);
+    border-bottom: 1px solid #e0e0e0;
   }
 
   .r3:after{
@@ -63,7 +63,7 @@
     margin: 0 auto; /* This will center the border. */
     width: 100%; /* width of border */
     padding-top: 5px; /* This creates some space between the element and the border. */
-    border-bottom: 1px solid rgb(189, 188, 188);
+    border-bottom: 1px solid #e0e0e0;
   }
 
   .r2,.r3{
