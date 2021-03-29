@@ -34,6 +34,11 @@ export class ResultnamesFilterComponent implements OnInit {
             var newResults: Object []=[];
             var nextId = 0;
             for (let names of result.resultnames ) {
+              if (names === "EnvFail"){
+                names = "Environmental failure";
+              } else if (names === "UNKNOWN"){
+                names = "Unknown";
+              }
 
               newResults.push({content:names,id:nextId}); 
               nextId++;
