@@ -68,7 +68,7 @@ export class ResultsTableComponent implements OnInit {
 
     this.model.data = [];
     this.model.header = [
-      new TableHeaderItem({data: "Status"}),
+      new TableHeaderItem({data: "Result"}),
       new TableHeaderItem({data: "Test Run"}), 
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started"}), 

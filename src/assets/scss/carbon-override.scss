@@ -127,6 +127,9 @@
     height: 48px;
     white-space: nowrap;
   }
+  .bx--table-sort:active {
+    background-color: $active-secondary;
+  }
   .bx--table-sort:first-of-type {
     border-radius: 4px;
   }
