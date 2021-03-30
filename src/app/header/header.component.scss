@@ -30,8 +30,8 @@ display: flex;
 align-items: center;
 z-index: 3;
 @include carbon--type-style("heading-02");
-font-family: 'Work Sans', sans-serif;
-font-weight: 500;
+font-family: 'Open Sans', sans-serif;
+font-weight: 600;
 font-style: normal;
 }
 .bx--header__action:hover{
@@ -43,7 +43,7 @@ font-style: normal;
 }
 
 .hamburger-menu {
-    box-shadow: 2px 0px 2px $ui-03;
+    box-shadow: 2px 0px 2px $ui-01;
 }
 
 .hamburger-menu-item:hover {
