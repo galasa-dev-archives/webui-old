@@ -4,7 +4,7 @@
 
 
 @mixin landing-page-background() {
-	background-color: $ui-03;
+	background-color: $ui-01;
 	position: relative;
 	
 	&::before {
@@ -14,7 +14,7 @@
 	  top: 0;
 	  right: -$spacing-05;
 	  bottom: 0;
-	  background: $ui-03;
+	  background: $ui-01;
 	  z-index: -1;
 	}
   }
@@ -35,16 +35,16 @@
 	.title {
 		@include carbon--type-style("productive-heading-04");
 		@include carbon--font-weight("semibold");
-		font-family: 'Work Sans', sans-serif;
-		font-weight: 500;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
 		font-style: normal;
 	}
 
 	.subtitle.landing-page__label {
 		@include carbon--type-style("productive-heading-02");
 		@include carbon--font-weight("semibold");
-		font-family: 'Work Sans', sans-serif;
-		font-weight: 500;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
 		font-style: normal;
 		margin-bottom: 16px;
 		font-size: 1.75rem;
@@ -55,8 +55,8 @@
 		color: $text-01;
 		@include carbon--type-style("productive-heading-03");
 		@include carbon--font-weight("semibold");
-		font-family: 'Work Sans', sans-serif;
-		font-weight: 500;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
 		font-style: normal;
 		margin-bottom: 16px;
 	}
@@ -196,7 +196,7 @@
   .landing-links .bx--tile {
 	  background-color: $ui-02;
 	  border-width: 1px;
-	  border-color: $ui-03;
+	  border-color: $ui-01;
 	  border-style: solid;
 	  border-radius: 4px;
 	  max-height: 150px;
