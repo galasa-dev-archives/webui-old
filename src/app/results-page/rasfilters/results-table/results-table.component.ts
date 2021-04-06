@@ -69,9 +69,9 @@ export class ResultsTableComponent implements OnInit {
 
     this.model.data = [];
     this.model.header = [
-      new TableHeaderItem({data: "Status", sortable: false}),
+      new TableHeaderItem({data: "Status"}),
       new TableHeaderItem({data: "Test Run" , sortable: false}), 
-      new TableHeaderItem({data: "Test Class" , sortable: false}), 
+      new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started" , sortable: false}), 
       new TableHeaderItem({data: "Finished"})
     ];
@@ -96,26 +96,48 @@ export class ResultsTableComponent implements OnInit {
   }
 
   sort(index: number) {
-
-    if(this.sortParam == "to:asc"){
-      this.model.header[index].ascending = true;
-    }else{
-      this.model.header[index].descending = true;
-    }
     
-		if (this.model.header[index].descending) {
-      this.sortParam = "to:asc";
-      this.model.header[index].ascending = true;
-		}else{
-      this.sortParam = "to:desc";
-      this.model.header[index].descending = true;
+    let header = this.model.header[index];
+    let filterType = header.data;
+
+    console.log(filterType);
+
+    if(filterType == "Finished"){
+      if(header.ascending == true){
+        header.descending = true;
+        this.sortParam = "to:desc"
+      }else{
+        header.ascending = true;
+        this.sortParam = "to:asc"
+      }
+    }
+
+    if(filterType === "Test Class"){
+      if(header.ascending == true){
+        header.descending = true;
+        this.sortParam = "testclass:desc"
+      }else{
+        header.ascending = true;
+        this.sortParam = "testclass:asc"
+      }
+      
+    }
+
+    if(filterType === "Status"){
+      if(header.ascending == true){
+        header.descending = true;
+        this.sortParam = "result:desc"
+      }else{
+        header.ascending = true;
+        this.sortParam = "result:asc"
+    }
     }
 
     var sort = this.sortParam;
 
     let newParams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {sort});
 		this.router.navigate(['.'],{relativeTo: this.route,queryParams: newParams});
-	}
+}
 
   onClick(index: number){
     if(!this.loading){
