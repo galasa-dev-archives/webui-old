@@ -37,14 +37,13 @@
 
   // Hamburger side menu
   .bx--side-nav__navigation {
-    padding: 0;
     max-width: 272px;
   }
   a.bx--side-nav__link {
-    align-items: left !important;
-    vertical-align: middle;
+    align-items: center;
     height: 32px;
-    padding-left: $spacing-05;
+    padding-left: 0;
+    padding-right: 0;
   }
   a.bx--side-nav__link > .bx--side-nav__link-text {
     color: #03429d;
@@ -53,6 +52,22 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
+  }
+
+  // active and hover styles not working
+  .bx--side-nav__link:hover {
+    background-color: #dfecff;
+  }
+  .bx--side-nav__link:active {
+    background-color: #c0d5f5;
+    border-left:#03429D 1px solid;
+  }
+  .bx--side-nav__menu-item:hover {
+    background-color: #dfecff;
+  }
+  .bx--side-nav__menu-item:active {
+    background-color: #c0d5f5;
+    border-left:#03429D 1px solid;
   }
 
   // Header 
@@ -110,7 +125,7 @@
     z-index: 1;
     background-color: $ui-background;
     border-radius: 4px;
-    border: $ui-03 1px solid;
+    border: $ui-01 1px solid;
   }
 
   
@@ -121,11 +136,14 @@
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
     @include carbon--font-weight("semibold");
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
     font-style: normal; 
     height: 48px;
     white-space: nowrap;
+  }
+  .bx--table-sort.bx--table-sort--active {
+    background-color: $active-secondary;
   }
   .bx--table-sort:first-of-type {
     border-radius: 4px;
@@ -141,6 +159,10 @@
     border-bottom: 0.5px $ui-03 solid;
   }
 
+  .bx--data-table:hover { // hover colour not working
+    background-color: #dfecff;
+  }
+
 
   // Pagination underneath Results Page
   .bx--pagination {
@@ -152,6 +174,7 @@
     height: 48px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    border-top: 0px transparent;
 }
 
 
@@ -161,8 +184,8 @@
     color: $inverse-01;
     @include carbon--type-style("productive-heading-01");
     @include carbon--font-weight("semibold");
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
     font-style: normal;
     height: 48px;
     white-space: nowrap;
@@ -186,12 +209,7 @@
     white-space: nowrap;
 
   }
-  // .bx--data-table td:hover {
-  //   background-color: #e5f0ff;
-  // }
-  // .bx--data-table tr:hover td {
-  //   background-color: #e5f0ff;
-  // }
+
 
   //buttons on tabs in run page
   .bx--btn.bx--btn--icon-only.bx--tooltip__trigger{
@@ -361,6 +379,8 @@
     font-weight: 400;
     font-style: normal;
     width: 76px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   // Checkboxes in toolbar

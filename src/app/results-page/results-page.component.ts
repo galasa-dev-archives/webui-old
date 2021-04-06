@@ -40,7 +40,7 @@ export class ResultsPageComponent implements OnInit {
 
   getRows(){
     var pageHeight = document.getElementById("results-page").offsetHeight;
-    this.amountOfRows = Math.floor((pageHeight - 336) / 48);
+    this.amountOfRows = Math.floor((pageHeight - 288) / 48);
   }
 
 }

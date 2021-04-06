@@ -11,12 +11,7 @@
 .help-tooltips {
     margin-left: $spacing-05;
     margin-right: $spacing-05;
-}
-
-.increase-contrast {
-    margin-left: $spacing-05;
-    margin-right: $spacing-05;
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $ui-01;
 }
 
 .documents {
@@ -27,8 +22,8 @@
 h4 {
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
 	font-style: normal;
 }
 p {
