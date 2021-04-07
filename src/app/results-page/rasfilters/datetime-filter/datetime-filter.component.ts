@@ -59,6 +59,10 @@ export class DatetimeFilterComponent implements OnInit {
   }
   startTimeChange($event){
     this.startTime = $event;
+    // When the box had a time in then user removes the time, the null value was saying Invalid but a null value should mean midnight of the provided date
+    if (typeof(this.startTime) == 'undefined' || this.startTime === "" || this.startTime.length === 0){
+      this.startTime = "00:00"; 
+    }
     this.getStartDateTime();
   }
   endDateChange($event){
@@ -67,6 +71,9 @@ export class DatetimeFilterComponent implements OnInit {
   }
   endTimeChange($event){
     this.endTime = $event;
+    if (typeof(this.endTime) == 'undefined' || this.endTime === "" || this.endTime.length === 0){
+      this.endTime = "00:00";
+    }
     this.getEndDateTime();
   }
 
