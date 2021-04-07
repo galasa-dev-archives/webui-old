@@ -1,0 +1,54 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+@import "~carbon-components/scss/globals/grid/grid";
+
+.history.bx--grid{
+    min-height: 764px;
+    min-width: 994px;
+    max-height: 772px;
+    max-width: 1456px;
+    border-radius: 4px 4px 4px 4px;
+    background-color: $ui-background;
+    position: relative;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 40px;
+    margin-top: 48px;
+}
+h4{
+    padding-left:16px;
+}
+.info-row{
+    display:inline-flex;
+}
+
+  .run-history__bx--row {
+    margin-bottom: $spacing-05;
+  }
+  
+  .run-history__attribute.bx--col {
+    @include carbon--type-style("productive-heading-02");
+    @include carbon--font-weight("semibold");
+    font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    position: static;
+  }
+  
+  .run-history__value.bx--col {
+    padding-left: 32px;
+    @include carbon--type-style("body-short-02");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: static;
+  }
+  
+  .inline-block-element {
+    display: inline-block;
+  }
+  
+  .inline-block-element:first-child {
+    margin-right: 10px;
+  }

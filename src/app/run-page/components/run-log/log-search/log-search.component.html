@@ -6,8 +6,8 @@
                 <div class="sb">
                     <div class="search-box">
                         <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
-                            [invalidText]="'entered text is invalid'" [label]="'Seach run log'"
-                            [items]="items"  (selected)="onSelected()" (search)="onSearch($event)">
+                            [invalidText]="'entered text is invalid'" [label]="'Seach run log'" [items]="items"
+                            (selected)="onSelected()" (search)="onSearch($event)">
                             <ibm-dropdown-list> </ibm-dropdown-list>
                         </ibm-combo-box>
                     </div>
@@ -28,12 +28,9 @@
             </div>
             <div ibmRow class="rw r3  bx--grid--condensed">
                 <div class="checkboxes">
-                
                     <ibm-checkbox>Show all</ibm-checkbox>
-                
                     <ibm-checkbox>Ignore white space and capitalization</ibm-checkbox>
-                
-</div>
+                </div>
             </div>
 
             <div ibmRow class="rw r4">
@@ -43,9 +40,8 @@
                             <div ibmRow class="ro2">
                                 <div class="dropdown">
                                     <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
-                                        [invalidText]="'invalid text entered'" [label]="'Jump'"
-                                        [items]="items" (selected)="onSelected()"
-                                        (search)="onSearch($event)">
+                                        [invalidText]="'invalid text entered'" [label]="'Jump'" [items]="items"
+                                        (selected)="onSelected()" (search)="onSearch($event)">
                                         <ibm-dropdown-list></ibm-dropdown-list>
                                     </ibm-combo-box>
                                 </div>
@@ -53,7 +49,7 @@
                         </div>
                     </div>
                     <div ibmCol [columnNumbers]="{'md': 6, 'lg': 6}">
-                        <ibm-slider [label]="'10 Seconds'" [min]=-100 [max]=100 [step]=1 [value]=0.0001
+                        <ibm-slider [label]="'10 Seconds'" [min]=-100 [max]=100 [step]=1 [value]=0
                             [shiftMultiplier]=2>
                             <span minLabel>-100</span>
                             <span maxLabel>+100</span>
