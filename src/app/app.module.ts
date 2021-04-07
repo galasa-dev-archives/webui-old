@@ -76,6 +76,9 @@ import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/lo
 import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
 import { LogSearchComponent } from './run-page/components/run-log/log-search/log-search.component';
 import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-regex.component';
+import { TaskViewComponent } from './run-page/components/artifact/task-view/task-view.component';
+import { TreeViewComponent } from './run-page/components/artifact/tree-view/tree-view.component';
+import { GalasaTabsComponent } from './run-page/components/galasa-tabs/galasa-tabs.component';
 
 @NgModule({
 	declarations: [
@@ -115,6 +118,9 @@ import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-r
 		DatetimeFilterComponent,
 		LogSearchComponent,
 		LogRegexComponent,
+		TaskViewComponent,
+		TreeViewComponent,
+		GalasaTabsComponent,
 		
 	],
 	imports: [

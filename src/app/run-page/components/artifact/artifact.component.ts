@@ -4,7 +4,7 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
 @Component({
   selector: 'app-artifact',
   templateUrl: './artifact.component.html',
-  styleUrls: ['./artifact.component.css']
+  styleUrls: ['./artifact.component.scss']
 })
 export class ArtifactComponent implements OnInit {
   @Input() testStructure: TestStructure = {};

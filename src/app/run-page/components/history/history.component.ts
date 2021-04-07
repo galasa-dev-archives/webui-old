@@ -1,21 +1,57 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css']
+  styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
   @Input() testStructure: TestStructure = {};
 
-  constructor() { }
+  runName: string = "";
+  testName: string = "";
+  requestor: string = "";
+
+  queued: string = "";
+  startTime: string = "";
+  endTime: string = "";
+  
+  duration: string = "";
+
+  testMethods: TestMethod[] = [];
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.testStructure.runName);
+    this.runName = this.testStructure.runName;
+    this.testName = this.testStructure.testName;
+    this.requestor = this.testStructure.requestor;
+    this.queued = this.testStructure.queued;
+    this.startTime = this.testStructure.startTime;
+    this.endTime = this.testStructure.endTime;
+    this.duration = this.getRunDuration();
+
+    this.testMethods = this.testStructure.methods;
   }
 
+  getRunDuration() {
+    var start = new Date(this.testStructure.startTime);
+    var end = new Date(this.testStructure.endTime);
+
+    var durationInMilliseconds = end.valueOf() - start.valueOf();
+
+    var hours = durationInMilliseconds / (1000 * 60 * 60);
+    var absoluteHours = Math.floor(hours);
+    var minutes = (hours - absoluteHours) * 60;
+    var absoluteMinutes = Math.floor(minutes);
+
+    var hourString = absoluteHours > 0 ? absoluteHours == 1 ? "1 hour" : absoluteHours + " hours" : "0 hours";
+    var minuteString = absoluteMinutes > 0 ? absoluteMinutes == 1 ? "1 minute" : absoluteMinutes + " minutes" : "0 minutes";
+
+    return (" (Duration: " + hourString + " " + minuteString + ")");
+  }
 }
