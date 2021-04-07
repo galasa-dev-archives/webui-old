@@ -20,6 +20,7 @@
             [sortable]="true"
             [isDataGrid] = "false"
             (rowClick)="onClick($event)"
+            (sort)="sort($event)"
             >
         </ibm-table>
         <ibm-pagination

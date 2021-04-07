@@ -31,6 +31,7 @@ export class ResultsTableComponent implements OnInit {
   from;
   to;
   loading: boolean = true;
+  sortParam: string = "to:desc";
 
   state : boolean;
   subscription : Subscription;
@@ -69,9 +70,9 @@ export class ResultsTableComponent implements OnInit {
     this.model.data = [];
     this.model.header = [
       new TableHeaderItem({data: "Result"}),
-      new TableHeaderItem({data: "Test Run"}), 
+      new TableHeaderItem({data: "Test Run" , sortable: false}),
       new TableHeaderItem({data: "Test Class"}), 
-      new TableHeaderItem({data: "Started"}), 
+      new TableHeaderItem({data: "Started" , sortable: false}), 
       new TableHeaderItem({data: "Finished"})
     ];
     
@@ -93,6 +94,50 @@ export class ResultsTableComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  sort(index: number) {
+    
+    let header = this.model.header[index];
+    let filterType = header.data;
+
+    console.log(filterType);
+
+    if(filterType == "Finished"){
+      if(header.ascending == true){
+        header.descending = true;
+        this.sortParam = "to:desc"
+      }else{
+        header.ascending = true;
+        this.sortParam = "to:asc"
+      }
+    }
+
+    if(filterType === "Test Class"){
+      if(header.ascending == true){
+        header.descending = true;
+        this.sortParam = "testclass:desc"
+      }else{
+        header.ascending = true;
+        this.sortParam = "testclass:asc"
+      }
+      
+    }
+
+    if(filterType === "Status"){
+      if(header.ascending == true){
+        header.descending = true;
+        this.sortParam = "result:desc"
+      }else{
+        header.ascending = true;
+        this.sortParam = "result:asc"
+    }
+    }
+
+    var sort = this.sortParam;
+
+    let newParams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {sort});
+		this.router.navigate(['.'],{relativeTo: this.route,queryParams: newParams});
+}
 
   onClick(index: number){
     if(!this.loading){
@@ -132,8 +177,9 @@ export class ResultsTableComponent implements OnInit {
 
     this.rasApis.getRasRuns().then(
       runsApi =>{
+        console.log(this.sortParam);
         var parameters: RasRunGetRequest = {
-                                            "sort": "to:desc",
+                                            "sort": this.sortParam,
                                             "page": page, 
                                             "size" : this.paginationModel.pageLength,
                                             "testname": this.testName,
