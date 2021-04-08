@@ -76,6 +76,7 @@ import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/lo
 import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
 import { LogSearchComponent } from './run-page/components/run-log/log-search/log-search.component';
 import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-regex.component';
+import { LogScrollerComponent } from './run-page/components/run-log/log-scroller/log-scroller.component';
 
 @NgModule({
 	declarations: [
@@ -115,6 +116,7 @@ import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-r
 		DatetimeFilterComponent,
 		LogSearchComponent,
 		LogRegexComponent,
+		LogScrollerComponent,
 		
 	],
 	imports: [
