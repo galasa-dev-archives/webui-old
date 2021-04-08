@@ -70,7 +70,7 @@ export class ResultsTableComponent implements OnInit {
     this.model.data = [];
     this.model.header = [
       new TableHeaderItem({data: "Result"}),
-      new TableHeaderItem({data: "Test Run" , sortable: false}),
+      new TableHeaderItem({data: "Run Name" , sortable: false}),
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started" , sortable: false}), 
       new TableHeaderItem({data: "Finished"})
@@ -123,7 +123,7 @@ export class ResultsTableComponent implements OnInit {
       
     }
 
-    if(filterType === "Status"){
+    if(filterType === "Result"){
       if(header.ascending == true){
         header.descending = true;
         this.sortParam = "result:desc"
