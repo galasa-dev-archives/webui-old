@@ -21,7 +21,7 @@ export class MethodsComponent implements OnInit {
 
   ngOnInit(): void {
     this.model.header = [
-      new TableHeaderItem({data: "Status"}),
+      new TableHeaderItem({data: "Result"}),
       new TableHeaderItem({data: "Method Name"})
     ]
   }

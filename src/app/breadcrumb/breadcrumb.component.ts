@@ -15,9 +15,9 @@ export class BreadcrumbComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var landingPageBreadcrumb = { 'name' : 'Home', 'url' : '/' };
+    var landingPageBreadcrumb = { 'name' : 'Getting started', 'url' : '/' };
     var resultsPageBreadcrumb = { 'name' : 'Test history', 'url' : '/results'};
-    var runPageBreadcrumb = { 'name' : 'Run detail', 'url' : '/'}; 
+    var runPageBreadcrumb = { 'name' : 'Run test detail', 'url' : '/'}; 
     // No path set for Run Page currently as there is no further page you would navigate backwards from
 
     var currentPage = window.location.href;
