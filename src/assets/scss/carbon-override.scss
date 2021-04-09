@@ -145,12 +145,6 @@
   .bx--table-sort.bx--table-sort--active {
     background-color: $active-secondary;
   }
-  .bx--table-sort:first-of-type {
-    border-radius: 4px;
-  }
-  .bx--table-sort:last-of-type {
-    border-radius: 4px;
-  }
   .bx--table-sort:hover {
     background-color: #525252;
   }
@@ -158,7 +152,6 @@
     border-top: 0.5px $ui-03 solid;
     border-bottom: 0.5px $ui-03 solid;
   }
-
   .bx--data-table:hover { // hover colour not working
     background-color: #dfecff;
   }
@@ -172,12 +165,7 @@
     font-weight: 400;
     font-style: normal;
     height: 48px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
     border-top: 0px transparent;
-    // position: static;
-    // overflow: scroll;
-    // display: inline-flex;
 }
 
 
@@ -193,15 +181,6 @@
     height: 48px;
     white-space: nowrap;
   }
-  .bx--data-table th:first-of-type {
-    border-top-left-radius: 4px;
-    //border-right: white;
-    //border-style: solid;
-   // border-width: thin;
-  }  
-  .bx--data-table th:last-of-type {
-    border-top-right-radius: 4px;
-  }  
   .bx--data-table td {
     background-color: $ui-background;
     @include carbon--type-style("body-short-01");
@@ -372,6 +351,16 @@
     outline: 2px solid #03429D;
     outline-offset: -2px;
   }
+  // .flatpickr-months svg {
+  //   height: 16px;
+  //   width: 16px;
+  // }
+  // .numInput.cur-year {
+  //   background: white;
+  // }
+  // .flatpickr-monthDropdown-months {
+  //   border-radius: 2px;
+  // }
 
   .bx--time-picker__input-field {
     background-color: $ui-background;
