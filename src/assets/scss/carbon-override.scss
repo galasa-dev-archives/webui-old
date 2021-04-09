@@ -53,6 +53,20 @@
     font-weight: 400;
     font-style: normal;
   }
+  .bx--side-nav__item:not(.bx--side-nav__item--active) > .bx--side-nav__link:hover{
+    background-color: #dfecff;
+    color: #03429d;
+  }
+  .bx--side-nav__item:not(.bx--side-nav__item--active) > .bx--side-nav__link:active{
+    background-color: #c0d5f5;
+border-left: #03429D 1px solid;
+  }
+  a.bx--side-nav__link:focus{
+    outline: none;
+  }
+  a.bx--side-nav__link{
+    outline: none;
+  }
 
   // active and hover styles not working
   .bx--side-nav__link:hover {
