@@ -79,6 +79,7 @@ import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-r
 import { TaskViewComponent } from './run-page/components/artifact/task-view/task-view.component';
 import { TreeViewComponent } from './run-page/components/artifact/tree-view/tree-view.component';
 import { GalasaTabsComponent } from './run-page/components/galasa-tabs/galasa-tabs.component';
+import { GalasaTabComponent } from './run-page/components/galasa-tab/galasa-tab.component';
 import { InverseTestResultComponent } from './run-page/components/run-detail/inverse-test-result/inverse-test-result.component';
 
 @NgModule({
@@ -122,6 +123,7 @@ import { InverseTestResultComponent } from './run-page/components/run-detail/inv
 		TaskViewComponent,
 		TreeViewComponent,
 		GalasaTabsComponent,
+		GalasaTabComponent,
 		InverseTestResultComponent,
 		
 	],

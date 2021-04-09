@@ -30,6 +30,7 @@
 
 	.first-tile-col{
 		max-width:1136px;
+		margin:auto;
 	}
 
 	.title {
@@ -69,6 +70,7 @@
 	}
 	.get-started-col{
 		padding-bottom: 1rem;
+		max-width: 352px;
 	}
 
 	.first-tile-col{
@@ -184,13 +186,21 @@
   .landing-page__r3 .landing-page__p {
 	  padding-bottom: 1rem;
   }
+  .useful-links-col{
+	  max-width: 352px;
+  }
   .galasa-landing-links{
 	@include carbon--breakpoint-between((320px + 1), md) {
-	  max-width: 75%;
+	  max-width: 25%;
 	}
   }
   .bx--no-gutter {
-	max-width: 380px;
+	max-width: 363px;
+	flex: 0 0 33.25%;
+  }
+  .link-columns{
+	  margin:auto;
+	  max-width:1150px;
   }
   
   .landing-links .bx--tile {
