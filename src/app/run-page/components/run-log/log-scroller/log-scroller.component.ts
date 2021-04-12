@@ -1,7 +1,10 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RasRunIdRunlogGetRequest } from 'galasa-ras-api-ts-rxjs';
+import { Observable } from 'rxjs';
 import { RasApisService } from '../../../../core/rasapis.service';
+import { BootstrapService } from '../../../../../app/core/bootstrap.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-log-scroller',
@@ -13,7 +16,9 @@ export class LogScrollerComponent implements OnInit {
   log: string;
   id: string;
 
-  constructor(private rasApis : RasApisService ,private route: ActivatedRoute) { }
+
+  constructor(private rasApis : RasApisService ,private route: ActivatedRoute, private bootstrapService: BootstrapService,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
 
@@ -23,31 +28,23 @@ export class LogScrollerComponent implements OnInit {
 
     idSub.unsubscribe();
 
-    this.getLog(this.id);
+    if(localStorage.getItem(this.id)==null){
+      this.getLog(this.id);
+    }
     
   }
 
- getLog(id: string){
-    this.rasApis.getRasRuns().then(
-      runsApi =>{
-        console.log(runsApi); 
-        var parameters: RasRunIdRunlogGetRequest ={"id" : id}
-        console.log(runsApi.rasRunIdRunlogGet(parameters));
-        runsApi.rasRunIdRunlogGet(parameters).toPromise().then(
-          result=> {
-            var newResult: string;
-            console.log(result);
-            if(result != null){
-              newResult = result;
-            }
-            this.log = newResult;
-            console.log(newResult)
-          }
-        ).catch(reason => {
-          console.log("Error loading", reason);
+  getLog(id: string){
+    var logContent = document.querySelector('#full-log');
+    this.bootstrapService.getRasBase().then(
+      rasBase=>{
+        var url: string = rasBase.toString();
+        return this.http.get(url+'/ras/run/'+`${id}`+'/runlog', {responseType:'text'}).subscribe(result=>{
+          localStorage.setItem(this.id, result);
+          logContent.textContent = result
         });
-      }
-    );
+      });
+
   }
 }
 

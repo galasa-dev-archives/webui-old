@@ -23,11 +23,12 @@ export class ResultsPageComponent implements OnInit {
 
   amountOfRows : number;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router,private headerTitleService: HeaderService) {
    }
 
   ngOnInit() {
     this.getRows();
+    this.headerTitleService.setTitle('Test history'); //  changes the header 
   }
 
   expandToolbar($event){

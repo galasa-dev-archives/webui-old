@@ -1,0 +1,20 @@
+<div class="inline-block-element test-result">{{value}}</div>
+
+<div class="inline-block-element" *ngIf="state==='passed'">
+    <img src="../../../../../assets/icons/passed.svg" class="icon">
+</div>
+<div class="inline-block-element" *ngIf="state==='passedWithDefects'">
+    <img src="../../../../../assets/icons/passed-with-defects.svg" class="icon">
+</div>
+<div class="inline-block-element" *ngIf="state==='failed'">
+    <img src="../../../../../assets/icons/failed.svg" class="icon">
+</div>
+<div class="inline-block-element" *ngIf="state==='failedWithDefects'">
+    <img src="../../../../../assets/icons/failed-with-defects.svg" class="icon">
+</div>
+<div class="inline-block-element" *ngIf="state==='na'">
+    <img src="../../../../../assets/icons/na.svg" class="icon">
+</div>
+<div class="inline-block-element" *ngIf="state==='unknown'">
+    <div class="icon">?</div>
+</div>

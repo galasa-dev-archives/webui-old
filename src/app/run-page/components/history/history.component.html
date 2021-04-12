@@ -1,1 +1,68 @@
-<p>history works!</p>
+<div ibmGrid class="history bx--grid">
+    <div ibmRow>
+        <h4>Summary</h4>
+    </div>
+    <div ibmRow class="info-row">
+        <div ibmCol [columnNumbers]="{'lg': 8, 'xlg': 10, 'max': 14}">
+            <div ibmRow class="run-history__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-history__attribute bx--col">
+                    <h5>Test class:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}" class="run-history__value bx--col">
+                    <app-run-detail [value]="testName"></app-run-detail>
+                </div>
+            </div>
+            <div ibmRow class="run-history__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-history__attribute bx--col">
+                    <h5>Run name:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}" class="run-history__value bx--col">
+                    <app-run-detail [value]="runName"></app-run-detail>
+                </div>
+            </div>
+            <div ibmRow class="run-history__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-history__attribute bx--col">
+                    <h5>Requestor:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}" class="run-history__value bx--col">
+                    <app-run-detail [value]="requestor"></app-run-detail>
+                </div>
+            </div>
+
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 6, 'xlg': 8, 'max': 10}">
+            <div ibmRow class="run-history__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-history__attribute bx--col">
+                    <h5>Requested:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}" class="run-history__value bx--col">
+                    <app-date-time [value]="queued"></app-date-time>
+                </div>
+            </div>
+
+            <div ibmRow class="run-history__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-history__attribute bx--col">
+                    <h5>Started:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}" class="run-history__value bx--col">
+                    <app-date-time [value]="startTime"></app-date-time>
+                </div>
+            </div>
+
+            <div ibmRow class="run-history__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-history__attribute bx--col">
+                    <h5>Finished:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}" class="run-history__value bx--col">
+                    <div class='inline-block-element'>
+                        <app-date-time [value]="endTime"></app-date-time>
+                    </div>
+                    <div class='inline-block-element'>
+                        <app-run-detail [value]="duration"></app-run-detail>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
