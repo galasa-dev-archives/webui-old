@@ -23,6 +23,8 @@ export class RunPageComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.headerTitleService.setTitle('Run test detail');
+
     console.log("this is loading");
 
     this.loading = true;
@@ -65,16 +67,5 @@ export class RunPageComponent implements OnInit {
     this.activeToolbar = $event;
   }
 
-  overviewSelected(event: any){
-    this.headerTitleService.setTitle('Run test detail / Overview');
-  }
-  runLogSelected(event: any){
-    this.headerTitleService.setTitle('Run test detail / Run Log');
-  }
-  artifactsSelected(event: any){
-    this.headerTitleService.setTitle('Run test detail / Artifacts');
-  }
-  historySelected(event: any){
-    this.headerTitleService.setTitle('Run test detail / History');
-  }
+ 
 }

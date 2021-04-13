@@ -1,10 +1,26 @@
-<div
-			[attr.tabindex]="tabIndex"
-			role="tabpanel"
-			*ngIf="shouldRender()"
-			class="bx--tab-content"
-			[ngStyle]="{'display': active ? null : 'none'}"
-			[attr.aria-labelledby]="id + '-header'"
-			aria-live="polite">
+<ibm-tab-headers
+				*ngIf="hasTabHeaders() && position === 'top'"
+				[skeleton]="skeleton"
+				[tabs]="tabs"
+				[followFocus]="followFocus"
+				[cacheActive]="cacheActive"
+				[contentBefore]="before"
+				[contentAfter]="after"
+				[ariaLabel]="ariaLabel"
+				[ariaLabelledby]="ariaLabelledby"
+				[type]="type">
+			</ibm-tab-headers>
 			<ng-content></ng-content>
-		</div>
+			<ng-template #before>
+				<ng-content select="[before]"></ng-content>
+			</ng-template>
+			<ng-template #after>
+				<ng-content select="[after]"></ng-content>
+			</ng-template>
+			<ibm-tab-headers
+				*ngIf="hasTabHeaders() && position === 'bottom'"
+				[skeleton]="skeleton"
+				[tabs]="tabs"
+				[cacheActive]="cacheActive"
+				[type]="type">
+			</ibm-tab-headers>

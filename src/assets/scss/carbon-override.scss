@@ -53,6 +53,20 @@
     font-weight: 400;
     font-style: normal;
   }
+  .bx--side-nav__item:not(.bx--side-nav__item--active) > .bx--side-nav__link:hover{
+    background-color: #dfecff;
+    color: #03429d;
+  }
+  .bx--side-nav__item:not(.bx--side-nav__item--active) > .bx--side-nav__link:active{
+    background-color: #c0d5f5;
+border-left: #03429D 1px solid;
+  }
+  a.bx--side-nav__link:focus{
+    outline: none;
+  }
+  a.bx--side-nav__link{
+    outline: none;
+  }
 
   // active and hover styles not working
   .bx--side-nav__link:hover {
@@ -191,6 +205,9 @@
     white-space: nowrap;
 
   }
+  .bx--data-table--zebra tbody tr:not(.bx--parent-row):hover td{
+    background-color: #e5f0ff;
+  }
 
 
   //buttons on tabs in run page
@@ -235,8 +252,13 @@
   }
   .bx--tabs--scrollable .bx--tabs--scrollable__nav-link{
     
-    border: none;
+    border: 1.1px solid #03429D;
   }
+
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav-item + .bx--tabs--scrollable__nav-item{
+    margin-left: 0%;
+  }
+
 
   .bx--tab-content{
     padding:0px;

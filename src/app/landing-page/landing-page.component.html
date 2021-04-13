@@ -1,7 +1,7 @@
 <div class="bx--grid--full-width landing-page" ibmGrid>
 	<!--  2nd row starts here-->
 	<div ibmRow class="landing-page__r2">
-		<div ibmCol class = "get-started-col" [columnNumbers]="{'md': 4, 'lg': 4}">
+		<div ibmCol class="get-started-col" [columnNumbers]="{'md': 4, 'lg': 4}">
 			<h3 class="subtitle landing-page__label">Getting Started</h3>
 			<p class="landing-page__p">Galasa’s Web UI makes it easy to search test history, view system status, configure test environments and schedule test runs.</p>
 			<br>
@@ -71,45 +71,48 @@
 	</div>
 	<!-- 3rd row starts here-->
 	<div ibmRow class="landing-page__r3 ">
-		<div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
+		<div class="useful-links-col" ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
 			<h5 class="subtitle landing-page__label">Useful links</h5>
 
 			<p class="landing-page__p"> View or update your Galasa profile, go to our documentation or get support. </p>
 		</div>
-		
-		<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 4}">
-			
-			<ibm-clickable-tile class="landing-links" id="1">
-				<h4>Profile</h4>
-				<div class="bx--resource-card__icon--img">
-					<img src="../../assets/icons/user--avatar.svg" alt="User avatar">
+		<div ibmCol class="link-columns" [columnNumbers]="{'md': 12, 'lg': 12}">
+			<div ibmRow>
+				<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 6}">
+
+					<ibm-clickable-tile class="landing-links" id="1">
+						<h4>Profile</h4>
+						<div class="bx--resource-card__icon--img">
+							<img src="../../assets/icons/user--avatar.svg" alt="User avatar">
+						</div>
+						<div class="bx--resource-card__icon--action link-action">
+							<span>Edit profile</span>
+						</div>
+					</ibm-clickable-tile>
 				</div>
-				<div class="bx--resource-card__icon--action link-action">
-					<span>Edit profile</span>
+				<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 6}">
+					<ibm-clickable-tile class="landing-links" id="2">
+						<h4>Galasa documents</h4>
+						<div class="bx--resource-card__icon--img">
+							<img src="../../assets/icons/document(1).svg" alt="document">
+						</div>
+						<div class="bx--resource-card__icon--action link-action">
+							<span>Read docs</span>
+						</div>
+					</ibm-clickable-tile>
 				</div>
-			</ibm-clickable-tile>
-		</div>
-		<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 4}">
-			<ibm-clickable-tile class="landing-links" id="2">
-				<h4>Galasa documents</h4>
-				<div class="bx--resource-card__icon--img">
-					<img src="../../assets/icons/document(1).svg" alt = "document">
+				<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 6}">
+					<ibm-clickable-tile class="landing-links" id="3">
+						<h4>Support</h4>
+						<div class="bx--resource-card__icon--img">
+							<img src="../../assets/icons/forum.svg" alt="forum">
+						</div>
+						<div class="bx--resource-card__icon--action link-action">
+							<span>Get support</span>
+						</div>
+					</ibm-clickable-tile>
 				</div>
-				<div class="bx--resource-card__icon--action link-action">
-					<span>Read docs</span>
-				</div>
-			</ibm-clickable-tile>
-		</div>
-		<div ibmCol class="bx--no-gutter galasa-landing-links " [columnNumbers]="{'md': 4, 'lg': 4}">
-			<ibm-clickable-tile class="landing-links" id="3">
-				<h4>Support</h4>
-				<div class="bx--resource-card__icon--img">
-					<img src ="../../assets/icons/forum.svg" alt = "forum">
-				</div>
-				<div class="bx--resource-card__icon--action link-action">
-					<span>Get support</span>
-				</div>
-			</ibm-clickable-tile>
+			</div>
 		</div>
 	</div>
 
