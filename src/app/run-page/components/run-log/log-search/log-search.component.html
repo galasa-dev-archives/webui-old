@@ -20,10 +20,32 @@
                         </button>
                     </div>
                 </div>
-                <div class="owerflow-button">
-                    <button [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" class="ow-button">
+                <div class="overflow">
+                    <!-- <button [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" class="ow-button">
                         <img src="../../assets/icons/overflow-menu--vertical-white.svg">
-                    </button>
+                    </button> -->
+                    <button class="overflow-bt"
+                    [ibmOverflowMenu]="templateRef"
+                    [customPane]="true"
+                    placement="bottom"
+                    flip="true"
+                    [offset]="{ x: 0, y: 55 }"
+                ><img src="../../assets/icons/overflow-menu--vertical-blue.svg"></button>
+                <ng-template #templateRef >
+                    <div class="ow-menu">
+                        <div class="ow-menu-heading">Show metadata</div>
+                        <div class="ow-words">Run log status</div>
+                        <div><ibm-checkbox ><img src="../../assets/icons/error--filled.svg"> <span class="ow-ch"> Errors</span></ibm-checkbox></div>
+                        <div><ibm-checkbox><img src="../../assets/icons/warning--filled.svg"> <span class="ow-ch"> Warnings</span></ibm-checkbox></div>
+                        <div><ibm-checkbox ><img src="../../assets/icons/information--filled.svg"><span class="ow-ch"> Information</span></ibm-checkbox></div>
+                        <div><ibm-checkbox ><img src="../../assets/icons/header-blocks.svg"><span class="ow-ch"> Header blocks</span></ibm-checkbox></div>
+                        <div class="ow-words">Line markers</div>
+                        <div class="ow-words">Use the labels to highlight particular lines that are of interest to you. They can mean whatever you want them to mean.</div>
+                        <div><ibm-checkbox></ibm-checkbox></div>
+                        <div><ibm-checkbox ></ibm-checkbox></div>
+                        <div><ibm-checkbox></ibm-checkbox></div>
+                    </div>
+                </ng-template>
                 </div>
             </div>
             <div ibmRow class="rw r3  bx--grid--condensed">

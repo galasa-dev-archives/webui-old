@@ -10,9 +10,10 @@ import { TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
 export class HistoryComponent implements OnInit {
   @Input() testStructure: TestStructure = {};
 
+
+  result: string = "";
   runName: string = "";
   testName: string = "";
-  requestor: string = "";
 
   queued: string = "";
   startTime: string = "";
@@ -27,9 +28,15 @@ export class HistoryComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (this.testStructure.result == "EnvFail") {
+      this.result = "Environmental failure";
+    } else if (this.testStructure.result == "UNKNOWN") {
+      this.result = "Unknown";
+    } else {
+      this.result = this.testStructure.result;
+    }
     this.runName = this.testStructure.runName;
     this.testName = this.testStructure.testName;
-    this.requestor = this.testStructure.requestor;
     this.queued = this.testStructure.queued;
     this.startTime = this.testStructure.startTime;
     this.endTime = this.testStructure.endTime;
