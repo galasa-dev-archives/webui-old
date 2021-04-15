@@ -3,72 +3,67 @@
 	<div ibmRow class="landing-page__r2">
 		<div ibmCol class="get-started-col" [columnNumbers]="{'md': 4, 'lg': 4}">
 			<h3 class="subtitle landing-page__label">Getting Started</h3>
-			<p class="landing-page__p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-				Aenean commodo ligula eget dolor. Aenean massa.</p>
+			<p class="landing-page__p">Galasa’s Web UI makes it easy to search test history, view system status, configure test environments and schedule test runs.</p>
+			<br>
+			<p class="landing-page__p">Click a button to start a task, or use the hamburger menu to navigate the site.</p>
 		</div>
 		<div ibmCol class="first-tile-col " [columnNumbers]="{'md': 12, 'lg': 12}">
 			<div ibmRow>
 				<!-- bx--col-lg-8 adjust the width of the tile-->
 				<div class=" bx--col-md-4 bx--col-lg-8 tile-bx">
-					<ibm-clickable-tile class="landing-option" [route]="['results']" id="past-results">
-						<h4 class="bx--resource-card__subtitle">Test history</h4>
-						<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
-							elit. Aenean commodo ligula eget dolor. </p>
-						<img src="../../assets/icons/galasa-previouly-run-tests.svg" alt="test history"
-							class="bx--image">
+							<ibm-clickable-tile class="landing-option" [route]="['results']" id="past-results">
+								<h4 class="bx--resource-card__subtitle">Test history</h4>
+								<p class="landing-page__p"> Get the big-picture view of your testing or drill-down on individual tests to diagnose, analyse and compare test run data. </p>
+									<img src = "../../assets/icons/galasa-previouly-run-tests.svg" alt = "test history" class = "bx--image">
+								
+									<button class="bx--btn">
+										View tests
+									</button>
 
-						<button class="bx--btn">
-							View tests
-						</button>
-
-
-					</ibm-clickable-tile>
+								
+							</ibm-clickable-tile>
 
 				</div>
 				<!-- bx--col-lg-7 adjust the width of the tile-->
 				<div class="  bx--col-md-4 bx--col-lg-8 tile-bx">
-					<ibm-clickable-tile class="landing-option" id="system-results">
-						<h4 class="bx--resource-card__subtitle">System status</h4>
-						<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
-							elit. Aenean commodo ligula eget dolor. </p>
-						<img src="../../assets/icons/galasa-system-status.svg" alt="System status" class="bx--image">
-						<button class="bx--btn">
-							Check status
-						</button>
-
-
-					</ibm-clickable-tile>
+							<ibm-clickable-tile class="landing-option" id="system-results">
+								<h4 class="bx--resource-card__subtitle">System status</h4>
+								<p class="landing-page__p"> Check the status of your resources at a glance and inspect your currently running tests. </p>
+									<img src = "../../assets/icons/galasa-system-status.svg" alt = "System status" class = "bx--image">
+										<button class="bx--btn">
+											Check status
+										</button>
+	
+									
+							</ibm-clickable-tile>
 
 				</div>
 
 				<!-- bx--col-lg-7 adjust the width of the tile-->
 				<div class="  bx--col-md-4 bx--col-lg-8 tile-bx">
-					<ibm-clickable-tile class="landing-option" id="configure-system">
-						<h4 class="bx--resource-card__subtitle">System Configuration</h4>
-						<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
-							elit. Aenean commodo ligula eget dolor. </p>
-						<img src="../../assets/icons/galasa-system-configuration.svg" alt="System configuration"
-							class="bx--image">
-						<button class="bx--btn">
-							Configure system
-						</button>
-
-
-					</ibm-clickable-tile>
+							<ibm-clickable-tile class="landing-option" id="configure-system">
+								<h4 class="bx--resource-card__subtitle">System Configuration</h4>
+								<p class="landing-page__p"> Configure Galasa test environments and set up environment resources such as Docker Engines, Selenium servers, and z/OS clusters. </p>
+									<img src = "../../assets/icons/galasa-system-configuration.svg" alt = "System configuration" class = "bx--image">
+									<button class="bx--btn">
+										Configure system
+									</button>
+	
+									
+							</ibm-clickable-tile>
 
 				</div>
 				<!-- bx--col-lg-7 adjust the width of the tile-->
 				<div class="  bx--col-md-4 bx--col-lg-8 tile-bx">
-					<ibm-clickable-tile class="landing-option" id="submit-tests">
-						<h4 class="bx--resource-card__subtitle">Submit tests</h4>
-						<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing
-							elit. Aenean commodo ligula eget dolor. </p>
-						<img src="../../assets/icons/galasa-submit-test.svg" alt="Submit tests" class="bx--image">
-						<button class="bx--btn">
-							Schedule tests
-						</button>
-
-					</ibm-clickable-tile>
+							<ibm-clickable-tile class="landing-option" id="submit-tests">
+								<h4 class="bx--resource-card__subtitle">Schedule tests</h4>
+								<p class="landing-page__p"> Co-ordinate and submit tests to run in automation in your Galasa ecosystem. </p>
+									<img src = "../../assets/icons/galasa-submit-test.svg" alt = "Submit tests" class = "bx--image">
+									<button class="bx--btn">
+										Schedule tests
+									</button>
+	
+							</ibm-clickable-tile>
 
 				</div>
 			</div>
@@ -79,8 +74,7 @@
 		<div class="useful-links-col" ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
 			<h5 class="subtitle landing-page__label">Useful links</h5>
 
-			<p class="landing-page__p"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-				eget dolor. </p>
+			<p class="landing-page__p"> View or update your Galasa profile, go to our documentation or get support. </p>
 		</div>
 		<div ibmCol class="link-columns" [columnNumbers]="{'md': 12, 'lg': 12}">
 			<div ibmRow>

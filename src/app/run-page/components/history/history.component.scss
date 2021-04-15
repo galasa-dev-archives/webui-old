@@ -2,18 +2,18 @@
 @import "~carbon-components/scss/globals/scss/spacing";
 @import "~carbon-components/scss/globals/grid/grid";
 
-.history.bx--grid{
-    min-height: 764px;
+.summary.bx--grid{
+    min-height: 264px;
     min-width: 994px;
-    max-height: 772px;
+    max-height: 372px;
     max-width: 1456px;
     border-radius: 4px 4px 4px 4px;
     background-color: $ui-background;
     position: relative;
     padding-left: 16px;
     padding-right: 16px;
-    padding-top: 16px;
-    padding-bottom: 40px;
+    padding-top: 6px;
+    padding-bottom: 16px;
     margin-top: 48px;
 }
 h4{
@@ -23,8 +23,11 @@ h4{
     display:inline-flex;
 }
 
+.first-row{
+  margin-top: 16px;
+}
   .run-history__bx--row {
-    margin-bottom: $spacing-05;
+    margin-bottom: 10px;
   }
   
   .run-history__attribute.bx--col {
@@ -37,7 +40,6 @@ h4{
   }
   
   .run-history__value.bx--col {
-    padding-left: 32px;
     @include carbon--type-style("body-short-02");
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -52,3 +54,42 @@ h4{
   .inline-block-element:first-child {
     margin-right: 10px;
   }
+
+  .method-table {
+    min-width: 512px;
+    max-width: 624px;
+    position: absolute;
+    bottom: 48px;
+    top: 48px;
+    right: 16px;
+  }
+
+  .time-map.bx--grid{
+    min-height: 264px;
+    min-width: 994px;
+    max-height: 372px;
+    max-width: 1456px;
+    border-radius: 4px 4px 4px 4px;
+    background-color: $ui-background;
+    position: relative;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 6px;
+    padding-bottom: 16px;
+    margin-top: 16px;
+}
+
+.related-tests.bx--grid{
+  min-height: 264px;
+  min-width: 994px;
+  max-height: 372px;
+  max-width: 1456px;
+  border-radius: 4px 4px 4px 4px;
+  background-color: $ui-background;
+  position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 6px;
+  padding-bottom: 16px;
+  margin-top: 16px;
+}
