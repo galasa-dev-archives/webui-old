@@ -23,3 +23,16 @@ p {
     display: inline-flex;
     vertical-align: top;
 }
+
+#start-invalid-message {
+    color: #da1e28;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+#end-invalid-message {
+    color: #da1e28;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: none;
+}

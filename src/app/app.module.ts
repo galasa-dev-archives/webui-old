@@ -70,7 +70,6 @@ import { HeaderService } from './header/header.service';
 import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
 import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
 import { LoadingBarComponent } from './loading-bar/loading-bar.component';
-import { DateFilterComponent } from './results-page/rasfilters/date-filter/date-filter.component';
 import { TimeFilterComponent } from './results-page/rasfilters/time-filter/time-filter.component';
 import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/loading-bar-service.component';
 import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
@@ -82,6 +81,8 @@ import { TreeViewComponent } from './run-page/components/artifact/tree-view/tree
 import { GalasaTabsComponent } from './run-page/components/galasa-tabs/galasa-tabs.component';
 import { GalasaTabComponent } from './run-page/components/galasa-tab/galasa-tab.component';
 import { InverseTestResultComponent } from './run-page/components/run-detail/inverse-test-result/inverse-test-result.component';
+import { StartdateFilterComponent } from './results-page/rasfilters/startdate-filter/startdate-filter.component';
+import { EnddateFilterComponent } from './results-page/rasfilters/enddate-filter/enddate-filter.component';
 import { LogComponent } from './run-page/components/log/log.component';
 
 @NgModule({
@@ -116,7 +117,6 @@ import { LogComponent } from './run-page/components/log/log.component';
 		IncreaseContrastToggleComponent,
 		GalasaHamburgerComponent,
 		LoadingBarComponent,
-		DateFilterComponent,
 		TimeFilterComponent,
 		LoadingBarServiceComponent,
 		DatetimeFilterComponent,
@@ -128,6 +128,8 @@ import { LogComponent } from './run-page/components/log/log.component';
 		GalasaTabsComponent,
 		GalasaTabComponent,
 		InverseTestResultComponent,
+		StartdateFilterComponent,
+		EnddateFilterComponent,
 		LogComponent,
 		
 	],
