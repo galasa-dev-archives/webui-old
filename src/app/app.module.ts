@@ -76,11 +76,13 @@ import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/lo
 import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
 import { LogSearchComponent } from './run-page/components/run-log/log-search/log-search.component';
 import { LogRegexComponent } from './run-page/components/run-log/log-regex/log-regex.component';
+import { LogScrollerComponent } from './run-page/components/run-log/log-scroller/log-scroller.component';
 import { TaskViewComponent } from './run-page/components/artifact/task-view/task-view.component';
 import { TreeViewComponent } from './run-page/components/artifact/tree-view/tree-view.component';
 import { GalasaTabsComponent } from './run-page/components/galasa-tabs/galasa-tabs.component';
 import { GalasaTabComponent } from './run-page/components/galasa-tab/galasa-tab.component';
 import { InverseTestResultComponent } from './run-page/components/run-detail/inverse-test-result/inverse-test-result.component';
+import { LogComponent } from './run-page/components/log/log.component';
 
 @NgModule({
 	declarations: [
@@ -120,11 +122,13 @@ import { InverseTestResultComponent } from './run-page/components/run-detail/inv
 		DatetimeFilterComponent,
 		LogSearchComponent,
 		LogRegexComponent,
+		LogScrollerComponent,
 		TaskViewComponent,
 		TreeViewComponent,
 		GalasaTabsComponent,
 		GalasaTabComponent,
 		InverseTestResultComponent,
+		LogComponent,
 		
 	],
 	imports: [
