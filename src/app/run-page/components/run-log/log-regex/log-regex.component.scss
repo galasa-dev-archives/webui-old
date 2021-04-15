@@ -114,12 +114,39 @@ p {
 .sb{
   display: inline-flex;
 }
-.owerflow-button{
+.overflow{
   float:left;
 }
-.ow-button{
+.overflow-bt{
   background: none;
   padding-top:24px;
+  border: none; 
+  width: 3rem; 
+  height: 3rem; 
+  background-color: white;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+.ow-menu{
+  padding: 0 1rem;
+}
+.ow-menu-heading{
+  padding-top: 0.5rem; 
+  color: black;
+  padding-bottom: 16px;
+  font-weight: bold;
+}
+.ow-words{
+  padding-top: 0.2rem; 
+  color: rgb(66, 62, 62);
+  font-size: 10px;
+  margin-bottom: 10px;
+  line-height: 1.2rem;
+}
+.ow-ch{
+  position: relative;
+  top: -4px;
 }
 
 .dropdown{
