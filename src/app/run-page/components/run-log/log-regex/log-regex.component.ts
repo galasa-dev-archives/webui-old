@@ -9,6 +9,7 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
 export class LogRegexComponent implements OnInit {
 
   @Input() testStructure: TestStructure = {};
+  @Input() runlog: string;
   
   ibmButton: any;
   matches: number=11;

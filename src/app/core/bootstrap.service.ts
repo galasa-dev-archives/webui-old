@@ -55,7 +55,6 @@ export class BootstrapService {
     return new Promise((resolve, reject) => {
       //TODO will need async code if the bootstrap has not been resolved yet
 
-
       resolve(this.rasBaseUri);
     });
   }
