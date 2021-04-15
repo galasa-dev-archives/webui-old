@@ -82,6 +82,7 @@ import { TreeViewComponent } from './run-page/components/artifact/tree-view/tree
 import { GalasaTabsComponent } from './run-page/components/galasa-tabs/galasa-tabs.component';
 import { GalasaTabComponent } from './run-page/components/galasa-tab/galasa-tab.component';
 import { InverseTestResultComponent } from './run-page/components/run-detail/inverse-test-result/inverse-test-result.component';
+import { LogComponent } from './run-page/components/log/log.component';
 
 @NgModule({
 	declarations: [
@@ -127,6 +128,7 @@ import { InverseTestResultComponent } from './run-page/components/run-detail/inv
 		GalasaTabsComponent,
 		GalasaTabComponent,
 		InverseTestResultComponent,
+		LogComponent,
 		
 	],
 	imports: [

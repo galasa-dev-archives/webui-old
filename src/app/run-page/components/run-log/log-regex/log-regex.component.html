@@ -57,10 +57,12 @@
                     <p>Found: <strong>{{matches}} matches</strong></p>
                 </div>
             </div>
-            <div ibmRow class="rw r4"></div>
+            <div ibmRow class="rw r4">
+                <app-log [runlog]="runlog"></app-log>
+            </div>
         </div>
         <div ibmCol class="col2" [columnNumbers]="{'md': 3, 'lg': 3}">
-            <p> the full log</p>
+            <app-log-scroller></app-log-scroller>
         </div>
     </div>
 </div>
