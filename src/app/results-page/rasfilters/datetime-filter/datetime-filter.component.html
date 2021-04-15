@@ -1,22 +1,31 @@
 <div class="filter">
     <p>Start date</p>
-<app-date-filter
+<app-startdate-filter
     (valueChange)="startDateChange($event)"
     class="start-date-time">
-</app-date-filter>
+</app-startdate-filter>
 <app-time-filter
     (valueChange)="startTimeChange($event)"
     class="start-date-time">
 </app-time-filter>
+
+<div id="start-invalid-message">
+    Invalid
 </div>
+</div>
+
 <div class="filter">
 <p>End date</p>
-<app-date-filter
+<app-enddate-filter
     (valueChange)="endDateChange($event)"
     class="end-date-time">
-</app-date-filter>
+</app-enddate-filter>
 <app-time-filter
     (valueChange)="endTimeChange($event)"
     class="end-date-time">
 </app-time-filter>
+
+<div id="end-invalid-message">
+    Invalid
+</div>
 </div>

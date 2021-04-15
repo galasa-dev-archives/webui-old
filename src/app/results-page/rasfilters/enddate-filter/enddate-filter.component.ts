@@ -1,12 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import flatpickr from 'flatpickr';
 
 @Component({
-  selector: 'app-date-filter',
-  templateUrl: './date-filter.component.html',
-  styleUrls: ['./date-filter.component.css']
+  selector: 'app-enddate-filter',
+  templateUrl: './enddate-filter.component.html',
+  styleUrls: ['./enddate-filter.component.css']
 })
-export class DateFilterComponent implements OnInit {
+export class EnddateFilterComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter();
 
@@ -18,12 +20,19 @@ export class DateFilterComponent implements OnInit {
 
   formGroup : FormGroup;
 
+  flatpickrOptions;
+
+
   constructor(protected formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({ single: [null, Validators.required]});
   }
 
   ngOnInit(): void {
     this.getLocaleDateFormat();
+      this.flatpickrOptions = {
+      maxDate : new Date(),
+      dateFormat : this.dateFormat
+    };
   }
 
   changeDate($event){
@@ -51,5 +60,5 @@ export class DateFilterComponent implements OnInit {
     }
     this.placeholder = format;
   }
-
+  
 }

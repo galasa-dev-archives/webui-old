@@ -83,7 +83,15 @@ export class DatetimeFilterComponent implements OnInit {
     var time = (hours * 3600000) + (minutes * 60000);
     this.startDateTime = new Date(date.getTime() + time);
 
-    this.onStartChange(this.startDateTime);
+    if (new Date(this.endDateTime).getTime() - new Date(this.startDateTime).getTime() > 0){
+      this.onStartChange(this.startDateTime);
+    } else {
+      if (typeof(this.endDateTime) == 'undefined' || this.endDateTime === "" || this.endDateTime.length === 0){
+        this.onStartChange(this.startDateTime);
+      } else {
+        document.getElementById("start-invalid-message").style.display = "block";
+      }
+    }
   }
 
   getEndDateTime(){
@@ -92,7 +100,16 @@ export class DatetimeFilterComponent implements OnInit {
     var time = (hours * 3600000) + (minutes * 60000);
     this.endDateTime = new Date(date.getTime() + time);
 
-    this.onEndChange(this.endDateTime);
+   
+    if (new Date(this.endDateTime).getTime() - new Date(this.startDateTime).getTime() > 0){
+      this.onEndChange(this.endDateTime);
+    } else {
+      if (typeof(this.startDateTime) == 'undefined' || this.startDateTime === "" || this.startDateTime.length === 0){
+        this.onEndChange(this.endDateTime);
+      } else {  
+        document.getElementById("end-invalid-message").style.display = "block";
+      }
+    }
   }
 
   onStartChange(date : Date){

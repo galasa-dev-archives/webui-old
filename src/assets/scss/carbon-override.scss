@@ -373,16 +373,16 @@ border-left: #03429D 1px solid;
     outline: 2px solid #03429D;
     outline-offset: -2px;
   }
-  // .flatpickr-months svg {
-  //   height: 16px;
-  //   width: 16px;
-  // }
-  // .numInput.cur-year {
-  //   background: white;
-  // }
-  // .flatpickr-monthDropdown-months {
-  //   border-radius: 2px;
-  // }
+  .flatpickr-months svg {
+    height: 16px;
+    width: 16px;
+  }
+  .numInput.cur-year {
+    background: white;
+  }
+  .flatpickr-monthDropdown-months {
+    border-radius: 2px;
+  }
 
   .bx--time-picker__input-field {
     background-color: $ui-background;
