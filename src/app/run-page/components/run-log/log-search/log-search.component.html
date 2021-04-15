@@ -76,18 +76,17 @@
                     </div>
                 </div>
             </div>
-
-
-
             <div ibmRow class="rw r5">
                 <div class="result-page">
                     <p>Search run log results: <strong>{{page}} of {{pages}}</strong></p>
                 </div>
             </div>
-            <div ibmRow class="rw r6"></div>
+            <div ibmRow class="rw r6">
+                <app-log [runlog]="runlog"></app-log>
+            </div>
         </div>
         <div ibmCol class="col2" [columnNumbers]="{'md': 3, 'lg': 3}">
-            <p> the full log</p>
+            <app-log-scroller></app-log-scroller>
         </div>
     </div>
 </div>

@@ -33,6 +33,7 @@ export class BundleFilterComponent implements OnInit {
         var parameters: RasTestclassesGetRequest = {"sort":"testclasses:asc"};
         bundleApi.rasTestclassesGet(parameters).toPromise().then(
           result => {
+            console.log(result);
             var newBundles: Object []=[];
             for (let bun of result.testclasses) {
               // whitout id so it woudnt be unique elements
