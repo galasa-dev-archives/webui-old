@@ -38,7 +38,11 @@ export class TimeFilterComponent implements OnInit {
     } else if (parseInt(value.substring(3)) > 59 || parseInt(value.substring(3)) < 0){
       this.invalid = true;
       this.value = [];
-    } else {
+    } else if (value.length < 5){
+      this.invalid = true;
+      this.value = [];
+    }
+    else {
     this.invalid = false;
     }
   }

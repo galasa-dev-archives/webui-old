@@ -385,7 +385,7 @@ border-left: #03429D 1px solid;
   }
 
   .bx--time-picker__input-field {
-    background-color: $ui-background;
+    background-color: $ui-background !important;
     border-radius: 4px;
     border: #6f6f6f 1px solid;
     @include carbon--type-style("body-short-01");
