@@ -1,8 +1,17 @@
 #log{
-    font-size: 0.7em;
+    font-size: 0.8em;
+    max-width: 1008px;
+    white-space: pre-wrap;
+    line-height: 1.3rem;
   }
 
 div{
     height:inherit;
     width:inherit;
+    max-width: 1208px;
+}
+.pre{
+  padding-left: 50px;
+  max-width: 1008px;
+  padding-right: 10px;
 }
