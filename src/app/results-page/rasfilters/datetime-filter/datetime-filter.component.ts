@@ -83,11 +83,13 @@ export class DatetimeFilterComponent implements OnInit {
     var time = (hours * 3600000) + (minutes * 60000);
     this.startDateTime = new Date(date.getTime() + time);
 
-    if (new Date(this.endDateTime).getTime() - new Date(this.startDateTime).getTime() > 0){
+    if (new Date(this.endDateTime).getTime() - new Date(this.startDateTime).getTime() >= 0){
       this.onStartChange(this.startDateTime);
+      this.resetMessages();
     } else {
       if (typeof(this.endDateTime) == 'undefined' || this.endDateTime === "" || this.endDateTime.length === 0){
         this.onStartChange(this.startDateTime);
+        this.resetMessages();
       } else {
         document.getElementById("start-invalid-message").style.display = "block";
       }
@@ -101,11 +103,13 @@ export class DatetimeFilterComponent implements OnInit {
     this.endDateTime = new Date(date.getTime() + time);
 
    
-    if (new Date(this.endDateTime).getTime() - new Date(this.startDateTime).getTime() > 0){
+    if (new Date(this.endDateTime).getTime() - new Date(this.startDateTime).getTime() >= 0){
       this.onEndChange(this.endDateTime);
+      this.resetMessages();
     } else {
       if (typeof(this.startDateTime) == 'undefined' || this.startDateTime === "" || this.startDateTime.length === 0){
         this.onEndChange(this.endDateTime);
+        this.resetMessages();
       } else {  
         document.getElementById("end-invalid-message").style.display = "block";
       }
@@ -126,5 +130,10 @@ export class DatetimeFilterComponent implements OnInit {
     let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{to:endDateTime});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
     this.data.changeState(false);
+  }
+
+  resetMessages(){
+    document.getElementById("start-invalid-message").style.display = "none";
+    document.getElementById("end-invalid-message").style.display = "none";
   }
 }
