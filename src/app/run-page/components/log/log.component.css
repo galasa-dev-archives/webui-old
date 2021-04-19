@@ -6,3 +6,8 @@ div{
     height:inherit;
     width:inherit;
 }
+
+.pre{
+  font-family: monospace;
+  white-space: pre;
+}

@@ -34,6 +34,7 @@ export class LogComponent implements OnInit {
     }
     var log = document.querySelector('#log');
     this.newLog = fullLog.join("\n"); 
+    log.innerHTML = this.newLog;
   }
 
 }

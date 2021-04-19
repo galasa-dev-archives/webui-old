@@ -5,11 +5,9 @@
             <div ibmRow class="rw r2">
                 <div class="sb">
                     <div class="search-box">
-                        <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
-                            [invalidText]="'entered text is invalid'" [label]="'Seach run log'" [items]="items"
-                            (selected)="onSelected()" (search)="onSearch($event)">
-                            <ibm-dropdown-list> </ibm-dropdown-list>
-                        </ibm-combo-box>
+                        <ibm-search id = "search" [disabled]="disabled" [size]="'md'" [label]="'Seach run log'"
+                            (valueChange)="onValueChange($event)" (clear)="clear()">
+                    </ibm-search>
                     </div>
                     <div class="search-buttons">
                         <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true">
