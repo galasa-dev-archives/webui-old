@@ -10,7 +10,10 @@ div{
     width:inherit;
     max-width: 1208px;
 }
+
 .pre{
+  font-family: monospace;
+  white-space: pre;
   padding-left: 50px;
   max-width: 1008px;
   padding-right: 10px;
