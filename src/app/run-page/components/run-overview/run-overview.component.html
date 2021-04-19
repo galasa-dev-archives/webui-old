@@ -94,9 +94,9 @@
                 </div>
                 <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
                     <div ibmRow>
-                        <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
-                            [invalidText]="'entered text is invalid'" [items]="items"
-                            (selected)="onSelected()" (search)="onSearch($event)" style="margin-left: 15px;">
+                        <ibm-combo-box  [size]="'md'"
+                            [invalidText]="'entered text is invalid'" 
+                            style="margin-left: 15px;">
                         </ibm-combo-box>
 
                         <button class=" tag-bt" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
