@@ -44,6 +44,14 @@ export class LogSearchComponent implements OnInit {
 
   }
 
+  onSelected(){
+    
+  }
+
+  onSearch($event){
+
+  }
+
   onValueChange(event: any){
     let searchString = event.toString();
     console.log("Search for: " + event);
