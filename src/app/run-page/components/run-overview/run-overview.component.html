@@ -1,111 +1,142 @@
 <div ibmGrid class="run-overview bx--grid">
-<div ibmRow>
-    <div ibmCol [columnNumbers]="{'lg': 12, 'xlg': 12, 'max': 12}">
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Result:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-inverse-test-result [value]="result"></app-inverse-test-result>
-            </div>
-
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Run name:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-run-detail [value]="runName"></app-run-detail>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Short name:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-run-detail [value]="testShortName"></app-run-detail>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Bundle:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-run-detail [value]="bundle"></app-run-detail>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Test class:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-run-detail [value]="testName"></app-run-detail>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Requestor:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-run-detail [value]="requestor"></app-run-detail>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Requested:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-date-time [value]="queued"></app-date-time>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Started:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <app-date-time [value]="startTime"></app-date-time>
-            </div>
-        </div>
-
-        <div ibmRow class="run-overview__bx--row">
-            <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
-                <h5>Finished:</h5>
-            </div>
-            <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
-                <div class='inline-block-element'>
-                    <app-date-time [value]="endTime"></app-date-time>
+    <div ibmRow style="margin-bottom: 16px;">
+        <div ibmCol [columnNumbers]="{'lg': 12, 'xlg': 12, 'max': 12}">
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Result:</h5>
                 </div>
-                <div class='inline-block-element'>
-                    <app-run-detail [value]="duration"></app-run-detail>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-inverse-test-result [value]="result"></app-inverse-test-result>
                 </div>
 
             </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Run name:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-run-detail [value]="runName"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Short name:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-run-detail [value]="testShortName"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Bundle:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-run-detail [value]="bundle"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Test class:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-run-detail [value]="testName"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Requestor:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-run-detail [value]="requestor"></app-run-detail>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Requested:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-date-time [value]="queued"></app-date-time>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Started:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <app-date-time [value]="startTime"></app-date-time>
+                </div>
+            </div>
+
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Finished:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <div class='inline-block-element'>
+                        <app-date-time [value]="endTime"></app-date-time>
+                    </div>
+                    <div class='inline-block-element'>
+                        <app-run-detail [value]="duration"></app-run-detail>
+                    </div>
+
+                </div>
+            </div>
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Tags:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <div ibmRow>
+                        <ibm-combo-box  [size]="'md'"
+                            [invalidText]="'entered text is invalid'" 
+                            style="margin-left: 15px;">
+                        </ibm-combo-box>
+
+                        <button class=" tag-bt" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+                            <img src="../../assets/icons/add-white.svg" class="bx--btn__icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div ibmRow class="run-overview__bx--row">
+                <div ibmCol [columnNumbers]="{'lg': 2, 'xlg': 2, 'max': 2}" class="run-overview__attribute bx--col">
+                    <h5>Status:</h5>
+                </div>
+                <div ibmCol [columnNumbers]="{'lg': 10, 'xlg': 10, 'max': 10}" class="run-overview__value bx--col">
+                    <span>Finished</span>
+                </div>
+            </div>
+        </div>
+        <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}">
+            <div class="buttons">
+                <button class="bt button1" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+                    <img src="../../assets/icons/add-galasa04.svg" class="bx--btn__icon">
+                    <img src="../../assets/icons/add-white.svg" class="bx--btn__icon h-img">
+                    <span class="tooltiptext">Add to Worklist</span>
+                    <img class="tooltip" src="../../assets/icons/caret--down.svg">
+                </button>
+                <button class="bt button2" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+                    <img src="../../assets/icons/reset-galasa04.svg" class="bx--btn__icon">
+                    <img src="../../assets/icons/reset-white.svg" class="bx--btn__icon h-img">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <img class="tooltip" src="../../assets/icons/caret--down.svg">
+                </button>
+                <button class="bt button3" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+                    <img src="../../assets/icons/event--schedule-galasa04.svg" class="bx--btn__icon">
+                    <img src="../../assets/icons/event--schedule-white.svg" class="bx--btn__icon h-img">
+                    <span class="tooltiptext">Tooltip text</span>
+                    <img class="tooltip" src="../../assets/icons/caret--down.svg">
+                </button>
+            </div>
         </div>
     </div>
-    <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}">
-        <div class="buttons">
-            <button class="bt button1" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
-                <img src="../../assets/icons/add-galasa04.svg" class="bx--btn__icon">
-                <img src="../../assets/icons/add-white.svg" class="bx--btn__icon h-img">
-            </button>
-            <button class="bt button2" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
-                <img src="../../assets/icons/reset-galasa04.svg" class="bx--btn__icon">
-                <img src="../../assets/icons/reset-white.svg" class="bx--btn__icon h-img">
-            </button>
-            <button class="bt button3" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
-                <img src="../../assets/icons/event--schedule-galasa04.svg" class="bx--btn__icon">
-                <img src="../../assets/icons/event--schedule-white.svg" class="bx--btn__icon h-img">
-            </button>
-        </div>
-    </div>
-</div>
     <app-methods [testMethods]="testMethods" valign="bottom" class="method-table"></app-methods>
 
 </div>

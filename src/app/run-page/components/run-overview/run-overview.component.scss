@@ -62,8 +62,42 @@ border-bottom-left-radius: 4px;
 border-bottom-right-radius: 4px;
 }
 
+.bt .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 7px 0;
+  height: 35px;
+
+  position: absolute;
+  z-index: 1;
+  right: -40px;
+  top: -45px;
+}
+
+.bt .tooltip{
+  visibility: hidden;
+  text-align: center;
+  border-radius: 4px;
+
+  position: absolute;
+  z-index: 1;
+  top: -21px;
+}
+
+.bt:hover .tooltiptext {
+  visibility: visible;
+}
+
+.bt:hover .tooltip {
+  visibility: visible;
+}
+
 .run-overview.bx--grid{
-  min-height: 764px;
+  min-height: 464px;
   min-width: 994px;
   max-height: 772px;
   max-width: 1456px;
@@ -74,7 +108,7 @@ border-bottom-right-radius: 4px;
   padding-right: 16px;
   padding-top: 16px;
   padding-bottom: 40px;
-  margin-top: 48px;
+  margin-top: 16px;
 }
 
 .run-overview__bx--row {
@@ -108,12 +142,34 @@ border-bottom-right-radius: 4px;
   margin-right: 10px;
 }
 
+.tag-bt .img{
+  width: 28px;
+  height: 28px;
+}
+
+.tag-bt{
+  margin-left: 6px;
+  padding-top: 24px;
+  background-color: #03429D;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+}
+.tag-bt:hover{
+  background-color: #032a68;
+}
+.tag-bt .bx--btn__icon{
+  width: 2rem;
+flex-shrink: unset;
+height: 2rem;
+top: -7px;
+position: relative;
+left: -12px;
+}
+
 .method-table {
-  min-width: 912px;
-  max-width: 1424px;
-  position: absolute;
-  bottom: 48px;
-  left: 16px;
-  right: 16px;
+  position: initial;
 }
 

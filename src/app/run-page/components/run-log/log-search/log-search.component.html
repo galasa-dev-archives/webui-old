@@ -5,11 +5,9 @@
             <div ibmRow class="rw r2">
                 <div class="sb">
                     <div class="search-box">
-                        <ibm-combo-box [disabled]="disabled" [invalid]="invalid" [size]="'md'"
-                            [invalidText]="'entered text is invalid'" [label]="'Seach run log'" [items]="items"
-                            (selected)="onSelected()" (search)="onSearch($event)">
-                            <ibm-dropdown-list> </ibm-dropdown-list>
-                        </ibm-combo-box>
+                        <ibm-search id = "search" [disabled]="disabled" [size]="'md'" [label]="'Seach run log'"
+                            (valueChange)="onValueChange($event)">
+                    </ibm-search>
                     </div>
                     <div class="search-buttons">
                         <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true">
@@ -48,7 +46,7 @@
             <div ibmRow class="rw r3  bx--grid--condensed">
                 <div class="checkboxes">
                     <ibm-checkbox>Show all</ibm-checkbox>
-                    <ibm-checkbox>Ignore white space and capitalization</ibm-checkbox>
+                    <ibm-checkbox style="margin-left: 60px;">Ignore white space and capitalization</ibm-checkbox>
                 </div>
             </div>
 

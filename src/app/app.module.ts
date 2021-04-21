@@ -31,7 +31,7 @@ import { UIShellModule,
 		 SearchModule,
 		 DatePickerModule,
 		 TimePickerModule,
-		 SliderModule,
+		 SliderModule
 		} from 'carbon-components-angular';
 		 
 
