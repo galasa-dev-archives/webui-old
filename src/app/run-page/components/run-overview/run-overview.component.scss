@@ -97,7 +97,7 @@ border-bottom-right-radius: 4px;
 }
 
 .run-overview.bx--grid{
-  min-height: 764px;
+  min-height: 464px;
   min-width: 994px;
   max-height: 772px;
   max-width: 1456px;
@@ -108,7 +108,7 @@ border-bottom-right-radius: 4px;
   padding-right: 16px;
   padding-top: 16px;
   padding-bottom: 40px;
-  margin-top: 48px;
+  margin-top: 16px;
 }
 
 .run-overview__bx--row {
@@ -170,11 +170,6 @@ left: -12px;
 }
 
 .method-table {
-  min-width: 912px;
-  max-width: 1424px;
-  position: absolute;
-  bottom: 48px;
-  left: 16px;
-  right: 16px;
+  position: initial;
 }
 

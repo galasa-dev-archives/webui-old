@@ -1,12 +1,12 @@
 <div class="tabs" >
-    <ibm-tabs [followFocus]=true [cacheActive]=true >
+    <app-galasa-tabs [followFocus]=true [cacheActive]=true >
     
-        <ibm-tab class=" tab bx--tabs__nav-link" id="task-view" heading="Task View">
+        <app-galasa-tab class=" tab bx--tabs__nav-link" id="task-view" tabTitle="Task View">
             <app-task-view class="artifact-task" ></app-task-view>
-        </ibm-tab>
-        <ibm-tab class="tab bx--tabs__nav-link" id="tree-view" heading="Tree View">     
+        </app-galasa-tab>
+        <app-galasa-tab class="tab bx--tabs__nav-link" id="tree-view" tabTitle="Tree View">     
             <app-tree-view class="artifact-tree" ></app-tree-view>
-        </ibm-tab>
-    </ibm-tabs>
+        </app-galasa-tab>
+    </app-galasa-tabs>
     </div>
     <!-- will need Modal from carbon -->
