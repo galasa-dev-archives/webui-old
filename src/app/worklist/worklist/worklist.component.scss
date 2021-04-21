@@ -1,0 +1,34 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.count {
+    margin-right: $spacing-03;
+}
+
+.worklist-item {
+    margin-bottom: $spacing-04;
+}
+
+.short-name {
+    color: #03429d;
+    font-size: 14px;
+}
+
+p {
+    @include type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: $spacing-03;
+}
+
+.inline-block-element {
+    display: inline-block;
+}
+
+.icon {
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    margin-right: $spacing-03;
+}
