@@ -7,7 +7,9 @@ $feature-flags: (
 @import "~carbon-components/scss/globals/grid/grid";
 
   .tabs{
-    margin-top: 48px;
-    
+    margin-top: 16px;
+    max-width: 1456px;
+  margin-left: auto;
+  margin-right: auto;
   }
 

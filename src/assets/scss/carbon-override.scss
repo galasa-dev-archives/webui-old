@@ -264,6 +264,10 @@ border-left: #03429D 1px solid;
     padding:0px;
   }
 
+//gets rid of blue outline on focus
+  .bx--tabs--scrollable .bx--tabs--scrollable__nav-link:focus, .bx--tabs--scrollable .bx--tabs--scrollable__nav-link:active {
+    outline: none;
+}
 
   // .bx--tabs__nav-item--selected .bx--tabs__nav-link  {
   //   border-bottom: 0px, none;
@@ -299,8 +303,8 @@ border-left: #03429D 1px solid;
 
   // Loading icon
   .bx--loading {
-    height: 48px;
-    width: 48px;
+    height: 24px;
+    width: 24px;
   }
 
 

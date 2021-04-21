@@ -1,10 +1,3 @@
-<div
-			[attr.tabindex]="tabIndex"
-			role="tabpanel"
-			*ngIf="shouldRender()"
-			class="bx--tab-content"
-			[ngStyle]="{'display': active ? null : 'none'}"
-			[attr.aria-labelledby]="id + '-header'"
-			aria-live="polite">
-			<ng-content></ng-content>
-		</div>
+<div [hidden]="!active" [ngStyle]="{'display': active ? null : 'none'}" class="pane">
+    <ng-content></ng-content>
+  </div>
