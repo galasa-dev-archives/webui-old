@@ -8,6 +8,7 @@ import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-ser
 
 import { RasApisService } from '../../../core/rasapis.service'
 import { WorklistService } from '../../../worklist/worklist.service';
+import { WorklistData } from '../../../worklist/worklistdata';
 
 @Component({
   selector: 'app-results-table',
@@ -211,21 +212,15 @@ export class ResultsTableComponent implements OnInit {
               var newRuns: Object[] = [];
               this.paginationModel.totalDataLength = result.amountOfRuns;
 
-               // For development purposes - add first 3 runs of the each page to the Worklist
-               // Logic to add or remove runs from Worklist will be in separate functions invoked by Checkboxes
-                for (let i = 0; i < 3; i++){
-                  var worklistItem = {
-                    "id" : result.runs[i].runId,
-                    "run" : {
-                      "runName" : result.runs[i].testStructure.runName,
-                      "result" : result.runs[i].testStructure.result,
-                      "testClass" : result.runs[i].testStructure.testName
-                    }
-                  };
-                  this.worklistService.addToWorklist(worklistItem);
-                }
-
               for(let run of result.runs){
+
+                  // If a test from the Jenkins job is loaded on to the current table page, add it to the Worklist
+                  if (run.testStructure.testName == "bulktest.bristol.cambridge.manchester.Osprey" || run.testStructure.testName == "bulktest.bristol.cambridge.chester.GoldenEagle"){
+                    let data = { "id" : run.runId, "runName" : run.testStructure.runName, "result" : run.testStructure.result, "testClass" : run.testStructure.testName};
+                    let worklistItem = new WorklistData(data);
+                    this.worklistService.addToWorklist(worklistItem)
+                  }
+
                 var testResult = "";
                 if (run.testStructure.result == "EnvFail"){
                   testResult = "Environmental failure";
