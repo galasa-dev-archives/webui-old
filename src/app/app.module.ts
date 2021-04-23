@@ -84,6 +84,7 @@ import { InverseTestResultComponent } from './run-page/components/run-detail/inv
 import { StartdateFilterComponent } from './results-page/rasfilters/startdate-filter/startdate-filter.component';
 import { EnddateFilterComponent } from './results-page/rasfilters/enddate-filter/enddate-filter.component';
 import { LogComponent } from './run-page/components/log/log.component';
+import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlog-line.component';
 
 @NgModule({
 	declarations: [
@@ -131,6 +132,7 @@ import { LogComponent } from './run-page/components/log/log.component';
 		StartdateFilterComponent,
 		EnddateFilterComponent,
 		LogComponent,
+		RunlogLineComponent,
 		
 	],
 	imports: [

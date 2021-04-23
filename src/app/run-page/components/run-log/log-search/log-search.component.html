@@ -10,10 +10,10 @@
                     </ibm-search>
                     </div>
                     <div class="search-buttons">
-                        <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true">
+                        <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" id="up">
                             <img src="../../assets/icons/caret--down-white.svg" class="bx--btn__icon">
                         </button>
-                        <button class="bt button2" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true">
+                        <button class="bt button2" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" id="down">
                             <img src="../../assets/icons/caret--up-white.svg" class="bx--btn__icon">
                         </button>
                     </div>
@@ -46,7 +46,7 @@
             <div ibmRow class="rw r3  bx--grid--condensed">
                 <div class="checkboxes">
                     <ibm-checkbox>Show all</ibm-checkbox>
-                    <ibm-checkbox style="margin-left: 15px;">Ignore white space and capitalization</ibm-checkbox>
+                    <ibm-checkbox style="margin-left: 15px;">Ignore whitespace and capitalization</ibm-checkbox>
                 </div>
             </div>
 
