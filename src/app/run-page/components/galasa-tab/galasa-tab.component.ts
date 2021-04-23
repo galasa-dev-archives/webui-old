@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Tab } from "carbon-components-angular/tabs";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { GalasaTabsComponent } from '../galasa-tabs/galasa-tabs.component';
 
 @Component({
   selector: 'app-galasa-tab',
   templateUrl: './galasa-tab.component.html',
   styleUrls: ['./galasa-tab.component.scss']
 })
-export class GalasaTabComponent extends Tab implements OnInit{
+export class GalasaTabComponent {
 
-    ngOnInit(){
-      super.ngOnInit();
-    }
+  @Input('tabTitle') title: string;
+  @Input() active = false;
+  @Output() selected: EventEmitter<void> = new EventEmitter<void>();
+
+  doSelect() {
+		this.selected.emit();
+	}
 
 }

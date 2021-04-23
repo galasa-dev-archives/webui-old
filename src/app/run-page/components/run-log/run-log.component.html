@@ -1,12 +1,12 @@
 <div class="tabs" >
-<ibm-tabs [followFocus]=true [cacheActive]=true >
-    <ibm-tab class=" tab bx--tabs__nav-link" id="search" heading="Search">
+<app-galasa-tabs>
+    <app-galasa-tab class=" tab" id="search" tabTitle="Search">
         <app-log-search class="run-search" [testStructure]="testStructure" [runlog]="runlog"></app-log-search>
-    </ibm-tab>
-    <ibm-tab class="tab bx--tabs__nav-link" id="regex" heading="Regex">     
+    </app-galasa-tab>
+    <app-galasa-tab class="tab " id="regex" tabTitle="Regex">     
         <app-log-regex class="run-regex" [runlog]="runlog"></app-log-regex>
-    </ibm-tab>
-</ibm-tabs>
+    </app-galasa-tab>
+</app-galasa-tabs>
 </div>
 
 <!-- the 3 dot menu is called overflow menu in carbon -->
