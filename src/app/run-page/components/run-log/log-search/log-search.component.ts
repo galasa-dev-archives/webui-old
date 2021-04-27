@@ -57,11 +57,6 @@ export class LogSearchComponent implements OnInit {
 
     this.searchText = event;
 
-    // this.runlog = this.runlog.replace(new RegExp('<mark>', "g"), "");
-    // this.runlog = this.runlog.replace(new RegExp("</mark>", "g"), "");
-    // this.runlog = this.runlog.replace(new RegExp(event, "g"), (match) => `<mark>${match}</mark>`);
-
-    
   }
 
 
