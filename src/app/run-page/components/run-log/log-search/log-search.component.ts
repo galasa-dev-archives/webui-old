@@ -11,6 +11,7 @@ export class LogSearchComponent implements OnInit {
   @Input() testStructure: TestStructure = {};
   @Input() runlog: string;
 
+  searchText: string = "";
   ibmButton: any;
   page: number =2;
   pages: number =11;
@@ -54,11 +55,11 @@ export class LogSearchComponent implements OnInit {
 
   onValueChange(event: any){
 
-    this.runlog = this.runlog.replace(new RegExp('<mark>', "g"), "");
-    this.runlog = this.runlog.replace(new RegExp("</mark>", "g"), "");
-    this.runlog = this.runlog.replace(new RegExp(event, "g"), (match) => `<mark>${match}</mark>`);
+    this.searchText = event;
 
-
+    // this.runlog = this.runlog.replace(new RegExp('<mark>', "g"), "");
+    // this.runlog = this.runlog.replace(new RegExp("</mark>", "g"), "");
+    // this.runlog = this.runlog.replace(new RegExp(event, "g"), (match) => `<mark>${match}</mark>`);
 
     
   }

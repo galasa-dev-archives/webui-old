@@ -1,7 +1,6 @@
 <div ibmGrid class="search bx--grid">
     <div ibmRow>
         <div ibmCol class="col1" [columnNumbers]="{'md': 9, 'lg': 9}">
-
             <div ibmRow class="rw r2">
                 <div class="sb">
                     <div class="search-box">
@@ -80,7 +79,7 @@
                 </div>
             </div>
             <div ibmRow class="rw r6">
-                <app-log [runlog]="runlog"></app-log>
+                <app-log [runlog]="runlog" [searchText]="searchText"></app-log>
             </div>
         </div>
         <div ibmCol class="col2" [columnNumbers]="{'md': 3, 'lg': 3}">

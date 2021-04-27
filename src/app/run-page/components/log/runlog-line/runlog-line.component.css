@@ -1,0 +1,16 @@
+.line > p{
+    font-size: 0.8em;
+    max-width: 1008px;
+    white-space: pre-wrap;
+    line-height: 1.3rem;
+    display: inline-block;
+  }
+
+.line-num{
+    margin-right: 3.0em;
+}
+
+mark{
+    background-color: #03429D;
+    color:white;
+  }
