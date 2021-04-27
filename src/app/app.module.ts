@@ -85,6 +85,8 @@ import { StartdateFilterComponent } from './results-page/rasfilters/startdate-fi
 import { EnddateFilterComponent } from './results-page/rasfilters/enddate-filter/enddate-filter.component';
 import { LogComponent } from './run-page/components/log/log.component';
 import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlog-line.component';
+import { WorklistComponent } from './worklist/worklist/worklist.component';
+import { WorklistService } from './worklist/worklist.service';
 
 @NgModule({
 	declarations: [
@@ -133,6 +135,7 @@ import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlo
 		EnddateFilterComponent,
 		LogComponent,
 		RunlogLineComponent,
+		WorklistComponent,
 		
 	],
 	imports: [
@@ -165,7 +168,7 @@ import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlo
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent, FormBuilder],
+	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent, FormBuilder, WorklistService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
