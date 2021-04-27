@@ -84,6 +84,7 @@ import { InverseTestResultComponent } from './run-page/components/run-detail/inv
 import { StartdateFilterComponent } from './results-page/rasfilters/startdate-filter/startdate-filter.component';
 import { EnddateFilterComponent } from './results-page/rasfilters/enddate-filter/enddate-filter.component';
 import { LogComponent } from './run-page/components/log/log.component';
+import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlog-line.component';
 import { WorklistComponent } from './worklist/worklist/worklist.component';
 import { WorklistService } from './worklist/worklist.service';
 
@@ -133,6 +134,7 @@ import { WorklistService } from './worklist/worklist.service';
 		StartdateFilterComponent,
 		EnddateFilterComponent,
 		LogComponent,
+		RunlogLineComponent,
 		WorklistComponent,
 		
 	],
