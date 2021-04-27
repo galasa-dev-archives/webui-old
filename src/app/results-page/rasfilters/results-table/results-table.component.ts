@@ -214,13 +214,6 @@ export class ResultsTableComponent implements OnInit {
 
               for(let run of result.runs){
 
-                  // If a test from the Jenkins job is loaded on to the current table page, add it to the Worklist
-                  if (run.testStructure.testName == "bulktest.bristol.cambridge.manchester.Osprey" || run.testStructure.testName == "bulktest.bristol.cambridge.chester.GoldenEagle"){
-                    let data = { "id" : run.runId, "runName" : run.testStructure.runName, "result" : run.testStructure.result, "testClass" : run.testStructure.testName};
-                    let worklistItem = new WorklistData(data);
-                    this.worklistService.addToWorklist(worklistItem)
-                  }
-
                 var testResult = "";
                 if (run.testStructure.result == "EnvFail"){
                   testResult = "Environmental failure";

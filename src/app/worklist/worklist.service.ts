@@ -15,24 +15,20 @@ export class WorklistService {
   currentWorklist = this.worklistSource.asObservable();
   private subject = new Subject<any>();
 
-  constructor() { }
-
-  addToWorklist(worklistItem : WorklistData){
-    if (this.worklist.some(item => item.id == worklistItem.id)){
-
-    } else {
-      this.worklist.push(worklistItem);
-    }
+  constructor() { 
+    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d037248e02", "runName" : "J12204", "shortName" : "GoldenEagle", "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
+    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d03724803c", "runName" : "J12203", "shortName" : "Osprey", "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
+    this.worklist.push(new WorklistData({"id" : "cdb-4d9edc22002429c9c9c6e9eb90847edf", "runName" : "J10994", "shortName" : "Osprey", "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
     this.updateWorklist(this.worklist);
+  }
+
+  addToWorklist(id : string){
+  
     this.sendEvent();
   }
 
-  removeFromWorklist(worklistItem : WorklistData){
-    if (this.worklist.some(item => item.id == worklistItem.id)){
-      const index = this.worklist.indexOf(worklistItem);
-      this.worklist.splice(index, 1);
-    } 
-    this.updateWorklist(this.worklist);
+  removeFromWorklist(id : string){
+    
     this.sendEvent();
   }
 
