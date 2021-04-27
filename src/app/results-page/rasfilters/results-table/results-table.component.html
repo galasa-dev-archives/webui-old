@@ -12,6 +12,16 @@
         <ng-template #customDateTemplate let-data="data">
             <app-date-time [value]="data" class="date-time"></app-date-time>
         </ng-template>
+        <ng-template #customWorklistTemplate>
+            <div>
+                <ibm-checkbox
+                [checked]="false"
+                [disabled]="false"
+                class="checkboxes"
+                >
+                </ibm-checkbox>
+            </div>
+        </ng-template>
         <ibm-table
             [model]="model"
             [stickyHeader]="false"

@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs';
 import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
 
 import { RasApisService } from '../../../core/rasapis.service'
+import { WorklistService } from '../../../worklist/worklist.service';
+import { WorklistData } from '../../../worklist/worklistdata';
 
 @Component({
   selector: 'app-results-table',
@@ -33,8 +35,12 @@ export class ResultsTableComponent implements OnInit {
   loading: boolean = true;
   sortParam: string = "to:desc";
 
-  state : boolean;
-  subscription : Subscription;
+  loadingSubscription : Subscription;
+  loadingState : boolean;
+
+  worklistSubscription : Subscription;
+  worklistString : string;
+
 
   @ViewChild("customLoadingTemplate", { static : true })
   private customLoadingTemplate: TemplateRef<any>;
@@ -48,7 +54,11 @@ export class ResultsTableComponent implements OnInit {
   @ViewChild("customDateTemplate", { static : false })
   protected customDateTemplate: TemplateRef<any>;
 
-  constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private data : LoadingBarServiceComponent) { 
+  @ViewChild("customWorklistTemplate", { static : false })
+  protected customWorklistTemplate: TemplateRef<any>;
+
+  constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private loadingService : LoadingBarServiceComponent,
+    private worklistService : WorklistService) { 
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {  
         this.selectPage(1);
@@ -58,9 +68,12 @@ export class ResultsTableComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.subscription = this.data.current.subscribe(state => this.state = state);
+    this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
+
+    this.worklistSubscription = this.worklistService.currentWorklist.subscribe(value => this.worklistString = value);
     
     this.paginationModel.currentPage = 1;
+
     this.paginationModel.pageLength = this.amountOfRows;
     if (!this.itemsPerPageOptions.includes(this.amountOfRows)){
       this.itemsPerPageOptions.push(this.amountOfRows);
@@ -73,7 +86,8 @@ export class ResultsTableComponent implements OnInit {
       new TableHeaderItem({data: "Run Name" , sortable: false}),
       new TableHeaderItem({data: "Test Class"}), 
       new TableHeaderItem({data: "Started" , sortable: false}), 
-      new TableHeaderItem({data: "Finished"})
+      new TableHeaderItem({data: "Finished"}),
+      new TableHeaderItem({data: "+ Worklist", sortable: false})
     ];
     
     this.route.queryParams.subscribe(params =>{
@@ -92,7 +106,8 @@ export class ResultsTableComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.loadingSubscription.unsubscribe();
+    this.worklistSubscription.unsubscribe();
   }
 
   sort(index: number) {
@@ -159,11 +174,12 @@ export class ResultsTableComponent implements OnInit {
     } 
 
     this.loading = true;
-    this.data.changeState(true);
+    this.loadingService.changeState(true);
     var loadingData: TableItem[][] = []
     var row: Object[] = [];
     for (let i = 0; i < 5; i++) {
       loadingData.push([
+        new TableItem({template: this.customLoadingTemplate}),
         new TableItem({template: this.customLoadingTemplate}),
         new TableItem({template: this.customLoadingTemplate}),
         new TableItem({template: this.customLoadingTemplate}),
@@ -195,7 +211,9 @@ export class ResultsTableComponent implements OnInit {
               var newData: TableItem[][] = []
               var newRuns: Object[] = [];
               this.paginationModel.totalDataLength = result.amountOfRuns;
+
               for(let run of result.runs){
+
                 var testResult = "";
                 if (run.testStructure.result == "EnvFail"){
                   testResult = "Environmental failure";
@@ -209,16 +227,18 @@ export class ResultsTableComponent implements OnInit {
                   new TableItem({data: {name: run.testStructure.runName, id: run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: run.testStructure.testName}), 
                   new TableItem({data: run.testStructure.startTime, template: this.customDateTemplate}),
-                  new TableItem({data: run.testStructure.endTime, template: this.customDateTemplate})]);
+                  new TableItem({data: run.testStructure.endTime, template: this.customDateTemplate}),
+                  new TableItem({template: this.customWorklistTemplate})
+                ]);
                 newRuns.push(run);
               }
-          }else{
+          } else {
             this.paginationModel.totalDataLength = 0;
             }
             if (page === 1) {
-              setTimeout(() => {this.model.data = newData; this.data.changeState(false);}, 1000);
+              setTimeout(() => {this.model.data = newData; this.loadingService.changeState(false);}, 1000);
             } else {
-              this.model.data = newData; this.data.changeState(false);
+              this.model.data = newData; this.loadingService.changeState(false);
             }
     
             this.loading = false;
@@ -230,6 +250,13 @@ export class ResultsTableComponent implements OnInit {
       }
       
     )
+  }
+
+  onCheck(){
+    // TO DO - Logic fired when a row's checkbox is checked
+  }
+  onUncheck(){
+    // TO DO - Logic fired when a row's checkbox is unchecked
   }
 
 }

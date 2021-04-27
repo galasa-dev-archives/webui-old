@@ -1,0 +1,35 @@
+<div *ngFor="let item of worklist; let i = index" class="worklist-item">
+
+    <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="item.testClass">
+        
+        <div class="inline-block-element count">
+            {{i+1}}
+        </div>
+        <div class="inline-block-element" *ngIf="item.result==='Passed'">
+            <img src="../../../../../assets/icons/passed.svg" class="icon">
+        </div>
+        <div class="inline-block-element" *ngIf="item.result==='PassedWithDefects'">
+            <img src="../../../../../assets/icons/passed-with-defects.svg" class="icon">
+        </div>
+        <div class="inline-block-element" *ngIf="item.result==='Failed'">
+            <img src="../../../../../assets/icons/failed.svg" class="icon">
+        </div>
+        <div class="inline-block-element" *ngIf="item.result==='FailedWithDefects'">
+            <img src="../../../../../assets/icons/failed-with-defects.svg" class="icon">
+        </div>
+        <div class="inline-block-element" *ngIf="item.result==='NA'">
+            <img src="../../../../../assets/icons/na.svg" class="icon">
+        </div>
+        <div class="inline-block-element" *ngIf="item.result==='unknown'">
+            <div class="icon">?</div>
+        </div>
+        <div class="inline-block-element run-name">
+            <p>{{item.runName}}</p>
+        </div>
+        <div class="inline-block-element short-name">
+            <p>{{item.shortName}}</p>
+        </div>
+
+    </ibm-tooltip-icon>
+
+</div>
