@@ -18,3 +18,11 @@ div{
   max-width: 1008px;
   padding-right: 10px;
 }
+
+mark{
+  background-color: #03429D;
+  color:white;
+}
+
+
+

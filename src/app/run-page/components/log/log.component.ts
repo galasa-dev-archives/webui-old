@@ -7,9 +7,20 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 })
 export class LogComponent implements OnInit {
 
-  @Input() runlog:string;
+  @Input() set runlog(input: string){
+    var logArray = input.split('\n');
+    var i = 0;
+    for(let line in logArray){
+      this.lines.push({"num":this.pad(i+1), "content": logArray[line]});
+      i++
+    }
+  };
+
+  @Input() searchText:string;
 
   newLog: string;
+
+  lines: {}[] = [];
 
   constructor() { }
 
@@ -23,18 +34,7 @@ export class LogComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    var logArray = this.runlog.split('\n');
-    var fullLog = [];
-    var i = 0;
-    for(let line in logArray){
-      let newLine;
-      newLine = this.pad(i+1) + "  " + logArray[line];
-      fullLog.push(newLine);
-      i++
-    }
-    var log = document.querySelector('#log');
-    this.newLog = fullLog.join("\n"); 
-    log.innerHTML = this.newLog;
+    
   }
 
 }
