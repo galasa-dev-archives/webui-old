@@ -4,23 +4,22 @@
         <ng-template #customLoadingTemplate>
             <app-loading-bar></app-loading-bar>
         </ng-template>
-        <ng-template #customItemTemplate let-data="data">{{data.name}}
+        <ng-template #customItemTemplate let-data="data">
+            <p [routerLink]="data.link">{{data.name}}</p>
         </ng-template>
         <ng-template #customResultTemplate let-data="data">
-            <app-test-result [value]="data" class="test-result"></app-test-result>
+            <app-test-result [value]="data.name" class="test-result" [routerLink]="data.link"></app-test-result>
         </ng-template>
         <ng-template #customDateTemplate let-data="data">
-            <app-date-time [value]="data" class="date-time"></app-date-time>
+            <app-date-time [value]="data.name" class="date-time" [routerLink]="data.link"></app-date-time>
         </ng-template>
         <ng-template #customWorklistTemplate>
-            <div>
-                <ibm-checkbox
+            <ibm-checkbox
                 [checked]="false"
                 [disabled]="false"
                 class="checkboxes"
                 >
-                </ibm-checkbox>
-            </div>
+            </ibm-checkbox>
         </ng-template>
         <ibm-table
             [model]="model"
@@ -29,7 +28,7 @@
             [striped]="true"
             [sortable]="true"
             [isDataGrid] = "false"
-            (rowClick)="onClick($event)"
+            (rowClick)="onChange($event)"
             (sort)="sort($event)"
             >
         </ibm-table>

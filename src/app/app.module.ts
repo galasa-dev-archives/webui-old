@@ -31,7 +31,8 @@ import { UIShellModule,
 		 SearchModule,
 		 DatePickerModule,
 		 TimePickerModule,
-		 SliderModule
+		 SliderModule,
+		 CheckboxModule
 		} from 'carbon-components-angular';
 		 
 
@@ -161,7 +162,8 @@ import { WorklistService } from './worklist/worklist.service';
 		DatePickerModule,
 		TimePickerModule,
 		ReactiveFormsModule,
-		SliderModule
+		SliderModule, 
+		CheckboxModule
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module

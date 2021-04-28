@@ -4,18 +4,10 @@
 #results-table-container {
     margin-top: 48px;
     position: relative;
-    z-index: 500;
-}
-
-#loading{
-    z-index: 999;
-    margin: 0 auto;
-    position: absolute;
 }
 
 .checkboxes {
-   margin-left: 20px;
     vertical-align: center;
-    // z-index: 999; 
-    // position: absolute;
+    z-index: 999; 
+    position: absolute;
 }
