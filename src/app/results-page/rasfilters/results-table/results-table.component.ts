@@ -37,6 +37,8 @@ export class ResultsTableComponent implements OnInit {
   loadingSubscription : Subscription;
   loadingState : boolean;
 
+  worklistSubscription : Subscription;
+
 
   @ViewChild("customLoadingTemplate", { static : true })
   private customLoadingTemplate: TemplateRef<any>;
@@ -65,6 +67,8 @@ export class ResultsTableComponent implements OnInit {
   ngOnInit(): void {
 
     this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
+
+    this.worklistSubscription = this.worklistService.currentWorklist.subscribe(() => {console.log("Test message")});
     
     this.paginationModel.currentPage = 1;
 
@@ -101,6 +105,7 @@ export class ResultsTableComponent implements OnInit {
 
   ngOnDestroy() {
     this.loadingSubscription.unsubscribe();
+    this.worklistSubscription.unsubscribe();
   }
 
   sort(index: number) {

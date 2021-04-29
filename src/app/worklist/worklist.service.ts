@@ -13,14 +13,14 @@ export class WorklistService {
 
   private worklistSource = new BehaviorSubject(null);
   currentWorklist = this.worklistSource.asObservable();
-  private subject = new Subject<any>();
 
   constructor() { 
+    // Temporary hard coded Worklist
     this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e2461", "runName" : "J12732", "shortName" : "GoldenEagle",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
     this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e18b7", "runName" : "J12731", "shortName" : "Osprey",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
-    this.updateWorklist(this.worklist);
+    this.worklistSource.next(this.worklist);
   }
 
   isRunIdInWorklist(id : string) : boolean {
@@ -32,23 +32,17 @@ export class WorklistService {
   }
 
   addToWorklist(id : string){
-  // TO-DO
-    this.sendEvent();
+    // TO-DO Logic to get Short name, Run name and Result from API using the ID, add to Worklist
+    this.updateWorklist();
   }
 
   removeFromWorklist(id : string){
-  // TO-DO
-    this.sendEvent();
+    // TO-DO Logic to get Short name, Run name and Result from API using the ID, remove from Worklist
+    this.updateWorklist();
   }
 
-  updateWorklist(value){
-    this.worklistSource.next(value);
+  updateWorklist(){
+    this.worklistSource.next(this.worklist);
   }
-
-  sendEvent() {
-    this.subject.next();
-  }
-  getEvent(): Observable<any>{ 
-    return this.subject.asObservable();
-  }
+  
 }

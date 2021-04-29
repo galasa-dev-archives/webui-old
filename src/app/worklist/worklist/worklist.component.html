@@ -1,6 +1,6 @@
 <div *ngFor="let item of worklist; let i = index" class="worklist-item">
 
-    <ibm-tooltip-icon [placement]="placement" [alignment]="alignment" [content]="item.testClass">
+    <ibm-tooltip-icon placement="right" alignment="start" [content]="item.testClass">
         
         <div class="inline-block-element count">
             {{i+1}}
