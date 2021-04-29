@@ -210,8 +210,8 @@ export class ResultsTableComponent implements OnInit {
                   testResult = run.testStructure.result;
                 }
 
-                var isChecked : boolean = false;
-                isChecked = this.worklistService.isRunIdInWorklist(run.runId);
+                var isWorklist : boolean = false;
+                isWorklist = this.worklistService.isRunIdInWorklist(run.runId);
 
                 newData.push([
                   new TableItem({data: {name: testResult, link: "../run/" + run.runId}, template: this.customResultTemplate}),
@@ -219,7 +219,7 @@ export class ResultsTableComponent implements OnInit {
                   new TableItem({data: {name: run.testStructure.testName, link: "../run/" + run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: {name: run.testStructure.startTime, link: "../run/" + run.runId}, template: this.customDateTemplate}),
                   new TableItem({data: {name: run.testStructure.endTime, link: "../run/" + run.runId}, template: this.customDateTemplate}),
-                  new TableItem({data: {checked: isChecked}, template: this.customWorklistTemplate})
+                  new TableItem({data: {checked: isWorklist}, template: this.customWorklistTemplate})
                 ]);
                 newRuns.push(run);
               }
@@ -245,9 +245,9 @@ export class ResultsTableComponent implements OnInit {
 
   onChange(index: number) {
     var runId = this.model.data[index][1].data.id;
-    var isChecked = this.model.data[index][5].data.checked;
-    
-    if (isChecked === false){
+    var isWorklist = this.model.data[index][5].data.checked;
+
+    if (isWorklist === false){
       this.worklistService.addToWorklist(runId);
     } else {
       this.worklistService.removeFromWorklist(runId);
