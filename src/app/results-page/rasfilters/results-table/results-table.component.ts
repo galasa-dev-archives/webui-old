@@ -8,7 +8,6 @@ import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-ser
 
 import { RasApisService } from '../../../core/rasapis.service'
 import { WorklistService } from '../../../worklist/worklist.service';
-import { WorklistData } from '../../../worklist/worklistdata';
 
 @Component({
   selector: 'app-results-table',
@@ -38,11 +37,6 @@ export class ResultsTableComponent implements OnInit {
   loadingSubscription : Subscription;
   loadingState : boolean;
 
-  worklistSubscription : Subscription;
-  worklistString : string;
-
-  worklist : WorklistData[] = [];
-
 
   @ViewChild("customLoadingTemplate", { static : true })
   private customLoadingTemplate: TemplateRef<any>;
@@ -71,8 +65,6 @@ export class ResultsTableComponent implements OnInit {
   ngOnInit(): void {
 
     this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
-
-    this.worklistSubscription = this.worklistService.currentWorklist.subscribe(value => this.worklistString = value);
     
     this.paginationModel.currentPage = 1;
 
@@ -109,7 +101,6 @@ export class ResultsTableComponent implements OnInit {
 
   ngOnDestroy() {
     this.loadingSubscription.unsubscribe();
-    this.worklistSubscription.unsubscribe();
   }
 
   sort(index: number) {
@@ -220,11 +211,7 @@ export class ResultsTableComponent implements OnInit {
                 }
 
                 var isChecked : boolean = false;
-                var runId = run.runId;
-                this.worklistSubscription = this.worklistService.currentWorklist.subscribe(worklist => this.worklist = worklist);
-                if (this.worklist.some(item => item.id == runId)){
-                  isChecked = true;
-                }
+                isChecked = this.worklistService.isRunIdInWorklist(run.runId);
 
                 newData.push([
                   new TableItem({data: {name: testResult, link: "../run/" + run.runId}, template: this.customResultTemplate}),
@@ -258,13 +245,12 @@ export class ResultsTableComponent implements OnInit {
 
   onChange(index: number) {
     var runId = this.model.data[index][1].data.id;
-    console.log("Checkbox clicked for run - " + runId + " on row " + index)
-    // Get current Worklist from service and check if a run with this ID is already in it, call add or remove 
-    this.worklistSubscription = this.worklistService.currentWorklist.subscribe(worklist => this.worklist = worklist);
-    if (this.worklist.some(item => item.id == runId)){
-      this.worklistService.removeFromWorklist(runId);
-    } else {
+    var isChecked = this.model.data[index][5].data.checked;
+    
+    if (isChecked === false){
       this.worklistService.addToWorklist(runId);
+    } else {
+      this.worklistService.removeFromWorklist(runId);
     }
 	}
   

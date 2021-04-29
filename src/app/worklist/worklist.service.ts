@@ -23,6 +23,14 @@ export class WorklistService {
     this.updateWorklist(this.worklist);
   }
 
+  isRunIdInWorklist(id : string) : boolean {
+    if (this.worklist.some(item => item.id == id)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   addToWorklist(id : string){
   // TO-DO
     this.sendEvent();
