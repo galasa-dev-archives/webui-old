@@ -13,9 +13,9 @@
         <ng-template #customDateTemplate let-data="data">
             <app-date-time [value]="data.name" class="date-time" [routerLink]="data.link"></app-date-time>
         </ng-template>
-        <ng-template #customWorklistTemplate>
+        <ng-template #customWorklistTemplate let-data="data">
             <ibm-checkbox
-                [checked]="false"
+                [checked]="data.checked"
                 [disabled]="false"
                 class="checkboxes"
                 >

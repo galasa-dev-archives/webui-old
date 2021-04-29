@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-runlog-line',
   templateUrl: './runlog-line.component.html',
-  styleUrls: ['./runlog-line.component.css']
+  styleUrls: ['./runlog-line.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RunlogLineComponent implements OnInit {
 

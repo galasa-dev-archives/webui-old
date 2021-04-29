@@ -16,11 +16,9 @@ export class WorklistService {
   private subject = new Subject<any>();
 
   constructor() { 
-    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d037248e02", "runName" : "J12204", "shortName" : "GoldenEagle",
+    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e2461", "runName" : "J12732", "shortName" : "GoldenEagle",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
-    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d03724803c", "runName" : "J12203", "shortName" : "Osprey",
-      "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
-    this.worklist.push(new WorklistData({"id" : "cdb-4d9edc22002429c9c9c6e9eb90847edf", "runName" : "J10994", "shortName" : "Osprey",
+    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e18b7", "runName" : "J12731", "shortName" : "Osprey",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
     this.updateWorklist(this.worklist);
   }

@@ -218,13 +218,21 @@ export class ResultsTableComponent implements OnInit {
                 } else {
                   testResult = run.testStructure.result;
                 }
+
+                var isChecked : boolean = false;
+                var runId = run.runId;
+                this.worklistSubscription = this.worklistService.currentWorklist.subscribe(worklist => this.worklist = worklist);
+                if (this.worklist.some(item => item.id == runId)){
+                  isChecked = true;
+                }
+
                 newData.push([
                   new TableItem({data: {name: testResult, link: "../run/" + run.runId}, template: this.customResultTemplate}),
                   new TableItem({data: {name: run.testStructure.runName, id: run.runId, link: "../run/" + run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: {name: run.testStructure.testName, link: "../run/" + run.runId}, template: this.customItemTemplate}), 
                   new TableItem({data: {name: run.testStructure.startTime, link: "../run/" + run.runId}, template: this.customDateTemplate}),
                   new TableItem({data: {name: run.testStructure.endTime, link: "../run/" + run.runId}, template: this.customDateTemplate}),
-                  new TableItem({template: this.customWorklistTemplate})
+                  new TableItem({data: {checked: isChecked}, template: this.customWorklistTemplate})
                 ]);
                 newRuns.push(run);
               }
@@ -251,7 +259,6 @@ export class ResultsTableComponent implements OnInit {
   onChange(index: number) {
     var runId = this.model.data[index][1].data.id;
     console.log("Checkbox clicked for run - " + runId + " on row " + index)
-    
     // Get current Worklist from service and check if a run with this ID is already in it, call add or remove 
     this.worklistSubscription = this.worklistService.currentWorklist.subscribe(worklist => this.worklist = worklist);
     if (this.worklist.some(item => item.id == runId)){
