@@ -68,7 +68,10 @@ export class ResultsTableComponent implements OnInit {
 
     this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
  
-    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe((message) => {console.log("Worklist test message: " + message)});
+    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe((message) => {
+      console.log("Worklist test message: " + message)
+      this.updateCheckboxes();
+    });
     
     this.paginationModel.currentPage = 1;
 
@@ -258,6 +261,17 @@ export class ResultsTableComponent implements OnInit {
       this.worklistService.removeFromWorklist(runId);
     }
 	}
+
+  updateCheckboxes(){
+    for (let index = 0; index < this.model.totalDataLength; index++){
+      var runId = this.model.data[index][1].data.id;
+      var inWorklist = this.worklistService.isRunIdInWorklist(runId);
+      if (typeof(this.model.data[index][5].data.checked) !== 'undefined'){
+        this.model.data[index][5].data.checked = inWorklist;
+      }    
+    }
+
+  }
   
 }
 
