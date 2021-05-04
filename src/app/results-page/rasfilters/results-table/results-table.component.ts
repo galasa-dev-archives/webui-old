@@ -67,8 +67,8 @@ export class ResultsTableComponent implements OnInit {
   ngOnInit(): void {
 
     this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
-
-    this.worklistSubscription = this.worklistService.currentWorklist.subscribe(() => {console.log("Test message")});
+ 
+    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe(() => {console.log("Worklist test message")});
     
     this.paginationModel.currentPage = 1;
 

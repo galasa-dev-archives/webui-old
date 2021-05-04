@@ -11,8 +11,7 @@ export class WorklistService {
   // Array of Worklist data structures
   worklist : WorklistData[] = [];
 
-  private worklistSource = new BehaviorSubject(null);
-  currentWorklist = this.worklistSource.asObservable();
+  private worklistSource = new BehaviorSubject(this.worklist);
 
   constructor() { 
     // Temporary hard coded Worklist
@@ -21,14 +20,11 @@ export class WorklistService {
     this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e18b7", "runName" : "J12731", "shortName" : "Osprey",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
     this.worklistSource.next(this.worklist);
+
   }
 
-  isRunIdInWorklist(id : string) : boolean {
-    if (this.worklist.some(item => item.id == id)){
-      return true;
-    } else {
-      return false;
-    }
+  getWorklistObservable(){
+    return this.worklistSource.asObservable();
   }
 
   addToWorklist(id : string){
@@ -44,5 +40,13 @@ export class WorklistService {
   updateWorklist(){
     this.worklistSource.next(this.worklist);
   }
-  
+
+  isRunIdInWorklist(id : string) : boolean {
+    if (this.worklist.some(item => item.id == id)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
