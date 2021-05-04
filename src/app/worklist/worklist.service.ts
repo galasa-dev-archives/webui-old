@@ -11,35 +11,42 @@ export class WorklistService {
   // Array of Worklist data structures
   worklist : WorklistData[] = [];
 
-  private worklistSource = new BehaviorSubject(null);
-  currentWorklist = this.worklistSource.asObservable();
-  private subject = new Subject<any>();
+  private worklistSource = new BehaviorSubject(this.worklist);
 
   constructor() { 
-    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d037248e02", "runName" : "J12204", "shortName" : "GoldenEagle", "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
-    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d03724803c", "runName" : "J12203", "shortName" : "Osprey", "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
-    this.worklist.push(new WorklistData({"id" : "cdb-4d9edc22002429c9c9c6e9eb90847edf", "runName" : "J10994", "shortName" : "Osprey", "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
-    this.updateWorklist(this.worklist);
+    // Temporary hard coded Worklist
+    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e2461", "runName" : "J12732", "shortName" : "GoldenEagle",
+      "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
+    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e18b7", "runName" : "J12731", "shortName" : "Osprey",
+      "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
+    this.worklistSource.next(this.worklist);
+
+  }
+
+  getWorklistObservable(){
+    return this.worklistSource.asObservable();
   }
 
   addToWorklist(id : string){
-  
-    this.sendEvent();
+    // TO-DO Logic to get Short name, Run name and Result from API using the ID, add to Worklist
+    this.updateWorklist();
   }
 
   removeFromWorklist(id : string){
-    
-    this.sendEvent();
+    // TO-DO Logic to get Short name, Run name and Result from API using the ID, remove from Worklist
+    this.updateWorklist();
   }
 
-  updateWorklist(value){
-    this.worklistSource.next(value);
+  updateWorklist(){
+    this.worklistSource.next(this.worklist);
   }
 
-  sendEvent() {
-    this.subject.next();
+  isRunIdInWorklist(id : string) : boolean {
+    if (this.worklist.some(item => item.id == id)){
+      return true;
+    } else {
+      return false;
+    }
   }
-  getEvent(): Observable<any>{ 
-    return this.subject.asObservable();
-  }
+
 }

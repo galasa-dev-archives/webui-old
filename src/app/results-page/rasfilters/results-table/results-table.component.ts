@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
@@ -8,7 +8,6 @@ import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-ser
 
 import { RasApisService } from '../../../core/rasapis.service'
 import { WorklistService } from '../../../worklist/worklist.service';
-import { WorklistData } from '../../../worklist/worklistdata';
 
 @Component({
   selector: 'app-results-table',
@@ -39,7 +38,6 @@ export class ResultsTableComponent implements OnInit {
   loadingState : boolean;
 
   worklistSubscription : Subscription;
-  worklistString : string;
 
 
   @ViewChild("customLoadingTemplate", { static : true })
@@ -69,8 +67,8 @@ export class ResultsTableComponent implements OnInit {
   ngOnInit(): void {
 
     this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
-
-    this.worklistSubscription = this.worklistService.currentWorklist.subscribe(value => this.worklistString = value);
+ 
+    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe((message) => {console.log("Worklist test message: " + message)});
     
     this.paginationModel.currentPage = 1;
 
@@ -154,12 +152,6 @@ export class ResultsTableComponent implements OnInit {
 		this.router.navigate(['.'],{relativeTo: this.route,queryParams: newParams});
 }
 
-  onClick(index: number){
-    if(!this.loading){
-      this.router.navigate(['/run/' + this.model.data[index][1].data.id]);
-    }
-  }
-
   selectPage(page){
       this.paginationModel.currentPage = page;
       this.getPage(page);
@@ -222,13 +214,17 @@ export class ResultsTableComponent implements OnInit {
                 } else {
                   testResult = run.testStructure.result;
                 }
+
+                var isWorklist : boolean = false;
+                isWorklist = this.worklistService.isRunIdInWorklist(run.runId);
+
                 newData.push([
-                  new TableItem({data: testResult, template: this.customResultTemplate}),
-                  new TableItem({data: {name: run.testStructure.runName, id: run.runId}, template: this.customItemTemplate}), 
-                  new TableItem({data: run.testStructure.testName}), 
-                  new TableItem({data: run.testStructure.startTime, template: this.customDateTemplate}),
-                  new TableItem({data: run.testStructure.endTime, template: this.customDateTemplate}),
-                  new TableItem({template: this.customWorklistTemplate})
+                  new TableItem({data: {name: testResult, link: "../run/" + run.runId}, template: this.customResultTemplate}),
+                  new TableItem({data: {name: run.testStructure.runName, id: run.runId, link: "../run/" + run.runId}, template: this.customItemTemplate}), 
+                  new TableItem({data: {name: run.testStructure.testName, link: "../run/" + run.runId}, template: this.customItemTemplate}), 
+                  new TableItem({data: {name: run.testStructure.startTime, link: "../run/" + run.runId}, template: this.customDateTemplate}),
+                  new TableItem({data: {name: run.testStructure.endTime, link: "../run/" + run.runId}, template: this.customDateTemplate}),
+                  new TableItem({data: {checked: isWorklist}, template: this.customWorklistTemplate})
                 ]);
                 newRuns.push(run);
               }
@@ -252,13 +248,17 @@ export class ResultsTableComponent implements OnInit {
     )
   }
 
-  onCheck(){
-    // TO DO - Logic fired when a row's checkbox is checked
-  }
-  onUncheck(){
-    // TO DO - Logic fired when a row's checkbox is unchecked
-  }
+  onChange(index: number) {
+    var runId = this.model.data[index][1].data.id;
+    var isWorklist = this.model.data[index][5].data.checked;
 
+    if (isWorklist === false){
+      this.worklistService.addToWorklist(runId);
+    } else {
+      this.worklistService.removeFromWorklist(runId);
+    }
+	}
+  
 }
 
 
