@@ -31,7 +31,9 @@ import { UIShellModule,
 		 SearchModule,
 		 DatePickerModule,
 		 TimePickerModule,
-		 SliderModule
+		 SliderModule,
+		 AccordionModule,
+		 ModalModule
 		} from 'carbon-components-angular';
 		 
 
@@ -158,7 +160,9 @@ import { LogComponent } from './run-page/components/log/log.component';
 		DatePickerModule,
 		TimePickerModule,
 		ReactiveFormsModule,
-		SliderModule
+		SliderModule,
+		AccordionModule,
+		ModalModule
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module
