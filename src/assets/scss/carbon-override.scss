@@ -420,6 +420,11 @@ border-left: #03429D 1px solid;
   }
 
   // Checkboxes in toolbar
+.bx--checkbox {
+  z-index: 999; 
+  position: absolute;
+}
+
 .bx--checkbox-label {
   border-radius: 2px;
 }
@@ -447,4 +452,10 @@ border-left: #03429D 1px solid;
 .bx--overflow-menu-options{
   background-color: white;
   width: 15rem;
+}
+
+// Tooltips for Worklist
+.bx--tooltip {
+  min-width: fit-content;
+  width: fit-content;
 }

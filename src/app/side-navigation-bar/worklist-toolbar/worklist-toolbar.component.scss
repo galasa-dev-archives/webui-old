@@ -13,6 +13,10 @@
     color: $active-secondary;
 }
 
+.worklist-items {
+    padding: $spacing-05;
+}
+
 h4 {
     @include carbon--type-style("body-short-01");
     @include carbon--font-weight("semibold");

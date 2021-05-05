@@ -3,10 +3,11 @@
 
 #results-table-container {
     margin-top: 48px;
+    position: relative;
 }
 
-#loading{
-    z-index: 999;
-    margin: 0 auto;
+.checkboxes {
+    vertical-align: center;
+    z-index: 999; 
     position: absolute;
 }

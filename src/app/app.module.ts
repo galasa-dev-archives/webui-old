@@ -33,7 +33,8 @@ import { UIShellModule,
 		 TimePickerModule,
 		 SliderModule,
 		 AccordionModule,
-		 ModalModule
+		 ModalModule,
+		 CheckboxModule
 		} from 'carbon-components-angular';
 		 
 
@@ -86,6 +87,9 @@ import { InverseTestResultComponent } from './run-page/components/run-detail/inv
 import { StartdateFilterComponent } from './results-page/rasfilters/startdate-filter/startdate-filter.component';
 import { EnddateFilterComponent } from './results-page/rasfilters/enddate-filter/enddate-filter.component';
 import { LogComponent } from './run-page/components/log/log.component';
+import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlog-line.component';
+import { WorklistComponent } from './worklist/worklist/worklist.component';
+import { WorklistService } from './worklist/worklist.service';
 
 @NgModule({
 	declarations: [
@@ -133,6 +137,8 @@ import { LogComponent } from './run-page/components/log/log.component';
 		StartdateFilterComponent,
 		EnddateFilterComponent,
 		LogComponent,
+		RunlogLineComponent,
+		WorklistComponent,
 		
 	],
 	imports: [
@@ -162,12 +168,14 @@ import { LogComponent } from './run-page/components/log/log.component';
 		ReactiveFormsModule,
 		SliderModule,
 		AccordionModule,
-		ModalModule
+		ModalModule,
+		SliderModule, 
+		CheckboxModule
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module
 	],
-	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent, FormBuilder],
+	providers: [SecurityService, httpInterceptorProviders , DataServiceComponent, HeaderService, LoadingBarServiceComponent, FormBuilder, WorklistService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
