@@ -212,7 +212,7 @@ border-left: #03429D 1px solid;
 
   //buttons on tabs in run page
   .bx--btn.bx--btn--icon-only.bx--tooltip__trigger{
-    position: absolute;
+    right: unset;
   }
 
   // Tabs in Run Page 
@@ -275,6 +275,9 @@ border-left: #03429D 1px solid;
     outline: none;
 }
 .bx--tab-content:focus {
+  outline: none;
+}
+.bx--list-box__field:focus{
   outline: none;
 }
 

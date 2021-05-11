@@ -26,9 +26,10 @@ h5{
   height: 40px;
   min-height: 40px;
   min-width: 40px;
-  padding-right: 0px;
-  padding-left: 5px;
   border: solid thin #03429D;
+  display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .bt:hover{
@@ -37,7 +38,7 @@ h5{
 
 .bt .h-img{
   display:none;
-  position: absolute;
+  position: unset;
   top: 12%;
   left: 10%;
   z-index: 9;
@@ -48,8 +49,8 @@ h5{
 }
 
 .buttons img{
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 }
 
 .button1{
