@@ -38,10 +38,9 @@ align-items: center;
 
 .bt .h-img{
   display:none;
-  position: unset;
-  top: 12%;
-  left: 10%;
+  position: absolute;
   z-index: 9;
+  right: unset;
 }
 .bt:hover .h-img{
   display: inline;
