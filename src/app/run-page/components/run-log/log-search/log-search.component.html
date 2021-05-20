@@ -1,18 +1,18 @@
 <div ibmGrid class="search bx--grid">
     <div ibmRow>
         <div ibmCol class="col1" [columnNumbers]="{'md': 9, 'lg': 9}">
-            <div ibmRow class="rw r2">
+            <div id = "searchRow" ibmRow class="rw r2">
                 <div class="sb">
                     <div class="search-box">
                         <ibm-search id = "search" [disabled]="disabled" [size]="'md'" [label]="'Seach run log'"
-                            (valueChange)="onValueChange($event)">
+                            (valueChange)="onValueChange($event)" (clear)="clear()">
                     </ibm-search>
                     </div>
                     <div class="search-buttons">
-                        <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" id="up">
+                        <button class="bt button1" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" (click)="onDown()" id="down" [disabled]="downDisabled">
                             <img src="../../assets/icons/caret--down-white.svg" class="bx--btn__icon">
                         </button>
-                        <button class="bt button2" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" id="down">
+                        <button class="bt button2" [ibmButton]="ibmButton" [size]="'sm'" [iconOnly]="true" id="up" (click)="onUp()" [disabled]="upDisabled">
                             <img src="../../assets/icons/caret--up-white.svg" class="bx--btn__icon">
                         </button>
                     </div>
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div ibmRow class="rw r6">
-                <app-log [runlog]="runlog" [searchText]="searchText"></app-log>
+                <app-log id = "scroll" [runlog]="runlog" [searchText]="searchText"></app-log>
             </div>
         </div>
         <div ibmCol class="col2" [columnNumbers]="{'md': 3, 'lg': 3}">

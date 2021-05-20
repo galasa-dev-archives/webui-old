@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-
 import { HttpClientModule } from '@angular/common/http';
 
 // carbon-components-angular default imports
