@@ -15,9 +15,9 @@ export class WorklistService {
 
   constructor() { 
     // Temporary hard coded Worklist
-    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e2461", "runName" : "J12732", "shortName" : "GoldenEagle",
+    this.worklist.push(new WorklistData({"id" : "cdb-c56c9f5586d1fb0d985759ff7f002429", "runName" : "J13840", "shortName" : "GoldenEagle",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
-    this.worklist.push(new WorklistData({"id" : "cdb-c9d898313367805fb5ae84d0376e18b7", "runName" : "J12731", "shortName" : "Osprey",
+    this.worklist.push(new WorklistData({"id" : "cdb-c56c9f5586d1fb0d985759ff7f00166e", "runName" : "J13839", "shortName" : "Osprey",
       "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
     this.worklistSource.next(this.worklist);
 
