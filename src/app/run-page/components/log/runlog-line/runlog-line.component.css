@@ -16,9 +16,11 @@ div > p{
 }
 
 mark{
-    margin: 0;
-    padding: 0;
-    background-color: #03429D;
-    color:white;
-    border-radius:3px;
+    background-color:unset;
   }
+
+  .selected{
+    background-color:#03429D;
+    color:white;
+  }
+  
