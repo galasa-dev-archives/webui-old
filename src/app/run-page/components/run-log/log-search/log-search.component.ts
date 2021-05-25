@@ -19,8 +19,8 @@ export class LogSearchComponent implements OnInit {
   currentMark: number = 0;
   searchText: string = null;
   ibmButton: any = 'primary';
-  page: number =2;
-  pages: number =11;
+  page: number = 0;
+  pages: number = 0;
   upDisabled: boolean = true;
   downDisabled: boolean = true;
   invalid: boolean = false;
@@ -30,6 +30,7 @@ export class LogSearchComponent implements OnInit {
   getMarks = async () =>{
     await this.delay(50);
     this.marks = document.querySelectorAll("mark");
+    
     if(this.showAll !== true){
       for(let i = 1; i < this.marks.length; i++){
         this.marks[i].classList.remove("selected");
@@ -37,6 +38,8 @@ export class LogSearchComponent implements OnInit {
     }
     if(this.marks.length > 0){
       this.downDisabled = false;
+      this.pages = this.marks.length;
+      this.page = 1;
     }
   }
   items = [
@@ -86,6 +89,8 @@ export class LogSearchComponent implements OnInit {
 
     if(this.currentMark != 0){
 
+      this.page -= 1;
+
       if(this.showAll == false){
         this.marks[this.currentMark].classList.remove("selected");
         this.marks[this.currentMark - 1].classList.add("selected");
@@ -103,6 +108,8 @@ export class LogSearchComponent implements OnInit {
   }
 
   onDown(){
+
+    this.page += 1;
 
     if(this.showAll == false){
       this.marks[this.currentMark].classList.remove("selected");
