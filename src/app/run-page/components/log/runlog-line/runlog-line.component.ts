@@ -25,7 +25,7 @@ export class RunlogLineComponent implements OnInit {
     }
 
     return this.line.content.replace(new RegExp(this.searchText, "gi"), match=>{
-      return '<mark>' + match + '</mark>';
+      return '<mark class="selected">' + match + '</mark>';
     })
 
 
