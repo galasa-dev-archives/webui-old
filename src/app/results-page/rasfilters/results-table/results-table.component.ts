@@ -68,8 +68,7 @@ export class ResultsTableComponent implements OnInit {
 
     this.loadingSubscription = this.loadingService.current.subscribe(state => this.loadingState = state);
  
-    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe((message) => {
-      console.log("Worklist test message: " + message)
+    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe(() => {
       this.updateCheckboxes();
     });
     

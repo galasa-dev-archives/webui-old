@@ -19,7 +19,7 @@ export class WorklistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe(worklist => this.worklist = worklist);
+    this.worklistSubscription = this.worklistService.getWorklistObservable().subscribe((worklist) => this.worklist = worklist);
   }
 
   ngOnDestroy() {
