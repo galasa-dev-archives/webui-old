@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-
 import { HttpClientModule } from '@angular/common/http';
 
 // carbon-components-angular default imports
@@ -32,6 +31,8 @@ import { UIShellModule,
 		 DatePickerModule,
 		 TimePickerModule,
 		 SliderModule,
+		 AccordionModule,
+		 ModalModule,
 		 CheckboxModule
 		} from 'carbon-components-angular';
 		 
@@ -164,6 +165,9 @@ import { WorklistService } from './worklist/worklist.service';
 		DatePickerModule,
 		TimePickerModule,
 		ReactiveFormsModule,
+		SliderModule,
+		AccordionModule,
+		ModalModule,
 		SliderModule, 
 		CheckboxModule
 		// Notification20Module,

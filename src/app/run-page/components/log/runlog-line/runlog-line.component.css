@@ -1,19 +1,26 @@
-.line > p{
-    font-size: 0.8em;
+.line > div{
+    
     max-width: 1008px;
+    min-width: 0;
     white-space: pre-wrap;
     line-height: 1.3rem;
     display: inline-block;
   }
+
+div > p{
+  font-size: 0.8em;
+}
 
 .line-num{
     margin-right: 3.0em;
 }
 
 mark{
-    margin: 0;
-    padding: 0;
-    background-color: #03429D;
-    color:white;
-    border-radius:3px;
+    background-color:unset;
   }
+
+  .selected{
+    background-color:#03429D;
+    color:white;
+  }
+  

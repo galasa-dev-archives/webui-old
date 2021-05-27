@@ -212,7 +212,7 @@ border-left: #03429D 1px solid;
 
   //buttons on tabs in run page
   .bx--btn.bx--btn--icon-only.bx--tooltip__trigger{
-    position: absolute;
+    right: unset;
   }
 
   // Tabs in Run Page 
@@ -227,6 +227,7 @@ border-left: #03429D 1px solid;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
+    border: 1.1px solid #03429D;
   }
   .bx--tabs--scrollable .bx--tabs--scrollable__nav-item{
     background-color: $ui-02;
@@ -252,7 +253,12 @@ border-left: #03429D 1px solid;
   }
   .bx--tabs--scrollable .bx--tabs--scrollable__nav-link{
     
-    border: 1.1px solid #03429D;
+    border-left: 1.1px solid #03429D;
+    border-bottom:none;
+  }
+
+  #overview-header{
+    border: none;
   }
 
   .bx--tabs--scrollable .bx--tabs--scrollable__nav-item + .bx--tabs--scrollable__nav-item{
@@ -267,6 +273,12 @@ border-left: #03429D 1px solid;
 //gets rid of blue outline on focus
   .bx--tabs--scrollable .bx--tabs--scrollable__nav-link:focus, .bx--tabs--scrollable .bx--tabs--scrollable__nav-link:active {
     outline: none;
+}
+.bx--tab-content:focus {
+  outline: none;
+}
+.bx--list-box__field:focus{
+  outline: none;
 }
 
   // .bx--tabs__nav-item--selected .bx--tabs__nav-link  {
@@ -300,7 +312,16 @@ border-left: #03429D 1px solid;
     width:10%;
   }
 
+  //Search bar
+  .bx--search-input{
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+  }
 
+  .bx--search-input:focus {
+    outline: none;
+}
   // Loading icon
   .bx--loading {
     height: 24px;

@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { SelectorFlags } from '@angular/compiler/src/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-log-search',
@@ -7,16 +9,39 @@ import { TestStructure } from 'galasa-ras-api-ts-rxjs';
   styleUrls: ['./log-search.component.scss']
 })
 export class LogSearchComponent implements OnInit {
-  
+
   @Input() testStructure: TestStructure = {};
   @Input() runlog: string;
 
-  searchText: string = "";
-  ibmButton: any;
-  page: number =2;
-  pages: number =11;
+  marks: NodeListOf<HTMLElement>;
+  delay = ms => new Promise(res => setTimeout(res, ms));
+  log;
+  currentMark: number = 0;
+  searchText: string = null;
+  ibmButton: any = 'primary';
+  page: number = 0;
+  pages: number = 0;
+  upDisabled: boolean = true;
+  downDisabled: boolean = true;
   invalid: boolean = false;
   disabled: boolean=false;
+  showAll: boolean=false;
+
+  getMarks = async () =>{
+    await this.delay(50);
+    this.marks = document.querySelectorAll("mark");
+    
+    if(this.showAll !== true){
+      for(let i = 1; i < this.marks.length; i++){
+        this.marks[i].classList.remove("selected");
+      }
+    }
+    if(this.marks.length > 0){
+      this.downDisabled = false;
+      this.pages = this.marks.length;
+      this.page = 1;
+    }
+  }
   items = [
     		{
     		content: "One",
@@ -38,7 +63,7 @@ export class LogSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.log = document.querySelector(".r6");
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -55,7 +80,73 @@ export class LogSearchComponent implements OnInit {
 
   onValueChange(event: any){
 
+    this.currentMark = 0;
     this.searchText = event;
+    this.getMarks(); 
+  }
+
+  onUp(){
+
+    if(this.currentMark != 0){
+
+      this.page -= 1;
+
+      if(this.showAll == false){
+        this.marks[this.currentMark].classList.remove("selected");
+        this.marks[this.currentMark - 1].classList.add("selected");
+      }
+
+      this.currentMark -= 1;
+      
+      let topOffset = this.marks[this.currentMark].offsetTop - 300;
+      this.log.scrollTop = topOffset;
+
+      if(this.currentMark === 0){
+        this.upDisabled = true;
+      }
+    }
+  }
+
+  onDown(){
+
+    this.page += 1;
+
+    if(this.showAll == false){
+      this.marks[this.currentMark].classList.remove("selected");
+      this.marks[this.currentMark + 1].classList.add("selected");
+    }
+
+    this.currentMark += 1;
+    let topOffset = this.marks[this.currentMark].offsetTop;
+    this.log.scrollTop = topOffset - 300;
+    if(this.currentMark === 1){
+      this.upDisabled = false;
+    }
+  }
+
+  clear(){
+    this.searchText = null;
+    this.upDisabled = true;
+    this.downDisabled = true;
+  }
+
+  onShowAllChange(event:any){
+    
+      if(event.checked === true){
+        this.showAll = true;
+        if(this.marks != null){
+          this.marks.forEach(e => {
+            e.classList.add("selected");
+          });
+      }
+      }else{
+        this.showAll = false;
+        if(this.marks != null){
+        for(let i = 1; i < this.marks.length; i++){
+          this.marks[i].classList.remove("selected");
+        }
+      }
+      }
 
   }
 

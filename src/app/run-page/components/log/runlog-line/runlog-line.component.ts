@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ThumbsDownComponent } from '@carbon/icons-angular';
 
 @Component({
   selector: 'app-runlog-line',
@@ -10,13 +11,25 @@ export class RunlogLineComponent implements OnInit {
 
   @Input() line;
 
-  @Input() set searchText(input: string){
-    this.line.content = this.line.content.replace(new RegExp('<mark>', "g"), "");
-    this.line.content = this.line.content.replace(new RegExp("</mark>", "g"), "");
-    this.line.content = this.line.content.replace(new RegExp(input, "g"), (match) => `<mark>${match}</mark>`);
-  };
+  element;
 
-  constructor() { }
+  @Input() searchText: string;
+
+  constructor(el: ElementRef) { 
+    this.element = el;
+  }
+
+  highlight(){
+    if(!this.searchText){
+      return this.line.content;
+    }
+
+    return this.line.content.replace(new RegExp(this.searchText, "gi"), match=>{
+      return '<mark class="selected">' + match + '</mark>';
+    })
+
+
+  }
 
   ngOnInit(): void {
   }
