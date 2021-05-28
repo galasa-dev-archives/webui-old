@@ -44,8 +44,8 @@
             </div>
             <div ibmRow class="rw r3  bx--grid--condensed">
                 <div class="checkboxes">
-                    <ibm-checkbox>Show all</ibm-checkbox>
-                    <ibm-checkbox style="margin-left: 60px;">Ignore white space and capitalization</ibm-checkbox>
+                    <ibm-checkbox [checked]="showAll" (change)="onShowAllChange($event)">Show all</ibm-checkbox>
+                    <ibm-checkbox [disabled]="true" style="margin-left: 60px;">Ignore white space and capitalization</ibm-checkbox>
                 </div>
             </div>
 

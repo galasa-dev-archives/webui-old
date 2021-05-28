@@ -19,17 +19,27 @@ export class LogSearchComponent implements OnInit {
   currentMark: number = 0;
   searchText: string = null;
   ibmButton: any = 'primary';
-  page: number =2;
-  pages: number =11;
+  page: number = 0;
+  pages: number = 0;
   upDisabled: boolean = true;
   downDisabled: boolean = true;
   invalid: boolean = false;
   disabled: boolean=false;
+  showAll: boolean=false;
+
   getMarks = async () =>{
-    await this.delay(100);
+    await this.delay(50);
     this.marks = document.querySelectorAll("mark");
+    
+    if(this.showAll !== true){
+      for(let i = 1; i < this.marks.length; i++){
+        this.marks[i].classList.remove("selected");
+      }
+    }
     if(this.marks.length > 0){
       this.downDisabled = false;
+      this.pages = this.marks.length;
+      this.page = 1;
     }
   }
   items = [
@@ -78,8 +88,17 @@ export class LogSearchComponent implements OnInit {
   onUp(){
 
     if(this.currentMark != 0){
+
+      this.page -= 1;
+
+      if(this.showAll == false){
+        this.marks[this.currentMark].classList.remove("selected");
+        this.marks[this.currentMark - 1].classList.add("selected");
+      }
+
       this.currentMark -= 1;
-      let topOffset = this.marks[this.currentMark].offsetTop;
+      
+      let topOffset = this.marks[this.currentMark].offsetTop - 300;
       this.log.scrollTop = topOffset;
 
       if(this.currentMark === 0){
@@ -90,9 +109,16 @@ export class LogSearchComponent implements OnInit {
 
   onDown(){
 
+    this.page += 1;
+
+    if(this.showAll == false){
+      this.marks[this.currentMark].classList.remove("selected");
+      this.marks[this.currentMark + 1].classList.add("selected");
+    }
+
     this.currentMark += 1;
     let topOffset = this.marks[this.currentMark].offsetTop;
-    this.log.scrollTop = topOffset;
+    this.log.scrollTop = topOffset - 300;
     if(this.currentMark === 1){
       this.upDisabled = false;
     }
@@ -102,6 +128,26 @@ export class LogSearchComponent implements OnInit {
     this.searchText = null;
     this.upDisabled = true;
     this.downDisabled = true;
+  }
+
+  onShowAllChange(event:any){
+    
+      if(event.checked === true){
+        this.showAll = true;
+        if(this.marks != null){
+          this.marks.forEach(e => {
+            e.classList.add("selected");
+          });
+      }
+      }else{
+        this.showAll = false;
+        if(this.marks != null){
+        for(let i = 1; i < this.marks.length; i++){
+          this.marks[i].classList.remove("selected");
+        }
+      }
+      }
+
   }
 
 
