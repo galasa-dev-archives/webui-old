@@ -11,6 +11,8 @@ export class RunlogLineComponent implements OnInit {
 
   @Input() line;
 
+  @Input() ignoreCaps;
+
   element;
 
   @Input() searchText: string;
@@ -20,11 +22,19 @@ export class RunlogLineComponent implements OnInit {
   }
 
   highlight(){
+
+    let annotation: string = 'g'
+    
+    if(this.ignoreCaps === false){
+      console.log("changed");
+      annotation = 'gi'
+    };
+
     if(!this.searchText){
       return this.line.content;
     }
 
-    return this.line.content.replace(new RegExp(this.searchText, "gi"), match=>{
+    return this.line.content.replace(new RegExp(this.searchText, annotation), match=>{
       return '<mark>' + match + '</mark>';
     })
 
