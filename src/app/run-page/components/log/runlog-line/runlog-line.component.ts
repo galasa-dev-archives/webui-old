@@ -11,12 +11,15 @@ export class RunlogLineComponent implements OnInit {
 
   @Input() line;
 
+  type: string;
+
   element;
 
   @Input() searchText: string;
 
   constructor(el: ElementRef) { 
     this.element = el;
+
   }
 
   highlight(){
@@ -32,6 +35,13 @@ export class RunlogLineComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    if(this.line.content.includes("ERROR")){
+      this.type = "error";
+    }else if(this.line.content.includes("INFO")){
+      this.type = "info";
+    }
+
   }
 
 }

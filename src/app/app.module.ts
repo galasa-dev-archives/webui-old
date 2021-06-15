@@ -89,6 +89,7 @@ import { LogComponent } from './run-page/components/log/log.component';
 import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlog-line.component';
 import { WorklistComponent } from './worklist/worklist/worklist.component';
 import { WorklistService } from './worklist/worklist.service';
+import { LineMetadataComponent } from './run-page/components/log/runlog-line/components/line-metadata/line-metadata.component';
 
 @NgModule({
 	declarations: [
@@ -138,6 +139,7 @@ import { WorklistService } from './worklist/worklist.service';
 		LogComponent,
 		RunlogLineComponent,
 		WorklistComponent,
+		LineMetadataComponent,
 		
 	],
 	imports: [
