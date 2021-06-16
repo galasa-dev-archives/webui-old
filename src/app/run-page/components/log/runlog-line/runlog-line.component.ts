@@ -26,9 +26,12 @@ export class RunlogLineComponent implements OnInit {
     let annotation: string = 'g'
     
     if(this.ignoreCaps === false){
-      console.log("changed");
-      annotation = 'gi'
-    };
+      annotation = 'gi';
+    }
+
+    if(this.searchText != null && this.ignoreCaps === false){
+      this.searchText = this.searchText.replace(/\s+/g, '');
+    }
 
     if(!this.searchText){
       return this.line.content;

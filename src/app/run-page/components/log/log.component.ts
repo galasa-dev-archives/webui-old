@@ -36,7 +36,7 @@ export class LogComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    
+    console.log(this.ignoreCaps);
   }
 
 }
