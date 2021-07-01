@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Ignore the galasa api generated code
+
+/src/app/galasaapi
+
 # compiled output
 /dist
 /tmp

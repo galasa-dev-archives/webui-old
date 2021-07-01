@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { TestStructure } from 'galasa-ras-api-ts-rxjs';
-import { RasApisService } from '../../../core/rasapis.service';
+import { TestStructure } from '../../../galasaapi';
 import { BootstrapService } from '../../../../app/core/bootstrap.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';

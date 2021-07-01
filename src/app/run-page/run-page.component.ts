@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RasRunIdGetRequest, Run, RunResults, TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { Run, TestStructure } from '../galasaapi';
 import { RasApisService } from '../core/rasapis.service';
 import { HeaderService } from '../header/header.service';
 
@@ -35,14 +35,10 @@ export class RunPageComponent implements OnInit {
 
     idSub.unsubscribe();
 
-    this.rasApis.getRasRuns().then(
+    this.rasApis.getRasApi().then(
       
       runsApi =>{
-        var parameters: RasRunIdGetRequest = {
-          "id" : this.id
-        }
-
-        runsApi.rasRunIdGet(parameters).toPromise().then(
+        runsApi.getRasRunById(this.id).toPromise().then(
           result => {
             if(result != null){
               var newResult : Run = result;
