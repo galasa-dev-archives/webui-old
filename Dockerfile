@@ -1,6 +1,6 @@
 ARG dockerRepository
 
-FROM ${dockerRepository}/httpd:2.4
+FROM ${dockerRepository}/library/httpd:2.4
 
 RUN rm -v /usr/local/apache2/htdocs/*
 
