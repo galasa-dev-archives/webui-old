@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute}    from '@angular/router';
 
-import { RasTestclassesGetRequest, TestClasses, TestClass } from 'galasa-ras-api-ts-rxjs';
 import { Subscription } from 'rxjs';
 import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
 
@@ -28,10 +27,9 @@ export class TestclassesFilterComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.data.current.subscribe(state => this.state = state);
 
-    this.rasApis.getRasTestclasses().then(
+    this.rasApis.getRasApi().then(
       testclassesApi =>{
-        var parameters: RasTestclassesGetRequest = {"sort":"testclasses:asc"};
-        testclassesApi.rasTestclassesGet(parameters).toPromise().then(
+        testclassesApi.getRasTestclasses("testclasses:asc").toPromise().then(
           result => {
             var newTestclasses : Object[]=[];
             var nextId = 0;

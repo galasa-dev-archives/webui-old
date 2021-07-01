@@ -1,6 +1,6 @@
 import { SelectorFlags } from '@angular/compiler/src/core';
 import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { TestStructure } from '../../../../galasaapi';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -23,6 +23,7 @@ export class LogSearchComponent implements OnInit {
   pages: number = 0;
   upDisabled: boolean = true;
   downDisabled: boolean = true;
+  ignoreCaps: boolean = true;
   invalid: boolean = false;
   disabled: boolean=false;
   showAll: boolean=false;
@@ -31,16 +32,20 @@ export class LogSearchComponent implements OnInit {
     await this.delay(50);
     this.marks = document.querySelectorAll("mark");
     
-    if(this.showAll !== true){
-      for(let i = 1; i < this.marks.length; i++){
-        this.marks[i].classList.remove("selected");
-      }
-    }
     if(this.marks.length > 0){
+      if(this.showAll !== true){
+        this.marks[0].classList.add("selected");
+      }else{
+        this.marks.forEach(e => {
+          e.classList.add("selected");
+        })
+      }
+
       this.downDisabled = false;
       this.pages = this.marks.length;
       this.page = 1;
-    }
+  }
+  
   }
   items = [
     		{
@@ -89,14 +94,13 @@ export class LogSearchComponent implements OnInit {
 
     if(this.currentMark != 0){
 
-      this.page -= 1;
-
       if(this.showAll == false){
         this.marks[this.currentMark].classList.remove("selected");
         this.marks[this.currentMark - 1].classList.add("selected");
       }
 
       this.currentMark -= 1;
+      this.page = this.currentMark + 1;
       
       let topOffset = this.marks[this.currentMark].offsetTop - 300;
       this.log.scrollTop = topOffset;
@@ -109,18 +113,21 @@ export class LogSearchComponent implements OnInit {
 
   onDown(){
 
-    this.page += 1;
+    if(this.currentMark + 1 != this.marks.length){
 
-    if(this.showAll == false){
-      this.marks[this.currentMark].classList.remove("selected");
-      this.marks[this.currentMark + 1].classList.add("selected");
-    }
+      if(this.showAll == false){
+        this.marks[this.currentMark].classList.remove("selected");
+        this.marks[this.currentMark + 1].classList.add("selected");
+      }
 
-    this.currentMark += 1;
-    let topOffset = this.marks[this.currentMark].offsetTop;
-    this.log.scrollTop = topOffset - 300;
-    if(this.currentMark === 1){
-      this.upDisabled = false;
+      this.currentMark += 1;
+      this.page = this.currentMark + 1;
+      let topOffset = this.marks[this.currentMark].offsetTop;
+      this.log.scrollTop = topOffset - 300;
+      if(this.currentMark === 1){
+        this.upDisabled = false;
+      }
+
     }
   }
 
@@ -130,9 +137,21 @@ export class LogSearchComponent implements OnInit {
     this.downDisabled = true;
   }
 
+  onCapsChange(event:any){
+
+    if(event.checked === true){
+      this.ignoreCaps = false;
+    }else{
+      this.ignoreCaps = true;
+    }
+
+  }
+
   onShowAllChange(event:any){
     
       if(event.checked === true){
+        this.upDisabled = true;
+        this.downDisabled = true;
         this.showAll = true;
         if(this.marks != null){
           this.marks.forEach(e => {
@@ -140,6 +159,10 @@ export class LogSearchComponent implements OnInit {
           });
       }
       }else{
+        this.currentMark = 0;
+        if(this.marks.length != 0){
+          this.downDisabled = false;
+        }
         this.showAll = false;
         if(this.marks != null){
         for(let i = 1; i < this.marks.length; i++){
