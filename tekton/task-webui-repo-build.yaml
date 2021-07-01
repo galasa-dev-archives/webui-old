@@ -1,0 +1,85 @@
+#
+# Licensed Materials - Property of IBM
+# 
+# (c) Copyright IBM Corp. 2021.
+#
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: webui-repo-build
+  namespace: galasa-tekton
+spec:
+  resources:
+    inputs:
+      - name: git-webui
+        type: git
+      - name: git-framework
+        type: git
+  params:
+  - name: distBranch
+    type: string
+  - name: mavenCentralRepo
+    type: string
+    default: https://nexus.cics-ts.hur.hdclab.intranet.ibm.com/repository/proxy/
+  - name: dockerRepo
+    type: string
+    default: nexus.cics-ts.hur.hdclab.intranet.ibm.com:8080
+  - name: noPush
+    type: string
+    default: ""
+  steps:
+  - name: get-commit
+    workingDir: /workspace/git-webui
+    image: $(params.dockerRepo)/galasa/galasa-build
+    script: |
+      #!/bin/sh
+      set +e
+      COMMIT="$(git log --format="%H" -n 1)"
+      sed -i "s/gitcommithash/$COMMIT/g" src/index.html
+      echo commit is $COMMIT
+  - name: npm-install
+    workingDir: /workspace/git-webui
+    image: $(params.dockerRepo)/galasa/galasa-build
+    command:
+    - npm
+    - install
+    - --unsafe-perm=true
+  - name: generate-api
+    workingDir: /workspace/git-webui
+    image: $(params.dockerRepo)/galasa/galasa-build
+    command:
+    - java
+    - -jar
+    - /opt/openapi/openapi-generator-cli.jar
+    - generate
+    - -i
+    - /workspace/git-framework/openapi.yaml
+    - -g
+    - typescript-angular
+    - -o
+    - src/app/galasaapi
+  - name: build-webui
+    workingDir: /workspace/git-webui
+    image: $(params.dockerRepo)/galasa/galasa-build
+    command:
+    - ng
+    - build
+    - --prod
+  - name: docker-build
+    workingDir: /workspace/git-webui/docker
+    image: $(params.dockerRepo)/library/kaniko-executor:latest
+    env:
+    - name: DOCKER_CONFIG
+      value: /tekton/home/.docker
+    command:
+    - /kaniko/executor
+    - --dockerfile=./Dockerfile
+    - --context=/workspace/git-webui
+    - --destination=$(params.dockerRepo)/galasadev/galasa-webui-amd64:$(params.distBranch)
+    - $(params.noPush)
+    - --oci-layout-path=/workspace/git-framework/docker/image-digest
+    - --skip-tls-verify
+    - --skip-tls-verify-pull
+    - --single-snapshot
+    - --verbosity=info
+    - --build-arg=dockerRepository=$(params.dockerRepo)
