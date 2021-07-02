@@ -6,7 +6,6 @@
 import { Component, OnInit }        from '@angular/core';
 import { Router, ActivatedRoute, Params}    from '@angular/router';
 
-import { RasRequestorsGetRequest, Requestors} from 'galasa-ras-api-ts-rxjs';
 import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
 
 import { RasApisService } from '../../../core/rasapis.service'
@@ -44,14 +43,10 @@ export class RequestorsFilterComponent implements OnInit {
   ngOnInit() {
   this.subscription = this.data.current.subscribe(state => this.state = state);
    // Get the get Requestors api call
-    this.rasApis.getRasRequestors().then(
+    this.rasApis.getRasApi().then(
         requestorsApi => {
-    
-          // Set the default sort, we could let it default, but the default might change
-          var parameters:RasRequestorsGetRequest = {"sort":"requestor:asc"};
-
               // Issue the call, this will return async
-          requestorsApi.rasRequestorsGet(parameters).toPromise().then(
+          requestorsApi.getRasRequestors("requestor:asc").toPromise().then(
             result => {
                //  Build the new array before setting the field, so the dropdown gets it in one go
               var newRequestors :Object[] = [];

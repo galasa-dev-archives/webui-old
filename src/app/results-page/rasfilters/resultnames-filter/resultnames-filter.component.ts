@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RasResultnamesGetRequest } from 'galasa-ras-api-ts-rxjs';
 import { Subscription } from 'rxjs';
 import { RasApisService } from '../../../core/rasapis.service';
 import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
@@ -26,10 +25,9 @@ export class ResultnamesFilterComponent implements OnInit {
   ngOnInit(){
     this.subscription = this.data.current.subscribe(state => this.state = state);
     
-    this.rasApis.getRasResultnames().then(
+    this.rasApis.getRasApi().then(
       resultApi =>{
-        var parameters: RasResultnamesGetRequest = {"sort":"resultname:asc"};
-        resultApi.rasResultnamesGet(parameters).toPromise().then(
+        resultApi.getRasResultNames("resultname:asc").toPromise().then(
           result => {
             var newResults: Object []=[];
             var nextId = 0;
