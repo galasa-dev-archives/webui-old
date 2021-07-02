@@ -1,6 +1,8 @@
 
 import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { TestStructure } from 'galasa-ras-api-ts-rxjs';
+
+import { TestStructure } from '../../../../galasaapi';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-log-search',
@@ -22,6 +24,7 @@ export class LogSearchComponent implements OnInit {
   pages: number = 0;
   upDisabled: boolean = true;
   downDisabled: boolean = true;
+  ignoreCaps: boolean = true;
   invalid: boolean = false;
   disabled: boolean=false;
   showAll: boolean=false;
@@ -135,9 +138,21 @@ export class LogSearchComponent implements OnInit {
     this.downDisabled = true;
   }
 
+  onCapsChange(event:any){
+
+    if(event.checked === true){
+      this.ignoreCaps = false;
+    }else{
+      this.ignoreCaps = true;
+    }
+
+  }
+
   onShowAllChange(event:any){
     
       if(event.checked === true){
+        this.upDisabled = true;
+        this.downDisabled = true;
         this.showAll = true;
         if(this.marks != null){
           this.marks.forEach(e => {
@@ -145,6 +160,10 @@ export class LogSearchComponent implements OnInit {
           });
       }
       }else{
+        this.currentMark = 0;
+        if(this.marks.length != 0){
+          this.downDisabled = false;
+        }
         this.showAll = false;
         if(this.marks != null){
         for(let i = 1; i < this.marks.length; i++){

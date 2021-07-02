@@ -1,0 +1,37 @@
+#
+# Licensed Materials - Property of IBM
+# 
+# (c) Copyright IBM Corp. 2021.
+#
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: webui-repo-build
+  namespace: galasa-tekton
+spec:
+  resources:
+  - name: git-webui
+    type: git
+  - name: git-framework
+    type: git
+  params:
+  - name: distBranch
+    type: string
+  - name: noPush
+    type: string
+    default: ""
+  tasks:
+  - name: webui-compile
+    taskRef:
+      name: webui-repo-build
+    params:
+    - name: distBranch
+      value: $(params.distBranch)
+    - name: noPush
+      value: $(params.noPush)
+    resources:
+      inputs:
+      - name: git-webui
+        resource: git-webui
+      - name: git-framework
+        resource: git-framework

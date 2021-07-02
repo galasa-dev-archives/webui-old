@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { TestStructure } from '../../../galasaapi';
 
 @Component({
   selector: 'app-artifact',
