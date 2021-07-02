@@ -3,6 +3,7 @@
 # Ignore the galasa api generated code
 
 /src/app/galasaapi
+package-lock.json
 
 # compiled output
 /dist

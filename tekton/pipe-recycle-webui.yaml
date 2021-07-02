@@ -1,0 +1,20 @@
+#
+# Licensed Materials - Property of IBM
+# 
+# (c) Copyright IBM Corp. 2021.
+#
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: recycle-webui
+  namespace: galasa-tekton
+spec:
+  tasks:
+  - name: recycle-webui
+    taskRef:
+      name: recycle-deployment
+    params:
+    - name: namespace
+      value: galasa-prod
+    - name: deployment
+      value: webui
