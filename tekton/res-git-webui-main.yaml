@@ -12,8 +12,8 @@ spec:
   type: git
   params:
   - name: revision
-    value: master
+    value: main
   - name: refspec
-    value: +refs/heads/master:refs/heads/master
+    value: +refs/heads/main:refs/heads/main
   - name: url
     value: https://github.com/galasa-dev/webui
