@@ -1,5 +1,6 @@
-import { SelectorFlags } from '@angular/compiler/src/core';
+
 import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+
 import { TestStructure } from '../../../../galasaapi';
 import { delay } from 'rxjs/operators';
 

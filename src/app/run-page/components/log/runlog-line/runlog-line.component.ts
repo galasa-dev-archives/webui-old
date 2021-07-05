@@ -11,12 +11,15 @@ export class RunlogLineComponent implements OnInit {
 
   @Input() line;
 
+  type: string;
+
   element;
 
   @Input() searchText: string;
 
   constructor(el: ElementRef) { 
     this.element = el;
+
   }
 
   highlight(){
@@ -25,13 +28,22 @@ export class RunlogLineComponent implements OnInit {
     }
 
     return this.line.content.replace(new RegExp(this.searchText, "gi"), match=>{
-      return '<mark class="selected">' + match + '</mark>';
+      return '<mark>' + match + '</mark>';
     })
 
 
   }
 
   ngOnInit(): void {
+
+    if(this.line.content.includes("ERROR")){
+      this.type = "error";
+    }else if(this.line.content.includes("INFO")){
+      this.type = "info";
+    }else if(this.line.content.startsWith("*")){
+      this.type = "header"
+    }
+
   }
 
 }

@@ -1,0 +1,16 @@
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.icon {
+    vertical-align: middle;
+    height: 14px;
+    width: 14px;
+    margin-right: $spacing-05;
+}
+
+div{
+    display: inline-block;
+}
+
+.invisible{
+    display: none;
+}
