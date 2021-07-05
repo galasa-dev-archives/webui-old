@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TestMethod, TestStructure } from 'galasa-ras-api-ts-rxjs';
+import { TestMethod, TestStructure } from '../../../galasaapi';
 
 @Component({
   selector: 'app-history',

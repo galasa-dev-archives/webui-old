@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild 
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
-import { RasRunGetRequest } from 'galasa-ras-api-ts-rxjs';
 import { Subscription } from 'rxjs';
 import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-service/loading-bar-service.component';
 
@@ -185,21 +184,18 @@ export class ResultsTableComponent implements OnInit {
       this.runs = row;
     }
 
-    this.rasApis.getRasRuns().then(
+    this.rasApis.getRasApi().then(
       runsApi =>{
         console.log(this.sortParam);
-        var parameters: RasRunGetRequest = {
-                                            "sort": this.sortParam,
-                                            "page": page, 
-                                            "size" : this.paginationModel.pageLength,
-                                            "testname": this.testName,
-                                            "requestor": this.requestor,
-                                            "bundle": this.bundle,
-                                            "result": this.result,
-                                            "from" : this.from,
-                                            "to" : this.to
-                                            };   
-        runsApi.rasRunGet(parameters).toPromise().then(
+        runsApi.getRasSearchRuns(this.sortParam,
+                                 this.result,
+                                 this.bundle,
+                                 this.requestor,
+                                 this.from,
+                                 this.to,
+                                 this.testName,
+                                 page,
+                                 this.paginationModel.pageLength).toPromise().then(
           result => {
             if(result != null){
               var newData: TableItem[][] = []

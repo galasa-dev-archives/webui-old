@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 import { TableModel,TableItem, TableHeaderItem } from 'carbon-components-angular';
-import { TestMethod } from 'galasa-ras-api-ts-rxjs';
+import { TestMethod } from '../../../galasaapi';
 import { TestResultComponent } from '../run-detail/test-result/test-result.component';
 
 @Component({
