@@ -40,6 +40,8 @@ export class RunlogLineComponent implements OnInit {
       this.type = "error";
     }else if(this.line.content.includes("INFO")){
       this.type = "info";
+    }else if(this.line.content.startsWith("*")){
+      this.type = "header"
     }
 
   }
