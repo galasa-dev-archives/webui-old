@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { WorklistapisService } from '../core/worklistapis.service';
 import { WorklistData } from './worklistdata';
 
 @Injectable({
@@ -13,28 +13,108 @@ export class WorklistService {
 
   private worklistSource = new BehaviorSubject(this.worklist);
 
-  constructor() { 
-    // Temporary hard coded Worklist
-    this.worklist.push(new WorklistData({"id" : "cdb-892725df876d9820dee349f9fd973a04", "runName" : "J13840", "shortName" : "GoldenEagle",
-      "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.chester.GoldenEagle"}))
-    this.worklist.push(new WorklistData({"id" : "cdb-892725df876d9820dee349f9fd971a00", "runName" : "J13839", "shortName" : "Osprey",
-      "result" : "Passed", "testClass" : "bulktest.bristol.cambridge.manchester.Osprey"}))
+  constructor(private worklistApis : WorklistapisService) { 
+
+    this.worklistApis.getWorklistApi().then(
+      worklistApi => {
+        worklistApi.getWebuiWorklist().toPromise().then(
+          output => {
+
+            for (let worklistItem of output.worklistItems){
+
+              var runId = worklistItem.runId;
+              var runName = worklistItem.runName;
+              var result = worklistItem.result;
+              // Short name and Test class can be undefined if the test didn't finish
+              var shortName = null;
+              if (worklistItem.shortName !== undefined){
+                shortName = worklistItem.shortName;
+              }
+              var testClass = null;
+              if (worklistItem.testClass !== undefined){
+                testClass = worklistItem.testClass;
+              }
+
+              this.worklist.push(new WorklistData({"id" : runId, "runName" : runName,
+                "shortName" : shortName, "result" : result, "testClass" : testClass}));
+
+            }
+          }
+        )
+      }
+    )
+
     this.worklistSource.next(this.worklist);
 
   }
 
-  getWorklistObservable(){
-    return this.worklistSource.asObservable();
-  }
-
   addToWorklist(id : string){
-    // TO-DO Logic to get Short name, Run name and Result from API using the ID, add to Worklist
-    this.updateWorklist();
+    
+    this.worklistApis.getWorklistApi().then(
+      worklistApi => {
+        worklistApi.addWebuiWorklistRunId(id).toPromise().then(
+          output => {
+            this.worklist = [];
+
+            for (let worklistItem of output.worklistItems){
+
+              var runId = worklistItem.runId;
+              var runName = worklistItem.runName;
+              var shortName = null;
+              var result = worklistItem.result;
+              if (worklistItem.shortName !== undefined){
+                shortName = worklistItem.shortName;
+              }
+              var testClass = null;
+              if (worklistItem.testClass !== undefined){
+                testClass = worklistItem.testClass;
+              }
+
+              this.worklist.push(new WorklistData({"id" : runId, "runName" : runName,
+                "shortName" : shortName, "result" : result, "testClass" : testClass}));
+            }
+            this.updateWorklist();
+          }
+        )
+      }
+    )
   }
 
   removeFromWorklist(id : string){
-    // TO-DO Logic to get Short name, Run name and Result from API using the ID, remove from Worklist
-    this.updateWorklist();
+ 
+    this.worklistApis.getWorklistApi().then(
+      worklistApi => {
+        worklistApi.deleteWebuiWorklistRunId(id).toPromise().then(
+          output => {
+            this.worklist = [];
+
+            for (let worklistItem of output.worklistItems){
+
+              var runId = worklistItem.runId;
+              var runName = worklistItem.runName;
+              var shortName = null;
+              var result = worklistItem.result;
+              if (worklistItem.shortName !== undefined){
+                shortName = worklistItem.shortName;
+              }
+              var testClass = null;
+              if (worklistItem.testClass !== undefined){
+                testClass = worklistItem.testClass;
+              }
+
+              this.worklist.push(new WorklistData({"id" : runId, "runName" : runName,
+                "shortName" : shortName, "result" : result, "testClass" : testClass}));
+
+            }
+            this.updateWorklist();
+          } 
+        )
+      }
+    )
+  }
+
+  getWorklistObservable(){
+    return this.worklistSource.asObservable();
   }
 
   updateWorklist(){

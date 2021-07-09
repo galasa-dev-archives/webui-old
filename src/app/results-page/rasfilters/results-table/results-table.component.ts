@@ -38,6 +38,8 @@ export class ResultsTableComponent implements OnInit {
 
   worklistSubscription : Subscription;
 
+  rowIndex : number;
+
 
   @ViewChild("customLoadingTemplate", { static : true })
   private customLoadingTemplate: TemplateRef<any>;
@@ -159,12 +161,13 @@ export class ResultsTableComponent implements OnInit {
   }
 
   getPage(page){
-    if (this.from != null){
-      this.from = new Date(this.from);
-    }
-    if (this.to != null){
-      this.to = new Date(this.to);
-    } 
+    // API has changed to no longer require a Date object, but may change back in future
+    // if (this.from != null){
+    //   this.from = new Date(this.from);
+    // }
+    // if (this.to != null){
+    //   this.to = new Date(this.to);
+    // } 
 
     this.loading = true;
     this.loadingService.changeState(true);
@@ -246,7 +249,9 @@ export class ResultsTableComponent implements OnInit {
     )
   }
 
-  onChange(index: number) {
+  onCheck() {
+    var index = this.rowIndex;
+
     var runId = this.model.data[index][1].data.id;
     var isWorklist = this.model.data[index][5].data.checked;
 
@@ -257,6 +262,10 @@ export class ResultsTableComponent implements OnInit {
     }
 	}
 
+  onChange(index : number){
+    this.rowIndex = index;
+  }
+
   updateCheckboxes(){
     for (let index = 0; index < this.model.totalDataLength; index++){
       var runId = this.model.data[index][1].data.id;
@@ -265,9 +274,8 @@ export class ResultsTableComponent implements OnInit {
         this.model.data[index][5].data.checked = inWorklist;
       }    
     }
-
   }
-  
+
 }
 
 
