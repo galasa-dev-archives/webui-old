@@ -60,8 +60,8 @@ export class WorklistService {
 
               var runId = worklistItem.runId;
               var runName = worklistItem.runName;
-              var shortName = null;
               var result = worklistItem.result;
+              var shortName = null;
               if (worklistItem.shortName !== undefined){
                 shortName = worklistItem.shortName;
               }
@@ -92,8 +92,8 @@ export class WorklistService {
 
               var runId = worklistItem.runId;
               var runName = worklistItem.runName;
-              var shortName = null;
               var result = worklistItem.result;
+              var shortName = null;
               if (worklistItem.shortName !== undefined){
                 shortName = worklistItem.shortName;
               }

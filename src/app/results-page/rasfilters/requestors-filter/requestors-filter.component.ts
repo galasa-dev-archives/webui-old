@@ -88,7 +88,7 @@ export class RequestorsFilterComponent implements OnInit {
     }
 
     // Get all existing parameters and add/replace "requestor" to them
-    let newparams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {requestor : selectedRequestor});
+    let newparams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {requestor : selectedRequestor, worklist:null});
     // Dont hardcode the url,  just use "this page" so dropdown can be used on any page
     this.router.navigate(['.'],{relativeTo: this.route, queryParams: newparams});
   }

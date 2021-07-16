@@ -7,6 +7,7 @@ import { LoadingBarServiceComponent } from '../../../loading-bar/loading-bar-ser
 
 import { RasApisService } from '../../../core/rasapis.service'
 import { WorklistService } from '../../../worklist/worklist.service';
+import { WorklistapisService } from '../../../core/worklistapis.service';
 
 @Component({
   selector: 'app-results-table',
@@ -21,7 +22,9 @@ export class ResultsTableComponent implements OnInit {
   paginationModel = new PaginationModel();
   model: TableModel = new TableModel();
   itemsPerPageOptions : number[] = [10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
   runs: Object[] = [];
+
   pageSize: number;
   page: number;
   result: string;
@@ -30,9 +33,10 @@ export class ResultsTableComponent implements OnInit {
   testName : string;
   from;
   to;
-  loading: boolean = true;
   sortParam: string = "to:desc";
+  worklist: string;
 
+  loading: boolean = true;
   loadingSubscription : Subscription;
   loadingState : boolean;
 
@@ -57,7 +61,7 @@ export class ResultsTableComponent implements OnInit {
   protected customWorklistTemplate: TemplateRef<any>;
 
   constructor(private rasApis : RasApisService, private route : ActivatedRoute, private router : Router, private loadingService : LoadingBarServiceComponent,
-    private worklistService : WorklistService) { 
+    private worklistService : WorklistService, private worklistApis : WorklistapisService) { 
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {  
         this.selectPage(1);
@@ -91,7 +95,7 @@ export class ResultsTableComponent implements OnInit {
       new TableHeaderItem({data: "+ Worklist", sortable: false})
     ];
     
-    this.route.queryParams.subscribe(params =>{
+    this.route.queryParams.subscribe(params => {
       this.pageSize = params['pageSize'];
       this.page = params['pageNum'];
       this.requestor = params['requestor'];
@@ -100,6 +104,7 @@ export class ResultsTableComponent implements OnInit {
       this.result = params['resultNames'];
       this.from = params['from'];
       this.to = params['to']; 
+      this.worklist = params['worklist'];
     });
 
     this.selectPage(1);
@@ -116,34 +121,32 @@ export class ResultsTableComponent implements OnInit {
     let header = this.model.header[index];
     let filterType = header.data;
 
-    console.log(filterType);
-
-    if(filterType == "Finished"){
-      if(header.ascending == true){
+    if (filterType == "Finished"){
+      if (header.ascending == true){
         header.descending = true;
         this.sortParam = "to:desc"
-      }else{
+      } else {
         header.ascending = true;
         this.sortParam = "to:asc"
       }
     }
 
-    if(filterType === "Test Class"){
-      if(header.ascending == true){
+    if (filterType === "Test Class"){
+      if (header.ascending == true){
         header.descending = true;
         this.sortParam = "testclass:desc"
-      }else{
+      } else {
         header.ascending = true;
         this.sortParam = "testclass:asc"
       }
       
     }
 
-    if(filterType === "Result"){
-      if(header.ascending == true){
+    if (filterType === "Result"){
+      if (header.ascending == true){
         header.descending = true;
         this.sortParam = "result:desc"
-      }else{
+      } else {
         header.ascending = true;
         this.sortParam = "result:asc"
     }
@@ -161,7 +164,8 @@ export class ResultsTableComponent implements OnInit {
   }
 
   getPage(page){
-    // API has changed to no longer require a Date object, but may change back in future
+
+    // API has changed to no longer require a Date object, but this may change back in future
     // if (this.from != null){
     //   this.from = new Date(this.from);
     // }
@@ -169,6 +173,7 @@ export class ResultsTableComponent implements OnInit {
     //   this.to = new Date(this.to);
     // } 
 
+    // To insert custom Loading bars into the Table 
     this.loading = true;
     this.loadingService.changeState(true);
     var loadingData: TableItem[][] = []
@@ -187,9 +192,32 @@ export class ResultsTableComponent implements OnInit {
       this.runs = row;
     }
 
+    // If Worklist parameter in the URL is true,
+    // send the Run IDs in the Worklist to the API and display these runs in the table only
+    var runIdParam = "";
+    if (this.worklist == "true"){
+      this.worklistApis.getWorklistApi().then(
+        worklistApi => {
+          worklistApi.getWebuiWorklist().toPromise().then(
+            output => {
+              for (let worklistItem of output.worklistItems){
+                runIdParam = runIdParam.concat(worklistItem.runId + ","); 
+              }
+              this.loadRunsIntoTable(page, runIdParam);
+            }
+          )
+        }
+      )
+    // If Worklist parameter is false, load the table with usual filters etc
+    } else {
+      this.loadRunsIntoTable(page, runIdParam);
+    }
+  }
+
+  loadRunsIntoTable(page, runIdParam){
+
     this.rasApis.getRasApi().then(
       runsApi =>{
-        console.log(this.sortParam);
         runsApi.getRasSearchRuns(this.sortParam,
                                  this.result,
                                  this.bundle,
@@ -198,14 +226,15 @@ export class ResultsTableComponent implements OnInit {
                                  this.to,
                                  this.testName,
                                  page,
-                                 this.paginationModel.pageLength).toPromise().then(
+                                 this.paginationModel.pageLength,
+                                 runIdParam).toPromise().then(
           result => {
-            if(result != null){
+            if (result != null){
               var newData: TableItem[][] = []
               var newRuns: Object[] = [];
               this.paginationModel.totalDataLength = result.amountOfRuns;
 
-              for(let run of result.runs){
+              for (let run of result.runs){
 
                 var testResult = "";
                 if (run.testStructure.result == "EnvFail"){
@@ -228,25 +257,29 @@ export class ResultsTableComponent implements OnInit {
                   new TableItem({data: {checked: isWorklist}, template: this.customWorklistTemplate})
                 ]);
                 newRuns.push(run);
+
               }
           } else {
             this.paginationModel.totalDataLength = 0;
-            }
-            if (page === 1) {
-              setTimeout(() => {this.model.data = newData; this.loadingService.changeState(false);}, 1000);
-            } else {
-              this.model.data = newData; this.loadingService.changeState(false);
-            }
-    
-            this.loading = false;
-            this.runs = newRuns;
           }
-        ).catch(reason =>{
+
+          if (page === 1) {
+            setTimeout(() => {this.model.data = newData; this.loadingService.changeState(false);}, 1000);
+          } else {
+            this.model.data = newData; this.loadingService.changeState(false);
+          }
+          this.loading = false;
+          this.runs = newRuns;
+          }
+        ).catch(reason => {
           console.log("Error loading", reason);
         })
       }
-      
     )
+  }
+
+  onChange(index : number){
+    this.rowIndex = index;
   }
 
   onCheck() {
@@ -261,10 +294,6 @@ export class ResultsTableComponent implements OnInit {
       this.worklistService.removeFromWorklist(runId);
     }
 	}
-
-  onChange(index : number){
-    this.rowIndex = index;
-  }
 
   updateCheckboxes(){
     for (let index = 0; index < this.model.totalDataLength; index++){

@@ -8,9 +8,10 @@
 </div>
 <div class="checkbox">
     <ibm-checkbox
-	    [checked]="false"
-        [disabled]="true"
+	    [checked]="checked"
+        [disabled]="false"
 	    [hideLabel]="false"
+        (change)="onCheck()"
 	    >
 	    Show worklist items only
     </ibm-checkbox>

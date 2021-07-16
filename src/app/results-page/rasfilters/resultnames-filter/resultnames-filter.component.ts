@@ -63,7 +63,7 @@ export class ResultnamesFilterComponent implements OnInit {
     if(event.item){
       selectedResultNames = event.item.content;
     }
-    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{resultNames:selectedResultNames});
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{resultNames:selectedResultNames, worklist:null});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
   }
 

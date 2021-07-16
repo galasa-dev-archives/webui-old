@@ -25,8 +25,5 @@ export class WorklistComponent implements OnInit {
   ngOnDestroy() {
     this.worklistSubscription.unsubscribe();
   }
-
-  // getWorklist(){
-  //   this.worklistSubscription = this.worklistService.currentWorklist.subscribe(worklist => this.worklist = worklist);
-  // }
+  
 }

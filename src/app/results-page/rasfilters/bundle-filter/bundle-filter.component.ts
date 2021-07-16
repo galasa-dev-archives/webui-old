@@ -31,7 +31,6 @@ export class BundleFilterComponent implements OnInit {
       bundleApi =>{
         bundleApi.getRasTestclasses("testclasses:asc").toPromise().then(
           result => {
-            console.log(result);
             var newBundles: Object []=[];
             for (let bun of result.testclasses) {
               // whitout id so it woudnt be unique elements
@@ -72,7 +71,7 @@ export class BundleFilterComponent implements OnInit {
       selectedBundles = event.item.content;
     }
 
-    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{bundle:selectedBundles});
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{bundle:selectedBundles, worklist:null});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
   }
 

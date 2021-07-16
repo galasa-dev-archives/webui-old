@@ -119,7 +119,7 @@ export class DatetimeFilterComponent implements OnInit {
   onStartChange(date : Date){
     this.data.changeState(true);
     var startDateTime = date.toISOString();
-    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{from:startDateTime});
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{from:startDateTime, worklist:null});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
     this.data.changeState(false);
   }
@@ -127,7 +127,7 @@ export class DatetimeFilterComponent implements OnInit {
   onEndChange(date : Date){
     this.data.changeState(true);
     var endDateTime = date.toISOString();
-    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{to:endDateTime});
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{to:endDateTime, worklist:null});
     this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
     this.data.changeState(false);
   }

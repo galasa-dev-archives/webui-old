@@ -59,7 +59,7 @@ export class TestclassesFilterComponent implements OnInit {
       selectedTestclass = event.item.content;
     }
 
-    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{testclass:selectedTestclass});
+    let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{testclass:selectedTestclass, worklist:null});
     this.router.navigate(['.'],{relativeTo: this.route, queryParams: newparams});
     
   }

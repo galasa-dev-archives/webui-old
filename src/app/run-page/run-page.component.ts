@@ -25,8 +25,6 @@ export class RunPageComponent implements OnInit {
 
     this.headerTitleService.setTitle('Run test detail');
 
-    console.log("this is loading");
-
     this.loading = true;
 
     var idSub = this.route.params.subscribe(params => {
