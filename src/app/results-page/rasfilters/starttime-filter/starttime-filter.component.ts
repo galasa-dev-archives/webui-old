@@ -21,7 +21,7 @@ export class StarttimeFilterComponent implements OnInit {
   ngOnInit(): void {
 
     var selectedFrom = "";
-    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined'){
+    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined' || this.route.snapshot.queryParams['from'] != ""){
       selectedFrom = this.route.snapshot.queryParams['from']
       selectedFrom = selectedFrom.substring(selectedFrom.indexOf('T')+1, selectedFrom.indexOf('T')+6);
       this.value.push(selectedFrom);

@@ -30,7 +30,7 @@ export class ResultnamesFilterComponent implements OnInit {
         resultApi.getRasResultNames("resultname:asc").toPromise().then(
           result => {
             var selectedResult = "";
-            if (typeof(this.route.snapshot.queryParams['resultNames']) != 'undefined'){
+            if (typeof(this.route.snapshot.queryParams['resultNames']) != 'undefined' || this.route.snapshot.queryParams['resultNames'] != ""){
               selectedResult = this.route.snapshot.queryParams['resultNames']
             }
             var newResults: Object []=[];

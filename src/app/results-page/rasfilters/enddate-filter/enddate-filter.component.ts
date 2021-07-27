@@ -31,7 +31,7 @@ export class EnddateFilterComponent implements OnInit {
   ngOnInit(): void {
 
     var selectedTo = "";
-    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined'){
+    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined' || this.route.snapshot.queryParams['to'] != ""){
       selectedTo = this.route.snapshot.queryParams['to']
       selectedTo = selectedTo.substring(0, selectedTo.indexOf('T'));
       this.getLocaleDateFormat();

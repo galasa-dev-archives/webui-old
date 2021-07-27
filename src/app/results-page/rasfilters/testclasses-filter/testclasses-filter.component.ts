@@ -32,7 +32,7 @@ export class TestclassesFilterComponent implements OnInit {
         testclassesApi.getRasTestclasses("testclasses:asc").toPromise().then(
           result => {
             var selectedTestClass = "";
-            if (typeof(this.route.snapshot.queryParams['testclass']) != 'undefined'){
+            if (typeof(this.route.snapshot.queryParams['testclass']) != 'undefined' || this.route.snapshot.queryParams['testclass'] != ""){
               selectedTestClass = this.route.snapshot.queryParams['testclass']
             }
             var newTestclasses : Object[]=[];

@@ -32,7 +32,7 @@ export class BundleFilterComponent implements OnInit {
         bundleApi.getRasTestclasses("testclasses:asc").toPromise().then(
           result => {
             var selectedBundle = "";
-            if (typeof(this.route.snapshot.queryParams['bundle']) != 'undefined'){
+            if (typeof(this.route.snapshot.queryParams['bundle']) != 'undefined' || this.route.snapshot.queryParams['bundle'] != ""){
               selectedBundle = this.route.snapshot.queryParams['bundle']
             }
             var newBundles: Object[] = [];

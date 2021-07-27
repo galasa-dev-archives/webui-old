@@ -123,7 +123,6 @@ import { StarttimeFilterComponent } from './results-page/rasfilters/starttime-fi
 		IncreaseContrastToggleComponent,
 		GalasaHamburgerComponent,
 		LoadingBarComponent,
-		TimeFilterComponent,
 		LoadingBarServiceComponent,
 		DatetimeFilterComponent,
 		LogSearchComponent,

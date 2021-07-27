@@ -21,7 +21,7 @@ export class EndtimeFilterComponent implements OnInit {
   ngOnInit(): void {
 
     var selectedTo = "";
-    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined'){
+    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined' || this.route.snapshot.queryParams['to'] != ""){
       selectedTo = this.route.snapshot.queryParams['to']
       selectedTo = selectedTo.substring(selectedTo.indexOf('T')+1, selectedTo.indexOf('T')+6);
       this.value.push(selectedTo);

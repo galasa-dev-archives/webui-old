@@ -31,7 +31,7 @@ export class StartdateFilterComponent implements OnInit {
   ngOnInit(): void {
 
     var selectedFrom = "";
-    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined'){
+    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined' || this.route.snapshot.queryParams['from'] != ""){
       selectedFrom = this.route.snapshot.queryParams['from']
       selectedFrom = selectedFrom.substring(0,selectedFrom.indexOf('T'));
       this.getLocaleDateFormat();

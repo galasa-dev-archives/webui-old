@@ -50,7 +50,7 @@ export class RequestorsFilterComponent implements OnInit {
             result => {
               // If a Requestor has been selected already and is in the URL, load the Dropdown with the Requestor selected
               var selectedRequestor = "";
-              if (typeof(this.route.snapshot.queryParams['requestor']) != 'undefined'){
+              if (typeof(this.route.snapshot.queryParams['requestor']) != 'undefined' || this.route.snapshot.queryParams['requestor'] != ""){
                 selectedRequestor = this.route.snapshot.queryParams['requestor']
               }
                //  Build the new array before setting the field, so the dropdown gets it in one go
