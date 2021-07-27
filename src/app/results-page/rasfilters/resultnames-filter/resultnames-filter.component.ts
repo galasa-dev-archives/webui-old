@@ -29,6 +29,10 @@ export class ResultnamesFilterComponent implements OnInit {
       resultApi =>{
         resultApi.getRasResultNames("resultname:asc").toPromise().then(
           result => {
+            var selectedResult = "";
+            if (typeof(this.route.snapshot.queryParams['resultNames']) != 'undefined'){
+              selectedResult = this.route.snapshot.queryParams['resultNames']
+            }
             var newResults: Object []=[];
             var nextId = 0;
             for (let names of result.resultnames ) {
@@ -37,8 +41,11 @@ export class ResultnamesFilterComponent implements OnInit {
               } else if (names === "UNKNOWN"){
                 names = "Unknown";
               }
-
-              newResults.push({content:names,id:nextId}); 
+              var selected = false;
+              if (names == selectedResult){
+                selected = true;
+              }
+              newResults.push({content:names, id:nextId, selected:selected}); 
               nextId++;
             }
             this.results = newResults;
@@ -64,7 +71,7 @@ export class ResultnamesFilterComponent implements OnInit {
       selectedResultNames = event.item.content;
     }
     let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{resultNames:selectedResultNames, worklist:null});
-    this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
+    this.router.navigate(['.'],{relativeTo:this.route, queryParams:newparams});
   }
 
 

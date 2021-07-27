@@ -31,13 +31,20 @@ export class TestclassesFilterComponent implements OnInit {
       testclassesApi =>{
         testclassesApi.getRasTestclasses("testclasses:asc").toPromise().then(
           result => {
+            var selectedTestClass = "";
+            if (typeof(this.route.snapshot.queryParams['testclass']) != 'undefined'){
+              selectedTestClass = this.route.snapshot.queryParams['testclass']
+            }
             var newTestclasses : Object[]=[];
             var nextId = 0;
             for (let testClass of result.testclasses) {
-              newTestclasses.push({content:testClass.testclass, id:nextId});
+              var selected = false;
+              if (testClass.testclass == selectedTestClass){
+                selected = true;
+              }
+              newTestclasses.push({content:testClass.testclass, id:nextId, selected:selected});
               nextId++;
             }
-            
             this.testclasses = newTestclasses;
             this.loading = false;
           }
@@ -60,7 +67,7 @@ export class TestclassesFilterComponent implements OnInit {
     }
 
     let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{testclass:selectedTestclass, worklist:null});
-    this.router.navigate(['.'],{relativeTo: this.route, queryParams: newparams});
+    this.router.navigate(['.'],{relativeTo:this.route, queryParams:newparams});
     
   }
 

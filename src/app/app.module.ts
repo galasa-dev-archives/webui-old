@@ -72,7 +72,6 @@ import { HeaderService } from './header/header.service';
 import { IncreaseContrastToggleComponent } from './footer/increase-contrast-toggle/increase-contrast-toggle.component';
 import { GalasaHamburgerComponent } from './header/galasa-hamburger/galasa-hamburger.component';
 import { LoadingBarComponent } from './loading-bar/loading-bar.component';
-import { TimeFilterComponent } from './results-page/rasfilters/time-filter/time-filter.component';
 import { LoadingBarServiceComponent } from './loading-bar/loading-bar-service/loading-bar-service.component';
 import { DatetimeFilterComponent } from './results-page/rasfilters/datetime-filter/datetime-filter.component';
 import { LogSearchComponent } from './run-page/components/run-log/log-search/log-search.component';
@@ -89,6 +88,8 @@ import { LogComponent } from './run-page/components/log/log.component';
 import { RunlogLineComponent } from './run-page/components/log/runlog-line/runlog-line.component';
 import { WorklistComponent } from './worklist/worklist/worklist.component';
 import { WorklistService } from './worklist/worklist.service';
+import { EndtimeFilterComponent } from './results-page/rasfilters/endtime-filter/endtime-filter.component';
+import { StarttimeFilterComponent } from './results-page/rasfilters/starttime-filter/starttime-filter.component';
 
 @NgModule({
 	declarations: [
@@ -138,6 +139,8 @@ import { WorklistService } from './worklist/worklist.service';
 		LogComponent,
 		RunlogLineComponent,
 		WorklistComponent,
+		EndtimeFilterComponent,
+		StarttimeFilterComponent,
 		
 	],
 	imports: [

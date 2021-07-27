@@ -28,25 +28,33 @@ export class BundleFilterComponent implements OnInit {
     this.subscription = this.data.current.subscribe(state => this.state = state);
 
     this.rasApis.getRasApi().then(
-      bundleApi =>{
+      bundleApi => {
         bundleApi.getRasTestclasses("testclasses:asc").toPromise().then(
           result => {
-            var newBundles: Object []=[];
+            var selectedBundle = "";
+            if (typeof(this.route.snapshot.queryParams['bundle']) != 'undefined'){
+              selectedBundle = this.route.snapshot.queryParams['bundle']
+            }
+            var newBundles: Object[] = [];
             for (let bun of result.testclasses) {
-              // whitout id so it woudnt be unique elements
+              // without id so it woudnt be unique elements
               newBundles.push(bun.bundle);
             }
             var nextId = 0;
-            //put in set to get rid of dublicates
-            newBundles=Array.from(new Set(newBundles));
-            var bun: Object[]=[];
-            //set an id to the elements
-            for(let nodub of newBundles){
+            // put in set to get rid of duplicates
+            newBundles = Array.from(new Set(newBundles));
+            var bun: Object[] = [];
+            // set an id to the elements
+            for (let nodub of newBundles){
               //check for null values
-              if(nodub!= null){
-              bun.push({content:nodub,id:nextId});
+              if (nodub != null){
+                var selected = false;
+                if (nodub == selectedBundle){
+                  selected = true;
+                }
+              bun.push({content:nodub, id:nextId, selected:selected});
               nextId++;
-            }
+              }
             }
             this.bundles = bun;
             this.loading = false;
@@ -72,7 +80,7 @@ export class BundleFilterComponent implements OnInit {
     }
 
     let newparams = Object.assign(Object.assign({},this.route.snapshot.queryParams),{bundle:selectedBundles, worklist:null});
-    this.router.navigate(['.'],{relativeTo: this.route,queryParams: newparams});
+    this.router.navigate(['.'],{relativeTo:this.route, queryParams:newparams});
   }
 
 }

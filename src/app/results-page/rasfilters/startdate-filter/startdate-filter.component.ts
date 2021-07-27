@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import flatpickr from 'flatpickr';
 
 @Component({
@@ -21,16 +22,30 @@ export class StartdateFilterComponent implements OnInit {
 
   flatpickrOptions;
 
-  constructor(protected formBuilder: FormBuilder) {
+  value : Object[] = [];
+
+  constructor(protected formBuilder: FormBuilder, private route : ActivatedRoute) {
     this.formGroup = this.formBuilder.group({ single: [null, Validators.required]});
   }
 
   ngOnInit(): void {
-    this.getLocaleDateFormat();
-      this.flatpickrOptions = {
+
+    var selectedFrom = "";
+    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined'){
+      selectedFrom = this.route.snapshot.queryParams['from']
+      selectedFrom = selectedFrom.substring(0,selectedFrom.indexOf('T'));
+      this.getLocaleDateFormat();
+      this.placeholder = "";
+      this.value.push(new Date(selectedFrom))
+    } else {
+      this.getLocaleDateFormat();
+    }
+
+    this.flatpickrOptions = {
       maxDate : new Date(),
       dateFormat : this.dateFormat,
     };
+
   }
 
   changeDate($event){

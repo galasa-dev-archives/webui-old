@@ -1,16 +1,15 @@
 <form [formGroup]="formGroup">
 	<ibm-date-picker
-	(valueChange)="changeDate($event)"
-	formControlName="single"
-	[label]="label"
-	[placeholder]="placeholder"
-	[size]="size"
-	[invalid]="invalidSingle"
-	[invalidText]="invalidText"
-	[dateFormat]="dateFormat"
-
-    [flatpickrOptions]="flatpickrOptions"
-	id="end-date"
-	>
-</ibm-date-picker>
+		(valueChange)="changeDate($event)"
+		[label]="label"
+		[placeholder]="placeholder"
+		[size]="size"
+		[invalid]="invalidSingle"
+		[invalidText]="invalidText"
+		[dateFormat]="dateFormat"
+		[value]="value"
+    	[flatpickrOptions]="flatpickrOptions"
+		id="end-date"
+		>
+	</ibm-date-picker>
 </form>

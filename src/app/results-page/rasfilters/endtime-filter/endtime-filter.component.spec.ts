@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimeFilterComponent } from './time-filter.component';
+import { EndtimeFilterComponent } from './endtime-filter.component';
 
-describe('TimeFilterComponent', () => {
-  let component: TimeFilterComponent;
-  let fixture: ComponentFixture<TimeFilterComponent>;
+describe('EndtimeFilterComponent', () => {
+  let component: EndtimeFilterComponent;
+  let fixture: ComponentFixture<EndtimeFilterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimeFilterComponent ]
+      declarations: [ EndtimeFilterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimeFilterComponent);
+    fixture = TestBed.createComponent(EndtimeFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-time-filter',
-  templateUrl: './time-filter.component.html',
-  styleUrls: ['./time-filter.component.css']
+  selector: 'app-starttime-filter',
+  templateUrl: './starttime-filter.component.html',
+  styleUrls: ['./starttime-filter.component.css']
 })
-export class TimeFilterComponent implements OnInit {
+export class StarttimeFilterComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter();
 
@@ -14,10 +15,18 @@ export class TimeFilterComponent implements OnInit {
   invalidText : string = "Invalid";
   value : Object[] = [];
   
-  constructor() {
+  constructor(private route : ActivatedRoute) {
   }
 
   ngOnInit(): void {
+
+    var selectedFrom = "";
+    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined'){
+      selectedFrom = this.route.snapshot.queryParams['from']
+      selectedFrom = selectedFrom.substring(selectedFrom.indexOf('T')+1, selectedFrom.indexOf('T')+6);
+      this.value.push(selectedFrom);
+    }
+
   }
 
   changeTime($event){
