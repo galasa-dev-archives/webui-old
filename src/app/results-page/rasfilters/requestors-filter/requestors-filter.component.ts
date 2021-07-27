@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 
- * (c) Copyright IBM Corp. 2020.
+ * (c) Copyright IBM Corp. 2021.
  */
 import { Component, OnInit }        from '@angular/core';
 import { Router, ActivatedRoute, Params}    from '@angular/router';

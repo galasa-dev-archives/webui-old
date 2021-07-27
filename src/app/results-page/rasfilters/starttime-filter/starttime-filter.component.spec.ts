@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StarttimeFilterComponent } from './starttime-filter.component';
