@@ -1,6 +1,11 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
 import flatpickr from 'flatpickr';
 
 @Component({
@@ -22,17 +27,30 @@ export class EnddateFilterComponent implements OnInit {
 
   flatpickrOptions;
 
+  value : Object[] = [];
 
-  constructor(protected formBuilder: FormBuilder) {
+  constructor(protected formBuilder: FormBuilder, private route : ActivatedRoute) {
     this.formGroup = this.formBuilder.group({ single: [null, Validators.required]});
   }
 
   ngOnInit(): void {
-    this.getLocaleDateFormat();
-      this.flatpickrOptions = {
+
+    var selectedTo = "";
+    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined' || this.route.snapshot.queryParams['to'] != ""){
+      selectedTo = this.route.snapshot.queryParams['to']
+      selectedTo = selectedTo.substring(0, selectedTo.indexOf('T'));
+      this.getLocaleDateFormat();
+      this.placeholder = "";
+      this.value.push(new Date(selectedTo))
+    } else {
+      this.getLocaleDateFormat();
+    }
+
+    this.flatpickrOptions = {
       maxDate : new Date(),
       dateFormat : this.dateFormat
     };
+
   }
 
   changeDate($event){

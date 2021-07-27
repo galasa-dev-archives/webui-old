@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 
- * (c) Copyright IBM Corp. 2020.
+ * (c) Copyright IBM Corp. 2021.
  */
 import { Component, OnInit }        from '@angular/core';
 import { Router, ActivatedRoute, Params}    from '@angular/router';
@@ -48,20 +48,28 @@ export class RequestorsFilterComponent implements OnInit {
               // Issue the call, this will return async
           requestorsApi.getRasRequestors("requestor:asc").toPromise().then(
             result => {
+              // If a Requestor has been selected already and is in the URL, load the Dropdown with the Requestor selected
+              var selectedRequestor = "";
+              if (typeof(this.route.snapshot.queryParams['requestor']) != 'undefined' || this.route.snapshot.queryParams['requestor'] != ""){
+                selectedRequestor = this.route.snapshot.queryParams['requestor']
+              }
                //  Build the new array before setting the field, so the dropdown gets it in one go
               var newRequestors :Object[] = [];
 
               var nextId = 0;
                // Go through the response,  NEED TO CHECK if it handles nulls etc
               for(let requestor of result.requestors) {
-                newRequestors.push({content: requestor, id: nextId});
+                var selected = false;
+                if (requestor == selectedRequestor){
+                  selected = true;
+                }
+                newRequestors.push({content:requestor, id:nextId, selected:selected});
                 nextId++;
               }
 
               // Set the field so the dropdown automatically updates and set loading to false so 
               // any progress bar switches off and the dropdown enables 
               this.requestors = newRequestors;
-
               this.loading = false;
             }
           ).catch(reason => {
@@ -70,7 +78,6 @@ export class RequestorsFilterComponent implements OnInit {
           })
         }
     )
-
 
   }
 
@@ -88,9 +95,9 @@ export class RequestorsFilterComponent implements OnInit {
     }
 
     // Get all existing parameters and add/replace "requestor" to them
-    let newparams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {requestor : selectedRequestor, worklist:null});
+    let newparams = Object.assign(Object.assign({}, this.route.snapshot.queryParams), {requestor:selectedRequestor, worklist:null});
     // Dont hardcode the url,  just use "this page" so dropdown can be used on any page
-    this.router.navigate(['.'],{relativeTo: this.route, queryParams: newparams});
+    this.router.navigate(['.'],{relativeTo:this.route, queryParams:newparams});
   }
 
   

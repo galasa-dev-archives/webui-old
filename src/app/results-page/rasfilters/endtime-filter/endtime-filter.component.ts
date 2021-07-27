@@ -1,11 +1,17 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-time-filter',
-  templateUrl: './time-filter.component.html',
-  styleUrls: ['./time-filter.component.css']
+  selector: 'app-endtime-filter',
+  templateUrl: './endtime-filter.component.html',
+  styleUrls: ['./endtime-filter.component.css']
 })
-export class TimeFilterComponent implements OnInit {
+export class EndtimeFilterComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter();
 
@@ -14,10 +20,18 @@ export class TimeFilterComponent implements OnInit {
   invalidText : string = "Invalid";
   value : Object[] = [];
   
-  constructor() {
+  constructor(private route : ActivatedRoute) {
   }
 
   ngOnInit(): void {
+
+    var selectedTo = "";
+    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined' || this.route.snapshot.queryParams['to'] != ""){
+      selectedTo = this.route.snapshot.queryParams['to']
+      selectedTo = selectedTo.substring(selectedTo.indexOf('T')+1, selectedTo.indexOf('T')+6);
+      this.value.push(selectedTo);
+    }
+
   }
 
   changeTime($event){
