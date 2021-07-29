@@ -25,12 +25,16 @@ export class EndtimeFilterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var selectedTo = "";
-    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined' || this.route.snapshot.queryParams['to'] != ""){
-      selectedTo = this.route.snapshot.queryParams['to']
-      selectedTo = selectedTo.substring(selectedTo.indexOf('T')+1, selectedTo.indexOf('T')+6);
-      this.value.push(selectedTo);
-    }
+    this.route.queryParams.subscribe(params => {
+      var selectedTo = "";
+      if (typeof(params['to']) != 'undefined' && params['to'] != ""){
+        selectedTo = params['to'] // UTC time
+        var selectedToInTimezone = new Date(selectedTo); // Local time
+        selectedTo = selectedToInTimezone.toLocaleTimeString().substring(0,5);
+        this.value = [];
+        this.value.push(selectedTo);
+      }
+    });
 
   }
 
