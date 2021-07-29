@@ -35,16 +35,19 @@ export class EnddateFilterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var selectedTo = "";
-    if (typeof(this.route.snapshot.queryParams['to']) != 'undefined' || this.route.snapshot.queryParams['to'] != ""){
-      selectedTo = this.route.snapshot.queryParams['to']
-      selectedTo = selectedTo.substring(0, selectedTo.indexOf('T'));
-      this.getLocaleDateFormat();
-      this.placeholder = "";
-      this.value.push(new Date(selectedTo))
-    } else {
-      this.getLocaleDateFormat();
-    }
+    this.route.queryParams.subscribe(params => {
+      var selectedTo = "";
+      if (typeof(params['to']) != 'undefined' && params['to'] != ""){
+        selectedTo = params['to'] // Will be in UTC time 
+        var selectedToInTimezone = new Date(selectedTo); // Translates it to browser local time
+        this.getLocaleDateFormat();
+        this.placeholder = "";
+        this.value = [];
+        this.value.push(selectedToInTimezone)
+      } else {
+        this.getLocaleDateFormat();
+      }
+    });
 
     this.flatpickrOptions = {
       maxDate : new Date(),

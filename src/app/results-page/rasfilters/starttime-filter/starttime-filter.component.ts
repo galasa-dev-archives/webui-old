@@ -25,12 +25,16 @@ export class StarttimeFilterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var selectedFrom = "";
-    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined' || this.route.snapshot.queryParams['from'] != ""){
-      selectedFrom = this.route.snapshot.queryParams['from']
-      selectedFrom = selectedFrom.substring(selectedFrom.indexOf('T')+1, selectedFrom.indexOf('T')+6);
-      this.value.push(selectedFrom);
-    }
+    this.route.queryParams.subscribe(params => {
+      var selectedFrom = "";
+      if (typeof(params['from']) != 'undefined' && params['from'] != ""){
+        selectedFrom = params['from'] // UTC time
+        var selectedFromInTimezone = new Date(selectedFrom); // Local time
+        selectedFrom = selectedFromInTimezone.toLocaleTimeString().substring(0,5);
+        this.value = [];
+        this.value.push(selectedFrom);
+      }
+    });
 
   }
 

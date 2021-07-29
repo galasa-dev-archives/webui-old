@@ -35,16 +35,19 @@ export class StartdateFilterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var selectedFrom = "";
-    if (typeof(this.route.snapshot.queryParams['from']) != 'undefined' || this.route.snapshot.queryParams['from'] != ""){
-      selectedFrom = this.route.snapshot.queryParams['from']
-      selectedFrom = selectedFrom.substring(0,selectedFrom.indexOf('T'));
-      this.getLocaleDateFormat();
-      this.placeholder = "";
-      this.value.push(new Date(selectedFrom))
-    } else {
-      this.getLocaleDateFormat();
-    }
+    this.route.queryParams.subscribe(params => {
+      var selectedFrom = "";
+      if (typeof(params['from']) != 'undefined' && params['from'] != ""){
+        selectedFrom = params['from'] // Will be in UTC time 
+        var selectedFromInTimezone = new Date(selectedFrom); // Translates it to browser local time
+        this.getLocaleDateFormat();
+        this.placeholder = "";
+        this.value = [];
+        this.value.push(selectedFromInTimezone)
+      } else {
+        this.getLocaleDateFormat();
+      }
+    });
 
     this.flatpickrOptions = {
       maxDate : new Date(),
