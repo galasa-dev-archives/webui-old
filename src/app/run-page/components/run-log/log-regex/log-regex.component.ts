@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { TestStructure } from '../../../../galasaapi';
 
@@ -39,7 +44,6 @@ export class LogRegexComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.testStructure.runName);
   }
 
   onSelected(){

@@ -18,6 +18,11 @@
     margin-left: 8px;
     color: #03429d;
     font-size: 14px;
+
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 p {
@@ -25,6 +30,22 @@ p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+a {
+    @include type-style("body-short-01");
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: #03429d;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 .inline-block-element {

@@ -116,22 +116,22 @@
         </div>
         <div ibmCol [columnNumbers]="{'lg': 4, 'xlg': 4, 'max': 4}">
             <div class="buttons">
-                <button class="bt button1" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
+                <button class="bt button1" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true" (click)="worklistButton()" id="worklist-button">
                     <img src="../../assets/icons/add-galasa04.svg" class="bx--btn__icon">
-                    <img src="../../assets/icons/add-white.svg" class="bx--btn__icon h-img">
+                    <img src="../../assets/icons/add-white.svg" class="bx--btn__icon h-img" id="add-white">
                     <span class="tooltiptext">Add to Worklist</span>
                     <img class="tooltip" src="../../assets/icons/caret--down.svg">
                 </button>
                 <button class="bt button2" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
                     <img src="../../assets/icons/reset-galasa04.svg" class="bx--btn__icon">
                     <img src="../../assets/icons/reset-white.svg" class="bx--btn__icon h-img">
-                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="tooltiptext">Resubmit test</span>
                     <img class="tooltip" src="../../assets/icons/caret--down.svg">
                 </button>
                 <button class="bt button3" [ibmButton]="ibmButton" [size]="'md'" [iconOnly]="true">
                     <img src="../../assets/icons/event--schedule-galasa04-1.svg" class="bx--btn__icon">
                     <img src="../../assets/icons/event--schedule-white.svg" class="bx--btn__icon h-img">
-                    <span class="tooltiptext">Tooltip text</span>
+                    <span class="tooltiptext">Schedule test</span>
                     <img class="tooltip" src="../../assets/icons/caret--down.svg">
                 </button>
             </div>
