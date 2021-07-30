@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { WorklistService } from '../../../worklist/worklist.service';
 import { TestMethod, TestStructure } from '../../../galasaapi';
+import { WorklistapisService } from '../../../core/worklistapis.service';
 
 @Component({
   selector: 'app-run-overview',
@@ -28,9 +30,34 @@ export class RunOverviewComponent implements OnInit {
 
   testMethods: TestMethod[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  id: string;
+
+  button1Selected : boolean = false;
+  button2Selected : boolean = false;
+  button3Selected : boolean = false;
+
+  constructor(private route: ActivatedRoute, private worklistService : WorklistService, private worklistApis : WorklistapisService) { }
 
   ngOnInit(): void {
+
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+
+    // Improvement needed - should call worklistService.isRunIdInWorklist but task happens too slowly and wrong state is loaded
+    this.worklistApis.getWorklistApi().then(
+      worklistApi => {
+        worklistApi.getWebuiWorklist().toPromise().then(
+          output => {
+            if (output.worklistItems.some(item => item.runId == this.id)){
+              this.button1Selected = true;
+              document.getElementById("worklist-button").style.backgroundColor = "#03429D";
+              document.getElementById("add-white").style.display = "inline";
+            }
+          }
+        )
+      }
+    )
   }
 
 
@@ -70,6 +97,20 @@ export class RunOverviewComponent implements OnInit {
     var minuteString = absoluteMinutes > 0 ? absoluteMinutes == 1 ? "1 minute" : absoluteMinutes + " minutes" : "0 minutes";
 
     return (" (Duration: " + hourString + " " + minuteString + ")");
+  }
+
+  worklistButton(){
+    if (this.button1Selected == false){
+      this.button1Selected = true;
+      document.getElementById("worklist-button").style.backgroundColor = "#03429D";
+      document.getElementById("add-white").style.display = "inline";
+      this.worklistService.addToWorklist(this.id);
+    } else {
+      this.button1Selected = false;
+      document.getElementById("worklist-button").style.backgroundColor = "white";
+      document.getElementById("add-white").style.display = "none";
+      this.worklistService.removeFromWorklist(this.id);
+    }
   }
 
 }

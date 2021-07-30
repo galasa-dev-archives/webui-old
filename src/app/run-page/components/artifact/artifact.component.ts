@@ -16,7 +16,6 @@ export class ArtifactComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.testStructure.runName);
   }
 
 }

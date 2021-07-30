@@ -39,7 +39,6 @@ export class LogRegexComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.testStructure.runName);
   }
 
   onSelected(){
