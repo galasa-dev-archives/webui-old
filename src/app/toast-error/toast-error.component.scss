@@ -1,0 +1,10 @@
+@import "~carbon-components/scss/globals/scss/typography";
+@import "~carbon-components/scss/globals/scss/spacing";
+
+.toast {
+    z-index: 999;
+    visibility: hidden;
+    position: fixed;
+    right: 20px;
+    bottom: 12px;
+}

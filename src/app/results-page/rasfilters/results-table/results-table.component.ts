@@ -1,4 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TableModel, TableItem, TableHeaderItem, PaginationModel} from 'carbon-components-angular';
 
@@ -272,7 +277,7 @@ export class ResultsTableComponent implements OnInit {
           this.runs = newRuns;
           }
         ).catch(reason => {
-          console.log("Error loading", reason);
+          console.log("Error loading ", reason);
         })
       }
     )
@@ -287,11 +292,30 @@ export class ResultsTableComponent implements OnInit {
 
     var runId = this.model.data[index][1].data.id;
     var isWorklist = this.model.data[index][5].data.checked;
+    if (isWorklist == null){
+      this.model.data[index][5].data.checked = false;
+    }
 
-    if (isWorklist === false){
-      this.worklistService.addToWorklist(runId);
-    } else {
-      this.worklistService.removeFromWorklist(runId);
+    var successfulUpdate;
+    if (isWorklist == false || isWorklist == null){
+      successfulUpdate = this.worklistService.addToWorklist(runId);
+    } else if (isWorklist == true) {
+      successfulUpdate = this.worklistService.removeFromWorklist(runId);
+    }
+
+    if (successfulUpdate == true){
+      if (this.model.data[index][5].data.checked == false || this.model.data[index][5].data.checked == null){
+        this.model.data[index][5].data.checked = true;
+      } else if (this.model.data[index][5].data.checked == true){
+        this.model.data[index][5].data.checked = false;
+      }
+    } else if (successfulUpdate == false){
+      if (this.model.data[index][5].data.checked == false){
+        setTimeout(() => {this.model.data[index][5].data.checked = false}, 100);
+        this.model.data[index][5].data.checked = null;
+      } else if (this.model.data[index][5].data.checked == true){
+        setTimeout(() => {this.model.data[index][5].data.checked = true}, 100);
+      }
     }
 	}
 
@@ -300,7 +324,12 @@ export class ResultsTableComponent implements OnInit {
       var runId = this.model.data[index][1].data.id;
       var inWorklist = this.worklistService.isRunIdInWorklist(runId);
       if (typeof(this.model.data[index][5].data.checked) !== 'undefined'){
-        this.model.data[index][5].data.checked = inWorklist;
+        if (inWorklist == true){
+          this.model.data[index][5].data.checked = inWorklist;
+        } else if (inWorklist == false){
+          this.model.data[index][5].data.checked = null;
+          // this.model.data[index][5].data.checked = false;
+        }
       }    
     }
   }

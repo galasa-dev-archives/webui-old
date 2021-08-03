@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { WorklistapisService } from '../core/worklistapis.service';
@@ -39,6 +44,10 @@ export class WorklistService {
                 "shortName" : shortName, "result" : result, "testClass" : testClass}));
 
             }
+          },
+          reason => {
+            console.log("Error retrieving Worklist ", reason);
+            document.getElementById("toast-error-getting-worklist").style.visibility = "visible";
           }
         )
       }
@@ -48,7 +57,13 @@ export class WorklistService {
 
   }
 
-  addToWorklist(id : string){
+  addToWorklist(id : string) : boolean {
+
+    // If Worklist length is about to exceed 20, show Toast Error message
+    if (this.worklist.length >= 20){
+      document.getElementById("toast-max-worklist-items").style.visibility = "visible";
+      return false;
+    }
     
     this.worklistApis.getWorklistApi().then(
       worklistApi => {
@@ -74,13 +89,19 @@ export class WorklistService {
                 "shortName" : shortName, "result" : result, "testClass" : testClass}));
             }
             this.updateWorklist();
+          }, 
+          reason => {
+            console.log("Error updating Worklist ", reason);
+            document.getElementById("toast-error-updating-worklist").style.visibility = "visible";
+            return false;
           }
         )
       }
     )
+    return true;
   }
 
-  removeFromWorklist(id : string){
+  removeFromWorklist(id : string) : boolean {
  
     this.worklistApis.getWorklistApi().then(
       worklistApi => {
@@ -107,10 +128,16 @@ export class WorklistService {
 
             }
             this.updateWorklist();
-          } 
+          },
+          reason => {
+            console.log("Error updating Worklist ", reason);
+            document.getElementById("toast-error-updating-worklist").style.visibility = "visible";
+            return false;
+          }
         )
       }
     )
+    return true;
   }
 
   getWorklistObservable(){
