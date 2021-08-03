@@ -1,3 +1,8 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 
+ * (c) Copyright IBM Corp. 2021.
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class ToastErrorComponent implements OnInit {
 
   type : string = "error";
-  
+
   title : string = "Error";
 
   message : string = "Worklist cannot hold more than 20 runs";
