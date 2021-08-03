@@ -308,9 +308,9 @@ border-left: #03429D 1px solid;
   //   color: $inverse-01;
   // }
 
-  .bx--data-table th{
-    width:10%;
-  }
+  // .bx--data-table th{
+  //   width:10%;
+  // }
 
   //Search bar
   .bx--search-input{
@@ -461,4 +461,25 @@ border-left: #03429D 1px solid;
 .bx--tooltip {
   min-width: fit-content;
   width: fit-content;
+}
+
+// Toast error
+.bx--inline-notification {
+  border-radius: 4px;
+  border-color: #d62525;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-style: solid;
+  background-color: white;
+  @include carbon--type-style("body-short-01");
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+}
+
+.bx--inline-notification__close-button .bx--inline-notification__close-icon {
+  fill: #03429d;
 }

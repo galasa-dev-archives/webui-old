@@ -1,0 +1,35 @@
+<div class="toast" id="toast-max-worklist-items">
+    <ibm-notification 
+    [notificationObj]="{
+    type: type,
+    title: title,
+    message: message,
+    showClose: true
+    }"
+    (click)="onClose()">
+    </ibm-notification>
+</div>
+
+<div class="toast" id="toast-error-updating-worklist">
+    <ibm-notification 
+    [notificationObj]="{
+    type: type,
+    title: title,
+    message: message2,
+    showClose: true
+    }"
+    (click)="onClose()">
+    </ibm-notification>
+</div>
+
+<div class="toast" id="toast-error-getting-worklist">
+    <ibm-notification 
+    [notificationObj]="{
+    type: type,
+    title: title,
+    message: message3,
+    showClose: true
+    }"
+    (click)="onClose()">
+    </ibm-notification>
+</div>

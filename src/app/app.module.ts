@@ -33,7 +33,8 @@ import { UIShellModule,
 		 SliderModule,
 		 AccordionModule,
 		 ModalModule,
-		 CheckboxModule
+		 CheckboxModule,
+		 NotificationModule,
 		} from 'carbon-components-angular';
 		 
 
@@ -90,6 +91,7 @@ import { WorklistComponent } from './worklist/worklist/worklist.component';
 import { WorklistService } from './worklist/worklist.service';
 import { EndtimeFilterComponent } from './results-page/rasfilters/endtime-filter/endtime-filter.component';
 import { StarttimeFilterComponent } from './results-page/rasfilters/starttime-filter/starttime-filter.component';
+import { ToastErrorComponent } from './toast-error/toast-error.component';
 
 @NgModule({
 	declarations: [
@@ -140,6 +142,7 @@ import { StarttimeFilterComponent } from './results-page/rasfilters/starttime-fi
 		WorklistComponent,
 		EndtimeFilterComponent,
 		StarttimeFilterComponent,
+		ToastErrorComponent,
 		
 	],
 	imports: [
@@ -171,7 +174,8 @@ import { StarttimeFilterComponent } from './results-page/rasfilters/starttime-fi
 		AccordionModule,
 		ModalModule,
 		SliderModule, 
-		CheckboxModule
+		CheckboxModule,
+		NotificationModule,
 		// Notification20Module,
 		// UserAvatar20Module,
 		// AppSwitcher20Module
