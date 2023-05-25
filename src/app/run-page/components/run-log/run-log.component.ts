@@ -1,3 +1,6 @@
+/*
+ * Copyright contributors to the Galasa project
+ */
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { TestStructure } from '../../../galasaapi';
 import { BootstrapService } from '../../../../app/core/bootstrap.service';
