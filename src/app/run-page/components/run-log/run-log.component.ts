@@ -1,3 +1,6 @@
+/*
+ * Copyright contributors to the Galasa project
+ */
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { TestStructure } from '../../../galasaapi';
 import { BootstrapService } from '../../../../app/core/bootstrap.service';
@@ -39,7 +42,7 @@ export class RunLogComponent implements OnInit {
     this.bootstrapService.getRasBase().then(
       rasBase=>{
         var url: string = rasBase.toString();
-        this.http.get(url+'/ras/run/'+`${id}`+'/runlog', {responseType:'text'}).subscribe(result=>{
+        this.http.get(url+'/ras/runs/'+`${id}`+'/runlog', {responseType:'text'}).subscribe(result=>{
           localStorage.setItem(this.id, result);
           this.runlog = localStorage.getItem(this.id);
         });

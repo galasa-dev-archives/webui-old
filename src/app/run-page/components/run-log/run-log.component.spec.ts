@@ -1,3 +1,6 @@
+/*
+ * Copyright contributors to the Galasa project
+ */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RunLogComponent } from './run-log.component';
